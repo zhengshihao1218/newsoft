@@ -1,0 +1,27 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>images/e772fdaa-396e-4fc4-88a3-f6c3298d4eab.jpeg</file>
+        <file>images/light.png</file>
+        <file>images/clear_error.png</file>
+        <file>images/light_grey.png</file>
+        <file>images/perpare_ready.png</file>
+        <file>images/run.png</file>
+        <file>images/screen.png</file>
+        <file>images/stop.png</file>
+        <file>images/perpare.png</file>
+        <file>images/contrlp.png</file>
+        <file>images/systemparameter.png</file>
+        <file>images/down.png</file>
+        <file>images/down_run.png</file>
+        <file>images/up.png</file>
+        <file>images/up_run.png</file>
+        <file>images/edit.png</file>
+        <file>images/new.png</file>
+        <file>images/login.png</file>
+        <file>images/people.png</file>
+        <file>images/peoples.png</file>
+        <file>images/pl.png</file>
+        <file>images/close.png</file>
+        <file>images/about.png</file>
+    </qresource>
+</RCC>

@@ -101,15 +101,6 @@ QMainWindow::separator:vertical {
 https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qtooltip
 
 --------------------------------------------------------------------------- */
-QToolTip {
-  background-color: #9FCBFF;
-  color: #19232D;
-  /* If you remove the border property, background stops working on Windows */
-  border: none;
-  /* Remove padding, for fix combo box tooltip */
-  padding: 0px;
-  /* Remove opacity, fix #174 - may need to use RGBA */
-}
 
 /* QStatusBar -------------------------------------------------------------
 
@@ -786,6 +777,19 @@ QToolBar::separator:horizontal {
 QToolBar::separator:vertical {
   height: 16px;
   image: url(":/qss_icons/light/rc/toolbar_separator_vertical.png");
+}
+
+QToolBar QToolButton {
+    border: none;
+    padding: 4px;
+    border-radius: 6px;
+    transition: all 0.15s;
+}
+QToolBar QToolButton:hover {
+    padding: 2px;
+}
+QToolBar QToolButton:pressed {
+    padding: 3px;
 }
 
 QToolButton#qt_toolbar_ext_button {
@@ -2213,4 +2217,12 @@ QAbstractView:selected {
 PlotWidget {
   /* Fix cut labels in plots #134 */
   padding: 0px;
+}
+
+QToolTip {
+    color: transparent;          /* 文字透明 */
+    background-color: transparent; /* 背景透明 */
+    border: none;                /* 去掉边框 */
+    padding: 0px;                /* 去掉内边距 */
+    opacity: 0;                  /* 确保完全不可见 */
 }

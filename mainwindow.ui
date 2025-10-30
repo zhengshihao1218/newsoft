@@ -6,38 +6,80 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>1265</width>
     <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <property name="iconSize">
+   <size>
+    <width>50</width>
+    <height>50</height>
+   </size>
+  </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton_up">
+   <widget class="QListWidget" name="listWidget">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>280</y>
-      <width>121</width>
-      <height>71</height>
+      <x>1000</x>
+      <y>70</y>
+      <width>256</width>
+      <height>192</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>10</y>
+      <width>91</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
-     <string> 寸动上</string>
+     <string>剩余次数</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_down">
+   <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
       <x>420</x>
-      <y>280</y>
-      <width>111</width>
-      <height>71</height>
+      <y>20</y>
+      <width>69</width>
+      <height>19</height>
      </rect>
     </property>
     <property name="text">
-     <string>寸动下</string>
+     <string>剩余时间</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdNumber_2">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>10</y>
+      <width>181</width>
+      <height>41</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>10</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>00:00:00</string>
     </property>
    </widget>
   </widget>
@@ -46,13 +88,322 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
-     <height>21</height>
+     <width>1265</width>
+     <height>25</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>系统</string>
+    </property>
+    <addaction name="login_action"/>
+    <addaction name="actionnew_user_action"/>
+    <addaction name="actionuser_list_action"/>
+    <addaction name="quit_action"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>试验管理</string>
+    </property>
+    <addaction name="start_experiment_action"/>
+    <addaction name="stop_experiment_action"/>
+    <addaction name="new_experiment_action"/>
+    <addaction name="current_experiment"/>
+    <addaction name="browse_experiment_action"/>
+   </widget>
+   <widget class="QMenu" name="menu_3">
+    <property name="title">
+     <string>参数设置</string>
+    </property>
+    <addaction name="control_parment_action"/>
+    <addaction name="system_parment_action"/>
+   </widget>
+   <widget class="QMenu" name="menu_4">
+    <property name="title">
+     <string>帮助</string>
+    </property>
+    <addaction name="about_action"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_2"/>
+   <addaction name="menu_3"/>
+   <addaction name="menu_4"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string/>
+   </property>
+   <property name="toolTip">
+    <string notr="true"/>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::ToolBarArea::AllToolBarAreas</set>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="clear_error_action"/>
+   <addaction name="motor_start_stop_action"/>
+   <addaction name="prepare_experiment_action"/>
+   <addaction name="start_experiment_action"/>
+   <addaction name="stop_experiment_action"/>
+   <addaction name="separator"/>
+   <addaction name="up_action"/>
+   <addaction name="down_action"/>
+   <addaction name="separator"/>
+   <addaction name="new_experiment_action"/>
+   <addaction name="current_experiment"/>
+   <addaction name="browse_experiment_action"/>
+   <addaction name="separator"/>
+   <addaction name="control_parment_action"/>
+   <addaction name="system_parment_action"/>
+   <addaction name="separator"/>
+   <addaction name="login_action"/>
+   <addaction name="quit_action"/>
+  </widget>
+  <action name="actionwire">
+   <property name="icon">
+    <iconset resource="themes/image.qrc">
+     <normaloff>:/images/images/e772fdaa-396e-4fc4-88a3-f6c3298d4eab.jpeg</normaloff>:/images/images/e772fdaa-396e-4fc4-88a3-f6c3298d4eab.jpeg</iconset>
+   </property>
+   <property name="text">
+    <string>wire</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::TextHeuristicRole</enum>
+   </property>
+  </action>
+  <action name="clear_error_action">
+   <property name="icon">
+    <iconset resource="themes/image.qrc">
+     <normaloff>:/images/images/clear_error.png</normaloff>:/images/images/clear_error.png</iconset>
+   </property>
+   <property name="text">
+    <string>清错</string>
+   </property>
+   <property name="toolTip">
+    <string>清错</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
+  <action name="motor_start_stop_action">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="themes/image.qrc">
+     <normaloff>:/images/images/light_grey.png</normaloff>
+     <normalon>:/images/images/light.png</normalon>
+     <disabledoff>:/images/images/light_grey.png</disabledoff>
+     <activeoff>:/images/images/light_grey.png</activeoff>
+     <activeon>:/images/images/light.png</activeon>
+     <selectedoff>:/images/images/light_grey.png</selectedoff>:/images/images/light_grey.png</iconset>
+   </property>
+   <property name="text">
+    <string>马达启停</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
+  <action name="prepare_experiment_action">
+   <property name="icon">
+    <iconset resource="themes/image.qrc">
+     <normaloff>:/images/images/perpare.png</normaloff>:/images/images/perpare.png</iconset>
+   </property>
+   <property name="text">
+    <string>准备试验</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
+  <action name="start_experiment_action">
+   <property name="icon">
+    <iconset resource="themes/image.qrc">
+     <normaloff>:/images/images/run.png</normaloff>:/images/images/run.png</iconset>
+   </property>
+   <property name="text">
+    <string>启动试验</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
+  <action name="stop_experiment_action">
+   <property name="icon">
+    <iconset resource="themes/image.qrc">
+     <normaloff>:/images/images/stop.png</normaloff>:/images/images/stop.png</iconset>
+   </property>
+   <property name="text">
+    <string>停止试验</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
+  <action name="up_action">
+   <property name="icon">
+    <iconset resource="themes/image.qrc">
+     <normaloff>:/images/images/up.png</normaloff>:/images/images/up.png</iconset>
+   </property>
+   <property name="text">
+    <string>寸动上</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
+  <action name="down_action">
+   <property name="icon">
+    <iconset resource="themes/image.qrc">
+     <normaloff>:/images/images/down.png</normaloff>:/images/images/down.png</iconset>
+   </property>
+   <property name="text">
+    <string>寸动下</string>
+   </property>
+   <property name="toolTip">
+    <string>寸动下</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
+  <action name="new_experiment_action">
+   <property name="icon">
+    <iconset resource="themes/image.qrc">
+     <normaloff>:/images/images/new.png</normaloff>:/images/images/new.png</iconset>
+   </property>
+   <property name="text">
+    <string>新建试验</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
+  <action name="current_experiment">
+   <property name="icon">
+    <iconset resource="themes/image.qrc">
+     <normaloff>:/images/images/edit.png</normaloff>:/images/images/edit.png</iconset>
+   </property>
+   <property name="text">
+    <string>当前试验</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
+  <action name="browse_experiment_action">
+   <property name="icon">
+    <iconset resource="themes/image.qrc">
+     <normaloff>:/images/images/screen.png</normaloff>:/images/images/screen.png</iconset>
+   </property>
+   <property name="text">
+    <string>浏览试验</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
+  <action name="control_parment_action">
+   <property name="icon">
+    <iconset resource="themes/image.qrc">
+     <normaloff>:/images/images/contrlp.png</normaloff>:/images/images/contrlp.png</iconset>
+   </property>
+   <property name="text">
+    <string>控制参数</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
+  <action name="system_parment_action">
+   <property name="icon">
+    <iconset resource="themes/image.qrc">
+     <normaloff>:/images/images/systemparameter.png</normaloff>:/images/images/systemparameter.png</iconset>
+   </property>
+   <property name="text">
+    <string>系统参数</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
+  <action name="login_action">
+   <property name="icon">
+    <iconset resource="themes/image.qrc">
+     <normaloff>:/images/images/pl.png</normaloff>:/images/images/pl.png</iconset>
+   </property>
+   <property name="text">
+    <string>登入系统</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
+  <action name="quit_action">
+   <property name="icon">
+    <iconset resource="themes/image.qrc">
+     <normaloff>:/images/images/close.png</normaloff>:/images/images/close.png</iconset>
+   </property>
+   <property name="text">
+    <string>退出系统</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionnew_user_action">
+   <property name="icon">
+    <iconset resource="themes/image.qrc">
+     <normaloff>:/images/images/login.png</normaloff>:/images/images/login.png</iconset>
+   </property>
+   <property name="text">
+    <string>添加用户</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionuser_list_action">
+   <property name="icon">
+    <iconset resource="themes/image.qrc">
+     <normaloff>:/images/images/people.png</normaloff>:/images/images/people.png</iconset>
+   </property>
+   <property name="text">
+    <string>用户管理</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
+  <action name="about_action">
+   <property name="icon">
+    <iconset resource="themes/image.qrc">
+     <normaloff>:/images/images/about.png</normaloff>:/images/images/about.png</iconset>
+   </property>
+   <property name="text">
+    <string>关于</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="themes/image.qrc"/>
+ </resources>
  <connections/>
 </ui>

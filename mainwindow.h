@@ -22,6 +22,12 @@ private slots:
 
     void on_pushButton_down_clicked();
 
+    void on_actionwire_triggered();
+
+    void on_motor_start_stop_action_toggled(bool arg1);
+
+    void initToolBar();
+
 private:
     Ui::MainWindow *ui;
 };

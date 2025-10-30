@@ -22,6 +22,7 @@ FORMS += \
 
 RESOURCES += \
     themes/dark/darkstyle.qrc \
+    themes/image.qrc \
     themes/light/lightstyle.qrc
 
 # Default rules for deployment.

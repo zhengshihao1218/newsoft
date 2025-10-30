@@ -788,6 +788,19 @@ QToolBar::separator:vertical {
   image: url(":/qss_icons/dark/rc/toolbar_separator_vertical.png");
 }
 
+QToolBar QToolButton {
+    border: none;
+    padding: 4px;
+    border-radius: 6px;
+    transition: all 0.15s;
+}
+QToolBar QToolButton:hover {
+    padding: 2px;
+}
+QToolBar QToolButton:pressed {
+    padding: 3px;
+}
+
 QToolButton#qt_toolbar_ext_button {
   background: #455364;
   border: 0px;
