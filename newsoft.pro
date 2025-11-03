@@ -1,4 +1,4 @@
-QT       += core gui network widgets
+QT       += core gui network widgets charts
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -10,15 +10,24 @@ CONFIG += c++17
 
 SOURCES += \
     ethercatclient.cpp \
+    exitdialog.cpp \
+    logindialog.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    systemparameterdialog.cpp
 
 HEADERS += \
     ethercatclient.h \
-    mainwindow.h
+    exitdialog.h \
+    logindialog.h \
+    mainwindow.h \
+    systemparameterdialog.h
 
 FORMS += \
-    mainwindow.ui
+    exitdialog.ui \
+    logindialog.ui \
+    mainwindow.ui \
+    systemparameterdialog.ui
 
 RESOURCES += \
     themes/dark/darkstyle.qrc \

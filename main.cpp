@@ -38,6 +38,7 @@ int main(int argc, char *argv[])
     a.installEventFilter(filter);
 
     MainWindow w;
-    w.show();
+    // w.show();
+    w.showMaximized();
     return a.exec();
 }

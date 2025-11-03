@@ -23,5 +23,9 @@
         <file>images/pl.png</file>
         <file>images/close.png</file>
         <file>images/about.png</file>
+        <file>images/cscs.png</file>
+        <file>images/key.png</file>
+        <file>images/why.png</file>
+        <file>images/out.png</file>
     </qresource>
 </RCC>

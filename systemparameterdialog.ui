@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SystemParameterDialog</class>
+ <widget class="QDialog" name="SystemParameterDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1284</width>
+    <height>627</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>系统参数</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="themes/image.qrc">
+    <normaloff>:/images/images/systemparameter.png</normaloff>:/images/images/systemparameter.png</iconset>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="minimumSize">
+      <size>
+       <width>100</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
+     <property name="currentIndex">
+      <number>8</number>
+     </property>
+     <widget class="QWidget" name="tab">
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+       </font>
+      </property>
+      <attribute name="icon">
+       <iconset resource="themes/light/lightstyle.qrc">
+        <normaloff>:/qss_icons/light/rc/arrow_up@2x.png</normaloff>
+        <activeon>:/qss_icons/light/rc/arrow_down_focus@2x.png</activeon>:/qss_icons/light/rc/arrow_up@2x.png</iconset>
+      </attribute>
+      <attribute name="title">
+       <string>DI</string>
+      </attribute>
+     </widget>
+     <widget class="QWidget" name="tab_2">
+      <property name="accessibleName">
+       <string/>
+      </property>
+      <attribute name="icon">
+       <iconset resource="themes/light/lightstyle.qrc">
+        <normaloff>:/qss_icons/light/rc/arrow_up@2x.png</normaloff>
+        <activeon>:/qss_icons/light/rc/arrow_down_focus@2x.png</activeon>:/qss_icons/light/rc/arrow_up@2x.png</iconset>
+      </attribute>
+      <attribute name="title">
+       <string>DO</string>
+      </attribute>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>70</y>
+         <width>53</width>
+         <height>15</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_3">
+      <attribute name="icon">
+       <iconset resource="themes/light/lightstyle.qrc">
+        <normaloff>:/qss_icons/light/rc/arrow_up@2x.png</normaloff>
+        <activeon>:/qss_icons/light/rc/arrow_down_focus@2x.png</activeon>:/qss_icons/light/rc/arrow_up@2x.png</iconset>
+      </attribute>
+      <attribute name="title">
+       <string>AO</string>
+      </attribute>
+     </widget>
+     <widget class="QWidget" name="tab_4">
+      <attribute name="icon">
+       <iconset resource="themes/light/lightstyle.qrc">
+        <normaloff>:/qss_icons/light/rc/arrow_up@2x.png</normaloff>
+        <activeon>:/qss_icons/light/rc/arrow_down_focus@2x.png</activeon>:/qss_icons/light/rc/arrow_up@2x.png</iconset>
+      </attribute>
+      <attribute name="title">
+       <string>温度</string>
+      </attribute>
+     </widget>
+     <widget class="QWidget" name="tab_5">
+      <attribute name="icon">
+       <iconset resource="themes/light/lightstyle.qrc">
+        <normaloff>:/qss_icons/light/rc/arrow_up@2x.png</normaloff>
+        <activeon>:/qss_icons/light/rc/arrow_down_focus@2x.png</activeon>:/qss_icons/light/rc/arrow_up@2x.png</iconset>
+      </attribute>
+      <attribute name="title">
+       <string>配置</string>
+      </attribute>
+     </widget>
+     <widget class="QWidget" name="tab_6">
+      <attribute name="icon">
+       <iconset resource="themes/light/lightstyle.qrc">
+        <normaloff>:/qss_icons/light/rc/arrow_up@2x.png</normaloff>
+        <activeon>:/qss_icons/light/rc/arrow_down_focus@2x.png</activeon>:/qss_icons/light/rc/arrow_up@2x.png</iconset>
+      </attribute>
+      <attribute name="title">
+       <string>主界面配置</string>
+      </attribute>
+     </widget>
+     <widget class="QWidget" name="tab_7">
+      <attribute name="icon">
+       <iconset resource="themes/light/lightstyle.qrc">
+        <normaloff>:/qss_icons/light/rc/arrow_up@2x.png</normaloff>
+        <activeon>:/qss_icons/light/rc/arrow_down_focus@2x.png</activeon>:/qss_icons/light/rc/arrow_up@2x.png</iconset>
+      </attribute>
+      <attribute name="title">
+       <string>系统</string>
+      </attribute>
+     </widget>
+     <widget class="QWidget" name="tab_8">
+      <attribute name="icon">
+       <iconset resource="themes/light/lightstyle.qrc">
+        <normaloff>:/qss_icons/light/rc/arrow_up@2x.png</normaloff>
+        <activeon>:/qss_icons/light/rc/arrow_down_focus@2x.png</activeon>:/qss_icons/light/rc/arrow_up@2x.png</iconset>
+      </attribute>
+      <attribute name="title">
+       <string>激活</string>
+      </attribute>
+     </widget>
+     <widget class="QWidget" name="tab_9">
+      <attribute name="icon">
+       <iconset resource="themes/light/lightstyle.qrc">
+        <normaloff>:/qss_icons/light/rc/arrow_up@2x.png</normaloff>
+        <activeon>:/qss_icons/light/rc/arrow_down_focus@2x.png</activeon>:/qss_icons/light/rc/arrow_up@2x.png</iconset>
+      </attribute>
+      <attribute name="title">
+       <string>建制</string>
+      </attribute>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="themes/light/lightstyle.qrc"/>
+  <include location="themes/image.qrc"/>
+ </resources>
+ <connections/>
+</ui>
