@@ -5,6 +5,7 @@
 #include "logindialog.h"
 #include "exitdialog.h"
 #include "systemparameterdialog.h"
+#include "newexperimentdialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -39,6 +40,8 @@ private slots:
     void on_system_parment_action_triggered();
 
     void initNotLoginAction();
+
+    void on_new_experiment_action_triggered();
 
 private:
     Ui::MainWindow *ui;

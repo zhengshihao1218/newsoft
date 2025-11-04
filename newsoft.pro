@@ -14,6 +14,8 @@ SOURCES += \
     logindialog.cpp \
     main.cpp \
     mainwindow.cpp \
+    newexperimentdialog.cpp \
+    newfatiguetestdialog.cpp \
     systemparameterdialog.cpp
 
 HEADERS += \
@@ -21,12 +23,16 @@ HEADERS += \
     exitdialog.h \
     logindialog.h \
     mainwindow.h \
+    newexperimentdialog.h \
+    newfatiguetestdialog.h \
     systemparameterdialog.h
 
 FORMS += \
     exitdialog.ui \
     logindialog.ui \
     mainwindow.ui \
+    newexperimentdialog.ui \
+    newfatiguetestdialog.ui \
     systemparameterdialog.ui
 
 RESOURCES += \

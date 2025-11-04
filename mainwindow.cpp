@@ -127,3 +127,13 @@ void MainWindow::on_system_parment_action_triggered()
     systemParameterDialog = nullptr;
 }
 
+
+void MainWindow::on_new_experiment_action_triggered()
+{
+    NewExperimentDialog *dialog = new NewExperimentDialog();
+    dialog->setWindowFlag(Qt::WindowCloseButtonHint);
+    dialog->exec();
+    delete dialog;
+    dialog = nullptr;
+}
+
