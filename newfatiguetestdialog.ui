@@ -310,7 +310,11 @@ color: black; /* 可选，设置文字颜色 */</string>
       <widget class="QDoubleSpinBox" name="A1"/>
      </item>
      <item row="3" column="3">
-      <widget class="QDoubleSpinBox" name="a2"/>
+      <widget class="QDoubleSpinBox" name="a2">
+       <property name="minimum">
+        <double>100.000000000000000</double>
+       </property>
+      </widget>
      </item>
      <item row="2" column="3">
       <widget class="QLabel" name="label_sensor_26">
