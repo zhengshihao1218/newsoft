@@ -6,30 +6,496 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>825</width>
-    <height>514</height>
+    <width>618</width>
+    <height>626</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>新建疲劳试验</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="themes/image.qrc">
+    <normaloff>:/images/images/new.png</normaloff>:/images/images/new.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QChartView" name="widget" native="true"/>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="1" column="3">
+      <widget class="QLabel" name="label_sensor_12">
+       <property name="minimumSize">
+        <size>
+         <width>129</width>
+         <height>22</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+       </property>
+       <property name="text">
+        <string>试件编号</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QLineEdit" name="lineEdit"/>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_sensor_11">
+       <property name="minimumSize">
+        <size>
+         <width>129</width>
+         <height>22</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+       </property>
+       <property name="text">
+        <string>试验编号</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="2">
+      <widget class="QDoubleSpinBox" name="doubleSpinBox"/>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_sensor_13">
+       <property name="minimumSize">
+        <size>
+         <width>129</width>
+         <height>22</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+       </property>
+       <property name="text">
+        <string>试验创建时间</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="label_sensor_15">
+       <property name="minimumSize">
+        <size>
+         <width>129</width>
+         <height>22</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+       </property>
+       <property name="text">
+        <string>温度上限</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="4">
+      <widget class="QLineEdit" name="lineEdit_2"/>
+     </item>
+     <item row="3" column="3">
+      <widget class="QLabel" name="label_sensor_14">
+       <property name="minimumSize">
+        <size>
+         <width>129</width>
+         <height>22</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+       </property>
+       <property name="text">
+        <string>疲劳测试次数</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="4">
+      <widget class="QSpinBox" name="spinBox"/>
+     </item>
+     <item row="5" column="3">
+      <widget class="QLabel" name="label_sensor_16">
+       <property name="minimumSize">
+        <size>
+         <width>129</width>
+         <height>22</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+       </property>
+       <property name="text">
+        <string>温度下限</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="4">
+      <widget class="QDoubleSpinBox" name="doubleSpinBox_2"/>
+     </item>
+     <item row="6" column="3">
+      <widget class="QLabel" name="label_sensor_18">
+       <property name="minimumSize">
+        <size>
+         <width>129</width>
+         <height>22</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+       </property>
+       <property name="text">
+        <string>起始位置</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="label_sensor_17">
+       <property name="minimumSize">
+        <size>
+         <width>129</width>
+         <height>22</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+       </property>
+       <property name="text">
+        <string>准备位置</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="2">
+      <widget class="QDoubleSpinBox" name="doubleSpinBox_3"/>
+     </item>
+     <item row="6" column="4">
+      <widget class="QDoubleSpinBox" name="doubleSpinBox_4"/>
+     </item>
+     <item row="3" column="2">
+      <widget class="QLineEdit" name="lineEdit_3">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout"/>
+    <widget class="QLabel" name="label_3">
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="themes/image.qrc">:/images/images/fx.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>false</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="3" column="1">
+      <widget class="QDoubleSpinBox" name="A2"/>
+     </item>
+     <item row="3" column="2">
+      <widget class="QDoubleSpinBox" name="B2"/>
+     </item>
+     <item row="0" column="3">
+      <widget class="QLabel" name="label_sensor_20">
+       <property name="minimumSize">
+        <size>
+         <width>129</width>
+         <height>22</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+       </property>
+       <property name="text">
+        <string>α：波形1频率</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="4">
+      <widget class="QDoubleSpinBox" name="b1"/>
+     </item>
+     <item row="2" column="4">
+      <widget class="QLabel" name="label_sensor_27">
+       <property name="minimumSize">
+        <size>
+         <width>129</width>
+         <height>22</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+       </property>
+       <property name="text">
+        <string>β</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="4">
+      <widget class="QDoubleSpinBox" name="b2"/>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLabel" name="label_sensor_23">
+       <property name="minimumSize">
+        <size>
+         <width>129</width>
+         <height>22</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+       </property>
+       <property name="text">
+        <string>A</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QDoubleSpinBox" name="A1"/>
+     </item>
+     <item row="3" column="3">
+      <widget class="QDoubleSpinBox" name="a2"/>
+     </item>
+     <item row="2" column="3">
+      <widget class="QLabel" name="label_sensor_26">
+       <property name="minimumSize">
+        <size>
+         <width>129</width>
+         <height>22</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+       </property>
+       <property name="text">
+        <string>α</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="label_sensor_21">
+       <property name="minimumSize">
+        <size>
+         <width>129</width>
+         <height>22</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+       </property>
+       <property name="text">
+        <string>A：波形1振幅</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>冷却测试</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QDoubleSpinBox" name="B1"/>
+     </item>
+     <item row="1" column="3">
+      <widget class="QDoubleSpinBox" name="a1"/>
+     </item>
+     <item row="2" column="2">
+      <widget class="QLabel" name="label_sensor_25">
+       <property name="minimumSize">
+        <size>
+         <width>129</width>
+         <height>22</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+       </property>
+       <property name="text">
+        <string>B</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QLabel" name="label_sensor_22">
+       <property name="minimumSize">
+        <size>
+         <width>129</width>
+         <height>22</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+       </property>
+       <property name="text">
+        <string>B：波形2振幅</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="4">
+      <widget class="QLabel" name="label_sensor_24">
+       <property name="minimumSize">
+        <size>
+         <width>129</width>
+         <height>22</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+       </property>
+       <property name="text">
+        <string>β：波形2频率</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label">
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="text">
+        <string>标准测试</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QCustomPlot" name="plotView" native="true">
+     <property name="minimumSize">
+      <size>
+       <width>600</width>
+       <height>300</height>
+      </size>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>
  <customwidgets>
   <customwidget>
-   <class>QChartView</class>
+   <class>QCustomPlot</class>
    <extends>QWidget</extends>
-   <header location="global">qchartview.h</header>
+   <header location="global">qcustomplot.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
+ <tabstops>
+  <tabstop>lineEdit</tabstop>
+  <tabstop>lineEdit_2</tabstop>
+  <tabstop>lineEdit_3</tabstop>
+  <tabstop>spinBox</tabstop>
+  <tabstop>doubleSpinBox</tabstop>
+  <tabstop>doubleSpinBox_2</tabstop>
+  <tabstop>doubleSpinBox_3</tabstop>
+  <tabstop>doubleSpinBox_4</tabstop>
+  <tabstop>A1</tabstop>
+  <tabstop>B1</tabstop>
+  <tabstop>a1</tabstop>
+  <tabstop>b1</tabstop>
+  <tabstop>A2</tabstop>
+  <tabstop>B2</tabstop>
+  <tabstop>a2</tabstop>
+  <tabstop>b2</tabstop>
+ </tabstops>
+ <resources>
+  <include location="themes/image.qrc"/>
+ </resources>
  <connections/>
 </ui>

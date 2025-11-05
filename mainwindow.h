@@ -43,6 +43,8 @@ private slots:
 
     void on_new_experiment_action_triggered();
 
+    void initPlotView();
+
 private:
     Ui::MainWindow *ui;
 };

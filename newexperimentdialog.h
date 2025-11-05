@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "newfatiguetestdialog.h"
+#include "newindicattestdialog.h"
 
 namespace Ui {
 class NewExperimentDialog;

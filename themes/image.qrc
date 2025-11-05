@@ -27,5 +27,7 @@
         <file>images/key.png</file>
         <file>images/why.png</file>
         <file>images/out.png</file>
+        <file>images/fx.png</file>
+        <file>images/back.png</file>
     </qresource>
 </RCC>

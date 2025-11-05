@@ -149,6 +149,10 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>lineEdit</tabstop>
+  <tabstop>lineEdit_2</tabstop>
+ </tabstops>
  <resources>
   <include location="themes/image.qrc"/>
  </resources>

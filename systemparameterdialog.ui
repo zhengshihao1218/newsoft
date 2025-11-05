@@ -156,8 +156,8 @@
   </layout>
  </widget>
  <resources>
-  <include location="themes/light/lightstyle.qrc"/>
   <include location="themes/image.qrc"/>
+  <include location="themes/light/lightstyle.qrc"/>
  </resources>
  <connections/>
 </ui>

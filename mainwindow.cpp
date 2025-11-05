@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
     initToolBar();
     // 没有登录，把大多数Action都设置成置灰的
     initNotLoginAction();
+    initPlotView();
     ui->lcdNumber_count->setDigitCount(6);
     ui->lcdNumber_count->display("NULL");
     ui->lcdNumber_time->setDigitCount(9);
@@ -135,5 +136,11 @@ void MainWindow::on_new_experiment_action_triggered()
     dialog->exec();
     delete dialog;
     dialog = nullptr;
+}
+
+void MainWindow::initPlotView()
+{
+    ui->plotView->addGraph();
+    ui->plotView->setBackground(QPixmap(":/images/images/back.png"));
 }
 
