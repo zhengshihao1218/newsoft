@@ -1801,6 +1801,7 @@ color: black; /* 可选，设置文字颜色 */</string>
    <addaction name="system_parment_action"/>
    <addaction name="separator"/>
    <addaction name="login_action"/>
+   <addaction name="logout_action"/>
    <addaction name="quit_action"/>
    <addaction name="separator"/>
   </widget>
