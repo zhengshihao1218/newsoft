@@ -9,6 +9,9 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    aboutdialog.cpp \
+    adduserdialog.cpp \
+    logoutdialog.cpp \
     newindicattestdialog.cpp \
     qcustomplot.cpp \
     ethercatclient.cpp \
@@ -18,9 +21,13 @@ SOURCES += \
     mainwindow.cpp \
     newexperimentdialog.cpp \
     newfatiguetestdialog.cpp \
-    systemparameterdialog.cpp
+    systemparameterdialog.cpp \
+    userlistdialog.cpp
 
 HEADERS += \
+    aboutdialog.h \
+    adduserdialog.h \
+    logoutdialog.h \
     newindicattestdialog.h \
     qcustomplot.h \
     ethercatclient.h \
@@ -29,16 +36,21 @@ HEADERS += \
     mainwindow.h \
     newexperimentdialog.h \
     newfatiguetestdialog.h \
-    systemparameterdialog.h
+    systemparameterdialog.h \
+    userlistdialog.h
 
 FORMS += \
+    aboutdialog.ui \
+    adduserdialog.ui \
     exitdialog.ui \
     logindialog.ui \
+    logoutdialog.ui \
     mainwindow.ui \
     newexperimentdialog.ui \
     newfatiguetestdialog.ui \
     newindicattestdialog.ui \
-    systemparameterdialog.ui
+    systemparameterdialog.ui \
+    userlistdialog.ui
 
 RESOURCES += \
     themes/dark/darkstyle.qrc \

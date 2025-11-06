@@ -6,6 +6,10 @@
 #include "exitdialog.h"
 #include "systemparameterdialog.h"
 #include "newexperimentdialog.h"
+#include "adduserdialog.h"
+#include "logoutdialog.h"
+#include "userlistdialog.h"
+#include "aboutdialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -21,6 +25,8 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     void initLoginAction();
+
+protected:
 
 private slots:
     void on_pushButton_up_clicked();
@@ -45,7 +51,28 @@ private slots:
 
     void initPlotView();
 
+    void designUpAction();
+
+    void designDownAction();
+
+    void onUpShortClick();
+    void onUpLongPress();
+    void onDownShortClick();
+    void onDownLongPress();
+
+    void on_motor_start_stop_action_triggered(bool checked);
+
+    void on_logout_action_triggered();
+
+    void on_new_user_action_triggered();
+
+    void on_user_list_action_triggered();
+
+    void on_about_action_triggered();
+
 private:
     Ui::MainWindow *ui;
+    QTimer *m_longPressTimer;
+    bool m_isLongPress;
 };
 #endif // MAINWINDOW_H

@@ -29,5 +29,7 @@
         <file>images/out.png</file>
         <file>images/fx.png</file>
         <file>images/back.png</file>
+        <file>images/motor_off.png</file>
+        <file>images/motor_on.png</file>
     </qresource>
 </RCC>
