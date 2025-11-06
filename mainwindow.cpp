@@ -84,6 +84,8 @@ void MainWindow::initNotLoginAction()
     ui->new_experiment_action->setEnabled(false);
     ui->logout_action->setEnabled(false);
     ui->user_list_action->setEnabled(false);
+    ui->login_action->setVisible(true);
+    ui->logout_action->setVisible(false);
 }
 
 void MainWindow::initLoginAction()
@@ -93,17 +95,23 @@ void MainWindow::initLoginAction()
     // ui->up_action->setEnabled(true);
     // ui->down_action->setEnabled(true);
     // ui->actionuser_list_action->setEnabled(false);
-    ui->motor_start_stop_action->setEnabled(true);
     ui->clear_error_action->setEnabled(true);
-    ui->prepare_experiment_action->setEnabled(true);
+    // ui->prepare_experiment_action->setEnabled(true);
     ui->browse_experiment_action->setEnabled(true);
-    ui->start_experiment_action->setEnabled(true);
+    // ui->start_experiment_action->setEnabled(true);
     ui->control_parment_action->setEnabled(true);
     ui->current_experiment->setEnabled(true);
     ui->stop_experiment_action->setEnabled(true);
     ui->new_experiment_action->setEnabled(true);
     ui->logout_action->setEnabled(true);
     ui->user_list_action->setEnabled(true);
+    ui->login_action->setVisible(false);
+    ui->logout_action->setVisible(true);
+    ui->motor_start_stop_action->setEnabled(true);
+    if(ui->motor_start_stop_action->isChecked()){
+        ui->prepare_experiment_action->setEnabled(true);
+        ui->start_experiment_action->setEnabled(true);
+    }
 }
 
 
@@ -361,6 +369,36 @@ void MainWindow::on_user_list_action_triggered()
 void MainWindow::on_about_action_triggered()
 {
     AboutDialog *dialog = new AboutDialog();
+    dialog->setWindowFlag(Qt::WindowCloseButtonHint);
+    dialog->exec();
+    delete dialog;
+    dialog = nullptr;
+}
+
+
+void MainWindow::on_browse_experiment_action_triggered()
+{
+    BrowseExperimentDialog *dialog = new BrowseExperimentDialog();
+    dialog->setWindowFlag(Qt::WindowCloseButtonHint);
+    dialog->exec();
+    delete dialog;
+    dialog = nullptr;
+}
+
+
+void MainWindow::on_current_experiment_triggered()
+{
+    NewFatigueTestDialog *dialog = new NewFatigueTestDialog();
+    dialog->setWindowFlag(Qt::WindowCloseButtonHint);
+    dialog->exec();
+    delete dialog;
+    dialog = nullptr;
+}
+
+
+void MainWindow::on_control_parment_action_triggered()
+{
+    ControlParamentDialog *dialog = new ControlParamentDialog();
     dialog->setWindowFlag(Qt::WindowCloseButtonHint);
     dialog->exec();
     delete dialog;

@@ -10,6 +10,8 @@
 #include "logoutdialog.h"
 #include "userlistdialog.h"
 #include "aboutdialog.h"
+#include "browseexperimentdialog.h"
+#include "controlparamentdialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -69,6 +71,12 @@ private slots:
     void on_user_list_action_triggered();
 
     void on_about_action_triggered();
+
+    void on_browse_experiment_action_triggered();
+
+    void on_current_experiment_triggered();
+
+    void on_control_parment_action_triggered();
 
 private:
     Ui::MainWindow *ui;

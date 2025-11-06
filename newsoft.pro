@@ -4,6 +4,9 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 CONFIG += c++17
 
+TARGET = CSCS
+TEMPLATE = app
+
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
@@ -11,6 +14,8 @@ CONFIG += c++17
 SOURCES += \
     aboutdialog.cpp \
     adduserdialog.cpp \
+    browseexperimentdialog.cpp \
+    controlparamentdialog.cpp \
     logoutdialog.cpp \
     newindicattestdialog.cpp \
     qcustomplot.cpp \
@@ -27,6 +32,8 @@ SOURCES += \
 HEADERS += \
     aboutdialog.h \
     adduserdialog.h \
+    browseexperimentdialog.h \
+    controlparamentdialog.h \
     logoutdialog.h \
     newindicattestdialog.h \
     qcustomplot.h \
@@ -42,6 +49,8 @@ HEADERS += \
 FORMS += \
     aboutdialog.ui \
     adduserdialog.ui \
+    browseexperimentdialog.ui \
+    controlparamentdialog.ui \
     exitdialog.ui \
     logindialog.ui \
     logoutdialog.ui \
@@ -56,6 +65,8 @@ RESOURCES += \
     themes/dark/darkstyle.qrc \
     themes/image.qrc \
     themes/light/lightstyle.qrc
+
+RC_ICONS = themes\images\CSCS.ico
 
 QMAKE_CXXFLAGS += -fPIC
 QMAKE_CXXFLAGS += -O2
