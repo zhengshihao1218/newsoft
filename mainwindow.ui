@@ -51,6 +51,50 @@
            </widget>
           </item>
           <item>
+           <widget class="QLabel" name="error_info_2">
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700; color:#d81e06;&quot;&gt;XX连接中XX&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="motor_info">
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>50</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap resource="themes/image.qrc">:/images/images/motor_off.png</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
            <spacer name="horizontalSpacer_2">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -1668,9 +1712,9 @@ color: black; /* 可选，设置文字颜色 */</string>
      <string>系统</string>
     </property>
     <addaction name="login_action"/>
-    <addaction name="actionnew_user_action"/>
-    <addaction name="actionuser_list_action"/>
-    <addaction name="login_out_action"/>
+    <addaction name="new_user_action"/>
+    <addaction name="user_list_action"/>
+    <addaction name="logout_action"/>
     <addaction name="quit_action"/>
    </widget>
    <widget class="QMenu" name="menu_2">
@@ -1702,6 +1746,17 @@ color: black; /* 可选，设置文字颜色 */</string>
    <addaction name="menu_4"/>
   </widget>
   <widget class="QToolBar" name="toolBar">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="font">
+    <font>
+     <bold>true</bold>
+    </font>
+   </property>
    <property name="windowTitle">
     <string/>
    </property>
@@ -1711,8 +1766,17 @@ color: black; /* 可选，设置文字颜色 */</string>
    <property name="allowedAreas">
     <set>Qt::AllToolBarAreas</set>
    </property>
+   <property name="iconSize">
+    <size>
+     <width>45</width>
+     <height>45</height>
+    </size>
+   </property>
    <property name="toolButtonStyle">
     <enum>Qt::ToolButtonTextUnderIcon</enum>
+   </property>
+   <property name="floatable">
+    <bool>false</bool>
    </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
@@ -1738,6 +1802,7 @@ color: black; /* 可选，设置文字颜色 */</string>
    <addaction name="separator"/>
    <addaction name="login_action"/>
    <addaction name="quit_action"/>
+   <addaction name="separator"/>
   </widget>
   <action name="clear_error_action">
    <property name="icon">
@@ -1759,16 +1824,15 @@ color: black; /* 可选，设置文字颜色 */</string>
     <bool>true</bool>
    </property>
    <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="enabled">
     <bool>true</bool>
    </property>
    <property name="icon">
     <iconset resource="themes/image.qrc">
      <normaloff>:/images/images/light_grey.png</normaloff>
-     <normalon>:/images/images/light.png</normalon>
-     <disabledoff>:/images/images/light_grey.png</disabledoff>
-     <activeoff>:/images/images/light_grey.png</activeoff>
-     <activeon>:/images/images/light.png</activeon>
-     <selectedoff>:/images/images/light_grey.png</selectedoff>:/images/images/light_grey.png</iconset>
+     <normalon>:/images/images/light.png</normalon>:/images/images/light_grey.png</iconset>
    </property>
    <property name="text">
     <string>马达启停</string>
@@ -1778,6 +1842,9 @@ color: black; /* 可选，设置文字颜色 */</string>
    </property>
   </action>
   <action name="prepare_experiment_action">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="themes/image.qrc">
      <normaloff>:/images/images/perpare.png</normaloff>:/images/images/perpare.png</iconset>
@@ -1790,6 +1857,9 @@ color: black; /* 可选，设置文字颜色 */</string>
    </property>
   </action>
   <action name="start_experiment_action">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="themes/image.qrc">
      <normaloff>:/images/images/run.png</normaloff>:/images/images/run.png</iconset>
@@ -1814,6 +1884,9 @@ color: black; /* 可选，设置文字颜色 */</string>
    </property>
   </action>
   <action name="up_action">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="themes/image.qrc">
      <normaloff>:/images/images/up.png</normaloff>
@@ -1825,8 +1898,14 @@ color: black; /* 可选，设置文字颜色 */</string>
    <property name="menuRole">
     <enum>QAction::NoRole</enum>
    </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
   </action>
   <action name="down_action">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="icon">
     <iconset resource="themes/image.qrc">
      <normaloff>:/images/images/down.png</normaloff>
@@ -1926,7 +2005,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <enum>QAction::NoRole</enum>
    </property>
   </action>
-  <action name="actionnew_user_action">
+  <action name="new_user_action">
    <property name="icon">
     <iconset resource="themes/image.qrc">
      <normaloff>:/images/images/login.png</normaloff>:/images/images/login.png</iconset>
@@ -1938,7 +2017,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <enum>QAction::NoRole</enum>
    </property>
   </action>
-  <action name="actionuser_list_action">
+  <action name="user_list_action">
    <property name="icon">
     <iconset resource="themes/image.qrc">
      <normaloff>:/images/images/people.png</normaloff>:/images/images/people.png</iconset>
@@ -1962,7 +2041,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <enum>QAction::NoRole</enum>
    </property>
   </action>
-  <action name="login_out_action">
+  <action name="logout_action">
    <property name="icon">
     <iconset resource="themes/image.qrc">
      <normaloff>:/images/images/out.png</normaloff>:/images/images/out.png</iconset>
