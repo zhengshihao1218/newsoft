@@ -20,6 +20,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->lcdNumber_count->setDigitCount(6);
     ui->lcdNumber_count->display("NULL");
     ui->lcdNumber_time->setDigitCount(9);
+
     QTime currentTime = QTime::currentTime();
     QString text = QString("%1:%2:%3")
                        .arg(currentTime.hour(), 2, 10, QChar('0'))    // 小时，2位，用0填充
@@ -61,9 +62,9 @@ void MainWindow::on_motor_start_stop_action_toggled(bool arg1)
 void MainWindow::initToolBar()
 {
     const QList<QToolBar *> toolBars = findChildren<QToolBar *>();
-    for (QToolBar *bar : toolBars) {
-        bar->setContextMenuPolicy(Qt::PreventContextMenu);
-    }
+    // for (QToolBar *bar : toolBars) {
+    //     bar->setContextMenuPolicy(Qt::PreventContextMenu);
+    // }
 }
 
 void MainWindow::initNotLoginAction()
@@ -403,5 +404,17 @@ void MainWindow::on_control_parment_action_triggered()
     dialog->exec();
     delete dialog;
     dialog = nullptr;
+}
+
+
+void MainWindow::on_info_view_action_triggered()
+{
+    ui->dockWidget->setVisible(true);
+}
+
+
+void MainWindow::on_tool_view_action_triggered()
+{
+    ui->toolBar->setVisible(true);
 }
 

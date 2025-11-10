@@ -78,6 +78,10 @@ private slots:
 
     void on_control_parment_action_triggered();
 
+    void on_info_view_action_triggered();
+
+    void on_tool_view_action_triggered();
+
 private:
     Ui::MainWindow *ui;
     QTimer *m_longPressTimer;
