@@ -31,5 +31,8 @@
         <file>images/back.png</file>
         <file>images/motor_off.png</file>
         <file>images/motor_on.png</file>
+        <file>images/CSCS.ico</file>
+        <file>images/translate.png</file>
+        <file>images/CS_Industry.png</file>
     </qresource>
 </RCC>

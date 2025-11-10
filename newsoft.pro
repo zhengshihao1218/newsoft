@@ -26,6 +26,7 @@ SOURCES += \
     mainwindow.cpp \
     newexperimentdialog.cpp \
     newfatiguetestdialog.cpp \
+    singleapplication.cpp \
     systemparameterdialog.cpp \
     userlistdialog.cpp
 
@@ -43,6 +44,7 @@ HEADERS += \
     mainwindow.h \
     newexperimentdialog.h \
     newfatiguetestdialog.h \
+    singleapplication.h \
     systemparameterdialog.h \
     userlistdialog.h
 
