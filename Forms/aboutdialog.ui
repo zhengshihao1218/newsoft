@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>381</width>
-    <height>267</height>
+    <height>321</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,6 +16,12 @@
   <property name="windowIcon">
    <iconset resource="themes/image.qrc">
     <normaloff>:/images/images/about.png</normaloff>:/images/images/about.png</iconset>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: black;</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -52,8 +58,16 @@
      </item>
      <item row="3" column="1">
       <widget class="QLabel" name="label_7">
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
        <property name="text">
-        <string>LIB版本</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff9900;&quot;&gt;LIB版本&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="margin">
+        <number>5</number>
        </property>
       </widget>
      </item>
@@ -72,43 +86,67 @@
      </item>
      <item row="0" column="1">
       <widget class="QLabel" name="label">
+       <property name="font">
+        <font>
+         <pointsize>13</pointsize>
+        </font>
+       </property>
        <property name="text">
-        <string>版权所有</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff9900;&quot;&gt;版权所有&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="margin">
+        <number>5</number>
        </property>
       </widget>
      </item>
      <item row="0" column="2">
       <widget class="QLabel" name="label_2">
+       <property name="font">
+        <font>
+         <pointsize>13</pointsize>
+        </font>
+       </property>
        <property name="text">
-        <string>宁波策仕工业有限公司</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;宁波策仕工业有限公司&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </item>
      <item row="1" column="2">
       <widget class="QLabel" name="label_4">
-       <property name="text">
-        <string>XXX</string>
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
        </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QLabel" name="label_5">
        <property name="text">
-        <string>PLC版本</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;XXX&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </item>
      <item row="1" column="1">
       <widget class="QLabel" name="label_3">
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
        <property name="text">
-        <string>HMI版本</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff9900;&quot;&gt;HMI版本&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="margin">
+        <number>5</number>
        </property>
       </widget>
      </item>
      <item row="3" column="2">
       <widget class="QLabel" name="label_8">
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
        <property name="text">
-        <string>XXX</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;XXX&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </item>
@@ -127,8 +165,28 @@
      </item>
      <item row="2" column="2">
       <widget class="QLabel" name="label_6">
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
        <property name="text">
-        <string>XXX</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;XXX&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLabel" name="label_5">
+       <property name="font">
+        <font>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ff9900;&quot;&gt;PLC版本&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="margin">
+        <number>5</number>
        </property>
       </widget>
      </item>

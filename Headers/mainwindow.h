@@ -78,13 +78,18 @@ private slots:
 
     void on_control_parment_action_triggered();
 
-    void on_info_view_action_triggered();
+    void on_info_view_action_triggered(bool checked);
 
-    void on_tool_view_action_triggered();
+    void on_tool_view_action_triggered(bool checked);
+
+    void on_two_chart_action_triggered(bool checked);
+
+    void on_dark_light_action_triggered(bool checked);
 
 private:
     Ui::MainWindow *ui;
     QTimer *m_longPressTimer;
     bool m_isLongPress;
+    bool m_is2PlotVisiable;
 };
 #endif // MAINWINDOW_H
