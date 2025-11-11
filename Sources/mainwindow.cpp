@@ -20,6 +20,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->lcdNumber_count->setDigitCount(6);
     ui->lcdNumber_count->display("NULL");
     ui->lcdNumber_time->setDigitCount(9);
+    m_is2PlotVisiable = false;
+    ui->plotView2->setVisible(false);
 
     QTime currentTime = QTime::currentTime();
     QString text = QString("%1:%2:%3")
@@ -407,14 +409,26 @@ void MainWindow::on_control_parment_action_triggered()
 }
 
 
-void MainWindow::on_info_view_action_triggered()
+void MainWindow::on_info_view_action_triggered(bool checked)
 {
-    ui->dockWidget->setVisible(true);
+    ui->dockWidget->setVisible(checked);
 }
 
 
-void MainWindow::on_tool_view_action_triggered()
+void MainWindow::on_tool_view_action_triggered(bool checked)
 {
-    ui->toolBar->setVisible(true);
+    ui->toolBar->setVisible(checked);
+}
+
+
+void MainWindow::on_two_chart_action_triggered(bool checked)
+{
+    ui->plotView2->setVisible(checked);
+}
+
+
+void MainWindow::on_dark_light_action_triggered(bool checked)
+{
+
 }
 

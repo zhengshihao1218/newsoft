@@ -315,14 +315,21 @@
          </layout>
         </item>
         <item>
-         <widget class="QCustomPlot" name="plotView" native="true">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>600</height>
-           </size>
-          </property>
-         </widget>
+         <layout class="QHBoxLayout" name="horizontalLayout_11">
+          <item>
+           <widget class="QCustomPlot" name="plotView" native="true">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>600</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCustomPlot" name="plotView2" native="true"/>
+          </item>
+         </layout>
         </item>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_37">
@@ -767,6 +774,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <property name="title">
      <string>帮助</string>
     </property>
+    <addaction name="dark_light_action"/>
     <addaction name="about_action"/>
    </widget>
    <widget class="QMenu" name="menu_5">
@@ -775,6 +783,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     </property>
     <addaction name="tool_view_action"/>
     <addaction name="info_view_action"/>
+    <addaction name="two_chart_action"/>
    </widget>
    <addaction name="menu"/>
    <addaction name="menu_2"/>
@@ -2082,8 +2091,19 @@ color: black; /* 可选，设置文字颜色 */</string>
    </property>
   </action>
   <action name="info_view_action">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="themes/light/lightstyle.qrc">
+     <normaloff>:/qss_icons/light/rc/radio_unchecked@2x.png</normaloff>
+     <normalon>:/qss_icons/light/rc/radio_checked_focus@2x.png</normalon>:/qss_icons/light/rc/radio_unchecked@2x.png</iconset>
+   </property>
    <property name="text">
-    <string>打开信息栏视图</string>
+    <string>信息栏</string>
    </property>
    <property name="menuRole">
     <enum>QAction::NoRole</enum>
@@ -2102,8 +2122,51 @@ color: black; /* 可选，设置文字颜色 */</string>
    </property>
   </action>
   <action name="tool_view_action">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="themes/light/lightstyle.qrc">
+     <normaloff>:/qss_icons/light/rc/radio_unchecked@2x.png</normaloff>
+     <normalon>:/qss_icons/light/rc/radio_checked_focus@2x.png</normalon>:/qss_icons/light/rc/radio_unchecked@2x.png</iconset>
+   </property>
    <property name="text">
-    <string>打开工具栏视图</string>
+    <string>工具栏</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="two_chart_action">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="themes/dark/darkstyle.qrc">
+     <normaloff>:/qss_icons/dark/rc/radio_unchecked_disabled@2x.png</normaloff>
+     <normalon>:/qss_icons/light/rc/radio_checked_focus@2x.png</normalon>:/qss_icons/dark/rc/radio_unchecked_disabled@2x.png</iconset>
+   </property>
+   <property name="text">
+    <string>第二图表</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="dark_light_action">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="themes/image.qrc">
+     <normaloff>:/images/images/dark.png</normaloff>
+     <normalon>:/images/images/sun.png</normalon>:/images/images/dark.png</iconset>
+   </property>
+   <property name="text">
+    <string>白天/黑夜模式</string>
    </property>
    <property name="menuRole">
     <enum>QAction::NoRole</enum>
@@ -2120,6 +2183,8 @@ color: black; /* 可选，设置文字颜色 */</string>
  </customwidgets>
  <resources>
   <include location="themes/image.qrc"/>
+  <include location="themes/light/lightstyle.qrc"/>
+  <include location="themes/dark/darkstyle.qrc"/>
  </resources>
  <connections/>
 </ui>

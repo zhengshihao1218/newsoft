@@ -34,5 +34,7 @@
         <file>images/CSCS.ico</file>
         <file>images/translate.png</file>
         <file>images/CS_Industry.png</file>
+        <file>images/dark.png</file>
+        <file>images/sun.png</file>
     </qresource>
 </RCC>

@@ -12,56 +12,56 @@ TEMPLATE = app
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    aboutdialog.cpp \
-    adduserdialog.cpp \
-    browseexperimentdialog.cpp \
-    controlparamentdialog.cpp \
-    logoutdialog.cpp \
-    newindicattestdialog.cpp \
-    qcustomplot.cpp \
-    ethercatclient.cpp \
-    exitdialog.cpp \
-    logindialog.cpp \
-    main.cpp \
-    mainwindow.cpp \
-    newexperimentdialog.cpp \
-    newfatiguetestdialog.cpp \
-    singleapplication.cpp \
-    systemparameterdialog.cpp \
-    userlistdialog.cpp
+    Sources/aboutdialog.cpp \
+    Sources/adduserdialog.cpp \
+    Sources/browseexperimentdialog.cpp \
+    Sources/controlparamentdialog.cpp \
+    Sources/logoutdialog.cpp \
+    Sources/newindicattestdialog.cpp \
+    Sources/qcustomplot.cpp \
+    Sources/ethercatclient.cpp \
+    Sources/exitdialog.cpp \
+    Sources/logindialog.cpp \
+    Sources/main.cpp \
+    Sources/mainwindow.cpp \
+    Sources/newexperimentdialog.cpp \
+    Sources/newfatiguetestdialog.cpp \
+    Sources/singleapplication.cpp \
+    Sources/systemparameterdialog.cpp \
+    Sources/userlistdialog.cpp
 
 HEADERS += \
-    aboutdialog.h \
-    adduserdialog.h \
-    browseexperimentdialog.h \
-    controlparamentdialog.h \
-    logoutdialog.h \
-    newindicattestdialog.h \
-    qcustomplot.h \
-    ethercatclient.h \
-    exitdialog.h \
-    logindialog.h \
-    mainwindow.h \
-    newexperimentdialog.h \
-    newfatiguetestdialog.h \
-    singleapplication.h \
-    systemparameterdialog.h \
-    userlistdialog.h
+    Headers/aboutdialog.h \
+    Headers/adduserdialog.h \
+    Headers/browseexperimentdialog.h \
+    Headers/controlparamentdialog.h \
+    Headers/logoutdialog.h \
+    Headers/newindicattestdialog.h \
+    Headers/qcustomplot.h \
+    Headers/ethercatclient.h \
+    Headers/exitdialog.h \
+    Headers/logindialog.h \
+    Headers/mainwindow.h \
+    Headers/newexperimentdialog.h \
+    Headers/newfatiguetestdialog.h \
+    Headers/singleapplication.h \
+    Headers/systemparameterdialog.h \
+    Headers/userlistdialog.h
 
 FORMS += \
-    aboutdialog.ui \
-    adduserdialog.ui \
-    browseexperimentdialog.ui \
-    controlparamentdialog.ui \
-    exitdialog.ui \
-    logindialog.ui \
-    logoutdialog.ui \
-    mainwindow.ui \
-    newexperimentdialog.ui \
-    newfatiguetestdialog.ui \
-    newindicattestdialog.ui \
-    systemparameterdialog.ui \
-    userlistdialog.ui
+    Forms/aboutdialog.ui \
+    Forms/adduserdialog.ui \
+    Forms/browseexperimentdialog.ui \
+    Forms/controlparamentdialog.ui \
+    Forms/exitdialog.ui \
+    Forms/logindialog.ui \
+    Forms/logoutdialog.ui \
+    Forms/mainwindow.ui \
+    Forms/newexperimentdialog.ui \
+    Forms/newfatiguetestdialog.ui \
+    Forms/newindicattestdialog.ui \
+    Forms/systemparameterdialog.ui \
+    Forms/userlistdialog.ui
 
 RESOURCES += \
     themes/dark/darkstyle.qrc \
