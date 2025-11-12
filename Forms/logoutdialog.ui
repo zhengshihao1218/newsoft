@@ -6,22 +6,22 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>367</width>
+    <height>141</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>退出登录</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="themes/image.qrc">
+   <iconset resource="../Images/image.qrc">
     <normaloff>:/images/images/out.png</normaloff>:/images/images/out.png</iconset>
   </property>
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>240</y>
+     <x>10</x>
+     <y>90</y>
      <width>341</width>
      <height>32</height>
     </rect>
@@ -36,8 +36,8 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>100</y>
+     <x>50</x>
+     <y>30</y>
      <width>50</width>
      <height>50</height>
     </rect>
@@ -52,7 +52,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="themes/image.qrc">:/images/images/why.png</pixmap>
+    <pixmap resource="../Images/image.qrc">:/images/images/why.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -61,8 +61,8 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>100</y>
+     <x>110</x>
+     <y>30</y>
      <width>201</width>
      <height>51</height>
     </rect>
@@ -78,7 +78,7 @@
   </widget>
  </widget>
  <resources>
-  <include location="themes/image.qrc"/>
+  <include location="../Images/image.qrc"/>
  </resources>
  <connections>
   <connection>

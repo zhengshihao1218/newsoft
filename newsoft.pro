@@ -1,4 +1,4 @@
-QT       += core gui network widgets charts
+QT       += core gui network widgets charts sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
@@ -12,13 +12,15 @@ TEMPLATE = app
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Sources/loginfaildialog.cpp \
+    Sources/qcustomplot.cpp \
+    Sources/usermanager.cpp \
     Sources/aboutdialog.cpp \
     Sources/adduserdialog.cpp \
     Sources/browseexperimentdialog.cpp \
     Sources/controlparamentdialog.cpp \
     Sources/logoutdialog.cpp \
     Sources/newindicattestdialog.cpp \
-    Sources/qcustomplot.cpp \
     Sources/ethercatclient.cpp \
     Sources/exitdialog.cpp \
     Sources/logindialog.cpp \
@@ -31,13 +33,14 @@ SOURCES += \
     Sources/userlistdialog.cpp
 
 HEADERS += \
+    Headers/loginfaildialog.h \
+    Headers/qcustomplot.h \
     Headers/aboutdialog.h \
     Headers/adduserdialog.h \
     Headers/browseexperimentdialog.h \
     Headers/controlparamentdialog.h \
     Headers/logoutdialog.h \
     Headers/newindicattestdialog.h \
-    Headers/qcustomplot.h \
     Headers/ethercatclient.h \
     Headers/exitdialog.h \
     Headers/logindialog.h \
@@ -46,7 +49,8 @@ HEADERS += \
     Headers/newfatiguetestdialog.h \
     Headers/singleapplication.h \
     Headers/systemparameterdialog.h \
-    Headers/userlistdialog.h
+    Headers/userlistdialog.h \
+    Headers/usermanager.h
 
 FORMS += \
     Forms/aboutdialog.ui \
@@ -61,14 +65,15 @@ FORMS += \
     Forms/newfatiguetestdialog.ui \
     Forms/newindicattestdialog.ui \
     Forms/systemparameterdialog.ui \
-    Forms/userlistdialog.ui
+    Forms/userlistdialog.ui \
+    Forms/loginfaildialog.ui
 
 RESOURCES += \
-    themes/dark/darkstyle.qrc \
-    themes/image.qrc \
-    themes/light/lightstyle.qrc
+    Images/image.qrc \
+    Themes/dark/darkstyle.qrc \
+    Themes/light/lightstyle.qrc \
 
-RC_ICONS = themes\images\CSCS.ico
+RC_ICONS = Images\images\CSCS.ico
 
 QMAKE_CXXFLAGS += -fPIC
 QMAKE_CXXFLAGS += -O2

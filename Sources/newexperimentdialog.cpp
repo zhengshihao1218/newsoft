@@ -1,4 +1,4 @@
-#include "newexperimentdialog.h"
+#include "Headers/newexperimentdialog.h"
 #include "ui_newexperimentdialog.h"
 
 NewExperimentDialog::NewExperimentDialog(QWidget *parent)

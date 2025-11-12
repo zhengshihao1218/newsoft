@@ -1,4 +1,4 @@
-#include "SingleApplication.h"
+#include "Headers/SingleApplication.h"
 #include <QWidget>
 #include <QtNetwork/QLocalSocket>
 #include <QtNetwork/QLocalServer>

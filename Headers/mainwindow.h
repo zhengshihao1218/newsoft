@@ -12,6 +12,7 @@
 #include "aboutdialog.h"
 #include "browseexperimentdialog.h"
 #include "controlparamentdialog.h"
+#include "usermanager.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -26,7 +27,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    void initLoginAction();
+    void initLoginAction(QString id);
 
 protected:
 
@@ -65,8 +66,6 @@ private slots:
     void on_motor_start_stop_action_triggered(bool checked);
 
     void on_logout_action_triggered();
-
-    void on_new_user_action_triggered();
 
     void on_user_list_action_triggered();
 

@@ -1,4 +1,4 @@
-#include "exitdialog.h"
+#include "Headers/exitdialog.h"
 #include "ui_exitdialog.h"
 
 ExitDialog::ExitDialog(QWidget *parent)

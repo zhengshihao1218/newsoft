@@ -1,4 +1,4 @@
-#include "EtherCatClient.h"
+#include "Headers/EtherCatClient.h"
 #include <QDebug>
 
 EtherCatClient::EtherCatClient(QObject *parent)
