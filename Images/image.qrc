@@ -36,5 +36,7 @@
         <file>images/CS_Industry.png</file>
         <file>images/dark.png</file>
         <file>images/sun.png</file>
+        <file>images/deleteuser.png</file>
+        <file>images/sign.png</file>
     </qresource>
 </RCC>

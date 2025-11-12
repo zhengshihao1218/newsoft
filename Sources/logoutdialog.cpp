@@ -1,4 +1,4 @@
-#include "logoutdialog.h"
+#include "Headers/logoutdialog.h"
 #include "ui_logoutdialog.h"
 
 LogoutDialog::LogoutDialog(QWidget *parent)

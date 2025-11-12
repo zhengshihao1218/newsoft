@@ -14,7 +14,7 @@
    <string>新建疲劳试验</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="themes/image.qrc">
+   <iconset resource="../Images/image.qrc">
     <normaloff>:/images/images/new.png</normaloff>:/images/images/new.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
@@ -222,7 +222,7 @@ color: black; /* 可选，设置文字颜色 */</string>
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="themes/image.qrc">:/images/images/fx.png</pixmap>
+      <pixmap resource="../Images/image.qrc">:/images/images/fx.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>false</bool>
@@ -480,7 +480,7 @@ color: black; /* 可选，设置文字颜色 */</string>
   <customwidget>
    <class>QCustomPlot</class>
    <extends>QWidget</extends>
-   <header location="global">qcustomplot.h</header>
+   <header location="global">Headers/qcustomplot.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
@@ -503,7 +503,7 @@ color: black; /* 可选，设置文字颜色 */</string>
   <tabstop>b2</tabstop>
  </tabstops>
  <resources>
-  <include location="themes/image.qrc"/>
+  <include location="../Images/image.qrc"/>
  </resources>
  <connections/>
 </ui>

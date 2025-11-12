@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+#include "Headers/mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QTime>
 
@@ -31,6 +31,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->lcdNumber_time->display(text);
 
+    // 连接数据库
+    UserManager::getInstance().openDatabase();
 }
 
 MainWindow::~MainWindow()
@@ -87,12 +89,15 @@ void MainWindow::initNotLoginAction()
     ui->new_experiment_action->setEnabled(false);
     ui->logout_action->setEnabled(false);
     ui->user_list_action->setEnabled(false);
-    ui->login_action->setVisible(true);
+    // ui->login_action->setVisible(true);
+    ui->login_action->setEnabled(true);
+    ui->login_action->setText("用户登录");
     ui->logout_action->setVisible(false);
 }
 
-void MainWindow::initLoginAction()
+void MainWindow::initLoginAction(QString id)
 {
+    // ui->menu_6->setTitle("用户 "+UserManager::getInstance().getUser(id).UserName + " 已登录");
     ui->new_user_action->setEnabled(true);
     ui->system_parment_action->setEnabled(true);
     // ui->up_action->setEnabled(true);
@@ -108,7 +113,9 @@ void MainWindow::initLoginAction()
     ui->new_experiment_action->setEnabled(true);
     ui->logout_action->setEnabled(true);
     ui->user_list_action->setEnabled(true);
-    ui->login_action->setVisible(false);
+    // ui->login_action->setVisible(false);
+    ui->login_action->setEnabled(false);
+    ui->login_action->setText(UserManager::getInstance().getUser(id).UserName);
     ui->logout_action->setVisible(true);
     ui->motor_start_stop_action->setEnabled(true);
     if(ui->motor_start_stop_action->isChecked()){
@@ -343,16 +350,6 @@ void MainWindow::on_logout_action_triggered()
     LogoutDialog *dialog = new LogoutDialog();
     dialog->setWindowFlag(Qt::WindowCloseButtonHint);\
     connect(dialog, &LogoutDialog::logout, this, &MainWindow::initNotLoginAction);
-    dialog->exec();
-    delete dialog;
-    dialog = nullptr;
-}
-
-
-void MainWindow::on_new_user_action_triggered()
-{
-    AddUserDialog *dialog = new AddUserDialog();
-    dialog->setWindowFlag(Qt::WindowCloseButtonHint);
     dialog->exec();
     delete dialog;
     dialog = nullptr;

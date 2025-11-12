@@ -1,4 +1,4 @@
-#include "systemparameterdialog.h"
+#include "Headers/systemparameterdialog.h"
 #include "ui_systemparameterdialog.h"
 
 SystemParameterDialog::SystemParameterDialog(QWidget *parent)

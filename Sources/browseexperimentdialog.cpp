@@ -1,4 +1,4 @@
-#include "browseexperimentdialog.h"
+#include "Headers/browseexperimentdialog.h"
 #include "ui_browseexperimentdialog.h"
 
 BrowseExperimentDialog::BrowseExperimentDialog(QWidget *parent)

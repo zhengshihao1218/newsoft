@@ -1,4 +1,4 @@
-#include "controlparamentdialog.h"
+#include "Headers/controlparamentdialog.h"
 #include "ui_controlparamentdialog.h"
 
 ControlParamentDialog::ControlParamentDialog(QWidget *parent)

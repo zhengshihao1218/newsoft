@@ -1,6 +1,6 @@
-#include "logindialog.h"
+#include "Headers/logindialog.h"
 #include "ui_logindialog.h"
-#include "mainwindow.h"
+#include "Headers/mainwindow.h"
 
 LoginDialog::LoginDialog(QWidget *parent) :
     QDialog(parent),
@@ -14,10 +14,23 @@ LoginDialog::~LoginDialog()
     delete ui;
 }
 
-void LoginDialog::on_buttonBox_accepted()
+void LoginDialog::on_pushButton_clicked()
 {
-    if(ui->lineEdit->text() == "ceshi" && ui->lineEdit_2->text() == "111"){
-        emit login();
+    qDebug() << "on_pushButton_clicked";
+    QString id = ui->lineEdit->text();
+    QString password = ui->lineEdit_2->text();
+    qDebug() << "on_pushButton_clicked 2";
+    bool loginSuccess = UserManager::getInstance().authenticate(id,password);
+    if (UserManager::getInstance().authenticate(id,password)) {
+        emit login(id);
+        qDebug() << "账号密码OK";
+        this->close();
+    } else {
+        LoginFailDialog *dialog = new LoginFailDialog();
+        dialog->setWindowFlag(Qt::WindowCloseButtonHint);
+        dialog->exec();
+        delete dialog;
+        dialog = nullptr;
     }
 }
 

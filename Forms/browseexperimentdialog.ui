@@ -14,7 +14,7 @@
    <string>浏览试验</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="themes/image.qrc">
+   <iconset resource="../Images/image.qrc">
     <normaloff>:/images/images/screen.png</normaloff>:/images/images/screen.png</iconset>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -240,7 +240,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="themes/image.qrc"/>
+  <include location="../Images/image.qrc"/>
  </resources>
  <connections/>
 </ui>

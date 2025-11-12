@@ -14,7 +14,7 @@
    <string>控制参数</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="themes/image.qrc">
+   <iconset resource="../Images/image.qrc">
     <normaloff>:/images/images/contrlp.png</normaloff>:/images/images/contrlp.png</iconset>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
@@ -47,7 +47,7 @@
        </font>
       </property>
       <attribute name="icon">
-       <iconset resource="themes/light/lightstyle.qrc">
+       <iconset resource="../Themes/light/lightstyle.qrc">
         <normaloff>:/qss_icons/light/rc/arrow_up@2x.png</normaloff>
         <activeon>:/qss_icons/light/rc/arrow_down_focus@2x.png</activeon>:/qss_icons/light/rc/arrow_up@2x.png</iconset>
       </attribute>
@@ -60,7 +60,7 @@
        <string/>
       </property>
       <attribute name="icon">
-       <iconset resource="themes/light/lightstyle.qrc">
+       <iconset resource="../Themes/light/lightstyle.qrc">
         <normaloff>:/qss_icons/light/rc/arrow_up@2x.png</normaloff>
         <activeon>:/qss_icons/light/rc/arrow_down_focus@2x.png</activeon>:/qss_icons/light/rc/arrow_up@2x.png</iconset>
       </attribute>
@@ -83,7 +83,7 @@
      </widget>
      <widget class="QWidget" name="tab_3">
       <attribute name="icon">
-       <iconset resource="themes/light/lightstyle.qrc">
+       <iconset resource="../Themes/light/lightstyle.qrc">
         <normaloff>:/qss_icons/light/rc/arrow_up@2x.png</normaloff>
         <activeon>:/qss_icons/light/rc/arrow_down_focus@2x.png</activeon>:/qss_icons/light/rc/arrow_up@2x.png</iconset>
       </attribute>
@@ -96,8 +96,8 @@
   </layout>
  </widget>
  <resources>
-  <include location="themes/image.qrc"/>
-  <include location="themes/light/lightstyle.qrc"/>
+  <include location="../Images/image.qrc"/>
+  <include location="../Themes/light/lightstyle.qrc"/>
  </resources>
  <connections/>
 </ui>

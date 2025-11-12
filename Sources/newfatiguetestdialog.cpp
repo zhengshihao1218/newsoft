@@ -1,4 +1,4 @@
-#include "newfatiguetestdialog.h"
+#include "Headers/newfatiguetestdialog.h"
 #include "ui_newfatiguetestdialog.h"
 
 NewFatigueTestDialog::NewFatigueTestDialog(QWidget *parent)

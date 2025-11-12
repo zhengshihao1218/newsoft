@@ -14,7 +14,7 @@
    <string>关于</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="themes/image.qrc">
+   <iconset resource="../Images/image.qrc">
     <normaloff>:/images/images/about.png</normaloff>:/images/images/about.png</iconset>
   </property>
   <property name="autoFillBackground">
@@ -32,7 +32,7 @@
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="themes/image.qrc">:/images/images/CS_Industry.png</pixmap>
+        <pixmap resource="../Images/image.qrc">:/images/images/CS_Industry.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -195,7 +195,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="themes/image.qrc"/>
+  <include location="../Images/image.qrc"/>
  </resources>
  <connections/>
 </ui>

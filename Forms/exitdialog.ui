@@ -14,7 +14,7 @@
    <string>退出系统</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="themes/image.qrc">
+   <iconset resource="../Images/image.qrc">
     <normaloff>:/images/images/close.png</normaloff>:/images/images/close.png</iconset>
   </property>
   <widget class="QDialogButtonBox" name="buttonBox">
@@ -52,7 +52,7 @@
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="themes/image.qrc">:/images/images/why.png</pixmap>
+    <pixmap resource="../Images/image.qrc">:/images/images/why.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
@@ -78,7 +78,7 @@
   </widget>
  </widget>
  <resources>
-  <include location="themes/image.qrc"/>
+  <include location="../Images/image.qrc"/>
  </resources>
  <connections>
   <connection>

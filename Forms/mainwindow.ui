@@ -14,7 +14,7 @@
    <string>策仕控制系统</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="themes/image.qrc">
+   <iconset resource="../Images/image.qrc">
     <normaloff>:/images/images/cscs.png</normaloff>:/images/images/cscs.png</iconset>
   </property>
   <property name="styleSheet">
@@ -87,7 +87,7 @@
              <string/>
             </property>
             <property name="pixmap">
-             <pixmap resource="themes/image.qrc">:/images/images/motor_off.png</pixmap>
+             <pixmap resource="../Images/image.qrc">:/images/images/motor_off.png</pixmap>
             </property>
             <property name="scaledContents">
              <bool>true</bool>
@@ -323,6 +323,18 @@
               <width>0</width>
               <height>600</height>
              </size>
+            </property>
+            <property name="mouseTracking">
+             <bool>false</bool>
+            </property>
+            <property name="tabletTracking">
+             <bool>false</bool>
+            </property>
+            <property name="layoutDirection">
+             <enum>Qt::RightToLeft</enum>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
             </property>
            </widget>
           </item>
@@ -747,7 +759,6 @@ color: black; /* 可选，设置文字颜色 */</string>
      <string>系统</string>
     </property>
     <addaction name="login_action"/>
-    <addaction name="new_user_action"/>
     <addaction name="user_list_action"/>
     <addaction name="logout_action"/>
     <addaction name="translate_action"/>
@@ -1840,7 +1851,7 @@ color: black; /* 可选，设置文字颜色 */</string>
   </widget>
   <action name="clear_error_action">
    <property name="icon">
-    <iconset resource="themes/image.qrc">
+    <iconset resource="../Images/image.qrc">
      <normaloff>:/images/images/clear_error.png</normaloff>:/images/images/clear_error.png</iconset>
    </property>
    <property name="text">
@@ -1864,7 +1875,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="themes/image.qrc">
+    <iconset resource="../Images/image.qrc">
      <normaloff>:/images/images/light_grey.png</normaloff>
      <normalon>:/images/images/light.png</normalon>:/images/images/light_grey.png</iconset>
    </property>
@@ -1880,7 +1891,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset resource="themes/image.qrc">
+    <iconset resource="../Images/image.qrc">
      <normaloff>:/images/images/perpare.png</normaloff>:/images/images/perpare.png</iconset>
    </property>
    <property name="text">
@@ -1895,7 +1906,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset resource="themes/image.qrc">
+    <iconset resource="../Images/image.qrc">
      <normaloff>:/images/images/run.png</normaloff>:/images/images/run.png</iconset>
    </property>
    <property name="text">
@@ -1907,7 +1918,7 @@ color: black; /* 可选，设置文字颜色 */</string>
   </action>
   <action name="stop_experiment_action">
    <property name="icon">
-    <iconset resource="themes/image.qrc">
+    <iconset resource="../Images/image.qrc">
      <normaloff>:/images/images/stop.png</normaloff>:/images/images/stop.png</iconset>
    </property>
    <property name="text">
@@ -1922,7 +1933,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset resource="themes/image.qrc">
+    <iconset resource="../Images/image.qrc">
      <normaloff>:/images/images/up.png</normaloff>
      <activeon>:/images/images/up_run.png</activeon>:/images/images/up.png</iconset>
    </property>
@@ -1941,7 +1952,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <bool>false</bool>
    </property>
    <property name="icon">
-    <iconset resource="themes/image.qrc">
+    <iconset resource="../Images/image.qrc">
      <normaloff>:/images/images/down.png</normaloff>
      <activeon>:/images/images/down_run.png</activeon>:/images/images/down.png</iconset>
    </property>
@@ -1957,7 +1968,7 @@ color: black; /* 可选，设置文字颜色 */</string>
   </action>
   <action name="new_experiment_action">
    <property name="icon">
-    <iconset resource="themes/image.qrc">
+    <iconset resource="../Images/image.qrc">
      <normaloff>:/images/images/new.png</normaloff>:/images/images/new.png</iconset>
    </property>
    <property name="text">
@@ -1969,7 +1980,7 @@ color: black; /* 可选，设置文字颜色 */</string>
   </action>
   <action name="current_experiment">
    <property name="icon">
-    <iconset resource="themes/image.qrc">
+    <iconset resource="../Images/image.qrc">
      <normaloff>:/images/images/edit.png</normaloff>:/images/images/edit.png</iconset>
    </property>
    <property name="text">
@@ -1981,7 +1992,7 @@ color: black; /* 可选，设置文字颜色 */</string>
   </action>
   <action name="browse_experiment_action">
    <property name="icon">
-    <iconset resource="themes/image.qrc">
+    <iconset resource="../Images/image.qrc">
      <normaloff>:/images/images/screen.png</normaloff>:/images/images/screen.png</iconset>
    </property>
    <property name="text">
@@ -1993,7 +2004,7 @@ color: black; /* 可选，设置文字颜色 */</string>
   </action>
   <action name="control_parment_action">
    <property name="icon">
-    <iconset resource="themes/image.qrc">
+    <iconset resource="../Images/image.qrc">
      <normaloff>:/images/images/contrlp.png</normaloff>:/images/images/contrlp.png</iconset>
    </property>
    <property name="text">
@@ -2005,7 +2016,7 @@ color: black; /* 可选，设置文字颜色 */</string>
   </action>
   <action name="system_parment_action">
    <property name="icon">
-    <iconset resource="themes/image.qrc">
+    <iconset resource="../Images/image.qrc">
      <normaloff>:/images/images/systemparameter.png</normaloff>:/images/images/systemparameter.png</iconset>
    </property>
    <property name="text">
@@ -2017,7 +2028,7 @@ color: black; /* 可选，设置文字颜色 */</string>
   </action>
   <action name="login_action">
    <property name="icon">
-    <iconset resource="themes/image.qrc">
+    <iconset resource="../Images/image.qrc">
      <normaloff>:/images/images/pl.png</normaloff>:/images/images/pl.png</iconset>
    </property>
    <property name="text">
@@ -2029,7 +2040,7 @@ color: black; /* 可选，设置文字颜色 */</string>
   </action>
   <action name="quit_action">
    <property name="icon">
-    <iconset resource="themes/image.qrc">
+    <iconset resource="../Images/image.qrc">
      <normaloff>:/images/images/close.png</normaloff>:/images/images/close.png</iconset>
    </property>
    <property name="text">
@@ -2041,7 +2052,7 @@ color: black; /* 可选，设置文字颜色 */</string>
   </action>
   <action name="new_user_action">
    <property name="icon">
-    <iconset resource="themes/image.qrc">
+    <iconset resource="../Images/image.qrc">
      <normaloff>:/images/images/login.png</normaloff>:/images/images/login.png</iconset>
    </property>
    <property name="text">
@@ -2053,7 +2064,7 @@ color: black; /* 可选，设置文字颜色 */</string>
   </action>
   <action name="user_list_action">
    <property name="icon">
-    <iconset resource="themes/image.qrc">
+    <iconset resource="../Images/image.qrc">
      <normaloff>:/images/images/people.png</normaloff>:/images/images/people.png</iconset>
    </property>
    <property name="text">
@@ -2065,7 +2076,7 @@ color: black; /* 可选，设置文字颜色 */</string>
   </action>
   <action name="about_action">
    <property name="icon">
-    <iconset resource="themes/image.qrc">
+    <iconset resource="../Images/image.qrc">
      <normaloff>:/images/images/about.png</normaloff>:/images/images/about.png</iconset>
    </property>
    <property name="text">
@@ -2080,7 +2091,7 @@ color: black; /* 可选，设置文字颜色 */</string>
   </action>
   <action name="logout_action">
    <property name="icon">
-    <iconset resource="themes/image.qrc">
+    <iconset resource="../Images/image.qrc">
      <normaloff>:/images/images/out.png</normaloff>:/images/images/out.png</iconset>
    </property>
    <property name="text">
@@ -2098,7 +2109,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="themes/light/lightstyle.qrc">
+    <iconset resource="../Themes/light/lightstyle.qrc">
      <normaloff>:/qss_icons/light/rc/radio_unchecked@2x.png</normaloff>
      <normalon>:/qss_icons/light/rc/radio_checked_focus@2x.png</normalon>:/qss_icons/light/rc/radio_unchecked@2x.png</iconset>
    </property>
@@ -2111,7 +2122,7 @@ color: black; /* 可选，设置文字颜色 */</string>
   </action>
   <action name="translate_action">
    <property name="icon">
-    <iconset resource="themes/image.qrc">
+    <iconset resource="../Images/image.qrc">
      <normaloff>:/images/images/translate.png</normaloff>:/images/images/translate.png</iconset>
    </property>
    <property name="text">
@@ -2129,7 +2140,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="themes/light/lightstyle.qrc">
+    <iconset resource="../Themes/light/lightstyle.qrc">
      <normaloff>:/qss_icons/light/rc/radio_unchecked@2x.png</normaloff>
      <normalon>:/qss_icons/light/rc/radio_checked_focus@2x.png</normalon>:/qss_icons/light/rc/radio_unchecked@2x.png</iconset>
    </property>
@@ -2145,7 +2156,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="themes/dark/darkstyle.qrc">
+    <iconset resource="../Themes/dark/darkstyle.qrc">
      <normaloff>:/qss_icons/dark/rc/radio_unchecked_disabled@2x.png</normaloff>
      <normalon>:/qss_icons/light/rc/radio_checked_focus@2x.png</normalon>:/qss_icons/dark/rc/radio_unchecked_disabled@2x.png</iconset>
    </property>
@@ -2161,7 +2172,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <bool>true</bool>
    </property>
    <property name="icon">
-    <iconset resource="themes/image.qrc">
+    <iconset resource="../Images/image.qrc">
      <normaloff>:/images/images/dark.png</normaloff>
      <normalon>:/images/images/sun.png</normalon>:/images/images/dark.png</iconset>
    </property>
@@ -2177,14 +2188,14 @@ color: black; /* 可选，设置文字颜色 */</string>
   <customwidget>
    <class>QCustomPlot</class>
    <extends>QWidget</extends>
-   <header location="global">qcustomplot.h</header>
+   <header location="global">Headers/qcustomplot.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="themes/image.qrc"/>
-  <include location="themes/light/lightstyle.qrc"/>
-  <include location="themes/dark/darkstyle.qrc"/>
+  <include location="../Themes/dark/darkstyle.qrc"/>
+  <include location="../Images/image.qrc"/>
+  <include location="../Themes/light/lightstyle.qrc"/>
  </resources>
  <connections/>
 </ui>

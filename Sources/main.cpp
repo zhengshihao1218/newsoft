@@ -1,10 +1,10 @@
-#include "mainwindow.h"
+#include "Headers/mainwindow.h"
 #include <QFile>
 #include <QApplication>
 #include <QToolTip>
 #include <QSystemSemaphore>
 #include <QMessageBox>
-#include "singleapplication.h"
+#include "Headers/singleapplication.h"
 
 class ToolTipBlocker : public QObject
 {

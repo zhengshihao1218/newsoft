@@ -1,4 +1,4 @@
-#include "newindicattestdialog.h"
+#include "Headers/newindicattestdialog.h"
 #include "ui_newindicattestdialog.h"
 
 NewIndicatTestDialog::NewIndicatTestDialog(QWidget *parent)

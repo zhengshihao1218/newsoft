@@ -14,7 +14,7 @@
    <string>新建示功试验</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="themes/image.qrc">
+   <iconset resource="../Images/image.qrc">
     <normaloff>:/images/images/new.png</normaloff>:/images/images/new.png</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
@@ -693,7 +693,7 @@ color: black; /* 可选，设置文字颜色 */</string>
   </layout>
  </widget>
  <resources>
-  <include location="themes/image.qrc"/>
+  <include location="../Images/image.qrc"/>
  </resources>
  <connections/>
 </ui>
