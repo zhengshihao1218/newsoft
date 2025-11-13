@@ -85,10 +85,13 @@ private slots:
 
     void on_dark_light_action_triggered(bool checked);
 
+    void on_dockWidget_visibilityChanged(bool visible);
+
 private:
     Ui::MainWindow *ui;
     QTimer *m_longPressTimer;
     bool m_isLongPress;
     bool m_is2PlotVisiable;
+    void permissionSetting(int level);
 };
 #endif // MAINWINDOW_H

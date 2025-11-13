@@ -759,6 +759,7 @@ color: black; /* 可选，设置文字颜色 */</string>
      <string>系统</string>
     </property>
     <addaction name="login_action"/>
+    <addaction name="change_password_action"/>
     <addaction name="user_list_action"/>
     <addaction name="logout_action"/>
     <addaction name="translate_action"/>
@@ -856,7 +857,6 @@ color: black; /* 可选，设置文字颜色 */</string>
    <addaction name="separator"/>
    <addaction name="control_parment_action"/>
    <addaction name="system_parment_action"/>
-   <addaction name="separator"/>
    <addaction name="login_action"/>
    <addaction name="logout_action"/>
    <addaction name="quit_action"/>
@@ -2183,6 +2183,18 @@ color: black; /* 可选，设置文字颜色 */</string>
     <enum>QAction::NoRole</enum>
    </property>
   </action>
+  <action name="change_password_action">
+   <property name="icon">
+    <iconset resource="../Images/image.qrc">
+     <normaloff>:/images/images/key.png</normaloff>:/images/images/key.png</iconset>
+   </property>
+   <property name="text">
+    <string>修改密码</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>
@@ -2193,9 +2205,26 @@ color: black; /* 可选，设置文字颜色 */</string>
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../Themes/dark/darkstyle.qrc"/>
   <include location="../Images/image.qrc"/>
   <include location="../Themes/light/lightstyle.qrc"/>
+  <include location="../Themes/dark/darkstyle.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>toolBar</sender>
+   <signal>visibilityChanged(bool)</signal>
+   <receiver>tool_view_action</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>871</x>
+     <y>57</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

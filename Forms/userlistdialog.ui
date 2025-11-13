@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>653</width>
-    <height>311</height>
+    <width>753</width>
+    <height>451</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -94,8 +94,14 @@
         <widget class="QTableWidget" name="tableWidget">
          <property name="minimumSize">
           <size>
-           <width>650</width>
-           <height>500</height>
+           <width>600</width>
+           <height>330</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>600</width>
+           <height>330</height>
           </size>
          </property>
          <property name="font">
@@ -103,6 +109,11 @@
            <pointsize>9</pointsize>
           </font>
          </property>
+         <row>
+          <property name="text">
+           <string/>
+          </property>
+         </row>
          <row/>
          <row/>
          <column>
