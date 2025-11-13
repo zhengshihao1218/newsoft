@@ -21,7 +21,7 @@ UserManager::~UserManager() {
 
 // 单例实现
 UserManager& UserManager::getInstance() {
-    static UserManager instance;  // 局部静态变量，线程安全(C++11及以上)
+    static UserManager instance;  // 局部静态变量，线程安全
     return instance;
 }
 
@@ -65,7 +65,7 @@ bool UserManager::openDatabase() {
     return true;
 }
 
-// 其他方法实现保持不变，但需要添加线程安全锁
+// 添加用户，需要添加线程安全锁
 int UserManager::addUser(const QString& userID, const QString& plainPassword,
                           const QString& userName, int privilege) {
     QMutexLocker locker(&mutex_);
@@ -105,9 +105,7 @@ int UserManager::addUser(const QString& userID, const QString& plainPassword,
 
 // 获取用户信息
 UserInfo UserManager::getUser(const QString& userID) {
-    qDebug() << "getUser 开始了";
     QMutexLocker locker(&mutex_);
-    qDebug() << "getUser 通过了锁";
     UserInfo user;
 
     if (!isDatabaseOpen()) {
@@ -206,5 +204,91 @@ QVector<UserInfo> UserManager::getAllUsers() {
         users.append(user);
     }
 
+    return users;
+}
+
+// 获取用户总数
+int UserManager::getUserCount() {
+    QMutexLocker locker(&mutex_);
+
+    if (!isDatabaseOpen()) {
+        qDebug() << "数据库未打开，无法获取用户数量";
+        return 0;
+    }
+
+    QSqlQuery query(*db_);
+    QString sql = "SELECT COUNT(*) FROM UserInfo";
+
+    if (!query.exec(sql)) {
+        qDebug() << "获取用户数量失败:" << query.lastError().text();
+        return 0;
+    }
+
+    if (query.next()) {
+        int count = query.value(0).toInt();
+        qDebug() << "用户总数:" << count;
+        return count;
+    }
+
+    return 0;
+}
+
+// 分页获取用户信息
+QVector<UserInfo> UserManager::getUsersByPage(int page) {
+    QMutexLocker locker(&mutex_);
+
+    QVector<UserInfo> users;
+
+    if (!isDatabaseOpen()) {
+        qDebug() << "数据库未打开";
+        return users;
+    }
+
+    int pageSize = 10;
+
+    // 计算偏移量
+    int offset = (page - 1) * pageSize;
+    if (offset < 0) offset = 0;
+
+    QSqlQuery query(*db_);
+
+    // 使用 LIMIT 和 OFFSET 实现分页
+    QString sql = "SELECT UserID, Password, UserName, Privilege, DataCreate "
+                  "FROM UserInfo "
+                  "ORDER BY DataCreate DESC "  // 按创建时间倒序排列
+                  "LIMIT :pageSize OFFSET :offset";
+
+    query.prepare(sql);
+    query.bindValue(":pageSize", pageSize);
+    query.bindValue(":offset", offset);
+
+    if (!query.exec()) {
+        qDebug() << "分页查询失败:" << query.lastError().text();
+        qDebug() << "SQL:" << sql;
+        qDebug() << "参数: pageSize=" << pageSize << ", offset=" << offset;
+        return users;
+    }
+
+    int count = 0;
+    while (query.next()) {
+        count++;
+        UserInfo user;
+        user.UserID = query.value("UserID").toString();
+        user.Password = query.value("Password").toString();
+        user.UserName = query.value("UserName").toString();
+        user.Privilege = query.value("Privilege").toInt();
+
+        QString dateStr = query.value("DataCreate").toString();
+        user.DataCreate = QDateTime::fromString(dateStr, "yyyy-MM-dd HH:mm:ss");
+        if (!user.DataCreate.isValid()) {
+            user.DataCreate = QDateTime::currentDateTime();
+        }
+
+        users.append(user);
+
+        qDebug() << "分页用户" << count << ":" << user.UserID << user.UserName;
+    }
+
+    qDebug() << "分页查询成功，获取到" << users.size() << "条记录";
     return users;
 }

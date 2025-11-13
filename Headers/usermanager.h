@@ -20,7 +20,6 @@ struct UserInfo {
 class UserManager {
 public:
     static UserManager& getInstance();
-
     // 数据库操作
     bool openDatabase();
     void closeDatabase();
@@ -30,12 +29,16 @@ public:
     // 1 -- 成功
     // 0 -- 失败
     // -1 用户已存在
-
     int addUser(const QString& userID, const QString& plainPassword,
-                 const QString& userName, int privilege);
+                const QString& userName, int privilege);
     bool deleteUser(const QString& userID);
     UserInfo getUser(const QString& userID);
     QVector<UserInfo> getAllUsers();
+    // 分页获取用户信息
+    QVector<UserInfo> getUsersByPage(int page);
+
+    // 获取用户总数（用于计算总页数）
+    int getUserCount();
 
     // 身份验证
     bool authenticate(const QString& userID, const QString& plainPassword);
@@ -46,6 +49,8 @@ public:
 private:
     UserManager();  // 私有构造函数
     ~UserManager(); // 私有析构函数
+
+
 
     QSqlDatabase* db_;
     QString connectionName_;

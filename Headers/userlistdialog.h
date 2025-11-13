@@ -22,9 +22,14 @@ private slots:
     void on_pushButton_addUser_clicked();
     void refreshUserList();
 
+    void on_pushButton_previous_clicked();
+
+    void on_pushButton_next_clicked();
+
 private:
     Ui::UserListDialog *ui;
     void populateTable();
+    int currentPage;
 };
 
 #endif // USERLISTDIALOG_H

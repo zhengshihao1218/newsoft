@@ -6,6 +6,7 @@ UserListDialog::UserListDialog(QWidget *parent)
     , ui(new Ui::UserListDialog)
 {
     ui->setupUi(this);
+    currentPage = 1;
     populateTable();
 }
 
@@ -32,7 +33,7 @@ void UserListDialog::refreshUserList()
 void UserListDialog::populateTable()
 {
     ui->tableWidget->setRowCount(0);
-    QVector<UserInfo>infos = UserManager::getInstance().getAllUsers();
+    QVector<UserInfo>infos = UserManager::getInstance().getUsersByPage(currentPage);
     ui->tableWidget->setRowCount(infos.size());
     for (int i = 0; i < infos.size(); ++i) {
         const UserInfo &user = infos[i];
@@ -69,6 +70,26 @@ void UserListDialog::populateTable()
     //     if (tableWidget->columnWidth(i) < 80) {
     //         tableWidget->setColumnWidth(i, 80);
     //     }
-
+    ui->label_3->setText(QString("第 %1 页").arg(currentPage));
+    ui->label_5->setText(QString("共 %1 条").arg(UserManager::getInstance().getUserCount()));
+    ui->label_4->setText(QString("共 %1 页").arg(UserManager::getInstance().getUserCount()/10 + 1));
     qDebug() << "加载了" << infos.size() << "个用户";
 }
+
+void UserListDialog::on_pushButton_previous_clicked()
+{
+    if(currentPage > 1){
+        currentPage --;
+        populateTable();
+    }
+}
+
+
+void UserListDialog::on_pushButton_next_clicked()
+{
+    if(currentPage < (UserManager::getInstance().getUserCount()/10 + 1)){
+        currentPage ++;
+        populateTable();
+    }
+}
+

@@ -30,6 +30,7 @@ MainWindow::MainWindow(QWidget *parent)
                        .arg(currentTime.second(), 2, 10, QChar('0')); // 秒，2位，用0填充
 
     ui->lcdNumber_time->display(text);
+    permissionSetting(1);
 
     // 连接数据库
     UserManager::getInstance().openDatabase();
@@ -93,6 +94,8 @@ void MainWindow::initNotLoginAction()
     ui->login_action->setEnabled(true);
     ui->login_action->setText("用户登录");
     ui->logout_action->setVisible(false);
+    ui->change_password_action->setVisible(false);
+    permissionSetting(1);
 }
 
 void MainWindow::initLoginAction(QString id)
@@ -122,6 +125,8 @@ void MainWindow::initLoginAction(QString id)
         ui->prepare_experiment_action->setEnabled(true);
         ui->start_experiment_action->setEnabled(true);
     }
+    ui->change_password_action->setVisible(true);
+    permissionSetting(UserManager::getInstance().getUser(id).Privilege);
 }
 
 
@@ -427,5 +432,27 @@ void MainWindow::on_two_chart_action_triggered(bool checked)
 void MainWindow::on_dark_light_action_triggered(bool checked)
 {
 
+}
+
+void MainWindow::permissionSetting(int level)
+{
+    switch (level) {
+    case 0:
+        ui->system_parment_action->setVisible(true);
+        ui->control_parment_action->setVisible(true);
+        ui->user_list_action->setVisible(true);
+        break;
+    case 1:
+    default:
+        ui->system_parment_action->setVisible(false);
+        ui->control_parment_action->setVisible(false);
+        ui->user_list_action->setVisible(false);
+        break;
+    }
+}
+
+void MainWindow::on_dockWidget_visibilityChanged(bool visible)
+{
+    ui->info_view_action->setChecked(visible);
 }
 
