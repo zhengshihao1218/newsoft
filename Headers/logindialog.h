@@ -2,7 +2,7 @@
 #define LOGINDIALOG_H
 
 #include <QDialog>
-#include "loginfaildialog.h"
+#include "faileddialog.h"
 
 namespace Ui {
 class LoginDialog;

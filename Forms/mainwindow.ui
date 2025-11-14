@@ -762,6 +762,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <addaction name="change_password_action"/>
     <addaction name="user_list_action"/>
     <addaction name="logout_action"/>
+    <addaction name="separator"/>
     <addaction name="translate_action"/>
     <addaction name="quit_action"/>
    </widget>
@@ -776,6 +777,9 @@ color: black; /* 可选，设置文字颜色 */</string>
     <addaction name="browse_experiment_action"/>
    </widget>
    <widget class="QMenu" name="menu_3">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="title">
      <string>参数设置</string>
     </property>
@@ -2205,8 +2209,8 @@ color: black; /* 可选，设置文字颜色 */</string>
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../Images/image.qrc"/>
   <include location="../Themes/light/lightstyle.qrc"/>
+  <include location="../Images/image.qrc"/>
   <include location="../Themes/dark/darkstyle.qrc"/>
  </resources>
  <connections>

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>753</width>
-    <height>451</height>
+    <height>454</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -33,17 +33,12 @@
       </widget>
      </item>
      <item>
-      <widget class="QTextBrowser" name="textBrowser">
-       <property name="maximumSize">
+      <widget class="QLineEdit" name="lineEdit">
+       <property name="minimumSize">
         <size>
-         <width>16777215</width>
-         <height>23</height>
+         <width>274</width>
+         <height>0</height>
         </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>11</pointsize>
-        </font>
        </property>
       </widget>
      </item>
@@ -72,6 +67,36 @@
        </property>
       </spacer>
      </item>
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../Images/image.qrc">
+         <normaloff>:/images/images/re.png</normaloff>:/images/images/re.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>32</width>
+         <height>32</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
     </layout>
    </item>
    <item>
@@ -86,7 +111,7 @@
           </font>
          </property>
          <property name="text">
-          <string>用户列表</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;用户列表&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>

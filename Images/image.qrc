@@ -38,5 +38,6 @@
         <file>images/sun.png</file>
         <file>images/deleteuser.png</file>
         <file>images/sign.png</file>
+        <file>images/re.png</file>
     </qresource>
 </RCC>
