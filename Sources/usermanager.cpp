@@ -105,7 +105,7 @@ int UserManager::addUser(const QString& userID, const QString& plainPassword,
 
 // 获取用户信息
 UserInfo UserManager::getUser(const QString& userID) {
-    QMutexLocker locker(&mutex_);
+    // QMutexLocker locker(&mutex_);
     UserInfo user;
 
     if (!isDatabaseOpen()) {
@@ -133,6 +133,7 @@ UserInfo UserManager::getUser(const QString& userID) {
 
 // 身份验证
 bool UserManager::authenticate(const QString& userID, const QString& plainPassword) {
+    QMutexLocker locker(&mutex_);
     if (!isDatabaseOpen()) {
         qDebug() << "数据库未打开，无法验证身份";
         return false;
@@ -210,7 +211,6 @@ QVector<UserInfo> UserManager::getAllUsers() {
 // 获取用户总数
 int UserManager::getUserCount() {
     QMutexLocker locker(&mutex_);
-
     if (!isDatabaseOpen()) {
         qDebug() << "数据库未打开，无法获取用户数量";
         return 0;
@@ -291,4 +291,146 @@ QVector<UserInfo> UserManager::getUsersByPage(int page) {
 
     qDebug() << "分页查询成功，获取到" << users.size() << "条记录";
     return users;
+}
+
+// 分页模糊查询
+QVector<UserInfo> UserManager::searchUsersByPage(const QString& keyword, int page) {
+    QMutexLocker locker(&mutex_);
+    QVector<UserInfo> users;
+
+    if (!isDatabaseOpen()) {
+        qDebug() << "数据库未打开，无法进行分页模糊查询";
+        return users;
+    }
+    int pageSize = 10;
+    // 计算偏移量
+    int offset = (page - 1) * pageSize;
+    if (offset < 0) offset = 0;
+
+    QSqlQuery query(*db_);
+
+    QString sql;
+    if (keyword.isEmpty()) {
+        // 如果关键词为空，返回所有用户的分页结果
+        sql = "SELECT UserID, Password, UserName, Privilege, DataCreate "
+              "FROM UserInfo "
+              "ORDER BY DataCreate DESC "
+              "LIMIT :pageSize OFFSET :offset";
+
+        query.prepare(sql);
+        query.bindValue(":pageSize", pageSize);
+        query.bindValue(":offset", offset);
+    } else {
+        // 有关键词时进行模糊查询
+        sql = "SELECT UserID, UserName, Privilege, DataCreate "
+              "FROM UserInfo "
+              "WHERE UserID LIKE :keyword OR UserName LIKE :keyword "
+              "ORDER BY DataCreate DESC "
+              "LIMIT :pageSize OFFSET :offset";
+
+        query.prepare(sql);
+        QString searchPattern = "%" + keyword + "%";
+        query.bindValue(":keyword", searchPattern);
+        query.bindValue(":pageSize", pageSize);
+        query.bindValue(":offset", offset);
+    }
+
+    if (!query.exec()) {
+        qDebug() << "分页模糊查询失败:" << query.lastError().text();
+        qDebug() << "SQL:" << sql;
+        qDebug() << "关键词:" << keyword << "页码:" << page;
+        return users;
+    }
+
+    int count = 0;
+    while (query.next()) {
+        count++;
+        UserInfo user;
+        user.UserID = query.value("UserID").toString();
+        user.Password = query.value("Password").toString();
+        user.UserName = query.value("UserName").toString();
+        user.Privilege = query.value("Privilege").toInt();
+
+        QString dateStr = query.value("DataCreate").toString();
+        user.DataCreate = QDateTime::fromString(dateStr, "yyyy-MM-dd HH:mm:ss");
+        if (!user.DataCreate.isValid()) {
+            user.DataCreate = QDateTime::currentDateTime();
+        }
+
+        users.append(user);
+    }
+
+    qDebug() << "分页模糊查询成功，第" << page << "页获取到" << users.size() << "条记录";
+    return users;
+}
+
+// 修改用户密码
+int UserManager::updateUserPassword(const QString& userID, const QString& newPassword) {
+    qDebug() << "updateUserPassword begin 1";
+    QMutexLocker locker(&mutex_);
+    qDebug() << "updateUserPassword begin 2";
+    if (!isDatabaseOpen()) {
+        qDebug() << "数据库未打开，无法修改密码";
+        return 0;
+    }
+
+    QString hashedPassword = hashPassword(newPassword);
+
+    QSqlQuery query(*db_);
+    query.prepare("UPDATE UserInfo SET Password = ? WHERE UserID = ?");
+
+    query.addBindValue(hashedPassword);
+    query.addBindValue(userID);
+
+    if (!query.exec()) {
+        qDebug() << "修改密码失败:" << query.lastError().text();
+        return 0;
+    }
+
+    int affectedRows = query.numRowsAffected();
+    if (affectedRows > 0) {
+        qDebug() << "用户密码修改成功:" << userID;
+        return 1;
+    } else {
+        qDebug() << "密码修改失败，未找到匹配的用户:" << userID;
+        return -1;
+    }
+}
+
+// 删除用户
+int UserManager::deleteUser(const QString& userID) {
+    QMutexLocker locker(&mutex_);
+
+    if (!isDatabaseOpen()) {
+        qDebug() << "数据库未打开，无法删除用户";
+        return 0;
+    }
+
+    // 检查用户是否存在
+    UserInfo existingUser = getUser(userID);
+    if (existingUser.UserID.isEmpty()) {
+        qDebug() << "用户不存在，无法删除:" << userID;
+        return -1; // 用户不存在
+    }
+
+    // 防止删除自己（根据业务需求可选）
+    // 这里可以添加逻辑防止删除当前登录用户
+
+    QSqlQuery query(*db_);
+    query.prepare("DELETE FROM UserInfo WHERE UserID = ?");
+    query.addBindValue(userID);
+
+    if (!query.exec()) {
+        qDebug() << "删除用户失败:" << query.lastError().text();
+        return 0;
+    }
+
+    int affectedRows = query.numRowsAffected();
+    if (affectedRows > 0) {
+        qDebug() << "用户删除成功:" << userID;
+        return 1;
+    } else {
+        qDebug() << "用户删除失败，未找到匹配的用户:" << userID;
+        return -1;
+    }
 }

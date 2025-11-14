@@ -13,6 +13,7 @@
 #include "browseexperimentdialog.h"
 #include "controlparamentdialog.h"
 #include "usermanager.h"
+#include "change_pasword_dialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -86,6 +87,8 @@ private slots:
     void on_dark_light_action_triggered(bool checked);
 
     void on_dockWidget_visibilityChanged(bool visible);
+
+    void on_change_password_action_triggered();
 
 private:
     Ui::MainWindow *ui;

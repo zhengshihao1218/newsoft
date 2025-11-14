@@ -96,6 +96,7 @@ void MainWindow::initNotLoginAction()
     ui->logout_action->setVisible(false);
     ui->change_password_action->setVisible(false);
     permissionSetting(1);
+    UserManager::getInstance().login_User_ID = "";
 }
 
 void MainWindow::initLoginAction(QString id)
@@ -127,6 +128,7 @@ void MainWindow::initLoginAction(QString id)
     }
     ui->change_password_action->setVisible(true);
     permissionSetting(UserManager::getInstance().getUser(id).Privilege);
+    UserManager::getInstance().login_User_ID = id;
 }
 
 
@@ -438,6 +440,7 @@ void MainWindow::permissionSetting(int level)
 {
     switch (level) {
     case 0:
+        ui->menu_3->setEnabled(true);
         ui->system_parment_action->setVisible(true);
         ui->control_parment_action->setVisible(true);
         ui->user_list_action->setVisible(true);
@@ -447,6 +450,7 @@ void MainWindow::permissionSetting(int level)
         ui->system_parment_action->setVisible(false);
         ui->control_parment_action->setVisible(false);
         ui->user_list_action->setVisible(false);
+        ui->menu_3->setEnabled(false);
         break;
     }
 }
@@ -454,5 +458,14 @@ void MainWindow::permissionSetting(int level)
 void MainWindow::on_dockWidget_visibilityChanged(bool visible)
 {
     ui->info_view_action->setChecked(visible);
+}
+
+void MainWindow::on_change_password_action_triggered()
+{
+    Change_Pasword_Dialog *dialog = new Change_Pasword_Dialog();
+    dialog->setWindowFlag(Qt::WindowCloseButtonHint);
+    dialog->exec();
+    delete dialog;
+    dialog = nullptr;
 }
 

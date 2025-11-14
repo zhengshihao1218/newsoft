@@ -12,7 +12,8 @@ TEMPLATE = app
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    Sources/loginfaildialog.cpp \
+    Sources/change_pasword_dialog.cpp \
+    Sources/faileddialog.cpp \
     Sources/qcustomplot.cpp \
     Sources/usermanager.cpp \
     Sources/aboutdialog.cpp \
@@ -33,7 +34,6 @@ SOURCES += \
     Sources/userlistdialog.cpp
 
 HEADERS += \
-    Headers/loginfaildialog.h \
     Headers/qcustomplot.h \
     Headers/aboutdialog.h \
     Headers/adduserdialog.h \
@@ -50,7 +50,9 @@ HEADERS += \
     Headers/singleapplication.h \
     Headers/systemparameterdialog.h \
     Headers/userlistdialog.h \
-    Headers/usermanager.h
+    Headers/usermanager.h \
+    Headers/change_pasword_dialog.h \
+    Headers/faileddialog.h
 
 FORMS += \
     Forms/aboutdialog.ui \
@@ -66,7 +68,8 @@ FORMS += \
     Forms/newindicattestdialog.ui \
     Forms/systemparameterdialog.ui \
     Forms/userlistdialog.ui \
-    Forms/loginfaildialog.ui
+    Forms/change_pasword_dialog.ui \
+    Forms/faileddialog.ui
 
 RESOURCES += \
     Images/image.qrc \
