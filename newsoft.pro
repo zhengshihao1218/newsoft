@@ -79,6 +79,7 @@ RESOURCES += \
     Images/image.qrc \
     Themes/dark/darkstyle.qrc \
     Themes/light/lightstyle.qrc \
+    Translations/translation.qrc
 
 RC_ICONS = Images\images\CSCS.ico
 
@@ -97,3 +98,10 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 # # 链接库文件
 # LIBS += -L$$PWD/Library -lHMIKernel  # -lMyLibrary 会链接 libMyLibrary.so 或 MyLibrary.dll
+
+TRANSLATIONS += \
+    Translations/newsoft_en_001.ts \
+    Translations/newsoft_zh_CN.ts
+
+# TS_DIR = Translations/
+

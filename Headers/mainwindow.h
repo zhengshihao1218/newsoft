@@ -103,11 +103,16 @@ private slots:
 
     void on_log_a_button_clicked(bool checked);
 
+    void on_translate_action_triggered(bool checked);
+
 private:
     Ui::MainWindow *ui;
     QTimer *m_longPressTimer;
     bool m_isLongPress;
     bool m_is2PlotVisiable;
     void permissionSetting(int level);
+    QTranslator *m_englishTranslator;
+    QTranslator *m_chineseTranslator;
+
 };
 #endif // MAINWINDOW_H

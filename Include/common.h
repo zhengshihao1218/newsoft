@@ -95,7 +95,7 @@ typedef     DWORD               FGC;        // Foreground color
 typedef     DWORD               BGC;        // Background color
 typedef     WORD                tmHWND;       // Handle of window
 typedef     unsigned int        UINT;
-typedef     UINT                WPARAM;
+// typedef     UINT                WPARAM;
 //typedef     DWORD               LPARAM;
 typedef     DWORD               _TIMEL;
 typedef     DWORD               _COUNTL;
