@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/translation">
+        <file>res/newsoft_en_001.qm</file>
+        <file>res/newsoft_zh_CN.qm</file>
+    </qresource>
+</RCC>

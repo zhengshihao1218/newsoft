@@ -105,65 +105,6 @@ public:
     CtmDevicePLC(QString strConfig);
     ~CtmDevicePLC();
 public:
-    /**
-     * @brief Sends a data request of the specified type.
-     *
-     * @param nType 请求类型，取值常量如下：
-     *   - CONST_REQ_ACTUAL = 1: 即时资料请求
-     *   - CONST_REQ_READMOTOR = 2: 读资料请求
-     *   - CONST_REQ_WRITEMOTOR = 3: 写资料请求
-     *   - CONST_REQ_ALARM = 4: 警报请求
-     *   - CONST_REQ_CURVE = 5: 曲线请求
-     *   - CONST_REQ_COMMAND = 6: 命令请求
-     *   - CONST_REQ_LINESTATUS = 7: 连线请求
-     *   - CONST_REQ_MOLDSETSTATUS = 8: 模具状态请求
-     *   - CONST_REQ_MOLDSET = 9: 模具资料发送
-     *   - CONST_REQ_TEMPER = 10: 温度资料请求
-     *   - CONST_REQ_ADJUST = 11: 校正命令请求
-     *   - CONST_REQ_ADZERO = 12: 归零命令请求
-     *   - CONST_REQ_SIEMREAD_DIAG = 13: 西门子诊断读
-     *   - CONST_REQ_SIEMWRITE_DIAG = 14: 西门子诊断写
-     *   - CONST_REQ_PWMTRDATA = 15: 转发电力计资料
-     *   - CONST_REQ_TRIGGER = 17: 分组触发器资料请求
-     *   - CONST_REQ_TRIGGER_DATA = 2018: 分组触发器资料确认包
-     *
-     * @param nElements 请求数量，取值范围是1~max。
-     *
-     * @param pszIDs 命令ID字符串数组，取值常量如下：
-     *   - CONTROL KEY NONE8 = 0
-     *   - CONTROL KEY CLEAR ALL = 1: 清错
-     *   - CONTROL KEY STOP MOTOR = 2: 关闭马达
-     *   - CONTROL KEY STOP ALL = 3: 停止实验
-     *   - CONTROL KEY CLEAR ALARM = 11: 手动清错
-     *   - CONTROL KEY AXIS MOTOR = 12: 马达启动
-     *   - CONTROL KEY AXIS HOMING = 13: 归零
-     *   - CONTROL KEY AXIS JOGFWD = 14: 寸动前进
-     *   - CONTROL KEY AXIS JOGBWD = 15: 寸动后退
-     *
-     * @param pEx 扩展参数，当前未用到，传`NULL`即可。
-     * 
-     * @warning
-     *   - 线程安全可能异常。
-     *   - `pszIDs` 数组需要正确填充，以避免发送无效请求。
-     *
-     * @note
-     *   - 请求发送后会有后续的响应处理。
-     *   - 启动马达前需要先确保试验停止，关闭其他轴马达，确保当前轴组正确。
-     *
-     * @code{.cpp}
-     *   CtmDevice *device = CtmDevice::GetDevice("PLC");
-     *   if (device == NULL) return false;
-     *   if (nKey < 0xffff && isHelpAxis) {
-     *       nTmp = GetAxisGroupIndex(g_nCurWorkstation, false);
-     *       SetDBValue(MCHN_CONFIG_ACTAXISGROUP, nTmp);
-     *   }
-     *   device->ReqValues(CONST_REQ_COMMAND, 1, &pCmd, NULL);
-     * @endcode
-     * 
-     * @return 返回值:
-     *   - 1: 成功
-     *   - 0: 失败
-     */
     int     ReqValues(int nType, int nElements, char* pszIDs[], void* pEx = NULL);
     int     ReqValues(int nType, int nElements, int pIndexs[], void* pEx = NULL);
 

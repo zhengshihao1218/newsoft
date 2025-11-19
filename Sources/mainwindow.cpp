@@ -36,6 +36,9 @@ MainWindow::MainWindow(QWidget *parent)
     LogManager::getInstance().openDatabase();
     connect(&LogManager::getInstance(), &LogManager::logAdded,
             this, &MainWindow::refreshLogView);
+    // 预加载两个翻译文件
+    // m_englishTranslator->load(":/translation/res/newsoft_en_001.qm");
+    // m_chineseTranslator->load(":/translation/res/newsoft_zh_CN.qm");
 }
 
 MainWindow::~MainWindow()
@@ -608,5 +611,23 @@ void MainWindow::on_log_a_button_clicked(bool checked)
     } else {
         ui->log_a_button->setChecked(true);
     }
+}
+
+
+void MainWindow::on_translate_action_triggered(bool checked)
+{
+    // QApplication::removeTranslator(m_englishTranslator);
+    // QApplication::removeTranslator(m_chineseTranslator);
+    QTranslator translator;
+    QString qm_path = "";
+    if (checked) {
+        qm_path = QApplication::applicationDirPath()+"/res/newsoft_en_001.qm";
+    } else {
+        qm_path = QApplication::applicationDirPath()+"/res/newsoft_zh_CN.qm";
+    }
+    bool b_value = translator.load(qm_path);
+    qDebug() << "加载文件 " << qm_path;
+    qApp->installTranslator(&translator);
+    this->ui->retranslateUi(this);
 }
 
