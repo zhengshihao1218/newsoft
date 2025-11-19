@@ -14,6 +14,7 @@
 #include "controlparamentdialog.h"
 #include "usermanager.h"
 #include "change_pasword_dialog.h"
+#include "logmanager.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -89,6 +90,18 @@ private slots:
     void on_dockWidget_visibilityChanged(bool visible);
 
     void on_change_password_action_triggered();
+
+    void on_log_hmi_radio_toggled(bool checked);
+
+    void on_log_plc_radio_toggled(bool checked);
+
+    void refreshLogView();
+
+    void on_log_e_button_clicked(bool checked);
+
+    void on_log_n_button_clicked(bool checked);
+
+    void on_log_a_button_clicked(bool checked);
 
 private:
     Ui::MainWindow *ui;

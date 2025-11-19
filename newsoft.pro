@@ -1,4 +1,4 @@
-QT       += core gui network widgets charts sql
+QT       += core gui network widgets charts sql xml
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
@@ -12,8 +12,10 @@ TEMPLATE = app
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    # Sources/plcmanager.cpp \
     Sources/change_pasword_dialog.cpp \
     Sources/faileddialog.cpp \
+    Sources/logmanager.cpp \
     Sources/qcustomplot.cpp \
     Sources/usermanager.cpp \
     Sources/aboutdialog.cpp \
@@ -34,6 +36,7 @@ SOURCES += \
     Sources/userlistdialog.cpp
 
 HEADERS += \
+    # Headers/plcmanager.h \
     Headers/qcustomplot.h \
     Headers/aboutdialog.h \
     Headers/adduserdialog.h \
@@ -52,7 +55,8 @@ HEADERS += \
     Headers/userlistdialog.h \
     Headers/usermanager.h \
     Headers/change_pasword_dialog.h \
-    Headers/faileddialog.h
+    Headers/faileddialog.h \
+    Headers/logmanager.h
 
 FORMS += \
     Forms/aboutdialog.ui \
@@ -87,3 +91,9 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
+
+# # 添加库的头文件路径
+# INCLUDEPATH += $$PWD/Include  # 指向 MyLibrary 的头文件路径
+
+# # 链接库文件
+# LIBS += -L$$PWD/Library -lHMIKernel  # -lMyLibrary 会链接 libMyLibrary.so 或 MyLibrary.dll
