@@ -31,9 +31,11 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->lcdNumber_time->display(text);
     permissionSetting(1);
-
     // 连接数据库
     UserManager::getInstance().openDatabase();
+    LogManager::getInstance().openDatabase();
+    connect(&LogManager::getInstance(), &LogManager::logAdded,
+            this, &MainWindow::refreshLogView);
 }
 
 MainWindow::~MainWindow()
@@ -96,6 +98,7 @@ void MainWindow::initNotLoginAction()
     ui->logout_action->setVisible(false);
     ui->change_password_action->setVisible(false);
     permissionSetting(1);
+    LogManager::getInstance().addLog(UserManager::getInstance().login_User_ID,5);
     UserManager::getInstance().login_User_ID = "";
 }
 
@@ -129,6 +132,7 @@ void MainWindow::initLoginAction(QString id)
     ui->change_password_action->setVisible(true);
     permissionSetting(UserManager::getInstance().getUser(id).Privilege);
     UserManager::getInstance().login_User_ID = id;
+    LogManager::getInstance().addLog(id,1);
 }
 
 
@@ -433,7 +437,40 @@ void MainWindow::on_two_chart_action_triggered(bool checked)
 
 void MainWindow::on_dark_light_action_triggered(bool checked)
 {
+    QString qssPath;
 
+    if (checked) {
+        qssPath = ":/qdarkstyle/dark/darkstyle.qss";
+        qDebug() << "应用暗色主题";
+    } else {
+        qssPath = ":/qdarkstyle/light/lightstyle.qss";
+        qDebug() << "应用亮色主题";
+    }
+
+    QFile file(qssPath);
+    if (file.open(QFile::ReadOnly | QFile::Text)) {
+        QString styleSheet = file.readAll();
+        file.close();
+
+        // 应用样式表
+        qApp->setStyleSheet(styleSheet);
+
+        // 保存主题设置
+        QSettings settings;
+        if(checked){
+            settings.setValue("Theme/DarkMode", "dark");
+        } else {
+             settings.setValue("Theme/DarkMode", "light");
+        }
+        qDebug() << "保存的主题设置:" << settings.value("Theme/DarkMode").toString();
+        settings.sync();
+
+    } else {
+        qDebug() << "无法打开样式表文件:" << qssPath;
+        // 恢复之前的选中状态
+        ui->dark_light_action->setChecked(!checked);
+        QMessageBox::warning(this, "主题切换失败", "无法加载主题文件，请检查资源文件。");
+    }
 }
 
 void MainWindow::permissionSetting(int level)
@@ -467,5 +504,109 @@ void MainWindow::on_change_password_action_triggered()
     dialog->exec();
     delete dialog;
     dialog = nullptr;
+}
+
+void MainWindow::refreshLogView()
+{
+    // ui->log_a_button->isChecked();
+    // ui->log_e_button->isChecked();
+    // ui->log_n_button->isChecked();
+    // ui->log_hmi_radio->isChecked();
+    // ui->log_plc_radio->isChecked();
+    QChar level = 'N';
+    if (ui->log_n_button->isChecked()) {
+        level = 'N';
+    }
+    if (ui->log_e_button->isChecked()) {
+        level = 'E';
+    }
+    if (ui->log_a_button->isChecked()) {
+        level = 'A';
+    }
+    int device = 1;
+    bool hmi_checked = ui->log_hmi_radio->isChecked();
+    bool plc_checked = ui->log_plc_radio->isChecked();
+    if(hmi_checked && plc_checked) {
+        device = 1;
+    } else if (hmi_checked && !plc_checked) {
+        device = 1000;
+    } else if (!hmi_checked && plc_checked) {
+        device = 100;
+    } else {
+        device = -1;
+    }
+
+    qDebug() << "refreshLogView " << level << "  device " << device;
+    ui->log_table->setRowCount(0);
+    QVector<FullLogRecord>logs = LogManager::getInstance().getUserLogsWithDetails(UserManager::getInstance().login_User_ID,level, device);
+    ui->log_table->setRowCount(logs.size());
+    for (int i = 0; i < logs.size(); ++i) {
+        const FullLogRecord &log = logs[i];
+
+        // time
+        QTableWidgetItem *timeItem = new QTableWidgetItem(log.time.toString("yyyy-MM-dd hh:mm:ss"));
+        ui->log_table->setItem(i, 0, timeItem);
+
+        // level
+        QTableWidgetItem *levelItem = new QTableWidgetItem(log.level);
+        ui->log_table->setItem(i, 1, levelItem);
+
+        // UserName
+        QTableWidgetItem *detailItem = new QTableWidgetItem(log.detail);
+        ui->log_table->setItem(i, 2, detailItem);
+
+    }
+
+    // 调整列宽
+    //ui->log_table->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+}
+
+
+void MainWindow::on_log_hmi_radio_toggled(bool checked)
+{
+    refreshLogView();
+}
+
+
+void MainWindow::on_log_plc_radio_toggled(bool checked)
+{
+    refreshLogView();
+}
+
+
+
+void MainWindow::on_log_e_button_clicked(bool checked)
+{
+    if(checked){
+        ui->log_a_button->setChecked(!checked);
+        ui->log_n_button->setChecked(!checked);
+        refreshLogView();
+    } else {
+        ui->log_e_button->setChecked(true);
+    }
+}
+
+
+void MainWindow::on_log_n_button_clicked(bool checked)
+{
+    if(checked) {
+        ui->log_a_button->setChecked(!checked);
+        ui->log_e_button->setChecked(!checked);
+        refreshLogView();
+    } else {
+        ui->log_n_button->setChecked(true);
+    }
+}
+
+
+void MainWindow::on_log_a_button_clicked(bool checked)
+{
+    if(checked) {
+        ui->log_n_button->setChecked(!checked);
+        ui->log_e_button->setChecked(!checked);
+        refreshLogView();
+    } else {
+        ui->log_a_button->setChecked(true);
+    }
 }
 

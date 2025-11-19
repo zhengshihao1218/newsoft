@@ -26,7 +26,7 @@ void LoginDialog::on_pushButton_clicked()
         qDebug() << "账号密码OK";
         this->close();
     } else {
-        FailedDialog *dialog = new FailedDialog("用户不存在或密码不正确");
+        FailedDialog *dialog = new FailedDialog("账号不存在或密码错误！");
         dialog->setWindowFlag(Qt::WindowCloseButtonHint);
         dialog->exec();
         delete dialog;

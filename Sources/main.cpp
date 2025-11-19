@@ -29,7 +29,15 @@ int main(int argc, char *argv[])
     if(!a.isRunning()){
         // 设置样式表
         QString qssPath;
-        qssPath = ":/qdarkstyle/light/lightstyle.qss";
+        QSettings settings;
+        qDebug() << "保存的主题设置:" << settings.value("Theme/DarkMode").toString();
+        QString lightMode = settings.value("Theme/DarkMode","light").toString();
+        if(lightMode == "light") {
+            qssPath = ":/qdarkstyle/light/lightstyle.qss";
+        } else {
+            qssPath = ":/qdarkstyle/dark/darkstyle.qss";
+        }
+        // qssPath = ":/qdarkstyle/dark/darkstyle.qss";
         QFile file(qssPath);
         if (file.open(QFile::ReadOnly | QFile::Text)) {
             QTextStream stream(&file);

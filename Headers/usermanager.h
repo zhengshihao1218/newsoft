@@ -58,8 +58,6 @@ private:
     UserManager();  // 私有构造函数
     ~UserManager(); // 私有析构函数
 
-
-
     QSqlDatabase* db_;
     QString connectionName_;
     mutable QMutex mutex_;  // 线程安全
