@@ -4,13 +4,14 @@
 #include <QObject>
 #include "Include/device/device.h"
 #include "Include/device/devicePLC.h"
+#include "Include/global.h"
 
 class PLCManager
 {
 public:
     PLCManager();
     ~PLCManager();
-    void connectPLC();
+    // void connectPLC();
 };
 
 #endif // PLCMANAGER_H

@@ -350,7 +350,7 @@
     <message>
         <location filename="../Forms/mainwindow.ui" line="428"/>
         <source>位置</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">position</translation>
     </message>
     <message>
         <location filename="../Forms/mainwindow.ui" line="484"/>
@@ -365,7 +365,7 @@
     <message>
         <location filename="../Forms/mainwindow.ui" line="596"/>
         <source>速度</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">speed</translation>
     </message>
     <message>
         <location filename="../Forms/mainwindow.ui" line="652"/>

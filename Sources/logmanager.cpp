@@ -4,6 +4,7 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlError>
+#include <QCoreApplication>
 
 LogManager::LogManager() : db_(nullptr) {
     connectionName_ = "LogManager_Singleton_Connection";
@@ -35,20 +36,22 @@ bool LogManager::openDatabase() {
     }
 
     db_ = new QSqlDatabase(QSqlDatabase::addDatabase("QSQLITE", connectionName_));
-    QString dbPath = "../Database/log/log.db";
+    // QString dbPath = "../Database/log/log.db";
+    QString appDir = QCoreApplication::applicationDirPath();
+    QString dbPath = appDir + "/Database/log.db";
 
-    // 处理数据库路径
-    QString fullDbPath = dbPath;
-    QFileInfo fileInfo(dbPath);
-    if (fileInfo.isDir() || fileInfo.suffix().isEmpty()) {
-        QDir dir(dbPath);
-        if (!dir.exists()) {
-            dir.mkpath(".");
-        }
-        fullDbPath = dir.filePath("log.db");
-    }
+    // // 处理数据库路径
+    // QString fullDbPath = dbPath;
+    // QFileInfo fileInfo(dbPath);
+    // if (fileInfo.isDir() || fileInfo.suffix().isEmpty()) {
+    //     QDir dir(dbPath);
+    //     if (!dir.exists()) {
+    //         dir.mkpath(".");
+    //     }
+    //     fullDbPath = dir.filePath("log.db");
+    // }
 
-    db_->setDatabaseName(fullDbPath);
+    db_->setDatabaseName(dbPath);
 
     if (!db_->open()) {
         qDebug() << "无法打开数据库:" << db_->lastError().text();
@@ -57,7 +60,7 @@ bool LogManager::openDatabase() {
         return false;
     }
 
-    qDebug() << "数据库打开成功:" << QDir::toNativeSeparators(fullDbPath);
+    qDebug() << "数据库打开成功:" << QDir::toNativeSeparators(dbPath);
     return true;
 }
 

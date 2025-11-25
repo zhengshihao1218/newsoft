@@ -39,20 +39,22 @@ bool UserManager::openDatabase() {
     }
 
     db_ = new QSqlDatabase(QSqlDatabase::addDatabase("QSQLITE", connectionName_));
-    QString dbPath = "../Database/user/user.db";
+    // QString dbPath = "../Database/user/user.db";
+    QString appDir = QCoreApplication::applicationDirPath();
+    QString dbPath = appDir + "/Database/user.db";
 
-    // 处理数据库路径
-    QString fullDbPath = dbPath;
-    QFileInfo fileInfo(dbPath);
-    if (fileInfo.isDir() || fileInfo.suffix().isEmpty()) {
-        QDir dir(dbPath);
-        if (!dir.exists()) {
-            dir.mkpath(".");
-        }
-        fullDbPath = dir.filePath("user.db");
-    }
+    // // 处理数据库路径
+    // QFileInfo fileInfo(dbPath);
+    // if (fileInfo.isDir() || fileInfo.suffix().isEmpty()) {
+    //     QDir dir(dbPath);
+    //     if (!dir.exists()) {
+    //         dir.mkpath(".");
+    //     }
+    //     fullDbPath = dir.filePath("user.db");
+    // }
+    qDebug() << "数据库位置 + " << dbPath;
 
-    db_->setDatabaseName(fullDbPath);
+    db_->setDatabaseName(dbPath);
 
     if (!db_->open()) {
         qDebug() << "无法打开数据库:" << db_->lastError().text();
@@ -61,7 +63,7 @@ bool UserManager::openDatabase() {
         return false;
     }
 
-    qDebug() << "数据库打开成功:" << QDir::toNativeSeparators(fullDbPath);
+    qDebug() << "数据库打开成功:" << QDir::toNativeSeparators(dbPath);
     return true;
 }
 
