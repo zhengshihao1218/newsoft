@@ -15,6 +15,8 @@
 #include "usermanager.h"
 #include "change_pasword_dialog.h"
 #include "logmanager.h"
+#include "HMIKernel/include/device/device.h"
+#include "HMIKernel/include/device/devicePLC.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {

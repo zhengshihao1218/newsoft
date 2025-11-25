@@ -851,6 +851,7 @@ color: black; /* 可选，设置文字颜色 */</string>
    </attribute>
    <addaction name="clear_error_action"/>
    <addaction name="motor_start_stop_action"/>
+   <addaction name="reset_action"/>
    <addaction name="prepare_experiment_action"/>
    <addaction name="start_experiment_action"/>
    <addaction name="stop_experiment_action"/>
@@ -2132,6 +2133,18 @@ color: black; /* 可选，设置文字颜色 */</string>
    </property>
    <property name="text">
     <string>修改密码</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="reset_action">
+   <property name="icon">
+    <iconset resource="../Images/image.qrc">
+     <normaloff>:/images/images/0.png</normaloff>:/images/images/0.png</iconset>
+   </property>
+   <property name="text">
+    <string>归零</string>
    </property>
    <property name="menuRole">
     <enum>QAction::NoRole</enum>

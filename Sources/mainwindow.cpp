@@ -621,9 +621,9 @@ void MainWindow::on_translate_action_triggered(bool checked)
     QTranslator translator;
     QString qm_path = "";
     if (checked) {
-        qm_path = QApplication::applicationDirPath()+"/res/newsoft_en_001.qm";
+        qm_path = QApplication::applicationDirPath()+"/Translations/newsoft_en_001.qm";
     } else {
-        qm_path = QApplication::applicationDirPath()+"/res/newsoft_zh_CN.qm";
+        qm_path = QApplication::applicationDirPath()+"/Translations/newsoft_zh_CN.qm";
     }
     bool b_value = translator.load(qm_path);
     qDebug() << "加载文件 " << qm_path;

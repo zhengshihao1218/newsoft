@@ -39,5 +39,6 @@
         <file>images/deleteuser.png</file>
         <file>images/sign.png</file>
         <file>images/re.png</file>
+        <file>images/0.png</file>
     </qresource>
 </RCC>

@@ -6,7 +6,8 @@ AboutDialog::AboutDialog(QWidget *parent)
     , ui(new Ui::AboutDialog)
 {
     ui->setupUi(this);
-
+    // QString hmi_version = GetHMIKernelVersion();
+    // ui->label_hmi_version->setText(hmi_version);
 }
 
 AboutDialog::~AboutDialog()

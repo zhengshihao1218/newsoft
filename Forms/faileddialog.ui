@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>提示</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../Images/image.qrc">
+    <normaloff>:/images/images/sign.png</normaloff>:/images/images/sign.png</iconset>
+  </property>
   <layout class="QFormLayout" name="formLayout">
    <item row="1" column="0">
     <widget class="QLabel" name="label">

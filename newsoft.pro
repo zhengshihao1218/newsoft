@@ -94,10 +94,10 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 
 # # 添加库的头文件路径
-# INCLUDEPATH += $$PWD/Include  # 指向 MyLibrary 的头文件路径
+# INCLUDEPATH += $$PWD/Include  # 指向 Library 的头文件路径
 
 # # 链接库文件
-# LIBS += -L$$PWD/Library -lHMIKernel  # -lMyLibrary 会链接 libMyLibrary.so 或 MyLibrary.dll
+# LIBS += $$PWD/Library/libHMIKernel.a  # -lMyLibrary 会链接 libMyLibrary.so 或 MyLibrary.dll
 
 TRANSLATIONS += \
     Translations/newsoft_en_001.ts \
@@ -105,3 +105,27 @@ TRANSLATIONS += \
 
 # TS_DIR = Translations/
 
+# # ==== 头文件路径 ====
+# INCLUDEPATH += $$PWD/HMIKernel/include
+
+# # ==== 库文件路径 ====
+# LIBS += -L$$PWD/HMIKernel/lib
+
+# # ==== 链接库 ====
+# LIBS += -lHMIKernel
+
+#复制Database文件到build文件下
+# 复制数据库文件到构建目录
+database_files.path = $$OUT_PWD/debug/Database
+database_files.files += Database/user/user.db
+database_files.files += Database/log/log.db
+
+# 确保在构建后执行复制
+COPIES += database_files
+
+translation_files.path = $$OUT_PWD/debug/Translations
+translation_files.files += Translations/res/newsoft_en_001.qm
+translation_files.files += Translations/res/newsoft_zh_CN.qm
+
+# 确保在构建后执行复制
+COPIES += translation_files
