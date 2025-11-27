@@ -9,6 +9,14 @@ MainWindow::MainWindow(QWidget *parent)
     , m_isLongPress(false)
 {
     ui->setupUi(this);
+    // 初始化日志
+
+    // 测试中文日志
+    LOG_INFO("测试中文日志 - Chinese log test");
+    LOG_DEBUG("这是一个调试信息");
+    // 初始化HMIKernel流程
+    initHMIKernel();
+    LOG_DEBUG("HMIKernel 初始化完成");
     // 屏蔽所有 toolbar 的右键菜单
     initToolBar();
     // 没有登录，把大多数Action都设置成置灰的
@@ -17,6 +25,7 @@ MainWindow::MainWindow(QWidget *parent)
     // 为工具栏安装事件过滤器
     designUpAction();
     designDownAction();
+    designMotorAction();
     ui->lcdNumber_count->setDigitCount(6);
     ui->lcdNumber_count->display("NULL");
     ui->lcdNumber_time->setDigitCount(9);
@@ -39,6 +48,9 @@ MainWindow::MainWindow(QWidget *parent)
     // 预加载两个翻译文件
     // m_englishTranslator->load(":/translation/res/newsoft_en_001.qm");
     // m_chineseTranslator->load(":/translation/res/newsoft_zh_CN.qm");
+    tmUpdate = new QTimer(this);
+    tmUpdate->start(1000);
+    connect(tmUpdate, &QTimer::timeout, this, &MainWindow::updateDBValue);
 }
 
 MainWindow::~MainWindow()
@@ -206,6 +218,47 @@ void MainWindow::onDownLongPress()
 
 }
 
+void MainWindow::designMotorAction()
+{
+    // 找到up_action对应的QToolButton
+    QToolButton *motor_start_stop_Button = nullptr;
+    QList<QToolButton*> toolButtons = ui->toolBar->findChildren<QToolButton*>();
+
+    for (QToolButton *button : toolButtons) {
+        if (button->defaultAction() == ui->motor_start_stop_action) {
+            motor_start_stop_Button = button;
+            break;
+        }
+    }
+
+    if (motor_start_stop_Button) {
+        qDebug() << "找到up_action对应的QToolButton";
+        QString style =
+            "QToolBar QToolButton  {"
+            "    border: none;"
+            "    padding: 4px;"
+            "    border-radius: 6px;"
+            "    transition: all 0.15s;"
+            "}"
+            "QToolBar QToolButton:hover {"
+            "    padding: 4px;"  // 悬停时padding为0
+            "}"
+            "QToolBar QToolButton:pressed {"
+            "    padding: 4px;"  // 按下时padding为0
+            "}";
+
+        motor_start_stop_Button->setStyleSheet(style);
+
+        // 连接释放信号
+        connect(motor_start_stop_Button, &QToolButton::released, this, [this]() {
+            if(MainWindow::sendCmdToPlc(0xffff,false)){
+                qDebug() << "up_action释放";
+            }
+        });
+
+    }
+}
+
 void MainWindow::designUpAction()
 {
     // 找到up_action对应的QToolButton
@@ -244,6 +297,7 @@ void MainWindow::designUpAction()
 
         // 连接按下信号
         connect(upButton, &QToolButton::pressed, this, [this]() {
+            MainWindow::sendCmdToPlc(14,false);
             qDebug() << "up_action按下";
             QIcon pressedIcon(":/images/images/up_run.png");
             ui->up_action->setIcon(pressedIcon);
@@ -252,6 +306,7 @@ void MainWindow::designUpAction()
 
         // 连接释放信号
         connect(upButton, &QToolButton::released, this, [this]() {
+            MainWindow::sendCmdToPlc(0xffff,false); // 释放触发边沿
             qDebug() << "up_action释放";
             QIcon normalIcon(":/images/images/up.png");
             ui->up_action->setIcon(normalIcon);
@@ -314,15 +369,17 @@ void MainWindow::designDownAction()
 
         // 连接按下信号
         connect(downButton, &QToolButton::pressed, this, [this]() {
+            MainWindow::sendCmdToPlc(15,false);
             qDebug() << "down_action按下";
             QIcon pressedIcon(":/images/images/down_run.png");
             ui->down_action->setIcon(pressedIcon);
+
             m_longPressTimer->start();
         });
 
         // 连接释放信号
         connect(downButton, &QToolButton::released, this, [this]() {
-            qDebug() << "down_action释放";
+            MainWindow::sendCmdToPlc(0xffff,false); // 释放触发边沿
             QIcon normalIcon(":/images/images/down.png");
             ui->down_action->setIcon(normalIcon);
 
@@ -351,9 +408,31 @@ void MainWindow::on_motor_start_stop_action_triggered(bool checked)
     ui->down_action->setEnabled(checked);
     ui->prepare_experiment_action->setEnabled(checked);
     ui->start_experiment_action->setEnabled(checked);
+    initHMIKernel();
+    long long db1 = GetDBValue("MCHN_CONFIG_DEVICE1").lValue;
+    qDebug() << "当前MCHN_CONFIG_DEVICE1为" << db1;
+    long long db2 = GetDBValue("MCHN_CONFIG_AXIS_DRIVER1").lValue;
+    qDebug() << "当前MCHN_CONFIG_AXIS_DRIVER1为" << db2;
+
+    SetDBValue("MCHN_CONFIG_ACTAXISGROUP",1); //设置当前轴为主轴
     if (checked){
+        //         if(MainWindow::sendCmdToPlc(0xffff,false)){
+        //             qDebug() << "up_action释放";
+        //         }
+        // MainWindow::sendCmdToPlc(12,false);
+        // MainWindow::sendCmdToPlc(0xffff,false);
+        // LOG_DEBUG("启动马达");
+
+        long long db = GetDBValue("MCHN_CONFIG_ACTAXISGROUP").lValue;
+        qDebug() << "当前操作轴为" << db;
+        if(MainWindow::sendCmdToPlc(12,false)){
+            LOG_DEBUG("启动马达");
+        }; // 启动马达
         ui->motor_info->setPixmap(QPixmap(":/images/images/motor_on.png"));
     } else {
+        if(MainWindow::sendCmdToPlc(2,false)){
+            LOG_DEBUG("关闭马达");
+        }; // 启动马达
          ui->motor_info->setPixmap(QPixmap(":/images/images/motor_off.png"));
     }
 }
@@ -631,3 +710,91 @@ void MainWindow::on_translate_action_triggered(bool checked)
     this->ui->retranslateUi(this);
 }
 
+void MainWindow::initHMIKernel()
+{
+    // qDebug()<<"HMI:"<< g_MultiLanguage["ERR_PLC_ERROR11"];
+    // Init_Timer();
+    // Init_Msg();
+
+    // ///@ init database
+    // Init_Database("HMI_DB.db");
+
+    // //@
+    // Init_Moldset(2000, "MoldIDList.xml");
+    // Init_Recordset(2000);
+    // Init_Alarm(2000);
+    // Init_User(200);
+    // Init_DevicePLC("comm.config");
+
+    //@ test database:
+    DWORD lid = 0x20000001;
+    int n2 = GetDBValue(lid).lValue;
+    LOG_DEBUG("Init over: g_pDatabase =" + n2);
+    // qDebug() << "Init over: g_pDatabase =" << g_pDatabase << ", n2=" << n2;
+
+    // 轴组配置 专门是适配动力单元的！！！！
+    BYTE nType = 0;//设备类型
+    // 0//无
+    //     1//IO卡          此设备为1
+    //     2//驱动器          此设备为3个
+    //     3//压力传感器
+    //     4//驱动器菲仕
+
+    nType = 1;
+    BYTE nCount = 1;//设备个数
+    BYTE nConf = ((1<<4)+1);//IO卡          此设备为1
+    WORD LLLL = -1;
+    LLLL = SetDBValue("MCHN_CONFIG_DEVICE1", nConf);//设备类型序号（ECAT设备）
+    qDebug() << "initHMI SetDBValue === " << LLLL;
+    long long QQQQ = -1;
+    QQQQ = GetDBValue("MCHN_CONFIG_DEVICE1").lValue;
+    WORD ZZZ = GetDBValue("MCHN_CONFIG_DEVICE1").wPrecision;
+    qDebug() << "QQQQ = " <<QQQQ << "ZZZ = " << ZZZ;
+    nType = 2;
+    nCount = 3;//设备个数
+    nConf = ((nType<<4)+nCount);//驱动器          此设备为3个
+    // QString config_1 = QString("MCHN_CONFIG_DEVICE%1").arg(2), nConf;
+    SetDBValue("MCHN_CONFIG_DEVICE2", nConf);//设备类型序号（ECAT设备）
+
+    nType = 2;
+    nCount = 3;//设备个数
+    nConf = ((nType<<4)+nCount);//驱动器          此设备为3个
+    SetDBValue("MCHN_CONFIG_DEVICE3", nConf);//设备类型序号（ECAT设备）
+
+    BYTE nConf2 = 5;//轴组组合（轴bit组合成轴组）0X5
+    SetDBValue("MCHN_CONFIG_AXIS_GROUP1", nConf2);
+
+    BYTE nConf3 = 6  ;//轴1 所连驱动器----> 0x6
+    SetDBValue("MCHN_CONFIG_AXIS_DRIVER1", nConf3);
+
+    BYTE nConf4 = 48 ;  //轴3  所连驱动器---> 0x30
+    SetDBValue("MCHN_CONFIG_AXIS_DRIVER3", nConf4);
+
+}
+
+void MainWindow::updateDBValue()
+{
+    CtmDevice *device =CtmDevice::GetDevice("PLC");//获取PLC设备
+    if(device == NULL)return;
+    int nstatu = device->GetOnLineStatus();
+    bool isOn = (nstatu== 0);
+    if(!isOn){
+        ui->error_info_2->setText("未连接");
+        qDebug() << "PLCwei is off line: statu=" << nstatu;
+        return;
+    }else{
+        ui->error_info_2->setText("连接成功");
+        // qDebug() << "Get value fv =" << fv;
+    }
+    long long n1 = GetDBValue("CTRL_MOTORSTATE1").lValue;
+    qDebug() << "马达1状态 获取 n1 " <<  n1;
+}
+
+bool MainWindow::sendCmdToPlc(int nKey, bool isHelpAxis){
+    int pCmd = nKey;
+    int nTmp = 0;
+    CtmDevice *device = CtmDevice::GetDevice("PLC");
+    if (device == NULL) return false;
+    device->ReqValues(CONST_REQ_COMMAND,1,&pCmd,NULL);
+    return true;
+}

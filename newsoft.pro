@@ -13,6 +13,7 @@ TEMPLATE = app
 
 SOURCES += \
     # Sources/plcmanager.cpp \
+    Sources/log.cpp \
     Sources/change_pasword_dialog.cpp \
     Sources/faileddialog.cpp \
     Sources/logmanager.cpp \
@@ -37,6 +38,7 @@ SOURCES += \
 
 HEADERS += \
     # Headers/plcmanager.h \
+    Headers/log.h \
     Headers/qcustomplot.h \
     Headers/aboutdialog.h \
     Headers/adduserdialog.h \
@@ -78,8 +80,7 @@ FORMS += \
 RESOURCES += \
     Images/image.qrc \
     Themes/dark/darkstyle.qrc \
-    Themes/light/lightstyle.qrc \
-    Translations/translation.qrc
+    Themes/light/lightstyle.qrc
 
 RC_ICONS = Images\images\CSCS.ico
 
@@ -103,16 +104,16 @@ TRANSLATIONS += \
     Translations/newsoft_en_001.ts \
     Translations/newsoft_zh_CN.ts
 
-# TS_DIR = Translations/
+TS_DIR = Translations/
 
-# # ==== 头文件路径 ====
-# INCLUDEPATH += $$PWD/HMIKernel/include
+# ==== 头文件路径 ====
+INCLUDEPATH += $$PWD/HMIKernel/include
 
-# # ==== 库文件路径 ====
-# LIBS += -L$$PWD/HMIKernel/lib
+# ==== 库文件路径 ====
+LIBS += -L$$PWD/HMIKernel/lib
 
-# # ==== 链接库 ====
-# LIBS += -lHMIKernel
+# ==== 链接库 ====
+LIBS += -lHMIKernel
 
 #复制Database文件到build文件下
 # 复制数据库文件到构建目录
@@ -123,9 +124,9 @@ database_files.files += Database/log/log.db
 # 确保在构建后执行复制
 COPIES += database_files
 
-translation_files.path = $$OUT_PWD/debug/Translations
-translation_files.files += Translations/res/newsoft_en_001.qm
-translation_files.files += Translations/res/newsoft_zh_CN.qm
+# translation_files.path = $$OUT_PWD/debug/Translations
+# translation_files.files += Translations/res/newsoft_en_001.qm
+# translation_files.files += Translations/res/newsoft_zh_CN.qm
 
-# 确保在构建后执行复制
-COPIES += translation_files
+# # 确保在构建后执行复制
+# COPIES += translation_files

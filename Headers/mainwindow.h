@@ -15,8 +15,28 @@
 #include "usermanager.h"
 #include "change_pasword_dialog.h"
 #include "logmanager.h"
+#include "HMIKernel/include/global.h"
 #include "HMIKernel/include/device/device.h"
 #include "HMIKernel/include/device/devicePLC.h"
+#include "Headers/log.h"
+
+///@---------------------------------------------------------- 全部
+#define CONTROL_KEY_NONE                    0
+#define CONTROL_KEY_CLEAR_ALL               1 //清错
+#define CONTROL_KEY_STOP_MOTOR              2 //关闭马达
+#define CONTROL_KEY_STOP_ALL                3 //停止实验
+///@---------------------------------------------------------- 轴组
+#define CONTROL_KEY_CLEAR_ALARM             11 //手动清错
+#define CONTROL_KEY_AXIS_MOTOR              12 //马达启动
+#define CONTROL_KEY_AXIS_HOMING             13 //归零
+#define CONTROL_KEY_AXIS_JOGFWD             14 //寸动前进
+#define CONTROL_KEY_AXIS_JOGBWD             15 //寸动后退
+#define CONTROL_KEY_AXIS_START              16 //启动试验
+#define CONTROL_KEY_AXIS_STOP               17 //停止试验
+#define CONTROL_KEY_AXIS_READY              18 //准备实验
+#define CONTROL_KEY_AXIS_FCPRESS            19 //准备充气力
+#define CONTROL_KEY_BEAM_TIGHTEN            20 //悬臂正转
+#define CONTROL_KEY_BEAM_RELEASE            21 //悬臂反转
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -61,6 +81,8 @@ private slots:
     void designUpAction();
 
     void designDownAction();
+
+    void designMotorAction();
 
     void onUpShortClick();
     void onUpLongPress();
@@ -110,11 +132,14 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QTimer *m_longPressTimer;
+    QTimer* tmUpdate;
     bool m_isLongPress;
     bool m_is2PlotVisiable;
     void permissionSetting(int level);
     QTranslator *m_englishTranslator;
     QTranslator *m_chineseTranslator;
-
+    void initHMIKernel();
+    void updateDBValue();
+    bool sendCmdToPlc(int nKey, bool isHelpAxis);
 };
 #endif // MAINWINDOW_H
