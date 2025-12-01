@@ -7,6 +7,8 @@ CONFIG += c++17
 TARGET = CSCS
 TEMPLATE = app
 
+DESTDIR = $$_PRO_FILE_PWD_/Bin
+
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
@@ -117,16 +119,22 @@ LIBS += -lHMIKernel
 
 #复制Database文件到build文件下
 # 复制数据库文件到构建目录
-database_files.path = $$OUT_PWD/debug/Database
+database_files.path = $$_PRO_FILE_PWD_/Bin/Database
 database_files.files += Database/user/user.db
 database_files.files += Database/log/log.db
 
 # 确保在构建后执行复制
 COPIES += database_files
 
-# translation_files.path = $$OUT_PWD/debug/Translations
-# translation_files.files += Translations/res/newsoft_en_001.qm
-# translation_files.files += Translations/res/newsoft_zh_CN.qm
+# lib_files.path = $$OUT_PWD/debug/
+# lib_files.files += HMIKernel/lib/HMIKernel.dll
 
 # # 确保在构建后执行复制
-# COPIES += translation_files
+# COPIES += database_files
+
+translation_files.path = $$_PRO_FILE_PWD_/Bin/Translations
+translation_files.files += Translations/res/newsoft_en_001.qm
+translation_files.files += Translations/res/newsoft_zh_CN.qm
+
+# 确保在构建后执行复制
+COPIES += translation_files
