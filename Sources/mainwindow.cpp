@@ -49,7 +49,7 @@ MainWindow::MainWindow(QWidget *parent)
     // m_englishTranslator->load(":/translation/res/newsoft_en_001.qm");
     // m_chineseTranslator->load(":/translation/res/newsoft_zh_CN.qm");
     tmUpdate = new QTimer(this);
-    tmUpdate->start(1000);
+    tmUpdate->start(100);
     connect(tmUpdate, &QTimer::timeout, this, &MainWindow::updateDBValue);
 }
 
@@ -780,7 +780,7 @@ void MainWindow::updateDBValue()
     bool isOn = (nstatu== 0);
     if(!isOn){
         ui->error_info_2->setText("未连接");
-        qDebug() << "PLCwei is off line: statu=" << nstatu;
+        // qDebug() << "PLCwei is off line: statu=" << nstatu;
         return;
     }else{
         ui->error_info_2->setText("连接成功");
@@ -788,6 +788,15 @@ void MainWindow::updateDBValue()
     }
     long long n1 = GetDBValue("CTRL_MOTORSTATE1").lValue;
     qDebug() << "马达1状态 获取 n1 " <<  n1;
+
+    if(GetDBValue("CTRL_MOTORSTATE1").lValue == 0){
+
+    } else {
+
+    }
+    ui->label_sensor_posi->setText(QString::number(GetDBValue("Comp.Axis1.Actual.Posi").lValue));
+    ui->label_sensor_pres->setText(QString::number(GetDBValue("Comp.Axis1.Actual.Pres").lValue));
+
 }
 
 bool MainWindow::sendCmdToPlc(int nKey, bool isHelpAxis){
