@@ -428,12 +428,12 @@ void MainWindow::on_motor_start_stop_action_triggered(bool checked)
         if(MainWindow::sendCmdToPlc(12,false)){
             LOG_DEBUG("启动马达");
         }; // 启动马达
-        ui->motor_info->setPixmap(QPixmap(":/images/images/motor_on.png"));
+        // ui->motor_info->setPixmap(QPixmap(":/images/images/motor_on.png"));
     } else {
         if(MainWindow::sendCmdToPlc(2,false)){
             LOG_DEBUG("关闭马达");
         }; // 启动马达
-         ui->motor_info->setPixmap(QPixmap(":/images/images/motor_off.png"));
+         // ui->motor_info->setPixmap(QPixmap(":/images/images/motor_off.png"));
     }
 }
 
@@ -786,17 +786,23 @@ void MainWindow::updateDBValue()
         ui->error_info_2->setText("连接成功");
         // qDebug() << "Get value fv =" << fv;
     }
-    long long n1 = GetDBValue("CTRL_MOTORSTATE1").lValue;
-    qDebug() << "马达1状态 获取 n1 " <<  n1;
+    // long long n1 = GetDBValue("CTRL_MOTORSTATE1").lValue;
+    // qDebug() << "马达1状态 获取 n1 " <<  n1;
+    // long long n2 = GetDBValue("COMP_AXIS1_ACTUAL_PRES").lValue;
+    // qDebug() << "马达1状态 获取 n2 " <<  n2;
+    // long long n3 = GetDBValue("COMP_AXIS1_ACTUAL_POSI").lValue;
+    // qDebug() << "马达1状态 获取 n3 " <<  n3;
 
     if(GetDBValue("CTRL_MOTORSTATE1").lValue == 0){
-
+        ui->motor_start_stop_action->setChecked(false);
+        ui->motor_info->setPixmap(QPixmap(":/images/images/motor_on.png"));
     } else {
-
+        ui->motor_start_stop_action->setChecked(true);
+        ui->motor_info->setPixmap(QPixmap(":/images/images/motor_off.png"));
     }
-    ui->label_sensor_posi->setText(QString::number(GetDBValue("Comp.Axis1.Actual.Posi").lValue));
-    ui->label_sensor_pres->setText(QString::number(GetDBValue("Comp.Axis1.Actual.Pres").lValue));
-
+    ui->label_sensor_posi->setText(QString::number(GetDBValue("COMP_AXIS1_ACTUAL_POSI").lValue));
+    ui->label_sensor_pear->setText(QString::number(GetDBValue("COMP_AXIS1_ACTUAL_PRES").lValue));
+    ui->label_sensor_velo->setText(QString::number(GetDBValue("COMP_AXIS1_ACTUAL_VELO").lValue));
 }
 
 bool MainWindow::sendCmdToPlc(int nKey, bool isHelpAxis){

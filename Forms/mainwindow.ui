@@ -519,7 +519,7 @@ color: black; /* 可选，设置文字颜色 */</string>
           <item>
            <layout class="QVBoxLayout" name="verticalLayout_25">
             <item>
-             <widget class="QLabel" name="label_sensor_pres">
+             <widget class="QLabel" name="label_sensor_11">
               <property name="minimumSize">
                <size>
                 <width>129</width>
@@ -545,7 +545,7 @@ color: black; /* 可选，设置文字颜色 */</string>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label1_sensor_11">
+             <widget class="QLabel" name="label_sensor_pear">
               <property name="minimumSize">
                <size>
                 <width>129</width>
@@ -601,7 +601,7 @@ color: black; /* 可选，设置文字颜色 */</string>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label1_sensor_12">
+             <widget class="QLabel" name="label_sensor_velo">
               <property name="minimumSize">
                <size>
                 <width>129</width>
@@ -879,7 +879,7 @@ color: black; /* 可选，设置文字颜色 */</string>
    </property>
    <property name="minimumSize">
     <size>
-     <width>320</width>
+     <width>328</width>
      <height>851</height>
     </size>
    </property>
@@ -2160,9 +2160,9 @@ color: black; /* 可选，设置文字颜色 */</string>
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../Images/image.qrc"/>
-  <include location="../Themes/light/lightstyle.qrc"/>
   <include location="../Themes/dark/darkstyle.qrc"/>
+  <include location="../Themes/light/lightstyle.qrc"/>
+  <include location="../Images/image.qrc"/>
  </resources>
  <connections>
   <connection>

@@ -7,7 +7,7 @@ CONFIG += c++17
 TARGET = CSCS
 TEMPLATE = app
 
-DESTDIR = $$_PRO_FILE_PWD_/Bin
+# DESTDIR = $$_PRO_FILE_PWD_/Bin
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -119,22 +119,31 @@ LIBS += -lHMIKernel
 
 #复制Database文件到build文件下
 # 复制数据库文件到构建目录
-database_files.path = $$_PRO_FILE_PWD_/Bin/Database
+database_files.path = $$OUT_PWD/debug/Database
 database_files.files += Database/user/user.db
 database_files.files += Database/log/log.db
 
 # 确保在构建后执行复制
 COPIES += database_files
 
-# lib_files.path = $$OUT_PWD/debug/
-# lib_files.files += HMIKernel/lib/HMIKernel.dll
+bin_files.path = $$OUT_PWD/debug/Data
+bin_files.files += $$PWD/Bin/Data
+COPIES += bin_files
 
-# # 确保在构建后执行复制
-# COPIES += database_files
-
-translation_files.path = $$_PRO_FILE_PWD_/Bin/Translations
+translation_files.path = $$OUT_PWD/debug/Translations
 translation_files.files += Translations/res/newsoft_en_001.qm
 translation_files.files += Translations/res/newsoft_zh_CN.qm
 
 # 确保在构建后执行复制
 COPIES += translation_files
+
+lib_files.path = $$OUT_PWD/debug/
+lib_files.files += HMIKernel/lib/HMIKernel.dll
+lib_files.files += Bin/comm.config
+lib_files.files += Bin/config.ini
+lib_files.files += Bin/configCurve.ini
+lib_files.files += Bin/HMI_DB.db
+lib_files.files += Bin/MoldIDList.xml
+
+# 确保在构建后执行复制
+COPIES += lib_files
