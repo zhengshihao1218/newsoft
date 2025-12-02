@@ -2,6 +2,8 @@
 #define CONTROLPARAMENTDIALOG_H
 
 #include <QDialog>
+#include <QTimer>
+#include "HMIKernel/include/global.h"
 
 namespace Ui {
 class ControlParamentDialog;
@@ -17,6 +19,8 @@ public:
 
 private:
     Ui::ControlParamentDialog *ui;
+    QTimer* tmUpdate;
+    void updateDBValue();
 };
 
 #endif // CONTROLPARAMENTDIALOG_H
