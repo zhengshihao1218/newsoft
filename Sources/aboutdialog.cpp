@@ -6,9 +6,13 @@ AboutDialog::AboutDialog(QWidget *parent)
     , ui(new Ui::AboutDialog)
 {
     ui->setupUi(this);
-    QString hmi_version = GetHMIKernelVersion();
-    ui->label_hmi_version->setText(hmi_version);
     ui->label_hmi_version->setStyleSheet("color: white;");
+    ui->label_plc_version->setStyleSheet("color: white;");
+    ui->label_lib_version->setStyleSheet("color: white;");
+    QString lib_version = GetHMIKernelVersion();
+    ui->label_lib_version->setText(lib_version);
+    ui->label_plc_version->setText(QString::number(GetDBValue("CTRL_PLCVERSION").lValue));
+    ui->label_hmi_version->setText("0.1");
 }
 
 AboutDialog::~AboutDialog()

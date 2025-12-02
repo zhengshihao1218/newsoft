@@ -130,9 +130,9 @@ bin_files.path = $$OUT_PWD/debug/Data
 bin_files.files += $$PWD/Bin/Data
 COPIES += bin_files
 
-translation_files.path = $$OUT_PWD/debug/Translations
-translation_files.files += Translations/res/newsoft_en_001.qm
-translation_files.files += Translations/res/newsoft_zh_CN.qm
+# translation_files.path = $$OUT_PWD/debug/Translations
+# translation_files.files += Translations/res/newsoft_en_001.qm
+# translation_files.files += Translations/res/newsoft_zh_CN.qm
 
 # 确保在构建后执行复制
 COPIES += translation_files

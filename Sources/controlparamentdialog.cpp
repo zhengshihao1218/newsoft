@@ -6,9 +6,18 @@ ControlParamentDialog::ControlParamentDialog(QWidget *parent)
     , ui(new Ui::ControlParamentDialog)
 {
     ui->setupUi(this);
+    tmUpdate = new QTimer(this);
+    tmUpdate->start(100);
+    connect(tmUpdate, &QTimer::timeout, this, &ControlParamentDialog::updateDBValue);
 }
 
 ControlParamentDialog::~ControlParamentDialog()
 {
     delete ui;
+}
+
+void ControlParamentDialog::updateDBValue(){
+    ui->label_act_posi->setText(QString::number(GetDBValue("COMP_AXIS1_ACTUAL_POSI").lValue / 1000.0, 'f', 3));
+    ui->label_act_pear->setText(QString::number(GetDBValue("COMP_AXIS1_ACTUAL_PRES").lValue / 1000.0, 'f', 3));
+    ui->label_act_velo->setText(QString::number(GetDBValue("COMP_AXIS1_ACTUAL_VELO").lValue / 1000.0, 'f', 3));
 }

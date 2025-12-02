@@ -795,14 +795,14 @@ void MainWindow::updateDBValue()
 
     if(GetDBValue("CTRL_MOTORSTATE1").lValue == 0){
         ui->motor_start_stop_action->setChecked(false);
-        ui->motor_info->setPixmap(QPixmap(":/images/images/motor_on.png"));
+        ui->motor_info->setPixmap(QPixmap(":/images/images/motor_off.png"));
     } else {
         ui->motor_start_stop_action->setChecked(true);
-        ui->motor_info->setPixmap(QPixmap(":/images/images/motor_off.png"));
+        ui->motor_info->setPixmap(QPixmap(":/images/images/motor_on.png"));
     }
-    ui->label_sensor_posi->setText(QString::number(GetDBValue("COMP_AXIS1_ACTUAL_POSI").lValue));
-    ui->label_sensor_pear->setText(QString::number(GetDBValue("COMP_AXIS1_ACTUAL_PRES").lValue));
-    ui->label_sensor_velo->setText(QString::number(GetDBValue("COMP_AXIS1_ACTUAL_VELO").lValue));
+    ui->label_sensor_posi->setText(QString::number(GetDBValue("COMP_AXIS1_ACTUAL_POSI").lValue / 1000.0, 'f', 3));
+    ui->label_sensor_pear->setText(QString::number(GetDBValue("COMP_AXIS1_ACTUAL_PRES").lValue / 1000.0, 'f', 3));
+    ui->label_sensor_velo->setText(QString::number(GetDBValue("COMP_AXIS1_ACTUAL_VELO").lValue / 1000.0, 'f', 3));
 }
 
 bool MainWindow::sendCmdToPlc(int nKey, bool isHelpAxis){
