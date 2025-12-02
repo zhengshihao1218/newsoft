@@ -7,6 +7,8 @@ CONFIG += c++17
 TARGET = CSCS
 TEMPLATE = app
 
+# DESTDIR = $$_PRO_FILE_PWD_/Bin
+
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
@@ -124,9 +126,24 @@ database_files.files += Database/log/log.db
 # 确保在构建后执行复制
 COPIES += database_files
 
-# translation_files.path = $$OUT_PWD/debug/Translations
-# translation_files.files += Translations/res/newsoft_en_001.qm
-# translation_files.files += Translations/res/newsoft_zh_CN.qm
+bin_files.path = $$OUT_PWD/debug/Data
+bin_files.files += $$PWD/Bin/Data
+COPIES += bin_files
 
-# # 确保在构建后执行复制
-# COPIES += translation_files
+translation_files.path = $$OUT_PWD/debug/Translations
+translation_files.files += Translations/res/newsoft_en_001.qm
+translation_files.files += Translations/res/newsoft_zh_CN.qm
+
+# 确保在构建后执行复制
+COPIES += translation_files
+
+lib_files.path = $$OUT_PWD/debug/
+lib_files.files += HMIKernel/lib/HMIKernel.dll
+lib_files.files += Bin/comm.config
+lib_files.files += Bin/config.ini
+lib_files.files += Bin/configCurve.ini
+lib_files.files += Bin/HMI_DB.db
+lib_files.files += Bin/MoldIDList.xml
+
+# 确保在构建后执行复制
+COPIES += lib_files
