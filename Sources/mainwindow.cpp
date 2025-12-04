@@ -425,12 +425,12 @@ void MainWindow::on_motor_start_stop_action_triggered(bool checked)
 
         long long db = GetDBValue("MCHN_CONFIG_ACTAXISGROUP").lValue;
         qDebug() << "当前操作轴为" << db;
-        if(MainWindow::sendCmdToPlc(12,false)){
+        if(MainWindow::sendCmdToPlc(CMD_KEY_AXIS_MOTOR,false)){
             LOG_DEBUG("启动马达");
         }; // 启动马达
         // ui->motor_info->setPixmap(QPixmap(":/images/images/motor_on.png"));
     } else {
-        if(MainWindow::sendCmdToPlc(2,false)){
+        if(MainWindow::sendCmdToPlc(CMD_KEY_ALL_MOTOROFF,false)){
             LOG_DEBUG("关闭马达");
         }; // 启动马达
          // ui->motor_info->setPixmap(QPixmap(":/images/images/motor_off.png"));
@@ -803,6 +803,141 @@ void MainWindow::updateDBValue()
     ui->label_sensor_posi->setText(QString::number(GetDBValue("COMP_AXIS1_ACTUAL_POSI").lValue / 1000.0, 'f', 3));
     ui->label_sensor_pear->setText(QString::number(GetDBValue("COMP_AXIS1_ACTUAL_PRES").lValue / 1000.0, 'f', 3));
     ui->label_sensor_velo->setText(QString::number(GetDBValue("COMP_AXIS1_ACTUAL_VELO").lValue / 1000.0, 'f', 3));
+    int CTRL_AXIS1_ERROR = GetDBValue("CTRL_AXIS1_ERROR").lValue;
+    switch (CTRL_AXIS1_ERROR) {
+    case 1:
+        ui->error_info->setText("马达未启动");
+        break;
+    case 2:
+        ui->error_info->setText("请原点复位");
+        break;
+    case 3:
+        ui->error_info->setText("归零错误");
+        break;
+    case 4:
+        ui->error_info->setText("触碰上限位");
+        break;
+    case 5:
+        ui->error_info->setText("触碰下限位");
+        break;
+    case 6:
+        ui->error_info->setText("水压警报");
+        break;
+    case 7:
+        ui->error_info->setText("压力警报");
+        break;
+    case 8:
+        ui->error_info->setText("温度警报");
+        break;
+    case 9:
+        ui->error_info->setText("驱动器报警");
+        break;
+    case 10:
+        ui->error_info->setText("位置反向");
+        break;
+    case 11:
+        ui->error_info->setText("位置追随错误");
+        break;
+    case 12:
+        ui->error_info->setText("速度追随错误");
+        break;
+    case 13:
+        ui->error_info->setText("扭矩追随错误");
+        break;
+    case 14:
+        ui->error_info->setText("安全光幕检知");
+        break;
+    case 15:
+        ui->error_info->setText("表格参数设置错误");
+        break;
+    case 16:
+        ui->error_info->setText("路波文件读取错误");
+        break;
+    case 17:
+        ui->error_info->setText("超出位置允许");
+        break;
+    case 18:
+        ui->error_info->setText("同步位置偏差");
+        break;
+    case 19:
+        ui->error_info->setText("超出试验压力允许");
+        break;
+    case 20:
+        ui->error_info->setText("其他");
+        break;
+    case 21:
+        ui->error_info->setText("超出最大扭力");
+        break;
+    case 0:
+    default:
+        break;
+    }
+
+    int COMP_AXIS1_TEST_SUBMOTIONTYPE = GetDBValue("COMP_AXIS1_TEST_SUBMOTIONTYPE").lValue;
+    switch (COMP_AXIS1_TEST_SUBMOTIONTYPE) {
+    case 0:
+        ui->label_3->setText("疲劳测试");
+        break;
+    case 1:
+        ui->label_3->setText("路波测试");
+        break;
+    case 2:
+        ui->label_3->setText("示功试验");
+        break;
+    case 3:
+        ui->label_3->setText("慢速静摩擦");
+        break;
+    case 4:
+        ui->label_3->setText("压力疲劳测试");
+        break;
+    case 5:
+        ui->label_3->setText("压力路波测试");
+        break;
+    case 6:
+        ui->label_3->setText("压力示功试验");
+        break;
+    case 7:
+        ui->label_3->setText("压力慢速静摩擦");
+        break;
+    case 8:
+        ui->label_3->setText("扭矩疲劳测试");
+        break;
+    case 9:
+        ui->label_3->setText("扭矩路波测试");
+        break;
+    case 12:
+        ui->label_3->setText("路波测试");
+        break;
+    default:
+        break;
+    }
+
+
+    ui->lcdNumber_count->setDigitCount(GetDBValue("COMP_AXIS1_TEST_REMAINNUM").lValue);
+
+    // int motion_status = GetDBValue("COMP_AXIS1_ACTUAL_MOTIONSTATUS").lValue;
+    int motion_status = GetDBValue("COMP_AXIS1_ACTUAL_MOTION").lValue;
+    switch (motion_status) {
+    case 1:
+        ui->label_act_motion_status->setText("寸动前行");
+        break;
+    case 2:
+        ui->label_act_motion_status->setText("寸动后退");
+        break;
+    case 3:
+        ui->label_act_motion_status->setText("归零运行");
+        break;
+    case 4:
+        ui->label_act_motion_status->setText("准备运行");
+        break;
+    case 5:
+        ui->label_act_motion_status->setText("试验运行");
+        break;
+    case 0:
+        ui->label_act_motion_status->setText("无状态");
+    default:
+        break;
+    }
 }
 
 bool MainWindow::sendCmdToPlc(int nKey, bool isHelpAxis){
@@ -813,3 +948,38 @@ bool MainWindow::sendCmdToPlc(int nKey, bool isHelpAxis){
     device->ReqValues(CONST_REQ_COMMAND,1,&pCmd,NULL);
     return true;
 }
+
+void MainWindow::on_prepare_experiment_action_triggered()
+{
+    MainWindow::sendCmdToPlc(CMD_KEY_AXIS_PREPARE,false);
+    MainWindow::sendCmdToPlc(0xffff,false);
+}
+
+
+void MainWindow::on_start_experiment_action_triggered()
+{
+    MainWindow::sendCmdToPlc(CMD_KEY_AXIS_START,false);
+    MainWindow::sendCmdToPlc(0xffff,false);
+}
+
+
+void MainWindow::on_stop_experiment_action_triggered()
+{
+    MainWindow::sendCmdToPlc(CMD_KEY_AXIS_STOP,false);
+    MainWindow::sendCmdToPlc(0xffff,false);
+}
+
+
+void MainWindow::on_clear_error_action_triggered()
+{
+    MainWindow::sendCmdToPlc(CMD_KEY_ALL_MANUAL,false);
+    MainWindow::sendCmdToPlc(0xffff,false);
+}
+
+
+void MainWindow::on_reset_action_triggered()
+{
+    MainWindow::sendCmdToPlc(CMD_KEY_AXIS_HOMING,false);
+    MainWindow::sendCmdToPlc(0xffff,false);
+}
+
