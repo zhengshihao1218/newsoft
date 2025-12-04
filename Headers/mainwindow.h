@@ -20,23 +20,24 @@
 #include "HMIKernel/include/device/devicePLC.h"
 #include "Headers/log.h"
 
-///@---------------------------------------------------------- 全部
-#define CONTROL_KEY_NONE                    0
-#define CONTROL_KEY_CLEAR_ALL               1 //清错
-#define CONTROL_KEY_STOP_MOTOR              2 //关闭马达
-#define CONTROL_KEY_STOP_ALL                3 //停止实验
-///@---------------------------------------------------------- 轴组
-#define CONTROL_KEY_CLEAR_ALARM             11 //手动清错
-#define CONTROL_KEY_AXIS_MOTOR              12 //马达启动
-#define CONTROL_KEY_AXIS_HOMING             13 //归零
-#define CONTROL_KEY_AXIS_JOGFWD             14 //寸动前进
-#define CONTROL_KEY_AXIS_JOGBWD             15 //寸动后退
-#define CONTROL_KEY_AXIS_START              16 //启动试验
-#define CONTROL_KEY_AXIS_STOP               17 //停止试验
-#define CONTROL_KEY_AXIS_READY              18 //准备实验
-#define CONTROL_KEY_AXIS_FCPRESS            19 //准备充气力
-#define CONTROL_KEY_BEAM_TIGHTEN            20 //悬臂正转
-#define CONTROL_KEY_BEAM_RELEASE            21 //悬臂反转
+// 所有轴命令
+const int CMD_KEY_NONE = 0;              // 无
+const int CMD_KEY_ALL_MANUAL = 1;        // 清错
+const int CMD_KEY_ALL_MOTOROFF = 2;      // 关闭马达
+const int CMD_KEY_ALL_STOP = 3;          // 停止试验
+
+// 当前轴命令
+const int CMD_KEY_AXIS_MANUAL = 11;      // 手动清错
+const int CMD_KEY_AXIS_MOTOR = 12;       // 马达启停
+const int CMD_KEY_AXIS_HOMING = 13;      // 归零
+const int CMD_KEY_AXIS_JOGFWD = 14;      // 寸动前进
+const int CMD_KEY_AXIS_JOGBWD = 15;      // 寸动后退
+const int CMD_KEY_AXIS_START = 16;       // 启动试验
+const int CMD_KEY_AXIS_STOP = 17;        // 停止试验
+const int CMD_KEY_AXIS_PREPARE = 18;     // 准备试验
+const int CMD_KEY_AXIS_GET_FCPRESS = 19; // 获取充气力
+const int CMD_KEY_LOCKMOTOR_FWD = 20;    // 悬臂正转
+const int CMD_KEY_LOCKMOTOR_BWD = 21;    // 悬臂反转
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -128,6 +129,16 @@ private slots:
     void on_log_a_button_clicked(bool checked);
 
     void on_translate_action_triggered(bool checked);
+
+    void on_prepare_experiment_action_triggered();
+
+    void on_start_experiment_action_triggered();
+
+    void on_stop_experiment_action_triggered();
+
+    void on_clear_error_action_triggered();
+
+    void on_reset_action_triggered();
 
 private:
     Ui::MainWindow *ui;

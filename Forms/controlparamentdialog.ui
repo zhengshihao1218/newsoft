@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1234</width>
-    <height>1001</height>
+    <height>1073</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -3517,7 +3517,7 @@
           </widget>
          </item>
          <item row="3" column="1">
-          <widget class="QLabel" name="label_16">
+          <widget class="QLabel" name="label_act_torque">
            <property name="text">
             <string>0</string>
            </property>
@@ -3531,7 +3531,7 @@
           </widget>
          </item>
          <item row="4" column="1">
-          <widget class="QLabel" name="label_22">
+          <widget class="QLabel" name="label_act_force">
            <property name="text">
             <string>0</string>
            </property>
@@ -3545,7 +3545,7 @@
           </widget>
          </item>
          <item row="5" column="1">
-          <widget class="QLabel" name="label_18">
+          <widget class="QLabel" name="label_act_RPM">
            <property name="text">
             <string>0</string>
            </property>
@@ -3559,7 +3559,7 @@
           </widget>
          </item>
          <item row="6" column="1">
-          <widget class="QLabel" name="label_20">
+          <widget class="QLabel" name="label_act_CMD">
            <property name="text">
             <string>0</string>
            </property>
@@ -3573,7 +3573,7 @@
           </widget>
          </item>
          <item row="7" column="1">
-          <widget class="QLabel" name="label_24">
+          <widget class="QLabel" name="label_act_motion">
            <property name="text">
             <string>0</string>
            </property>
@@ -3587,7 +3587,7 @@
           </widget>
          </item>
          <item row="8" column="1">
-          <widget class="QLabel" name="label_26">
+          <widget class="QLabel" name="label_act_motionCMD">
            <property name="text">
             <string>0</string>
            </property>
@@ -3601,7 +3601,7 @@
           </widget>
          </item>
          <item row="9" column="1">
-          <widget class="QLabel" name="label_28">
+          <widget class="QLabel" name="label_act_motion_status">
            <property name="text">
             <string>0</string>
            </property>
@@ -3615,7 +3615,7 @@
           </widget>
          </item>
          <item row="10" column="1">
-          <widget class="QLabel" name="label_30">
+          <widget class="QLabel" name="label_act_motion_runtime">
            <property name="text">
             <string>0</string>
            </property>
@@ -3629,7 +3629,7 @@
           </widget>
          </item>
          <item row="11" column="1">
-          <widget class="QLabel" name="label_32">
+          <widget class="QLabel" name="label_act_motion_acttime">
            <property name="text">
             <string>0</string>
            </property>
@@ -3828,6 +3828,11 @@
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
           <widget class="QLabel" name="label_2">
+           <property name="font">
+            <font>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
            <property name="text">
             <string>轴号：</string>
            </property>
@@ -3835,6 +3840,11 @@
          </item>
          <item>
           <widget class="QComboBox" name="comboBox">
+           <property name="font">
+            <font>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
            <item>
             <property name="text">
              <string>1</string>
@@ -3970,6 +3980,19 @@
           </widget>
          </item>
         </layout>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_16">
+         <property name="orientation">
+          <enum>Qt::Orientation::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
        </item>
       </layout>
      </widget>

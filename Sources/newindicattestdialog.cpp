@@ -15,6 +15,7 @@ NewIndicatTestDialog::~NewIndicatTestDialog()
 
 void NewIndicatTestDialog::on_buttonBox_accepted()
 {
+    SetDBValue("COMP_AXIS1_TEST_SUBMOTIONTYPE",2);
     this->close();
 }
 

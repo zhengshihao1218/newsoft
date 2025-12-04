@@ -2,6 +2,7 @@
 #define NEWINDICATTESTDIALOG_H
 
 #include <QDialog>
+#include "HMIKernel/include/global.h"
 
 namespace Ui {
 class NewIndicatTestDialog;

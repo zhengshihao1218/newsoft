@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "qcustomplot.h"
+#include "HMIKernel/include/global.h"
 
 namespace Ui {
 class NewFatigueTestDialog;
@@ -18,13 +19,6 @@ public:
 
 
 private slots:
-    void on_A1_valueChanged(double arg1);
-
-    void on_B1_valueChanged(double arg1);
-
-    void on_a1_valueChanged(double arg1);
-
-    void on_b1_valueChanged(double arg1);
 
     void initQCustomPlot();
 
@@ -33,6 +27,14 @@ private slots:
     void on_buttonBox_accepted();
 
     void on_buttonBox_rejected();
+
+    void on_COMP_AXIS1_TEST_FORMULA_A_valueChanged(double arg1);
+
+    void on_COMP_AXIS1_TEST_FORMULA_B_valueChanged(double arg1);
+
+    void on_COMP_AXIS1_TEST_FORMULA_ALPHA_valueChanged(double arg1);
+
+    void on_COMP_AXIS1_TEST_FORMULA_BETA_valueChanged(double arg1);
 
 private:
     Ui::NewFatigueTestDialog *ui;
