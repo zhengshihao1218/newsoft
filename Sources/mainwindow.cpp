@@ -26,9 +26,9 @@ MainWindow::MainWindow(QWidget *parent)
     designUpAction();
     designDownAction();
     designMotorAction();
-    ui->lcdNumber_count->setDigitCount(6);
-    ui->lcdNumber_count->display("NULL");
-    ui->lcdNumber_time->setDigitCount(9);
+    // ui->lcdNumber_count->setDigitCount(6);
+    // ui->lcdNumber_count->display("NULL");
+    // ui->lcdNumber_time->setDigitCount(9);
     m_is2PlotVisiable = false;
     ui->plotView2->setVisible(false);
 
@@ -51,6 +51,7 @@ MainWindow::MainWindow(QWidget *parent)
     tmUpdate = new QTimer(this);
     tmUpdate->start(100);
     connect(tmUpdate, &QTimer::timeout, this, &MainWindow::updateDBValue);
+    ui->error_info->setStyleSheet("color: red;");
 }
 
 MainWindow::~MainWindow()
@@ -186,6 +187,7 @@ void MainWindow::on_system_parment_action_triggered()
 void MainWindow::on_new_experiment_action_triggered()
 {
     NewExperimentDialog *dialog = new NewExperimentDialog();
+    connect(dialog, &NewExperimentDialog::newFatigueTest, this, &MainWindow::newFatigueTest);
     dialog->setWindowFlag(Qt::WindowCloseButtonHint);
     dialog->exec();
     delete dialog;
@@ -772,10 +774,26 @@ void MainWindow::initHMIKernel()
 
 }
 
+void MainWindow::newFatigueTest()
+{
+    ui->label_plan_count->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_PLANNUM").lValue));
+    ui->label_pre_posi->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_PREPAREPOSI").lValue / 1000.0, 'f', 3));
+    ui->label_start_posi->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_STARTPOSI").lValue / 1000.0, 'f', 3));
+    ui->label_39->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_SWITCHCOOLTEMPER").lValue / 1000.0, 'f', 3));
+    ui->label_40->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_SWITCHCOOLBACKTEMPER").lValue / 1000.0, 'f', 3));
+    ui->label_A->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_FORMULA_A").lValue / 1000.0, 'f', 3));
+    ui->label_B->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_FORMULA_B").lValue / 1000.0, 'f', 3));
+    ui->label_a->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_FORMULA_ALPHA").lValue / 1000.0, 'f', 3));
+    ui->label_b->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_FORMULA_BETA").lValue / 1000.0, 'f', 3));
+}
+
 void MainWindow::updateDBValue()
 {
     CtmDevice *device =CtmDevice::GetDevice("PLC");//获取PLC设备
-    if(device == NULL)return;
+    if(device == NULL){
+        qDebug() << "updateDBValue GetDevice PLC = NULL";
+        return;
+    }
     int nstatu = device->GetOnLineStatus();
     bool isOn = (nstatu== 0);
     if(!isOn){
@@ -800,9 +818,28 @@ void MainWindow::updateDBValue()
         ui->motor_start_stop_action->setChecked(true);
         ui->motor_info->setPixmap(QPixmap(":/images/images/motor_on.png"));
     }
+
     ui->label_sensor_posi->setText(QString::number(GetDBValue("COMP_AXIS1_ACTUAL_POSI").lValue / 1000.0, 'f', 3));
     ui->label_sensor_pear->setText(QString::number(GetDBValue("COMP_AXIS1_ACTUAL_PRES").lValue / 1000.0, 'f', 3));
     ui->label_sensor_velo->setText(QString::number(GetDBValue("COMP_AXIS1_ACTUAL_VELO").lValue / 1000.0, 'f', 3));
+
+    ui->label1_run_count->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_RUNNUM").lValue));
+    // ui->label1_run_time->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_RUNTIME").lValue));
+
+    long seconds = GetDBValue("COMP_AXIS1_TEST_RUNTIME").lValue;
+    int h = seconds / 3600;
+    int m = (seconds % 3600) / 60;
+    int s = seconds % 60;
+
+    // 小时可以是任意数值，如 125:30:45
+    ui->label1_run_time->setText(
+        QString("%1:%2:%3")
+            .arg(h, 2, 10, QChar('0'))  // 小时大于24时会正常显示
+            .arg(m, 2, 10, QChar('0'))
+            .arg(s, 2, 10, QChar('0'))
+        );
+
+    ui->label1_sensor_torque->setText(QString::number(GetDBValue("COMP_AXIS1_ACTUAL_TORQUE").lValue / 1000.0, 'f', 3));
     int CTRL_AXIS1_ERROR = GetDBValue("CTRL_AXIS1_ERROR").lValue;
     switch (CTRL_AXIS1_ERROR) {
     case 1:
@@ -911,9 +948,21 @@ void MainWindow::updateDBValue()
     default:
         break;
     }
+    long COMP_AXIS1_TEST_REMAINTIME = GetDBValue("COMP_AXIS1_TEST_REMAINTIME").lValue;
 
+    int h2 = COMP_AXIS1_TEST_REMAINTIME / 3600;
+    int m2 = (COMP_AXIS1_TEST_REMAINTIME % 3600) / 60;
+    int s2 = COMP_AXIS1_TEST_REMAINTIME % 60;
 
-    ui->lcdNumber_count->setDigitCount(GetDBValue("COMP_AXIS1_TEST_REMAINNUM").lValue);
+    // 小时可以是任意数值，如 125:30:45
+    ui->lcdNumber_time->display(
+        QString("%1:%2:%3")
+            .arg(h2, 2, 10, QChar('0'))  // 小时大于24时会正常显示
+            .arg(m2, 2, 10, QChar('0'))
+            .arg(s2, 2, 10, QChar('0'))
+        );
+
+    ui->lcdNumber_count->display(QString::number(GetDBValue("COMP_AXIS1_TEST_REMAINNUM").lValue));
 
     // int motion_status = GetDBValue("COMP_AXIS1_ACTUAL_MOTIONSTATUS").lValue;
     int motion_status = GetDBValue("COMP_AXIS1_ACTUAL_MOTION").lValue;
@@ -938,6 +987,7 @@ void MainWindow::updateDBValue()
     default:
         break;
     }
+
 }
 
 bool MainWindow::sendCmdToPlc(int nKey, bool isHelpAxis){
@@ -974,6 +1024,7 @@ void MainWindow::on_clear_error_action_triggered()
 {
     MainWindow::sendCmdToPlc(CMD_KEY_ALL_MANUAL,false);
     MainWindow::sendCmdToPlc(0xffff,false);
+    ui->error_info->setText("");
 }
 
 

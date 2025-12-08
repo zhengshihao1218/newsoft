@@ -16,6 +16,7 @@ NewExperimentDialog::~NewExperimentDialog()
 void NewExperimentDialog::on_newFatigueTestButton_clicked()
 {
     NewFatigueTestDialog *dialog = new NewFatigueTestDialog();
+    connect(dialog, &NewFatigueTestDialog::newTestComp, this, &NewExperimentDialog::newFatigueTest);
     dialog->setWindowFlag(Qt::WindowCloseButtonHint);
     this->hide();
     dialog->exec();

@@ -126,7 +126,7 @@ database_files.files += Database/log/log.db
 # 确保在构建后执行复制
 COPIES += database_files
 
-bin_files.path = $$OUT_PWD/debug/Data
+bin_files.path = $$OUT_PWD/debug/
 bin_files.files += $$PWD/Bin/Data
 COPIES += bin_files
 
