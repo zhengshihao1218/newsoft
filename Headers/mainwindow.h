@@ -152,5 +152,6 @@ private:
     void initHMIKernel();
     void updateDBValue();
     bool sendCmdToPlc(int nKey, bool isHelpAxis);
+    void newFatigueTest();
 };
 #endif // MAINWINDOW_H

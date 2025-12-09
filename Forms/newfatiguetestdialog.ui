@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>628</width>
-    <height>665</height>
+    <width>618</width>
+    <height>628</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -36,7 +36,7 @@ color: black; /* 可选，设置文字颜色 */</string>
         <string>试件编号</string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignCenter</set>
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -59,7 +59,7 @@ color: black; /* 可选，设置文字颜色 */</string>
         <string>试验编号</string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignCenter</set>
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -82,7 +82,7 @@ color: black; /* 可选，设置文字颜色 */</string>
         <string>试验创建时间</string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignCenter</set>
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -102,7 +102,7 @@ color: black; /* 可选，设置文字颜色 */</string>
         <string>温度上限</string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignCenter</set>
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -125,7 +125,7 @@ color: black; /* 可选，设置文字颜色 */</string>
         <string>疲劳测试次数</string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignCenter</set>
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -148,7 +148,7 @@ color: black; /* 可选，设置文字颜色 */</string>
         <string>温度下限</string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignCenter</set>
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -171,7 +171,7 @@ color: black; /* 可选，设置文字颜色 */</string>
         <string>起始位置</string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignCenter</set>
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -191,7 +191,7 @@ color: black; /* 可选，设置文字颜色 */</string>
         <string>准备位置</string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignCenter</set>
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -213,7 +213,7 @@ color: black; /* 可选，设置文字颜色 */</string>
    <item>
     <widget class="QLabel" name="label_3">
      <property name="layoutDirection">
-      <enum>Qt::LayoutDirection::LeftToRight</enum>
+      <enum>Qt::LeftToRight</enum>
      </property>
      <property name="autoFillBackground">
       <bool>false</bool>
@@ -228,7 +228,7 @@ color: black; /* 可选，设置文字颜色 */</string>
       <bool>false</bool>
      </property>
      <property name="alignment">
-      <set>Qt::AlignmentFlag::AlignCenter</set>
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
    </item>
@@ -256,7 +256,7 @@ color: black; /* 可选，设置文字颜色 */</string>
         <string>α：波形1频率</string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignCenter</set>
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -279,7 +279,7 @@ color: black; /* 可选，设置文字颜色 */</string>
         <string>β</string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignCenter</set>
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -306,7 +306,7 @@ color: black; /* 可选，设置文字颜色 */</string>
         <string>A</string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignCenter</set>
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -336,7 +336,7 @@ color: black; /* 可选，设置文字颜色 */</string>
         <string>α</string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignCenter</set>
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -356,7 +356,7 @@ color: black; /* 可选，设置文字颜色 */</string>
         <string>A：波形1振幅</string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignCenter</set>
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -366,7 +366,7 @@ color: black; /* 可选，设置文字颜色 */</string>
         <string>冷却测试</string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignCenter</set>
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -392,7 +392,7 @@ color: black; /* 可选，设置文字颜色 */</string>
         <string>B</string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignCenter</set>
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -412,7 +412,7 @@ color: black; /* 可选，设置文字颜色 */</string>
         <string>B：波形2振幅</string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignCenter</set>
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -432,20 +432,20 @@ color: black; /* 可选，设置文字颜色 */</string>
         <string>β：波形2频率</string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignCenter</set>
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
      <item row="1" column="0">
       <widget class="QLabel" name="label">
        <property name="layoutDirection">
-        <enum>Qt::LayoutDirection::LeftToRight</enum>
+        <enum>Qt::LeftToRight</enum>
        </property>
        <property name="text">
         <string>标准测试</string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignmentFlag::AlignCenter</set>
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -465,14 +465,25 @@ color: black; /* 可选，设置文字颜色 */</string>
     </widget>
    </item>
    <item>
-    <widget class="QDialogButtonBox" name="buttonBox">
-     <property name="orientation">
-      <enum>Qt::Orientation::Horizontal</enum>
-     </property>
-     <property name="standardButtons">
-      <set>QDialogButtonBox::StandardButton::Cancel|QDialogButtonBox::StandardButton::Ok</set>
-     </property>
-    </widget>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="label_err_message">
+       <property name="text">
+        <string>XXXXXXXXXXXXXXXXXXXX</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QDialogButtonBox" name="buttonBox">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="standardButtons">
+        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>

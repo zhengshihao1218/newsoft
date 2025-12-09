@@ -31,6 +31,10 @@ private slots:
 
 private:
     Ui::NewExperimentDialog *ui;
+
+signals:
+    void newFatigueTest();
 };
+
 
 #endif // NEWEXPERIMENTDIALOG_H

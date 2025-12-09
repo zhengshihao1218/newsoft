@@ -4,6 +4,7 @@
 #include <QDialog>
 #include "qcustomplot.h"
 #include "HMIKernel/include/global.h"
+#include <QDateTime>
 
 namespace Ui {
 class NewFatigueTestDialog;
@@ -38,6 +39,9 @@ private slots:
 
 private:
     Ui::NewFatigueTestDialog *ui;
+
+signals:
+    void newTestComp();
 };
 
 #endif // NEWFATIGUETESTDIALOG_H

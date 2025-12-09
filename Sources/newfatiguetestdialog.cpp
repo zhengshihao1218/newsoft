@@ -7,6 +7,13 @@ NewFatigueTestDialog::NewFatigueTestDialog(QWidget *parent)
 {
     ui->setupUi(this);
     initQCustomPlot();
+    WORD xxx = GetDBString("HMI_DB_TEST_NUMBER1","",50);
+
+    // ui->lineEdit->setText(xxx);
+    ui->label_err_message->setText("");
+    ui->label_err_message->setStyleSheet("color: red;");
+    QDateTime currentDateTime = QDateTime::currentDateTime();
+    ui->lineEdit_3->setText(currentDateTime.toString("yyyy-MM-dd HH:mm:ss"));
     // int TEST_MOTIONTYPE = GetDBValue("COMP_AXIS1_TEST_MOTIONTYPE").lValue;
     // qDebug() << "TEST_MOTIONTYPE = " << TEST_MOTIONTYPE;
     // int TEST_PREPAREPOSI = GetDBValue("COMP_AXIS1_TEST_PREPAREPOSI").lValue;
@@ -80,11 +87,21 @@ void NewFatigueTestDialog::initQCustomPlot()
 
 void NewFatigueTestDialog::on_buttonBox_accepted()
 {
-    // SetDBValue("HMI_DB_TEST_NUMBER1",);
-    // int COMP_AXIS1_TEST_FORMULA_BETA = GetDBValue("COMP_AXIS1_TEST_FORMULA_BETA").lValue;
-    // qDebug() << "COMP_AXIS1_TEST_FORMULA_BETA 未修改之前是： " << COMP_AXIS1_TEST_FORMULA_BETA;
-    // COMP_AXIS1_TEST_FORMULA_BETA = ui->COMP_AXIS1_TEST_FORMULA_BETA->value() * 1000;
-    // qDebug() << "COMP_AXIS1_TEST_FORMULA_BETA 即将修改的数值是： " << COMP_AXIS1_TEST_FORMULA_BETA;
+    // 检查参数是否设置上
+    if(ui->COMP_AXIS1_TEST_PLANNUM->value() == 0
+        || ui->COMP_AXIS1_TEST_PREPAREPOSI->value() == 0
+        || ui->COMP_AXIS1_TEST_STARTPOSI->value() == 0
+        || ui->COMP_AXIS1_TEST_SWITCHCOOLTEMPER->value() == 0){
+        ui->label_err_message->setText("请填写必要参数");
+        return;
+    }
+
+    GetDBString("HMI_DB_TEST_NUMBER1","",50);
+
+    SetDB
+
+    SetDBValue("COMP_AXIS1_TEST_RUNNUM",0);
+    SetDBValue("COMP_AXIS1_TEST_RUNTIME",0);
 
     SetDBValue("COMP_AXIS1_TEST_SUBMOTIONTYPE",0);
     SetDBValue("COMP_AXIS1_TEST_FORMULA_A", ui->COMP_AXIS1_TEST_FORMULA_A->value() * 1000);
@@ -92,11 +109,14 @@ void NewFatigueTestDialog::on_buttonBox_accepted()
     SetDBValue("COMP_AXIS1_TEST_FORMULA_B", ui->COMP_AXIS1_TEST_FORMULA_B->value() * 1000);
     SetDBValue("COMP_AXIS1_TEST_FORMULA_ALPHA", ui->COMP_AXIS1_TEST_FORMULA_ALPHA->value() * 1000);
     SetDBValue("COMP_AXIS1_TEST_PLANNUM", ui->COMP_AXIS1_TEST_PLANNUM->value());
+    SetDBValue("COMP_AXIS1_TEST_REMAINNUM", ui->COMP_AXIS1_TEST_PLANNUM->value());
+
     SetDBValue("COMP_AXIS1_TEST_PREPAREPOSI", ui->COMP_AXIS1_TEST_PREPAREPOSI->value() * 1000);
     SetDBValue("COMP_AXIS1_TEST_STARTPOSI", ui->COMP_AXIS1_TEST_STARTPOSI->value() * 1000);
     SetDBValue("COMP_AXIS1_TEST_SWITCHCOOLTEMPER", ui->COMP_AXIS1_TEST_SWITCHCOOLTEMPER->value() * 1000);
     SetDBValue("COMP_AXIS1_TEST_SWITCHCOOLBACKTEMPER", ui->COMP_AXIS1_TEST_SWITCHCOOLBACKTEMPER->value() * 1000);
     // qDebug() << "COMP_AXIS1_TEST_FORMULA_BETA 修改之后的数值是： " << GetDBValue("COMP_AXIS1_TEST_FORMULA_BETA").lValue;
+    newTestComp();
     this->close();
 }
 

@@ -17,6 +17,9 @@ public:
     explicit ControlParamentDialog(QWidget *parent = nullptr);
     ~ControlParamentDialog();
 
+private slots:
+    void on_tabWidget_2_currentChanged(int index);
+
 private:
     Ui::ControlParamentDialog *ui;
     QTimer* tmUpdate;

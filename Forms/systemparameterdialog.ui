@@ -32,7 +32,7 @@
       </font>
      </property>
      <property name="currentIndex">
-      <number>4</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab">
       <property name="minimumSize">
@@ -548,7 +548,7 @@
            <item>
             <spacer name="horizontalSpacer">
              <property name="orientation">
-              <enum>Qt::Orientation::Horizontal</enum>
+              <enum>Qt::Horizontal</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -622,8 +622,8 @@
   </layout>
  </widget>
  <resources>
-  <include location="../Images/image.qrc"/>
   <include location="../Themes/light/lightstyle.qrc"/>
+  <include location="../Images/image.qrc"/>
  </resources>
  <connections/>
 </ui>
