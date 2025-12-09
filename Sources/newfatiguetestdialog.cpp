@@ -7,7 +7,17 @@ NewFatigueTestDialog::NewFatigueTestDialog(QWidget *parent)
 {
     ui->setupUi(this);
     initQCustomPlot();
-    WORD xxx = GetDBString("HMI_DB_TEST_NUMBER1","",50);
+    char result[100];  // 假设最大长度为100
+    WORD res = GetDBString("HMI_DB_TEST_NUMBER1", result, sizeof(result) - 1);
+
+    if (res == 0) {
+        // 成功获取数据，使用 result 进行后续操作
+        QString strResult = QString::fromUtf8(result);
+        qDebug() << "获取到的测试编号：" << strResult;
+    } else {
+        // 获取失败
+        qDebug() << "获取数据失败";
+    }
 
     // ui->lineEdit->setText(xxx);
     ui->label_err_message->setText("");
@@ -96,9 +106,9 @@ void NewFatigueTestDialog::on_buttonBox_accepted()
         return;
     }
 
-    GetDBString("HMI_DB_TEST_NUMBER1","",50);
-
-    SetDB
+    WORD xxxx = GetDBString("HMI_DB_TEST_NUMBER1","",50);
+    qDebug() << "GetDBString HMI_DB_TEST_NUMBER1,  ===  " << xxxx;
+    // SetDBString()
 
     SetDBValue("COMP_AXIS1_TEST_RUNNUM",0);
     SetDBValue("COMP_AXIS1_TEST_RUNTIME",0);
