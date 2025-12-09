@@ -39,6 +39,7 @@ private slots:
 
 private:
     Ui::NewFatigueTestDialog *ui;
+    QString incrementStringSuffix(const QString& input);
 
 signals:
     void newTestComp();

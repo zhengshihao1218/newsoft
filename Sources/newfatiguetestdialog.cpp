@@ -7,9 +7,21 @@ NewFatigueTestDialog::NewFatigueTestDialog(QWidget *parent)
 {
     ui->setupUi(this);
     initQCustomPlot();
-    WORD xxx = GetDBString("HMI_DB_TEST_NUMBER1","",50);
+    char result[50];  // 假设最大长度为100
+    QString strResult = "";
+    WORD res = GetDBString("HMI_DB_TEST_NUMBER1", result, sizeof(result) - 1);
 
-    // ui->lineEdit->setText(xxx);
+    if (res == 0) {
+        // 成功获取数据，使用 result 进行后续操作
+        strResult = QString::fromUtf8(result);
+        qDebug() << "获取到的测试编号：" << strResult;
+    } else {
+        // 获取失败
+        qDebug() << "获取数据失败";
+    }
+    QString textNumber = NewFatigueTestDialog::incrementStringSuffix(strResult);
+
+    ui->lineEdit->setText(textNumber);
     ui->label_err_message->setText("");
     ui->label_err_message->setStyleSheet("color: red;");
     QDateTime currentDateTime = QDateTime::currentDateTime();
@@ -96,9 +108,12 @@ void NewFatigueTestDialog::on_buttonBox_accepted()
         return;
     }
 
-    GetDBString("HMI_DB_TEST_NUMBER1","",50);
+    // WORD xxxx = GetDBString("HMI_DB_TEST_NUMBER1","",50);
+    // qDebug() << "GetDBString HMI_DB_TEST_NUMBER1,  ===  " << xxxx;
+    SetDBString("HMI_DB_TEST_NUMBER1",ui->lineEdit->text().toUtf8().data(),strlen(ui->lineEdit->text().toStdString().data()));
+    SetDBString("HMI_DB_TEST_CREATEDATE1",ui->lineEdit_3->text().toUtf8().data(),strlen(ui->lineEdit_3->text().toUtf8().data()));
+    SetDBString("HMI_DB_TEST_PRODUCT_SN1",ui->lineEdit_2->text().toUtf8().data(),strlen(ui->lineEdit_2->text().toStdString().data()));
 
-    SetDB
 
     SetDBValue("COMP_AXIS1_TEST_RUNNUM",0);
     SetDBValue("COMP_AXIS1_TEST_RUNTIME",0);
@@ -150,3 +165,31 @@ void NewFatigueTestDialog::on_COMP_AXIS1_TEST_FORMULA_BETA_valueChanged(double a
     onPlotValueChange();
 }
 
+QString NewFatigueTestDialog::incrementStringSuffix(const QString& input)
+{
+    QRegularExpression re("(.*?)(\\d+)$");
+    QRegularExpressionMatch match = re.match(input);
+
+    if (!match.hasMatch()) {
+        // 如果没有数字后缀，直接添加"1"
+        return input + "1";
+    }
+
+    QString prefix = match.captured(1);
+    QString numberStr = match.captured(2);
+
+    int number = numberStr.toInt();
+    number++;
+
+    // 保持相同长度的前导零
+    QString newNumberStr = QString::number(number);
+
+    // 如果新数字比原数字长（如 99 -> 100），不使用前导零
+    if (newNumberStr.length() > numberStr.length()) {
+        return prefix + newNumberStr;
+    }
+
+    // 否则保留前导零
+    newNumberStr = newNumberStr.rightJustified(numberStr.length(), '0');
+    return prefix + newNumberStr;
+}
