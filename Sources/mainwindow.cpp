@@ -785,6 +785,23 @@ void MainWindow::newFatigueTest()
     ui->label_B->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_FORMULA_B").lValue / 1000.0, 'f', 3));
     ui->label_a->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_FORMULA_ALPHA").lValue / 1000.0, 'f', 3));
     ui->label_b->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_FORMULA_BETA").lValue / 1000.0, 'f', 3));
+    char result[50];  // 假设最大长度为100
+    QString strResult = "";
+    WORD res = GetDBString("HMI_DB_TEST_NUMBER1", result, sizeof(result) - 1);
+    strResult = QString::fromUtf8(result);
+    ui->label_test_number->setText(strResult);
+
+    char result2[50];  // 假设最大长度为100
+    QString strResult2 = "";
+    WORD res2 = GetDBString("HMI_DB_TEST_PRODUCT_SN1", result2, sizeof(result2) - 1);
+    strResult2 = QString::fromUtf8(result2);
+    ui->label_pro_number->setText(strResult2);
+
+    char result3[50];  // 假设最大长度为100
+    QString strResult3 = "";
+    WORD res3 = GetDBString("HMI_DB_TEST_CREATEDATE1", result2, sizeof(result2) - 1);
+    strResult3 = QString::fromUtf8(result3);
+    ui->label_create_time->setText(strResult3);
 }
 
 void MainWindow::updateDBValue()
