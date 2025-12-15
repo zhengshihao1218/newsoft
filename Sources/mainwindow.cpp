@@ -51,6 +51,10 @@ MainWindow::MainWindow(QWidget *parent)
     tmUpdate = new QTimer(this);
     tmUpdate->start(100);
     connect(tmUpdate, &QTimer::timeout, this, &MainWindow::updateDBValue);
+    plotUpdate = new QTimer(this);
+    plotUpdate->start(100);
+    connect(plotUpdate, &QTimer::timeout, this, &MainWindow::updatePlotValue);
+    ui->plotView->addGraph();
     ui->error_info->setStyleSheet("color: red;");
 }
 
@@ -108,6 +112,7 @@ void MainWindow::initNotLoginAction()
     ui->new_experiment_action->setEnabled(false);
     ui->logout_action->setEnabled(false);
     ui->user_list_action->setEnabled(false);
+    ui->reset_action->setEnabled(false);
     // ui->login_action->setVisible(true);
     ui->login_action->setEnabled(true);
     ui->login_action->setText("用户登录");
@@ -136,6 +141,7 @@ void MainWindow::initLoginAction(QString id)
     ui->new_experiment_action->setEnabled(true);
     ui->logout_action->setEnabled(true);
     ui->user_list_action->setEnabled(true);
+    ui->reset_action->setEnabled(true);
     // ui->login_action->setVisible(false);
     ui->login_action->setEnabled(false);
     ui->login_action->setText(UserManager::getInstance().getUser(id).UserName);
@@ -799,9 +805,68 @@ void MainWindow::newFatigueTest()
 
     char result3[50];  // 假设最大长度为100
     QString strResult3 = "";
-    WORD res3 = GetDBString("HMI_DB_TEST_CREATEDATE1", result2, sizeof(result2) - 1);
+    WORD res3 = GetDBString("HMI_DB_TEST_CREATEDATE1", result3, sizeof(result3) - 1);
     strResult3 = QString::fromUtf8(result3);
     ui->label_create_time->setText(strResult3);
+}
+
+void MainWindow::updatePlotValue()
+{
+    QList<tmCURVE_POINT> list = CtmCurveControl::GetInstance()->GetCurveData(2);
+    if(list.size() != 0) {
+        QVector<double> xData, yData;
+
+        // 获取第一个时间点作为参考（可选）
+        qint64 firstTime = list.at(0).llDateTime;
+
+        for (int i = 0; i < list.size(); ++i) {
+            const tmCURVE_POINT& point = list.at(i);
+
+            // X轴：转换为相对时间（秒为单位）
+            // 如果llDateTime是毫秒时间戳
+            double xValue = static_cast<double>(point.llDateTime - firstTime) / 1000.0;
+
+            // 或者直接使用原始时间戳
+            // double xValue = static_cast<double>(point.llDateTime);
+
+            // Y轴：取Y[0]的值
+            if (point.listY.size() > 0) {
+                double yValue = static_cast<double>(point.listY.at(0));
+
+                xData.append(xValue);
+                yData.append(yValue);
+
+                // 可选：输出调试信息
+                // qDebug() << "Point" << i
+                //          << "Time:" << xValue
+                //          << "Position:" << yValue;
+            }
+        }
+
+        // 绘制到现有的QCustomPlot控件中（假设已经创建）
+
+        // 设置线条样式
+        ui->plotView->graph(0)->setPen(QPen(Qt::blue));
+        // ui->plotView->graph(0)->setLineStyle(QCPGraph::lsLine);
+        // ui->plotView->graph(0)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, 4));
+
+        // 设置数据
+        ui->plotView->graph(0)->setData(xData, yData);
+        // ui->plotView->graph(0)->setName("Axis1 Actual Position");
+
+        // 设置轴
+        ui->plotView->xAxis->setLabel("Time (s)");
+        ui->plotView->yAxis->setLabel("Position");
+
+        // 自适应范围
+        ui->plotView->rescaleAxes();
+
+        // 添加图例
+        ui->plotView->legend->setVisible(true);
+
+        // 重新绘制
+        ui->plotView->replot();
+    }
 }
 
 void MainWindow::updateDBValue()
@@ -814,10 +879,12 @@ void MainWindow::updateDBValue()
     int nstatu = device->GetOnLineStatus();
     bool isOn = (nstatu== 0);
     if(!isOn){
+        ui->error_info_2->setStyleSheet("color: red; font-size:14px;");
         ui->error_info_2->setText("未连接");
         // qDebug() << "PLCwei is off line: statu=" << nstatu;
         return;
     }else{
+        ui->error_info_2->setStyleSheet("color: green; font-size:14px;");
         ui->error_info_2->setText("连接成功");
         // qDebug() << "Get value fv =" << fv;
     }
@@ -1004,7 +1071,6 @@ void MainWindow::updateDBValue()
     default:
         break;
     }
-
 }
 
 bool MainWindow::sendCmdToPlc(int nKey, bool isHelpAxis){
