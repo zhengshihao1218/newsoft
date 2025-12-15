@@ -18,6 +18,7 @@
 #include "HMIKernel/include/global.h"
 #include "HMIKernel/include/device/device.h"
 #include "HMIKernel/include/device/devicePLC.h"
+#include "HMIKernel/include/hmi_control/curvecontrol.h"
 #include "Headers/log.h"
 
 // 所有轴命令
@@ -144,6 +145,7 @@ private:
     Ui::MainWindow *ui;
     QTimer *m_longPressTimer;
     QTimer* tmUpdate;
+    QTimer* plotUpdate;
     bool m_isLongPress;
     bool m_is2PlotVisiable;
     void permissionSetting(int level);
@@ -151,6 +153,7 @@ private:
     QTranslator *m_chineseTranslator;
     void initHMIKernel();
     void updateDBValue();
+    void updatePlotValue();
     bool sendCmdToPlc(int nKey, bool isHelpAxis);
     void newFatigueTest();
 };

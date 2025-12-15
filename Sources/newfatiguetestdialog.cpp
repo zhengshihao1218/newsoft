@@ -110,9 +110,9 @@ void NewFatigueTestDialog::on_buttonBox_accepted()
 
     // WORD xxxx = GetDBString("HMI_DB_TEST_NUMBER1","",50);
     // qDebug() << "GetDBString HMI_DB_TEST_NUMBER1,  ===  " << xxxx;
-    SetDBString("HMI_DB_TEST_NUMBER1",ui->lineEdit->text().toUtf8().data(),strlen(ui->lineEdit->text().toStdString().data()));
+    SetDBString("HMI_DB_TEST_NUMBER1",ui->lineEdit->text().toUtf8().data(),strlen(ui->lineEdit->text().toUtf8().data()));
     SetDBString("HMI_DB_TEST_CREATEDATE1",ui->lineEdit_3->text().toUtf8().data(),strlen(ui->lineEdit_3->text().toUtf8().data()));
-    SetDBString("HMI_DB_TEST_PRODUCT_SN1",ui->lineEdit_2->text().toUtf8().data(),strlen(ui->lineEdit_2->text().toStdString().data()));
+    SetDBString("HMI_DB_TEST_PRODUCT_SN1",ui->lineEdit_2->text().toUtf8().data(),strlen(ui->lineEdit_2->text().toUtf8().data()));
 
 
     SetDBValue("COMP_AXIS1_TEST_RUNNUM",0);
