@@ -52,9 +52,8 @@ MainWindow::MainWindow(QWidget *parent)
     tmUpdate->start(100);
     connect(tmUpdate, &QTimer::timeout, this, &MainWindow::updateDBValue);
     plotUpdate = new QTimer(this);
-    plotUpdate->start(100);
     connect(plotUpdate, &QTimer::timeout, this, &MainWindow::updatePlotValue);
-    ui->plotView->addGraph();
+    // ui->plotView->addGraph();
     ui->error_info->setStyleSheet("color: red;");
 }
 
@@ -204,7 +203,55 @@ void MainWindow::initPlotView()
 {
     ui->plotView->addGraph();
     ui->plotView->setBackground(QPixmap(":/images/images/back.png"));
+
+    // 启用交互
+    ui->plotView->setInteractions(
+        QCP::iRangeDrag |
+        QCP::iRangeZoom |
+        QCP::iSelectPlottables |
+        QCP::iSelectLegend
+        );
+
+    // 拖动 & 缩放轴
+    ui->plotView->axisRect()->setRangeDrag(Qt::Horizontal | Qt::Vertical);
+    ui->plotView->axisRect()->setRangeZoom(Qt::Horizontal | Qt::Vertical);
+
+    QCustomPlot *plot = ui->plotView;
+
+    // ---------- 图例设置 ----------
+    plot->legend->setVisible(true);
+
+    // 中上方（关键）
+    // plot->axisRect()->insetLayout()->setInsetAlignment(
+    //     plot->legend,
+    //     Qt::AlignTop | Qt::AlignHCenter
+    //     );
+    QCPLayoutInset *inset = plot->axisRect()->insetLayout();
+
+    for (int i = 0; i < inset->elementCount(); ++i)
+    {
+        if (inset->elementAt(i) == plot->legend)
+        {
+            inset->setInsetPlacement(i, QCPLayoutInset::ipBorderAligned);
+            inset->setInsetAlignment(i, Qt::AlignTop | Qt::AlignHCenter);
+            break;
+        }
+    }
+
+
+    plot->legend->setFillOrder(QCPLayoutGrid::foColumnsFirst);
+    plot->legend->setWrap(2);
+    plot->legend->setBorderPen(QPen(Qt::gray));
+    plot->legend->setBrush(QColor(255, 255, 255, 230));
+
+    // 允许点击图例项
+    plot->legend->setSelectableParts(QCPLegend::spItems);
+
+    // ---------- 图例点击信号 ----------
+    connect(plot, &QCustomPlot::legendClick,
+            this, &MainWindow::onLegendClick);
 }
+
 
 void MainWindow::onUpShortClick()
 {
@@ -782,6 +829,7 @@ void MainWindow::initHMIKernel()
 
 void MainWindow::newFatigueTest()
 {
+    plotUpdate->start(100);
     ui->label_plan_count->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_PLANNUM").lValue));
     ui->label_pre_posi->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_PREPAREPOSI").lValue / 1000.0, 'f', 3));
     ui->label_start_posi->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_STARTPOSI").lValue / 1000.0, 'f', 3));
@@ -814,52 +862,59 @@ void MainWindow::updatePlotValue()
 {
     QList<tmCURVE_POINT> list = CtmCurveControl::GetInstance()->GetCurveData(2);
     if(list.size() != 0) {
-        QVector<double> xData, yData;
+        QVector<double> xData, yData1, yData2;
 
-        // 获取第一个时间点作为参考（可选）
+        // 获取第一个时间点作为参考
         qint64 firstTime = list.at(0).llDateTime;
 
         for (int i = 0; i < list.size(); ++i) {
             const tmCURVE_POINT& point = list.at(i);
 
             // X轴：转换为相对时间（秒为单位）
-            // 如果llDateTime是毫秒时间戳
             double xValue = static_cast<double>(point.llDateTime - firstTime) / 1000.0;
 
-            // 或者直接使用原始时间戳
-            // double xValue = static_cast<double>(point.llDateTime);
-
-            // Y轴：取Y[0]的值
+            // Y轴数据1：listY.at(0)
             if (point.listY.size() > 0) {
-                double yValue = static_cast<double>(point.listY.at(0));
+                double yValue1 = static_cast<double>(point.listY.at(0));
 
                 xData.append(xValue);
-                yData.append(yValue);
+                yData1.append(yValue1);
 
-                // 可选：输出调试信息
-                // qDebug() << "Point" << i
-                //          << "Time:" << xValue
-                //          << "Position:" << yValue;
+                // Y轴数据2：listY.at(1)（如果存在）
+                if (point.listY.size() > 1) {
+                    double yValue2 = static_cast<double>(point.listY.at(1));
+                    yData2.append(yValue2);
+                }
             }
         }
 
-        // 绘制到现有的QCustomPlot控件中（假设已经创建）
+        // 确保有两个graph对象
+        int graphCount = ui->plotView->graphCount();
+        if (graphCount < 2) {
+            // 创建第二条曲线
+            ui->plotView->addGraph();
+        }
 
-        // 设置线条样式
+        // 设置第一条曲线（Y[0]）
         ui->plotView->graph(0)->setPen(QPen(Qt::blue));
-        // ui->plotView->graph(0)->setLineStyle(QCPGraph::lsLine);
-        // ui->plotView->graph(0)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, 4));
+        ui->plotView->graph(0)->setData(xData, yData1);
+        ui->plotView->graph(0)->setName("实际曲线");
 
-        // 设置数据
-        ui->plotView->graph(0)->setData(xData, yData);
-        // ui->plotView->graph(0)->setName("Axis1 Actual Position");
+        // 设置第二条曲线（Y[1]）
+        if (!yData2.isEmpty()) {
+            ui->plotView->graph(1)->setPen(QPen(Qt::red));
+            ui->plotView->graph(1)->setData(xData, yData2);
+            ui->plotView->graph(1)->setName("设定曲线");
+        }
 
-        // 设置轴
+        // 设置轴标签
         ui->plotView->xAxis->setLabel("Time (s)");
         ui->plotView->yAxis->setLabel("Position");
 
-        // 自适应范围
+        // 自适应范围（自动调整到两条曲线的范围）
         ui->plotView->rescaleAxes();
+        ui->plotView->yAxis->scaleRange(1.1, ui->plotView->yAxis->range().center());
+
 
         // 添加图例
         ui->plotView->legend->setVisible(true);
@@ -1046,7 +1101,12 @@ void MainWindow::updateDBValue()
             .arg(s2, 2, 10, QChar('0'))
         );
 
-    ui->lcdNumber_count->display(QString::number(GetDBValue("COMP_AXIS1_TEST_REMAINNUM").lValue));
+
+    int COMP_AXIS1_TEST_REMAINNUM = GetDBValue("COMP_AXIS1_TEST_REMAINNUM").lValue;
+    ui->lcdNumber_count->display(QString::number(COMP_AXIS1_TEST_REMAINNUM));
+    if(COMP_AXIS1_TEST_REMAINNUM == 0 && plotUpdate->isActive()) {
+        plotUpdate->stop();
+    }
 
     // int motion_status = GetDBValue("COMP_AXIS1_ACTUAL_MOTIONSTATUS").lValue;
     int motion_status = GetDBValue("COMP_AXIS1_ACTUAL_MOTION").lValue;
@@ -1115,5 +1175,85 @@ void MainWindow::on_reset_action_triggered()
 {
     MainWindow::sendCmdToPlc(CMD_KEY_AXIS_HOMING,false);
     MainWindow::sendCmdToPlc(0xffff,false);
+}
+
+void MainWindow::onLegendClick(QCPLegend *legend,
+                               QCPAbstractLegendItem *item,
+                               QMouseEvent *event)
+{
+    Q_UNUSED(legend)
+    Q_UNUSED(event)
+
+    auto legendItem = qobject_cast<QCPPlottableLegendItem*>(item);
+    if (!legendItem)
+        return;
+
+    QCPGraph *graph = qobject_cast<QCPGraph*>(legendItem->plottable());
+    if (!graph)
+        return;
+
+    // 切换曲线显示状态
+    bool newVisible = !graph->visible();
+    graph->setVisible(newVisible);
+
+    // ---------- 图例置灰 / 恢复 ----------
+    legendItem->setTextColor(newVisible ? Qt::black : Qt::gray);
+
+    // 可选：线条也变灰（更直观）
+    QPen pen = graph->pen();
+    if (newVisible)
+        pen.setColor(graph->name() == "实际曲线" ? Qt::blue : Qt::red);
+    else
+        pen.setColor(Qt::lightGray);
+    graph->setPen(pen);
+
+    ui->plotView->replot();
+}
+
+void MainWindow::on_radioButton_4_toggled(bool checked)
+{
+    if (checked) {
+        ui->radioButton_5->setChecked(false);
+        if(!plotUpdate->isActive()){
+            plotUpdate->start(100);
+        }
+    } else {
+        if(!ui->radioButton_5->isChecked()){
+            ui->radioButton_4->setChecked(true);
+        }
+    }
+}
+
+
+void MainWindow::on_radioButton_5_toggled(bool checked)
+{
+    if (checked) {
+        ui->radioButton_4->setChecked(false);
+        if(plotUpdate->isActive()){
+            plotUpdate->stop();
+        }
+    }else {
+        if(!ui->radioButton_5->isChecked()){
+            ui->radioButton_4->setChecked(true);
+        }
+    }
+}
+
+
+void MainWindow::on_radioButton_toggled(bool checked)
+{
+    // 位置
+}
+
+
+void MainWindow::on_radioButton_3_toggled(bool checked)
+{
+    // 压力
+}
+
+
+void MainWindow::on_radioButton_2_toggled(bool checked)
+{
+    // 温度
 }
 

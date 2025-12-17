@@ -20,6 +20,7 @@
 #include "HMIKernel/include/device/devicePLC.h"
 #include "HMIKernel/include/hmi_control/curvecontrol.h"
 #include "Headers/log.h"
+#include "Headers/qcustomplot.h"
 
 // 所有轴命令
 const int CMD_KEY_NONE = 0;              // 无
@@ -141,6 +142,16 @@ private slots:
 
     void on_reset_action_triggered();
 
+    void on_radioButton_4_toggled(bool checked);
+
+    void on_radioButton_5_toggled(bool checked);
+
+    void on_radioButton_toggled(bool checked);
+
+    void on_radioButton_3_toggled(bool checked);
+
+    void on_radioButton_2_toggled(bool checked);
+
 private:
     Ui::MainWindow *ui;
     QTimer *m_longPressTimer;
@@ -156,5 +167,8 @@ private:
     void updatePlotValue();
     bool sendCmdToPlc(int nKey, bool isHelpAxis);
     void newFatigueTest();
+    void onLegendClick(QCPLegend *legend,
+                                   QCPAbstractLegendItem *item,
+                                   QMouseEvent *event);
 };
 #endif // MAINWINDOW_H

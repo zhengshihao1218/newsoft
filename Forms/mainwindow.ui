@@ -103,7 +103,7 @@
           <item>
            <spacer name="horizontalSpacer_2">
             <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+             <enum>Qt::Orientation::Horizontal</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
@@ -143,14 +143,14 @@
              <number>9</number>
             </property>
             <property name="segmentStyle">
-             <enum>QLCDNumber::Flat</enum>
+             <enum>QLCDNumber::SegmentStyle::Flat</enum>
             </property>
            </widget>
           </item>
           <item>
            <spacer name="horizontalSpacer_3">
             <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+             <enum>Qt::Orientation::Horizontal</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
@@ -190,7 +190,7 @@
              <number>7</number>
             </property>
             <property name="segmentStyle">
-             <enum>QLCDNumber::Flat</enum>
+             <enum>QLCDNumber::SegmentStyle::Flat</enum>
             </property>
            </widget>
           </item>
@@ -218,6 +218,12 @@
                 <property name="text">
                  <string>温度曲线</string>
                 </property>
+                <property name="checked">
+                 <bool>false</bool>
+                </property>
+                <property name="autoExclusive">
+                 <bool>true</bool>
+                </property>
                </widget>
               </item>
               <item>
@@ -235,6 +241,12 @@
                 </property>
                 <property name="text">
                  <string>位置曲线</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+                <property name="autoExclusive">
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>
@@ -254,6 +266,9 @@
                 <property name="text">
                  <string>压力曲线</string>
                 </property>
+                <property name="autoExclusive">
+                 <bool>true</bool>
+                </property>
                </widget>
               </item>
              </layout>
@@ -263,7 +278,7 @@
               <item>
                <spacer name="horizontalSpacer">
                 <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
+                 <enum>Qt::Orientation::Horizontal</enum>
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
@@ -303,10 +318,19 @@
                 <property name="text">
                  <string>当前曲线</string>
                 </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+                <property name="autoExclusive">
+                 <bool>false</bool>
+                </property>
                </widget>
               </item>
               <item>
                <widget class="QRadioButton" name="radioButton_5">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
                 <property name="maximumSize">
                  <size>
                   <width>100</width>
@@ -322,7 +346,10 @@
                  <string>历史曲线</string>
                 </property>
                 <property name="checked">
-                 <bool>true</bool>
+                 <bool>false</bool>
+                </property>
+                <property name="autoExclusive">
+                 <bool>false</bool>
                 </property>
                </widget>
               </item>
@@ -352,7 +379,7 @@
              <bool>false</bool>
             </property>
             <property name="layoutDirection">
-             <enum>Qt::RightToLeft</enum>
+             <enum>Qt::LayoutDirection::RightToLeft</enum>
             </property>
             <property name="autoFillBackground">
              <bool>false</bool>
@@ -390,7 +417,7 @@ color: black; /* 可选，设置文字颜色 */</string>
                <string>信息</string>
               </property>
               <property name="alignment">
-               <set>Qt::AlignCenter</set>
+               <set>Qt::AlignmentFlag::AlignCenter</set>
               </property>
              </widget>
             </item>
@@ -416,7 +443,7 @@ color: black; /* 可选，设置文字颜色 */</string>
                <string>0</string>
               </property>
               <property name="alignment">
-               <set>Qt::AlignCenter</set>
+               <set>Qt::AlignmentFlag::AlignCenter</set>
               </property>
              </widget>
             </item>
@@ -446,7 +473,7 @@ color: black; /* 可选，设置文字颜色 */</string>
                <string>位置</string>
               </property>
               <property name="alignment">
-               <set>Qt::AlignCenter</set>
+               <set>Qt::AlignmentFlag::AlignCenter</set>
               </property>
              </widget>
             </item>
@@ -472,7 +499,7 @@ color: black; /* 可选，设置文字颜色 */</string>
                <string>0</string>
               </property>
               <property name="alignment">
-               <set>Qt::AlignCenter</set>
+               <set>Qt::AlignmentFlag::AlignCenter</set>
               </property>
              </widget>
             </item>
@@ -502,7 +529,7 @@ color: black; /* 可选，设置文字颜色 */</string>
                <string>实际扭矩</string>
               </property>
               <property name="alignment">
-               <set>Qt::AlignCenter</set>
+               <set>Qt::AlignmentFlag::AlignCenter</set>
               </property>
              </widget>
             </item>
@@ -528,7 +555,7 @@ color: black; /* 可选，设置文字颜色 */</string>
                <string>0</string>
               </property>
               <property name="alignment">
-               <set>Qt::AlignCenter</set>
+               <set>Qt::AlignmentFlag::AlignCenter</set>
               </property>
              </widget>
             </item>
@@ -558,7 +585,7 @@ color: black; /* 可选，设置文字颜色 */</string>
                <string>压力</string>
               </property>
               <property name="alignment">
-               <set>Qt::AlignCenter</set>
+               <set>Qt::AlignmentFlag::AlignCenter</set>
               </property>
              </widget>
             </item>
@@ -584,7 +611,7 @@ color: black; /* 可选，设置文字颜色 */</string>
                <string>0</string>
               </property>
               <property name="alignment">
-               <set>Qt::AlignCenter</set>
+               <set>Qt::AlignmentFlag::AlignCenter</set>
               </property>
              </widget>
             </item>
@@ -614,7 +641,7 @@ color: black; /* 可选，设置文字颜色 */</string>
                <string>速度</string>
               </property>
               <property name="alignment">
-               <set>Qt::AlignCenter</set>
+               <set>Qt::AlignmentFlag::AlignCenter</set>
               </property>
              </widget>
             </item>
@@ -640,7 +667,7 @@ color: black; /* 可选，设置文字颜色 */</string>
                <string>0</string>
               </property>
               <property name="alignment">
-               <set>Qt::AlignCenter</set>
+               <set>Qt::AlignmentFlag::AlignCenter</set>
               </property>
              </widget>
             </item>
@@ -670,7 +697,7 @@ color: black; /* 可选，设置文字颜色 */</string>
                <string>已测试次数</string>
               </property>
               <property name="alignment">
-               <set>Qt::AlignCenter</set>
+               <set>Qt::AlignmentFlag::AlignCenter</set>
               </property>
              </widget>
             </item>
@@ -696,7 +723,7 @@ color: black; /* 可选，设置文字颜色 */</string>
                <string>0</string>
               </property>
               <property name="alignment">
-               <set>Qt::AlignCenter</set>
+               <set>Qt::AlignmentFlag::AlignCenter</set>
               </property>
              </widget>
             </item>
@@ -726,7 +753,7 @@ color: black; /* 可选，设置文字颜色 */</string>
                <string>已测试时间</string>
               </property>
               <property name="alignment">
-               <set>Qt::AlignCenter</set>
+               <set>Qt::AlignmentFlag::AlignCenter</set>
               </property>
              </widget>
             </item>
@@ -752,7 +779,7 @@ color: black; /* 可选，设置文字颜色 */</string>
                <string>0</string>
               </property>
               <property name="alignment">
-               <set>Qt::AlignCenter</set>
+               <set>Qt::AlignmentFlag::AlignCenter</set>
               </property>
              </widget>
             </item>
@@ -772,7 +799,7 @@ color: black; /* 可选，设置文字颜色 */</string>
      <x>0</x>
      <y>0</y>
      <width>1744</width>
-     <height>21</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">
@@ -847,7 +874,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <string notr="true"/>
    </property>
    <property name="allowedAreas">
-    <set>Qt::AllToolBarAreas</set>
+    <set>Qt::ToolBarArea::AllToolBarAreas</set>
    </property>
    <property name="iconSize">
     <size>
@@ -856,7 +883,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     </size>
    </property>
    <property name="toolButtonStyle">
-    <enum>Qt::ToolButtonTextUnderIcon</enum>
+    <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
    </property>
    <property name="floatable">
     <bool>false</bool>
@@ -908,7 +935,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     </size>
    </property>
    <property name="features">
-    <set>QDockWidget::DockWidgetClosable|QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
+    <set>QDockWidget::DockWidgetFeature::DockWidgetClosable|QDockWidget::DockWidgetFeature::DockWidgetFloatable|QDockWidget::DockWidgetFeature::DockWidgetMovable</set>
    </property>
    <property name="windowTitle">
     <string>信息栏</string>
@@ -929,7 +956,7 @@ color: black; /* 可选，设置文字颜色 */</string>
        <item>
         <spacer name="horizontalSpacer_6">
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Orientation::Horizontal</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -954,7 +981,7 @@ color: black; /* 可选，设置文字颜色 */</string>
        <item>
         <spacer name="horizontalSpacer_7">
          <property name="orientation">
-          <enum>Qt::Horizontal</enum>
+          <enum>Qt::Orientation::Horizontal</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -992,7 +1019,7 @@ color: black; /* 可选，设置文字颜色 */</string>
           <item>
            <spacer name="horizontalSpacer_4">
             <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+             <enum>Qt::Orientation::Horizontal</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
@@ -1017,7 +1044,7 @@ color: black; /* 可选，设置文字颜色 */</string>
           <item>
            <spacer name="horizontalSpacer_5">
             <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+             <enum>Qt::Orientation::Horizontal</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
@@ -1078,7 +1105,7 @@ color: black; /* 可选，设置文字颜色 */</string>
              <string>试件信息</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -1104,7 +1131,7 @@ color: black; /* 可选，设置文字颜色 */</string>
              <string>试件信息X</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -1153,7 +1180,7 @@ color: black; /* 可选，设置文字颜色 */</string>
              <string>试验编号</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -1179,7 +1206,7 @@ color: black; /* 可选，设置文字颜色 */</string>
              <string>Test_007</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -1209,7 +1236,7 @@ color: black; /* 可选，设置文字颜色 */</string>
              <string>试验创建时间</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -1235,7 +1262,7 @@ color: black; /* 可选，设置文字颜色 */</string>
              <string>2024-12-12 12:12:12</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -1265,7 +1292,7 @@ color: black; /* 可选，设置文字颜色 */</string>
              <string>试验类型</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -1291,7 +1318,7 @@ color: black; /* 可选，设置文字颜色 */</string>
              <string>疲劳试验</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -1340,7 +1367,7 @@ color: black; /* 可选，设置文字颜色 */</string>
              <string>目标试验次数</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -1366,7 +1393,7 @@ color: black; /* 可选，设置文字颜色 */</string>
              <string>0</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -1396,7 +1423,7 @@ color: black; /* 可选，设置文字颜色 */</string>
              <string>准备位置</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -1422,7 +1449,7 @@ color: black; /* 可选，设置文字颜色 */</string>
              <string>0</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -1452,7 +1479,7 @@ color: black; /* 可选，设置文字颜色 */</string>
              <string>起始位置</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -1478,7 +1505,7 @@ color: black; /* 可选，设置文字颜色 */</string>
              <string>0</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -1508,7 +1535,7 @@ color: black; /* 可选，设置文字颜色 */</string>
              <string>温度上限</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -1534,7 +1561,7 @@ color: black; /* 可选，设置文字颜色 */</string>
              <string>0</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -1564,7 +1591,7 @@ color: black; /* 可选，设置文字颜色 */</string>
              <string>温度下限</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -1590,7 +1617,7 @@ color: black; /* 可选，设置文字颜色 */</string>
              <string>0</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -1620,7 +1647,7 @@ color: black; /* 可选，设置文字颜色 */</string>
              <string>A</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -1646,7 +1673,7 @@ color: black; /* 可选，设置文字颜色 */</string>
              <string>0</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -1676,7 +1703,7 @@ color: black; /* 可选，设置文字颜色 */</string>
              <string>B</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -1702,7 +1729,7 @@ color: black; /* 可选，设置文字颜色 */</string>
              <string>0</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -1732,7 +1759,7 @@ color: black; /* 可选，设置文字颜色 */</string>
              <string>α</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -1758,7 +1785,7 @@ color: black; /* 可选，设置文字颜色 */</string>
              <string>0</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -1788,7 +1815,7 @@ color: black; /* 可选，设置文字颜色 */</string>
              <string>β</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -1814,7 +1841,7 @@ color: black; /* 可选，设置文字颜色 */</string>
              <string>0</string>
             </property>
             <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <set>Qt::AlignmentFlag::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -1987,7 +2014,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <string>清错</string>
    </property>
    <property name="menuRole">
-    <enum>QAction::NoRole</enum>
+    <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
   <action name="motor_start_stop_action">
@@ -2009,7 +2036,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <string>马达启停</string>
    </property>
    <property name="menuRole">
-    <enum>QAction::NoRole</enum>
+    <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
   <action name="prepare_experiment_action">
@@ -2024,7 +2051,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <string>准备试验</string>
    </property>
    <property name="menuRole">
-    <enum>QAction::NoRole</enum>
+    <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
   <action name="start_experiment_action">
@@ -2039,7 +2066,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <string>启动试验</string>
    </property>
    <property name="menuRole">
-    <enum>QAction::NoRole</enum>
+    <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
   <action name="stop_experiment_action">
@@ -2051,7 +2078,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <string>停止试验</string>
    </property>
    <property name="menuRole">
-    <enum>QAction::NoRole</enum>
+    <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
   <action name="up_action">
@@ -2067,7 +2094,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <string>寸动上</string>
    </property>
    <property name="menuRole">
-    <enum>QAction::NoRole</enum>
+    <enum>QAction::MenuRole::NoRole</enum>
    </property>
    <property name="iconVisibleInMenu">
     <bool>true</bool>
@@ -2089,7 +2116,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <string>寸动下</string>
    </property>
    <property name="menuRole">
-    <enum>QAction::NoRole</enum>
+    <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
   <action name="new_experiment_action">
@@ -2101,7 +2128,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <string>新建试验</string>
    </property>
    <property name="menuRole">
-    <enum>QAction::NoRole</enum>
+    <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
   <action name="current_experiment">
@@ -2113,7 +2140,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <string>当前试验</string>
    </property>
    <property name="menuRole">
-    <enum>QAction::NoRole</enum>
+    <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
   <action name="browse_experiment_action">
@@ -2125,7 +2152,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <string>浏览试验</string>
    </property>
    <property name="menuRole">
-    <enum>QAction::NoRole</enum>
+    <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
   <action name="control_parment_action">
@@ -2137,7 +2164,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <string>控制参数</string>
    </property>
    <property name="menuRole">
-    <enum>QAction::NoRole</enum>
+    <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
   <action name="system_parment_action">
@@ -2149,7 +2176,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <string>系统参数</string>
    </property>
    <property name="menuRole">
-    <enum>QAction::NoRole</enum>
+    <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
   <action name="login_action">
@@ -2161,7 +2188,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <string>登入系统</string>
    </property>
    <property name="menuRole">
-    <enum>QAction::NoRole</enum>
+    <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
   <action name="quit_action">
@@ -2173,7 +2200,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <string>退出系统</string>
    </property>
    <property name="menuRole">
-    <enum>QAction::NoRole</enum>
+    <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
   <action name="new_user_action">
@@ -2185,7 +2212,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <string>添加用户</string>
    </property>
    <property name="menuRole">
-    <enum>QAction::NoRole</enum>
+    <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
   <action name="user_list_action">
@@ -2197,7 +2224,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <string>用户管理</string>
    </property>
    <property name="menuRole">
-    <enum>QAction::NoRole</enum>
+    <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
   <action name="about_action">
@@ -2212,7 +2239,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <string>关于</string>
    </property>
    <property name="menuRole">
-    <enum>QAction::NoRole</enum>
+    <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
   <action name="logout_action">
@@ -2224,7 +2251,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <string>退出登录</string>
    </property>
    <property name="menuRole">
-    <enum>QAction::NoRole</enum>
+    <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
   <action name="info_view_action">
@@ -2243,7 +2270,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <string>信息栏</string>
    </property>
    <property name="menuRole">
-    <enum>QAction::NoRole</enum>
+    <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
   <action name="translate_action">
@@ -2258,7 +2285,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <string>中英文切换</string>
    </property>
    <property name="menuRole">
-    <enum>QAction::NoRole</enum>
+    <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
   <action name="tool_view_action">
@@ -2277,7 +2304,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <string>工具栏</string>
    </property>
    <property name="menuRole">
-    <enum>QAction::NoRole</enum>
+    <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
   <action name="two_chart_action">
@@ -2293,7 +2320,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <string>第二图表</string>
    </property>
    <property name="menuRole">
-    <enum>QAction::NoRole</enum>
+    <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
   <action name="dark_light_action">
@@ -2309,7 +2336,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <string>白天/黑夜模式</string>
    </property>
    <property name="menuRole">
-    <enum>QAction::NoRole</enum>
+    <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
   <action name="change_password_action">
@@ -2321,7 +2348,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <string>修改密码</string>
    </property>
    <property name="menuRole">
-    <enum>QAction::NoRole</enum>
+    <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
   <action name="reset_action">
@@ -2333,7 +2360,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <string>归零</string>
    </property>
    <property name="menuRole">
-    <enum>QAction::NoRole</enum>
+    <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
  </widget>
@@ -2346,9 +2373,9 @@ color: black; /* 可选，设置文字颜色 */</string>
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../Themes/dark/darkstyle.qrc"/>
-  <include location="../Themes/light/lightstyle.qrc"/>
   <include location="../Images/image.qrc"/>
+  <include location="../Themes/light/lightstyle.qrc"/>
+  <include location="../Themes/dark/darkstyle.qrc"/>
  </resources>
  <connections>
   <connection>
