@@ -8,6 +8,6 @@ git pull
 
 git branch -a 
 
-git checkout master (从默认的main分支切到master分支)
+git checkout pending (从默认的main分支切到master分支)
 
 使用qtCreator打开.pro文件
