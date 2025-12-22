@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1234</width>
-    <height>1073</height>
+    <width>1181</width>
+    <height>918</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -47,9 +47,9 @@
        <item>
         <widget class="QTabWidget" name="tabWidget_2">
          <property name="currentIndex">
-          <number>4</number>
+          <number>0</number>
          </property>
-         <widget class="QWidget" name="tab_6">
+         <widget class="QWidget" name="tab_1_pos">
           <attribute name="title">
            <string>位置</string>
           </attribute>
@@ -60,8 +60,38 @@
               <layout class="QHBoxLayout" name="horizontalLayout_5">
                <item>
                 <layout class="QGridLayout" name="gridLayout">
-                 <item row="3" column="1">
-                  <widget class="QDoubleSpinBox" name="doubleSpinBox_5"/>
+                 <item row="6" column="0">
+                  <widget class="QLabel" name="label_59">
+                   <property name="text">
+                    <string>位置限定选项</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="7" column="1">
+                  <widget class="QDoubleSpinBox" name="doubleSpinBox_7"/>
+                 </item>
+                 <item row="1" column="0">
+                  <widget class="QLabel" name="label_55">
+                   <property name="text">
+                    <string>归零模式</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="8" column="2">
+                  <widget class="QComboBox" name="comboBox_11">
+                   <item>
+                    <property name="text">
+                     <string>mm</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                 <item row="7" column="0">
+                  <widget class="QLabel" name="label_60">
+                   <property name="text">
+                    <string>位置下限</string>
+                   </property>
+                  </widget>
                  </item>
                  <item row="4" column="2">
                   <widget class="QComboBox" name="comboBox_7">
@@ -77,73 +107,23 @@
                    </item>
                   </widget>
                  </item>
-                 <item row="8" column="0">
-                  <widget class="QLabel" name="label_61">
-                   <property name="text">
-                    <string>位置上限</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="9" column="1">
-                  <widget class="QDoubleSpinBox" name="doubleSpinBox_9"/>
-                 </item>
-                 <item row="1" column="0">
-                  <widget class="QLabel" name="label_55">
-                   <property name="text">
-                    <string>归零模式</string>
-                   </property>
+                 <item row="11" column="2">
+                  <widget class="QComboBox" name="comboBox_14">
+                   <item>
+                    <property name="text">
+                     <string>mm</string>
+                    </property>
+                   </item>
                   </widget>
                  </item>
                  <item row="4" column="1">
                   <widget class="QDoubleSpinBox" name="doubleSpinBox_6"/>
                  </item>
-                 <item row="6" column="1">
-                  <widget class="QComboBox" name="comboBox_9">
-                   <item>
-                    <property name="text">
-                     <string>是</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>否</string>
-                    </property>
-                   </item>
-                  </widget>
-                 </item>
-                 <item row="1" column="1">
-                  <widget class="QComboBox" name="comboBox_5">
-                   <item>
-                    <property name="text">
-                     <string>当前位置</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>无需i归零</string>
-                    </property>
-                   </item>
-                  </widget>
-                 </item>
-                 <item row="6" column="0">
-                  <widget class="QLabel" name="label_59">
+                 <item row="3" column="0">
+                  <widget class="QLabel" name="label_56">
                    <property name="text">
-                    <string>位置限定选项</string>
+                    <string>归零位置</string>
                    </property>
-                  </widget>
-                 </item>
-                 <item row="5" column="1">
-                  <widget class="QComboBox" name="comboBox_8">
-                   <item>
-                    <property name="text">
-                     <string>否</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>是</string>
-                    </property>
-                   </item>
                   </widget>
                  </item>
                  <item row="10" column="0">
@@ -151,6 +131,50 @@
                    <property name="text">
                     <string>复位功能</string>
                    </property>
+                  </widget>
+                 </item>
+                 <item row="11" column="1">
+                  <widget class="QDoubleSpinBox" name="doubleSpinBox_10"/>
+                 </item>
+                 <item row="9" column="0">
+                  <widget class="QLabel" name="label_62">
+                   <property name="text">
+                    <string>位置追随误差</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="9" column="2">
+                  <widget class="QComboBox" name="comboBox_12">
+                   <item>
+                    <property name="text">
+                     <string>mm</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                 <item row="8" column="1">
+                  <widget class="QDoubleSpinBox" name="doubleSpinBox_8"/>
+                 </item>
+                 <item row="3" column="1">
+                  <widget class="QDoubleSpinBox" name="doubleSpinBox_5"/>
+                 </item>
+                 <item row="9" column="1">
+                  <widget class="QDoubleSpinBox" name="doubleSpinBox_9"/>
+                 </item>
+                 <item row="11" column="0">
+                  <widget class="QLabel" name="label_64">
+                   <property name="text">
+                    <string>复位位置</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="7" column="2">
+                  <widget class="QComboBox" name="comboBox_10">
+                   <item>
+                    <property name="text">
+                     <string>mm</string>
+                    </property>
+                   </item>
                   </widget>
                  </item>
                  <item row="3" column="2">
@@ -174,25 +198,6 @@
                    </property>
                   </widget>
                  </item>
-                 <item row="3" column="0">
-                  <widget class="QLabel" name="label_56">
-                   <property name="text">
-                    <string>归零位置</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="7" column="1">
-                  <widget class="QDoubleSpinBox" name="doubleSpinBox_7"/>
-                 </item>
-                 <item row="8" column="2">
-                  <widget class="QComboBox" name="comboBox_11">
-                   <item>
-                    <property name="text">
-                     <string>mm</string>
-                    </property>
-                   </item>
-                  </widget>
-                 </item>
                  <item row="10" column="1">
                   <widget class="QComboBox" name="comboBox_13">
                    <item>
@@ -207,13 +212,6 @@
                    </item>
                   </widget>
                  </item>
-                 <item row="7" column="0">
-                  <widget class="QLabel" name="label_60">
-                   <property name="text">
-                    <string>位置下限</string>
-                   </property>
-                  </widget>
-                 </item>
                  <item row="5" column="0">
                   <widget class="QLabel" name="label_58">
                    <property name="text">
@@ -221,49 +219,56 @@
                    </property>
                   </widget>
                  </item>
-                 <item row="9" column="2">
-                  <widget class="QComboBox" name="comboBox_12">
+                 <item row="6" column="1">
+                  <widget class="QComboBox" name="comboBox_9">
                    <item>
                     <property name="text">
-                     <string>mm</string>
+                     <string>否</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>是</string>
                     </property>
                    </item>
                   </widget>
                  </item>
-                 <item row="7" column="2">
-                  <widget class="QComboBox" name="comboBox_10">
+                 <item row="8" column="0">
+                  <widget class="QLabel" name="label_61">
+                   <property name="text">
+                    <string>位置上限</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="1">
+                  <widget class="QComboBox" name="comboBox_5">
                    <item>
                     <property name="text">
-                     <string>mm</string>
+                     <string>下限位归零</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>当前位置</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>无需归零</string>
                     </property>
                    </item>
                   </widget>
                  </item>
-                 <item row="8" column="1">
-                  <widget class="QDoubleSpinBox" name="doubleSpinBox_8"/>
-                 </item>
-                 <item row="9" column="0">
-                  <widget class="QLabel" name="label_62">
-                   <property name="text">
-                    <string>位置追随误差</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="11" column="0">
-                  <widget class="QLabel" name="label_64">
-                   <property name="text">
-                    <string>复位位置</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="11" column="1">
-                  <widget class="QDoubleSpinBox" name="doubleSpinBox_10"/>
-                 </item>
-                 <item row="11" column="2">
-                  <widget class="QComboBox" name="comboBox_14">
+                 <item row="5" column="1">
+                  <widget class="QComboBox" name="comboBox_8">
                    <item>
                     <property name="text">
-                     <string>mm</string>
+                     <string>否</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>是</string>
                     </property>
                    </item>
                   </widget>
@@ -284,40 +289,6 @@
                     </size>
                    </property>
                   </spacer>
-                 </item>
-                 <item>
-                  <layout class="QGridLayout" name="gridLayout_32">
-                   <item row="0" column="2">
-                    <widget class="QPushButton" name="pushButton_2">
-                     <property name="text">
-                      <string>替换</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="0">
-                    <widget class="QPushButton" name="pushButton">
-                     <property name="text">
-                      <string>计算：</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item row="0" column="1">
-                    <widget class="QDoubleSpinBox" name="doubleSpinBox_15"/>
-                   </item>
-                   <item row="1" column="1">
-                    <spacer name="verticalSpacer_12">
-                     <property name="orientation">
-                      <enum>Qt::Vertical</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>20</width>
-                       <height>40</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
-                  </layout>
                  </item>
                  <item>
                   <layout class="QGridLayout" name="gridLayout_31">
@@ -375,24 +346,1127 @@
                   </layout>
                  </item>
                  <item>
-                  <widget class="Line" name="line_6">
+                  <widget class="Line" name="line_2">
                    <property name="orientation">
                     <enum>Qt::Horizontal</enum>
                    </property>
                   </widget>
                  </item>
+                 <item>
+                  <layout class="QGridLayout" name="gridLayout_32">
+                   <item row="0" column="2">
+                    <widget class="QPushButton" name="pushButton_2">
+                     <property name="text">
+                      <string>替换</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="0">
+                    <widget class="QPushButton" name="pushButton">
+                     <property name="text">
+                      <string>计算：</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QDoubleSpinBox" name="doubleSpinBox_15">
+                     <property name="decimals">
+                      <number>3</number>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <spacer name="verticalSpacer_12">
+                     <property name="orientation">
+                      <enum>Qt::Vertical</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>20</width>
+                       <height>40</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                  </layout>
+                 </item>
                 </layout>
                </item>
               </layout>
              </item>
-             <item>
-              <widget class="QTableView" name="tableView"/>
+            </layout>
+           </item>
+           <item>
+            <widget class="Line" name="line">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QGridLayout" name="gridLayout_2">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <item row="4" column="4">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_207">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="9" column="0">
+              <widget class="QLabel" name="label_273">
+               <property name="text">
+                <string>9</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="6">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_188">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="2">
+              <widget class="QLabel" name="label_263">
+               <property name="font">
+                <font>
+                 <pointsize>14</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>-</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLabel" name="label_266">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="text">
+                <string>0.00</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="0">
+              <widget class="QLabel" name="label_269">
+               <property name="text">
+                <string>5</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="4">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_200">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="6">
+              <widget class="QLabel" name="label_22">
+               <property name="font">
+                <font>
+                 <pointsize>13</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Kd</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QLabel" name="label_267">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="text">
+                <string>0.00</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="0">
+              <widget class="QLabel" name="label_271">
+               <property name="text">
+                <string>7</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="3">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_199">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="4">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_193">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="3">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_1_speed">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="4">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_186">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="8">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_211">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="7">
+              <widget class="QLabel" name="label_24">
+               <property name="font">
+                <font>
+                 <pointsize>13</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;速度前馈&lt;br/&gt;系数&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLabel" name="label_265">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="text">
+                <string>0.00</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="8" column="0">
+              <widget class="QLabel" name="label_272">
+               <property name="text">
+                <string>8</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="6">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_202">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QLabel" name="label_10">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>13</pointsize>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true"/>
+               </property>
+               <property name="text">
+                <string>序号</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+               <property name="indent">
+                <number>0</number>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="2">
+              <widget class="QLabel" name="label_261">
+               <property name="text">
+                <string>-</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="11" column="0">
+              <widget class="QLabel" name="label_275">
+               <property name="text">
+                <string>寸动</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="7">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_203">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="2">
+              <widget class="QLabel" name="label_260">
+               <property name="text">
+                <string>-</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLabel" name="label_262">
+               <property name="maximumSize">
+                <size>
+                 <width>100</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>13</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>速度min</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="label_30">
+               <property name="text">
+                <string>3</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="label_32">
+               <property name="text">
+                <string>4</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="0">
+              <widget class="QLabel" name="label_270">
+               <property name="text">
+                <string>6</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="3">
+              <widget class="QLabel" name="label_264">
+               <property name="maximumSize">
+                <size>
+                 <width>100</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <pointsize>13</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>速度max</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="10" column="0">
+              <widget class="QLabel" name="label_274">
+               <property name="text">
+                <string>10</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="8">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_197">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="7">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_189">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="3">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_192">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="8">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_190">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_16">
+               <property name="text">
+                <string>2</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_12">
+               <property name="text">
+                <string>1</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="8">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_204">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="7">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_196">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="QLabel" name="label_268">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="text">
+                <string>0.00</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="5">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_187">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="5">
+              <widget class="QLabel" name="label_20">
+               <property name="font">
+                <font>
+                 <pointsize>13</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Ki</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="6">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_209">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="8">
+              <widget class="QLabel" name="label_26">
+               <property name="font">
+                <font>
+                 <pointsize>13</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;加速度前馈&lt;br/&gt;系数&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="6">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_195">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="2">
+              <widget class="QLabel" name="label_28">
+               <property name="text">
+                <string>-</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="5">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_208">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="5">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_201">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="7">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_210">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="4">
+              <widget class="QLabel" name="label_18">
+               <property name="font">
+                <font>
+                 <pointsize>13</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Kp</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="5">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_194">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="3">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_206">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="2">
+              <widget class="QLabel" name="label_14">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>20</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>-</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="12" column="0">
+              <widget class="QLabel" name="label_276">
+               <property name="text">
+                <string>路波</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="1">
+              <widget class="QLabel" name="label_277">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="text">
+                <string>0.00</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="1">
+              <widget class="QLabel" name="label_278">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="text">
+                <string>0.00</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="1">
+              <widget class="QLabel" name="label_279">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="text">
+                <string>0.00</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="8" column="1">
+              <widget class="QLabel" name="label_280">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="text">
+                <string>0.00</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="9" column="1">
+              <widget class="QLabel" name="label_281">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="text">
+                <string>0.00</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="10" column="1">
+              <widget class="QLabel" name="label_282">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="text">
+                <string>0.00</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="11" column="1">
+              <widget class="QLabel" name="label_283">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+               <property name="text">
+                <string>0.00</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="2">
+              <widget class="QLabel" name="label_285">
+               <property name="text">
+                <string>-</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="2">
+              <widget class="QLabel" name="label_286">
+               <property name="text">
+                <string>-</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="2">
+              <widget class="QLabel" name="label_287">
+               <property name="text">
+                <string>-</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="8" column="2">
+              <widget class="QLabel" name="label_288">
+               <property name="text">
+                <string>-</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="9" column="2">
+              <widget class="QLabel" name="label_289">
+               <property name="text">
+                <string>-</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="10" column="2">
+              <widget class="QLabel" name="label_290">
+               <property name="text">
+                <string>-</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="11" column="2">
+              <widget class="QLabel" name="label_291">
+               <property name="text">
+                <string>-</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="3">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_184">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="3">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_191">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="3">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_198">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="8" column="3">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_205">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="9" column="3">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_212">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="10" column="3">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_213">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="11" column="3">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_214">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="12" column="4">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_215">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="11" column="4">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_216">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="10" column="4">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_217">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="4">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_218">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="4">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_219">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="4">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_220">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="8" column="4">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_221">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="9" column="4">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_222">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="5">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_223">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="5">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_224">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="5">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_225">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="8" column="5">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_226">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="9" column="5">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_227">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="10" column="5">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_228">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="11" column="5">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_229">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="12" column="5">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_230">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="6">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_231">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="6">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_232">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="6">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_233">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="7">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_234">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="8">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_235">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="7">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_236">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="6" column="8">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_237">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="7">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_238">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="8">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_239">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="8" column="6">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_240">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="8" column="7">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_241">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="8" column="8">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_242">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="9" column="6">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_243">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="9" column="7">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_244">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="9" column="8">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_245">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="10" column="7">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_246">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="10" column="6">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_247">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="11" column="6">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_248">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="12" column="6">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_249">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="11" column="7">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_250">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="12" column="7">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_251">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="10" column="8">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_252">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="11" column="8">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_253">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
+             </item>
+             <item row="12" column="8">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_254">
+               <property name="decimals">
+                <number>3</number>
+               </property>
+              </widget>
              </item>
             </layout>
            </item>
+           <item>
+            <spacer name="verticalSpacer_19">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="tab_7">
+         <widget class="QWidget" name="tab_1_speed">
           <attribute name="title">
            <string>速度</string>
           </attribute>
@@ -1143,7 +2217,7 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="tab_8">
+         <widget class="QWidget" name="tab_1_froce">
           <attribute name="title">
            <string>压力</string>
           </attribute>
@@ -1601,7 +2675,7 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="tab_9">
+         <widget class="QWidget" name="tab_1_contr">
           <attribute name="title">
            <string>力值控制</string>
           </attribute>
@@ -2088,9 +3162,22 @@
              </layout>
             </widget>
            </item>
+           <item>
+            <spacer name="verticalSpacer_17">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="tab_10">
+         <widget class="QWidget" name="tab_1_limit">
           <attribute name="title">
            <string>试验限值</string>
           </attribute>
@@ -2098,7 +3185,7 @@
            <item>
             <widget class="QTabWidget" name="tabWidget_3">
              <property name="currentIndex">
-              <number>5</number>
+              <number>0</number>
              </property>
              <widget class="QWidget" name="tab_11">
               <attribute name="title">
@@ -3469,6 +4556,16 @@
         <layout class="QFormLayout" name="formLayout_4">
          <item row="0" column="0">
           <widget class="QLabel" name="label_11">
+           <property name="minimumSize">
+            <size>
+             <width>125</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>实际压力</string>
            </property>
@@ -3476,6 +4573,16 @@
          </item>
          <item row="0" column="1">
           <widget class="QLabel" name="label_act_pear">
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>0</string>
            </property>
@@ -3483,6 +4590,16 @@
          </item>
          <item row="1" column="0">
           <widget class="QLabel" name="label_9">
+           <property name="minimumSize">
+            <size>
+             <width>125</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>实际位置</string>
            </property>
@@ -3490,6 +4607,10 @@
          </item>
          <item row="1" column="1">
           <widget class="QLabel" name="label_act_posi">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>0</string>
            </property>
@@ -3497,6 +4618,16 @@
          </item>
          <item row="2" column="0">
           <widget class="QLabel" name="label_13">
+           <property name="minimumSize">
+            <size>
+             <width>125</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>实际速度</string>
            </property>
@@ -3504,6 +4635,10 @@
          </item>
          <item row="2" column="1">
           <widget class="QLabel" name="label_act_velo">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>0</string>
            </property>
@@ -3511,6 +4646,16 @@
          </item>
          <item row="3" column="0">
           <widget class="QLabel" name="label_15">
+           <property name="minimumSize">
+            <size>
+             <width>125</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>实际扭力</string>
            </property>
@@ -3518,6 +4663,10 @@
          </item>
          <item row="3" column="1">
           <widget class="QLabel" name="label_act_torque">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>0</string>
            </property>
@@ -3525,6 +4674,16 @@
          </item>
          <item row="4" column="0">
           <widget class="QLabel" name="label_21">
+           <property name="minimumSize">
+            <size>
+             <width>125</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>实际施力</string>
            </property>
@@ -3532,6 +4691,10 @@
          </item>
          <item row="4" column="1">
           <widget class="QLabel" name="label_act_force">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>0</string>
            </property>
@@ -3539,6 +4702,16 @@
          </item>
          <item row="5" column="0">
           <widget class="QLabel" name="label_17">
+           <property name="minimumSize">
+            <size>
+             <width>125</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>实际转速</string>
            </property>
@@ -3546,6 +4719,10 @@
          </item>
          <item row="5" column="1">
           <widget class="QLabel" name="label_act_RPM">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>0</string>
            </property>
@@ -3553,6 +4730,16 @@
          </item>
          <item row="6" column="0">
           <widget class="QLabel" name="label_19">
+           <property name="minimumSize">
+            <size>
+             <width>125</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>实际指令</string>
            </property>
@@ -3560,6 +4747,10 @@
          </item>
          <item row="6" column="1">
           <widget class="QLabel" name="label_act_CMD">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>0</string>
            </property>
@@ -3567,6 +4758,16 @@
          </item>
          <item row="7" column="0">
           <widget class="QLabel" name="label_23">
+           <property name="minimumSize">
+            <size>
+             <width>125</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>实际动作</string>
            </property>
@@ -3574,6 +4775,10 @@
          </item>
          <item row="7" column="1">
           <widget class="QLabel" name="label_act_motion">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>0</string>
            </property>
@@ -3581,6 +4786,16 @@
          </item>
          <item row="8" column="0">
           <widget class="QLabel" name="label_25">
+           <property name="minimumSize">
+            <size>
+             <width>125</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>实际动作指令</string>
            </property>
@@ -3588,6 +4803,10 @@
          </item>
          <item row="8" column="1">
           <widget class="QLabel" name="label_act_motionCMD">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>0</string>
            </property>
@@ -3595,6 +4814,16 @@
          </item>
          <item row="9" column="0">
           <widget class="QLabel" name="label_27">
+           <property name="minimumSize">
+            <size>
+             <width>125</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>实际动作状态</string>
            </property>
@@ -3602,6 +4831,10 @@
          </item>
          <item row="9" column="1">
           <widget class="QLabel" name="label_act_motion_status">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>0</string>
            </property>
@@ -3609,6 +4842,22 @@
          </item>
          <item row="10" column="0">
           <widget class="QLabel" name="label_29">
+           <property name="minimumSize">
+            <size>
+             <width>125</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>125</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>实际动作运行时间</string>
            </property>
@@ -3616,6 +4865,10 @@
          </item>
          <item row="10" column="1">
           <widget class="QLabel" name="label_act_motion_runtime">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>0</string>
            </property>
@@ -3623,6 +4876,16 @@
          </item>
          <item row="11" column="0">
           <widget class="QLabel" name="label_31">
+           <property name="minimumSize">
+            <size>
+             <width>125</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>实际动作主体时间</string>
            </property>
@@ -3630,6 +4893,10 @@
          </item>
          <item row="11" column="1">
           <widget class="QLabel" name="label_act_motion_acttime">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>0</string>
            </property>
@@ -3637,6 +4904,16 @@
          </item>
          <item row="12" column="0">
           <widget class="QLabel" name="label_33">
+           <property name="minimumSize">
+            <size>
+             <width>125</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>试件实际温度1</string>
            </property>
@@ -3644,6 +4921,10 @@
          </item>
          <item row="12" column="1">
           <widget class="QLabel" name="label_34">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>0</string>
            </property>
@@ -3651,6 +4932,16 @@
          </item>
          <item row="13" column="0">
           <widget class="QLabel" name="label_35">
+           <property name="minimumSize">
+            <size>
+             <width>125</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>试件实际温度2</string>
            </property>
@@ -3658,6 +4949,10 @@
          </item>
          <item row="13" column="1">
           <widget class="QLabel" name="label_36">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>0</string>
            </property>
@@ -3665,6 +4960,16 @@
          </item>
          <item row="14" column="0">
           <widget class="QLabel" name="label_37">
+           <property name="minimumSize">
+            <size>
+             <width>125</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>试件实际温度3</string>
            </property>
@@ -3672,6 +4977,10 @@
          </item>
          <item row="14" column="1">
           <widget class="QLabel" name="label_38">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>0</string>
            </property>
@@ -3679,6 +4988,16 @@
          </item>
          <item row="15" column="0">
           <widget class="QLabel" name="label_39">
+           <property name="minimumSize">
+            <size>
+             <width>125</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>主站实际温度</string>
            </property>
@@ -3686,6 +5005,10 @@
          </item>
          <item row="15" column="1">
           <widget class="QLabel" name="label_40">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>0</string>
            </property>
@@ -3693,6 +5016,16 @@
          </item>
          <item row="16" column="0">
           <widget class="QLabel" name="label_41">
+           <property name="minimumSize">
+            <size>
+             <width>125</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>从站实际温度</string>
            </property>
@@ -3700,6 +5033,10 @@
          </item>
          <item row="16" column="1">
           <widget class="QLabel" name="label_42">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>0</string>
            </property>
@@ -3707,6 +5044,16 @@
          </item>
          <item row="17" column="0">
           <widget class="QLabel" name="label_43">
+           <property name="minimumSize">
+            <size>
+             <width>125</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>实际设定位置</string>
            </property>
@@ -3714,6 +5061,10 @@
          </item>
          <item row="17" column="1">
           <widget class="QLabel" name="label_44">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>0</string>
            </property>
@@ -3721,6 +5072,16 @@
          </item>
          <item row="18" column="0">
           <widget class="QLabel" name="label_45">
+           <property name="minimumSize">
+            <size>
+             <width>125</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>实际试验序号</string>
            </property>
@@ -3728,6 +5089,10 @@
          </item>
          <item row="18" column="1">
           <widget class="QLabel" name="label_46">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>0</string>
            </property>
@@ -3735,6 +5100,16 @@
          </item>
          <item row="19" column="0">
           <widget class="QLabel" name="label_47">
+           <property name="minimumSize">
+            <size>
+             <width>125</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>实际当前试验次数</string>
            </property>
@@ -3742,6 +5117,10 @@
          </item>
          <item row="19" column="1">
           <widget class="QLabel" name="label_48">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>0</string>
            </property>
@@ -3749,6 +5128,16 @@
          </item>
          <item row="20" column="0">
           <widget class="QLabel" name="label_49">
+           <property name="minimumSize">
+            <size>
+             <width>125</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>实际当前设定速度</string>
            </property>
@@ -3756,6 +5145,10 @@
          </item>
          <item row="20" column="1">
           <widget class="QLabel" name="label_50">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>0</string>
            </property>
@@ -3763,6 +5156,16 @@
          </item>
          <item row="21" column="0">
           <widget class="QLabel" name="label_51">
+           <property name="minimumSize">
+            <size>
+             <width>125</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>实际报警压力</string>
            </property>
@@ -3770,6 +5173,10 @@
          </item>
          <item row="21" column="1">
           <widget class="QLabel" name="label_52">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>0</string>
            </property>
@@ -3777,6 +5184,16 @@
          </item>
          <item row="22" column="0">
           <widget class="QLabel" name="label_53">
+           <property name="minimumSize">
+            <size>
+             <width>125</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>充气力</string>
            </property>
@@ -3784,6 +5201,10 @@
          </item>
          <item row="22" column="1">
           <widget class="QLabel" name="label_54">
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+           </property>
            <property name="text">
             <string>0</string>
            </property>
