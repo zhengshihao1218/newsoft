@@ -21,8 +21,11 @@ private slots:
 
     void on_buttonBox_rejected();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::NewIndicatTestDialog *ui;
+    int current_speed_count;
 };
 
 #endif // NEWINDICATTESTDIALOG_H

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>944</width>
-    <height>322</height>
+    <width>1058</width>
+    <height>615</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -211,42 +211,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     </layout>
    </item>
    <item>
-    <layout class="QGridLayout" name="gridLayout_2">
-     <item row="2" column="9">
-      <widget class="QDoubleSpinBox" name="doubleSpinBox_18"/>
-     </item>
-     <item row="1" column="4">
-      <widget class="QDoubleSpinBox" name="doubleSpinBox_8"/>
-     </item>
-     <item row="0" column="5">
-      <widget class="QLabel" name="label_sensor_24">
-       <property name="minimumSize">
-        <size>
-         <width>100</width>
-         <height>23</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>100</width>
-         <height>23</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(207, 207, 207);
-color: black; /* 可选，设置文字颜色 */</string>
-       </property>
-       <property name="text">
-        <string>压缩力上限</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QDoubleSpinBox" name="doubleSpinBox_16"/>
-     </item>
+    <layout class="QGridLayout" name="gridLayout_3">
      <item row="0" column="2">
       <widget class="QLabel" name="label_sensor_20">
        <property name="minimumSize">
@@ -267,6 +232,58 @@ color: black; /* 可选，设置文字颜色 */</string>
        </property>
        <property name="text">
         <string>次数</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="6">
+      <widget class="QLabel" name="label_sensor_26">
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>23</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>100</width>
+         <height>23</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+       </property>
+       <property name="text">
+        <string>压缩力下限</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="7">
+      <widget class="QLabel" name="label_sensor_25">
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>23</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>100</width>
+         <height>23</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+       </property>
+       <property name="text">
+        <string>振幅(mm)</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -299,137 +316,6 @@ color: black; /* 可选，设置文字颜色 */</string>
        </property>
       </widget>
      </item>
-     <item row="2" column="5">
-      <widget class="QDoubleSpinBox" name="doubleSpinBox_14"/>
-     </item>
-     <item row="1" column="3">
-      <widget class="QDoubleSpinBox" name="doubleSpinBox_7"/>
-     </item>
-     <item row="0" column="8">
-      <widget class="QLabel" name="label_sensor_25">
-       <property name="minimumSize">
-        <size>
-         <width>100</width>
-         <height>23</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>100</width>
-         <height>23</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(207, 207, 207);
-color: black; /* 可选，设置文字颜色 */</string>
-       </property>
-       <property name="text">
-        <string>振幅(mm)</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="2">
-      <widget class="QDoubleSpinBox" name="doubleSpinBox_22"/>
-     </item>
-     <item row="0" column="7">
-      <widget class="QLabel" name="label_sensor_26">
-       <property name="minimumSize">
-        <size>
-         <width>100</width>
-         <height>23</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>100</width>
-         <height>23</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(207, 207, 207);
-color: black; /* 可选，设置文字颜色 */</string>
-       </property>
-       <property name="text">
-        <string>压缩力下限</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0">
-      <widget class="QLabel" name="label_sensor_31">
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>23</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>100</width>
-         <height>23</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(207, 207, 207);
-color: black; /* 可选，设置文字颜色 */</string>
-       </property>
-       <property name="text">
-        <string>速度1</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="8">
-      <widget class="QDoubleSpinBox" name="doubleSpinBox_20"/>
-     </item>
-     <item row="2" column="3">
-      <widget class="QDoubleSpinBox" name="doubleSpinBox_17"/>
-     </item>
-     <item row="1" column="7">
-      <widget class="QDoubleSpinBox" name="doubleSpinBox_10"/>
-     </item>
-     <item row="1" column="8">
-      <widget class="QDoubleSpinBox" name="doubleSpinBox_11"/>
-     </item>
-     <item row="2" column="7">
-      <widget class="QDoubleSpinBox" name="doubleSpinBox_15"/>
-     </item>
-     <item row="1" column="1">
-      <widget class="QDoubleSpinBox" name="doubleSpinBox_5"/>
-     </item>
-     <item row="0" column="9">
-      <widget class="QLabel" name="label_sensor_27">
-       <property name="minimumSize">
-        <size>
-         <width>100</width>
-         <height>23</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>100</width>
-         <height>23</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(207, 207, 207);
-color: black; /* 可选，设置文字颜色 */</string>
-       </property>
-       <property name="text">
-        <string>振幅(Hz)</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
      <item row="0" column="4">
       <widget class="QLabel" name="label_sensor_23">
        <property name="minimumSize">
@@ -456,8 +342,31 @@ color: black; /* 可选，设置文字颜色 */</string>
        </property>
       </widget>
      </item>
-     <item row="4" column="1">
-      <widget class="QDoubleSpinBox" name="doubleSpinBox_21"/>
+     <item row="0" column="8">
+      <widget class="QLabel" name="label_sensor_27">
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>23</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>100</width>
+         <height>23</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+       </property>
+       <property name="text">
+        <string>振幅(Hz)</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
      </item>
      <item row="0" column="3">
       <widget class="QLabel" name="label_sensor_22">
@@ -485,26 +394,11 @@ color: black; /* 可选，设置文字颜色 */</string>
        </property>
       </widget>
      </item>
-     <item row="1" column="9">
-      <widget class="QDoubleSpinBox" name="doubleSpinBox_12"/>
-     </item>
-     <item row="2" column="2">
-      <widget class="QDoubleSpinBox" name="doubleSpinBox_19"/>
-     </item>
-     <item row="1" column="2">
-      <widget class="QDoubleSpinBox" name="doubleSpinBox_6"/>
-     </item>
-     <item row="2" column="4">
-      <widget class="QDoubleSpinBox" name="doubleSpinBox_13"/>
-     </item>
-     <item row="1" column="5">
-      <widget class="QDoubleSpinBox" name="doubleSpinBox_9"/>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_sensor_30">
+     <item row="0" column="5">
+      <widget class="QLabel" name="label_sensor_24">
        <property name="minimumSize">
         <size>
-         <width>0</width>
+         <width>100</width>
          <height>23</height>
         </size>
        </property>
@@ -519,18 +413,18 @@ color: black; /* 可选，设置文字颜色 */</string>
 color: black; /* 可选，设置文字颜色 */</string>
        </property>
        <property name="text">
-        <string>速度2</string>
+        <string>压缩力上限</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="label_sensor_21">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label">
        <property name="minimumSize">
         <size>
-         <width>0</width>
+         <width>94</width>
          <height>23</height>
         </size>
        </property>
@@ -540,40 +434,433 @@ color: black; /* 可选，设置文字颜色 */</string>
          <height>23</height>
         </size>
        </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(207, 207, 207);
-color: black; /* 可选，设置文字颜色 */</string>
-       </property>
        <property name="text">
-        <string>速度1</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
+        <string/>
        </property>
       </widget>
-     </item>
-     <item row="4" column="3">
-      <widget class="QDoubleSpinBox" name="doubleSpinBox_23"/>
-     </item>
-     <item row="4" column="4">
-      <widget class="QDoubleSpinBox" name="doubleSpinBox_24"/>
-     </item>
-     <item row="4" column="5">
-      <widget class="QDoubleSpinBox" name="doubleSpinBox_25"/>
-     </item>
-     <item row="4" column="7">
-      <widget class="QDoubleSpinBox" name="doubleSpinBox_26"/>
-     </item>
-     <item row="4" column="8">
-      <widget class="QDoubleSpinBox" name="doubleSpinBox_27"/>
-     </item>
-     <item row="4" column="9">
-      <widget class="QDoubleSpinBox" name="doubleSpinBox_28"/>
      </item>
     </layout>
    </item>
    <item>
+    <widget class="QWidget" name="widget" native="true">
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <layout class="QGridLayout" name="gridLayout_7">
+        <item row="0" column="4">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_35"/>
+        </item>
+        <item row="0" column="6">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_39"/>
+        </item>
+        <item row="0" column="7">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_36"/>
+        </item>
+        <item row="0" column="8">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_34"/>
+        </item>
+        <item row="0" column="0">
+         <widget class="QCheckBox" name="checkBox">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+          </property>
+          <property name="text">
+           <string>速度1</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="9">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_40"/>
+        </item>
+        <item row="0" column="3">
+         <widget class="QSpinBox" name="spinBox_5"/>
+        </item>
+        <item row="0" column="2">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_38"/>
+        </item>
+        <item row="0" column="5">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_37"/>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="widget_2" native="true">
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <layout class="QGridLayout" name="gridLayout_8">
+        <item row="0" column="5">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_46"/>
+        </item>
+        <item row="0" column="0">
+         <widget class="QCheckBox" name="checkBox_2">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+          </property>
+          <property name="text">
+           <string>速度2</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="8">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_47"/>
+        </item>
+        <item row="0" column="6">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_43"/>
+        </item>
+        <item row="0" column="7">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_41"/>
+        </item>
+        <item row="0" column="4">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_44"/>
+        </item>
+        <item row="0" column="2">
+         <widget class="QSpinBox" name="spinBox_6"/>
+        </item>
+        <item row="0" column="1">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_45"/>
+        </item>
+        <item row="0" column="3">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_42"/>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="widget_3" native="true">
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <layout class="QGridLayout" name="gridLayout_9">
+        <item row="0" column="0">
+         <widget class="QCheckBox" name="checkBox_3">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+          </property>
+          <property name="text">
+           <string>速度3</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QSpinBox" name="spinBox_7"/>
+        </item>
+        <item row="0" column="8">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_54"/>
+        </item>
+        <item row="0" column="7">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_48"/>
+        </item>
+        <item row="0" column="3">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_49"/>
+        </item>
+        <item row="0" column="1">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_52"/>
+        </item>
+        <item row="0" column="6">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_50"/>
+        </item>
+        <item row="0" column="4">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_51"/>
+        </item>
+        <item row="0" column="5">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_53"/>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="widget_4" native="true">
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <item>
+       <layout class="QGridLayout" name="gridLayout_10">
+        <item row="0" column="3">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_56"/>
+        </item>
+        <item row="0" column="6">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_57"/>
+        </item>
+        <item row="0" column="4">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_58"/>
+        </item>
+        <item row="0" column="5">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_60"/>
+        </item>
+        <item row="0" column="7">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_55"/>
+        </item>
+        <item row="0" column="2">
+         <widget class="QSpinBox" name="spinBox_8"/>
+        </item>
+        <item row="0" column="8">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_61"/>
+        </item>
+        <item row="0" column="1">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_59"/>
+        </item>
+        <item row="0" column="0">
+         <widget class="QCheckBox" name="checkBox_4">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+          </property>
+          <property name="text">
+           <string>速度4</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="widget_5" native="true">
+     <layout class="QHBoxLayout" name="horizontalLayout_5">
+      <item>
+       <layout class="QGridLayout" name="gridLayout_11">
+        <item row="0" column="3">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_63"/>
+        </item>
+        <item row="0" column="8">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_68"/>
+        </item>
+        <item row="0" column="4">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_65"/>
+        </item>
+        <item row="0" column="0">
+         <widget class="QCheckBox" name="checkBox_5">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+          </property>
+          <property name="text">
+           <string>速度5</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="5">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_67"/>
+        </item>
+        <item row="0" column="7">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_62"/>
+        </item>
+        <item row="0" column="2">
+         <widget class="QSpinBox" name="spinBox_9"/>
+        </item>
+        <item row="0" column="6">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_64"/>
+        </item>
+        <item row="0" column="1">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_66"/>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="widget_6" native="true">
+     <layout class="QHBoxLayout" name="horizontalLayout_6">
+      <item>
+       <layout class="QGridLayout" name="gridLayout_12">
+        <item row="0" column="3">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_70"/>
+        </item>
+        <item row="0" column="7">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_69"/>
+        </item>
+        <item row="0" column="6">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_71"/>
+        </item>
+        <item row="0" column="1">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_73"/>
+        </item>
+        <item row="0" column="4">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_72"/>
+        </item>
+        <item row="0" column="5">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_74"/>
+        </item>
+        <item row="0" column="8">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_75"/>
+        </item>
+        <item row="0" column="2">
+         <widget class="QSpinBox" name="spinBox_10"/>
+        </item>
+        <item row="0" column="0">
+         <widget class="QCheckBox" name="checkBox_6">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+          </property>
+          <property name="text">
+           <string>速度6</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="widget_7" native="true">
+     <layout class="QHBoxLayout" name="horizontalLayout_7">
+      <item>
+       <layout class="QGridLayout" name="gridLayout_13">
+        <item row="0" column="6">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_78"/>
+        </item>
+        <item row="0" column="0">
+         <widget class="QCheckBox" name="checkBox_7">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+          </property>
+          <property name="text">
+           <string>速度7</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_80"/>
+        </item>
+        <item row="0" column="7">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_76"/>
+        </item>
+        <item row="0" column="4">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_79"/>
+        </item>
+        <item row="0" column="2">
+         <widget class="QSpinBox" name="spinBox_11"/>
+        </item>
+        <item row="0" column="5">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_81"/>
+        </item>
+        <item row="0" column="8">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_82"/>
+        </item>
+        <item row="0" column="3">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_77"/>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="widget_8" native="true">
+     <layout class="QHBoxLayout" name="horizontalLayout_8">
+      <item>
+       <layout class="QGridLayout" name="gridLayout_14">
+        <item row="0" column="8">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_89"/>
+        </item>
+        <item row="0" column="3">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_84"/>
+        </item>
+        <item row="0" column="0">
+         <widget class="QCheckBox" name="checkBox_8">
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+          </property>
+          <property name="text">
+           <string>速度8</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_87"/>
+        </item>
+        <item row="0" column="7">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_83"/>
+        </item>
+        <item row="0" column="2">
+         <widget class="QSpinBox" name="spinBox_12"/>
+        </item>
+        <item row="0" column="5">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_88"/>
+        </item>
+        <item row="0" column="6">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_85"/>
+        </item>
+        <item row="0" column="4">
+         <widget class="QDoubleSpinBox" name="doubleSpinBox_86"/>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>23</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>100</width>
+         <height>23</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>增加速度</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
      <item>
       <widget class="QLabel" name="label_sensor_28">
        <property name="minimumSize">
@@ -604,7 +891,7 @@ color: black; /* 可选，设置文字颜色 */</string>
       <widget class="QComboBox" name="comboBox">
        <property name="minimumSize">
         <size>
-         <width>150</width>
+         <width>100</width>
          <height>23</height>
         </size>
        </property>
@@ -627,10 +914,23 @@ color: black; /* 可选，设置文字颜色 */</string>
       </widget>
      </item>
      <item>
+      <spacer name="horizontalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
       <widget class="QLabel" name="label_sensor_29">
        <property name="minimumSize">
         <size>
-         <width>0</width>
+         <width>100</width>
          <height>23</height>
         </size>
        </property>
