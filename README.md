@@ -11,3 +11,5 @@ git branch -a
 git checkout pending (从默认的main分支切到pending分支)
 
 使用qtCreator打开.pro文件
+
+QT Version： 6.5.3 MinGW 64-Bit
