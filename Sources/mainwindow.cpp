@@ -55,6 +55,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(plotUpdate, &QTimer::timeout, this, &MainWindow::updatePlotValue);
     // ui->plotView->addGraph();
     ui->error_info->setStyleSheet("color: red;");
+    ui->radioButton->setChecked(true);
 }
 
 MainWindow::~MainWindow()
@@ -201,14 +202,13 @@ void MainWindow::on_new_experiment_action_triggered()
 
 void MainWindow::initPlotView()
 {
-    ui->plotView->addGraph();
+    ui->plotView->clearGraphs();
     ui->plotView->setBackground(QPixmap(":/images/images/back.png"));
 
     // 启用交互
     ui->plotView->setInteractions(
         QCP::iRangeDrag |
         QCP::iRangeZoom |
-        QCP::iSelectPlottables |
         QCP::iSelectLegend
         );
 
@@ -861,11 +861,19 @@ void MainWindow::newFatigueTest()
 void MainWindow::updatePlotValue()
 {
     QList<tmCURVE_POINT> list = CtmCurveControl::GetInstance()->GetCurveData(2);
-    if(list.size() != 0) {
-        QVector<double> xData, yData1, yData2;
+    if(list.size() == 0) {
+        return;
+    }
 
-        // 获取第一个时间点作为参考
-        qint64 firstTime = list.at(0).llDateTime;
+    // 清空所有现有曲线
+    ui->plotView->clearGraphs();
+
+    // 获取第一个时间点作为参考
+    qint64 firstTime = list.at(0).llDateTime;
+
+    if (m_isPos_raido_check) {
+        // 位置模式：显示两条曲线
+        QVector<double> xData, yData1, yData2;
 
         for (int i = 0; i < list.size(); ++i) {
             const tmCURVE_POINT& point = list.at(i);
@@ -873,14 +881,13 @@ void MainWindow::updatePlotValue()
             // X轴：转换为相对时间（秒为单位）
             double xValue = static_cast<double>(point.llDateTime - firstTime) / 1000.0;
 
-            // Y轴数据1：listY.at(0)
             if (point.listY.size() > 0) {
+                // 实际位置
                 double yValue1 = static_cast<double>(point.listY.at(0));
-
                 xData.append(xValue);
                 yData1.append(yValue1);
 
-                // Y轴数据2：listY.at(1)（如果存在）
+                // 设定位置
                 if (point.listY.size() > 1) {
                     double yValue2 = static_cast<double>(point.listY.at(1));
                     yData2.append(yValue2);
@@ -888,40 +895,94 @@ void MainWindow::updatePlotValue()
             }
         }
 
-        // 确保有两个graph对象
-        int graphCount = ui->plotView->graphCount();
-        if (graphCount < 2) {
-            // 创建第二条曲线
-            ui->plotView->addGraph();
-        }
+        // 创建两条曲线
+        ui->plotView->addGraph();
+        ui->plotView->addGraph();
 
-        // 设置第一条曲线（Y[0]）
-        ui->plotView->graph(0)->setPen(QPen(Qt::blue));
+        // 设置第一条曲线（实际位置）
+        ui->plotView->graph(0)->setPen(QPen(QColor(0, 120, 215), 2));  // 蓝色
         ui->plotView->graph(0)->setData(xData, yData1);
-        ui->plotView->graph(0)->setName("实际曲线");
+        ui->plotView->graph(0)->setName("实际位置");
 
-        // 设置第二条曲线（Y[1]）
+        // 设置第二条曲线（设定位置）
         if (!yData2.isEmpty()) {
-            ui->plotView->graph(1)->setPen(QPen(Qt::red));
+            ui->plotView->graph(1)->setPen(QPen(QColor(255, 0, 0), 2));  // 红色
             ui->plotView->graph(1)->setData(xData, yData2);
-            ui->plotView->graph(1)->setName("设定曲线");
+            ui->plotView->graph(1)->setName("设定位置");
         }
 
         // 设置轴标签
-        ui->plotView->xAxis->setLabel("Time (s)");
-        ui->plotView->yAxis->setLabel("Position");
+        ui->plotView->xAxis->setLabel("时间 (s)");
+        ui->plotView->yAxis->setLabel("位置");
 
-        // 自适应范围（自动调整到两条曲线的范围）
-        ui->plotView->rescaleAxes();
-        ui->plotView->yAxis->scaleRange(1.1, ui->plotView->yAxis->range().center());
+    } else if (m_isForce_raido_check) {
+        // 压力模式：显示一条曲线
+        QVector<double> xData, yData;
 
+        for (int i = 0; i < list.size(); ++i) {
+            const tmCURVE_POINT& point = list.at(i);
 
-        // 添加图例
-        ui->plotView->legend->setVisible(true);
+            // X轴：转换为相对时间（秒为单位）
+            double xValue = static_cast<double>(point.llDateTime - firstTime) / 1000.0;
 
-        // 重新绘制
-        ui->plotView->replot();
+            if (point.listY.size() > 2) {
+                double yValue = static_cast<double>(point.listY.at(2));
+                xData.append(xValue);
+                yData.append(yValue);
+            }
+        }
+
+        // 创建一条曲线
+        ui->plotView->addGraph();
+
+        // 设置曲线
+        ui->plotView->graph(0)->setPen(QPen(QColor(0, 200, 0), 2));  // 绿色
+        ui->plotView->graph(0)->setData(xData, yData);
+        ui->plotView->graph(0)->setName("压力");
+
+        // 设置轴标签
+        ui->plotView->xAxis->setLabel("时间 (s)");
+        ui->plotView->yAxis->setLabel("N");
+
+    } else if (m_isTemp_radio_check) {
+        // 温度模式：显示一条曲线
+        QVector<double> xData, yData;
+
+        for (int i = 0; i < list.size(); ++i) {
+            const tmCURVE_POINT& point = list.at(i);
+
+            // X轴：转换为相对时间（秒为单位）
+            double xValue = static_cast<double>(point.llDateTime - firstTime) / 1000.0;
+
+            if (point.listY.size() > 3) {
+                double yValue = static_cast<double>(point.listY.at(3));
+                xData.append(xValue);
+                yData.append(yValue);
+            }
+        }
+
+        // 创建一条曲线
+        ui->plotView->addGraph();
+
+        // 设置曲线
+        ui->plotView->graph(0)->setPen(QPen(QColor(255, 165, 0), 2));  // 橙色
+        ui->plotView->graph(0)->setData(xData, yData);
+        ui->plotView->graph(0)->setName("温度");
+
+        // 设置轴标签
+        ui->plotView->xAxis->setLabel("时间 (s)");
+        ui->plotView->yAxis->setLabel("温度");
     }
+
+    // 自适应范围
+    ui->plotView->rescaleAxes();
+    ui->plotView->yAxis->scaleRange(1.1, ui->plotView->yAxis->range().center());
+
+    // 添加图例
+    ui->plotView->legend->setVisible(true);
+
+    // 重新绘制
+    ui->plotView->replot();
 }
 
 void MainWindow::updateDBValue()
@@ -1196,20 +1257,44 @@ void MainWindow::onLegendClick(QCPLegend *legend,
     bool newVisible = !graph->visible();
     graph->setVisible(newVisible);
 
-    // ---------- 图例置灰 / 恢复 ----------
-    legendItem->setTextColor(newVisible ? Qt::black : Qt::gray);
-
-    // 可选：线条也变灰（更直观）
+    // 根据当前模式设置颜色
     QPen pen = graph->pen();
-    if (newVisible)
-        pen.setColor(graph->name() == "实际曲线" ? Qt::blue : Qt::red);
-    else
-        pen.setColor(Qt::lightGray);
+
+    if (m_isPos_raido_check) {
+        // 位置模式：两条曲线
+        if (newVisible) {
+            if (graph->name() == "实际位置")
+                pen.setColor(QColor(0, 120, 215));  // 蓝色
+            else if (graph->name() == "设定位置")
+                pen.setColor(QColor(255, 0, 0));    // 红色
+        } else {
+            pen.setColor(Qt::lightGray);
+        }
+    } else if (m_isForce_raido_check) {
+        // 压力模式：一条曲线
+        if (newVisible) {
+            pen.setColor(QColor(0, 200, 0));  // 绿色
+        } else {
+            pen.setColor(Qt::lightGray);
+        }
+    } else if (m_isTemp_radio_check) {
+        // 温度模式：一条曲线
+        if (newVisible) {
+            pen.setColor(QColor(255, 165, 0));  // 橙色
+        } else {
+            pen.setColor(Qt::lightGray);
+        }
+    }
+
     graph->setPen(pen);
 
+    // 图例文字颜色置灰/恢复
+    legendItem->setTextColor(newVisible ? Qt::black : Qt::gray);
+
+    // 重新自适应范围（隐藏曲线后范围需要调整）
+    ui->plotView->rescaleAxes();
     ui->plotView->replot();
 }
-
 void MainWindow::on_radioButton_4_toggled(bool checked)
 {
     if (checked) {
@@ -1243,17 +1328,34 @@ void MainWindow::on_radioButton_5_toggled(bool checked)
 void MainWindow::on_radioButton_toggled(bool checked)
 {
     // 位置
+    if (checked) {
+        m_isPos_raido_check = true;
+        m_isForce_raido_check = false;
+        m_isTemp_radio_check = false;
+    }
+    updatePlotValue();
 }
 
 
 void MainWindow::on_radioButton_3_toggled(bool checked)
 {
     // 压力
+    if (checked) {
+        m_isForce_raido_check = true;
+        m_isPos_raido_check = false;
+        m_isTemp_radio_check = false;
+    }
+    updatePlotValue();
 }
 
 
 void MainWindow::on_radioButton_2_toggled(bool checked)
 {
     // 温度
+    if (checked) {
+        m_isTemp_radio_check = true;
+        m_isPos_raido_check = false;
+        m_isForce_raido_check = false;
+    }
+    updatePlotValue();
 }
-

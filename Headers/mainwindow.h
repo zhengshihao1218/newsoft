@@ -159,6 +159,9 @@ private:
     QTimer* plotUpdate;
     bool m_isLongPress;
     bool m_is2PlotVisiable;
+    bool m_isPos_raido_check = false;
+    bool m_isForce_raido_check = false;
+    bool m_isTemp_radio_check = false;
     void permissionSetting(int level);
     QTranslator *m_englishTranslator;
     QTranslator *m_chineseTranslator;
