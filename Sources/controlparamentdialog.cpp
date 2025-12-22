@@ -115,11 +115,11 @@ void ControlParamentDialog::update_tab1_pos_value()
     qDebug()<< "复位位置 = " << COMP_AXIS1_RESETPOSITION;
     long long COMP_AXIS1_ADJUST_VEL1 = GetDBValue("COMP_AXIS1_ADJUST_VEL1").lValue; // 调机参数1速度
     qDebug()<< "调机参数1速度 获取 = " << COMP_AXIS1_ADJUST_VEL1;
-    // // float XXX = 1100 / 1000;
+    // float XXX = COMP_AXIS1_ADJUST_VEL1 / 1000;
     // qDebug()<< "调机参数1速度 转成float";
     ui->doubleSpinBox_1_speed->setValue(COMP_AXIS1_ADJUST_VEL1 / 1000.0);
     qDebug()<< "调机参数1速度 设置  ";
-    ui->label_266->setText(QString::number(COMP_AXIS1_ADJUST_VEL1 / 1000.0));
+    ui->label_266->setText(QString::number(COMP_AXIS1_ADJUST_VEL1 / 1000.0, 'f', 3));
     qDebug()<< "调机参数1速度 = " << COMP_AXIS1_ADJUST_VEL1;
     long long COMP_AXIS1_ADJUST_KP1 = GetDBValue("COMP_AXIS1_ADJUST_KP1").lValue; // 调机参数1 Kp
     float XXX2 = COMP_AXIS1_ADJUST_KP1 / 1000.0;
@@ -136,9 +136,106 @@ void ControlParamentDialog::update_tab1_pos_value()
     qDebug()<< "速度前馈系数 = " << COMP_AXIS1_ADJUST_VELPREFEEDFACTOR1;
     long long COMP_AXIS1_ADJUST_ACCPREFEEDFACTOR1 = GetDBValue("COMP_AXIS1_ADJUST_ACCPREFEEDFACTOR1").lValue; // 调机参数1 加速度前馈系数
     ui->doubleSpinBox_190->setValue(COMP_AXIS1_ADJUST_ACCPREFEEDFACTOR1 / 1000.0);
-    qDebug()<< "加速度前馈系数 = " << COMP_AXIS1_ADJUST_ACCPREFEEDFACTOR1;
 
+    /*long long COMP_AXIS1_ADJUST_VEL2 = GetDBValue("COMP_AXIS1_ADJUST_VEL2").lValue;*/ // 调机参数1速度
+    // 速度2
+    ui->doubleSpinBox_192->setValue(GetDBValue("COMP_AXIS1_ADJUST_VEL2").lValue / 1000.0);
+    ui->label_267->setText(QString::number(GetDBValue("COMP_AXIS1_ADJUST_VEL2").lValue / 1000.0, 'f', 3));
+    ui->doubleSpinBox_193->setValue(GetDBValue("COMP_AXIS1_ADJUST_KP2").lValue / 1000.0);
+    ui->doubleSpinBox_194->setValue(GetDBValue("COMP_AXIS1_ADJUST_KI2").lValue / 1000.0);
+    ui->doubleSpinBox_195->setValue(GetDBValue("COMP_AXIS1_ADJUST_KD2").lValue / 1000.0);
+    ui->doubleSpinBox_196->setValue(GetDBValue("COMP_AXIS1_ADJUST_VELPREFEEDFACTOR2").lValue / 1000.0);
+    ui->doubleSpinBox_197->setValue(GetDBValue("COMP_AXIS1_ADJUST_ACCPREFEEDFACTOR2").lValue / 1000.0);
 
+    // 速度3
+    ui->doubleSpinBox_199->setValue(GetDBValue("COMP_AXIS1_ADJUST_VEL3").lValue / 1000.0);
+    ui->label_268->setText(QString::number(GetDBValue("COMP_AXIS1_ADJUST_VEL3").lValue / 1000.0, 'f', 3));
+    ui->doubleSpinBox_200->setValue(GetDBValue("COMP_AXIS1_ADJUST_KP3").lValue / 1000.0);
+    ui->doubleSpinBox_201->setValue(GetDBValue("COMP_AXIS1_ADJUST_KI3").lValue / 1000.0);
+    ui->doubleSpinBox_202->setValue(GetDBValue("COMP_AXIS1_ADJUST_KD3").lValue / 1000.0);
+    ui->doubleSpinBox_203->setValue(GetDBValue("COMP_AXIS1_ADJUST_VELPREFEEDFACTOR3").lValue / 1000.0);
+    ui->doubleSpinBox_204->setValue(GetDBValue("COMP_AXIS1_ADJUST_ACCPREFEEDFACTOR3").lValue / 1000.0);
+
+    // 速度4
+    ui->doubleSpinBox_206->setValue(GetDBValue("COMP_AXIS1_ADJUST_VEL4").lValue / 1000.0);
+    ui->label_277->setText(QString::number(GetDBValue("COMP_AXIS1_ADJUST_VEL4").lValue / 1000.0, 'f', 3));
+    ui->doubleSpinBox_207->setValue(GetDBValue("COMP_AXIS1_ADJUST_KP4").lValue / 1000.0);
+    ui->doubleSpinBox_208->setValue(GetDBValue("COMP_AXIS1_ADJUST_KI4").lValue / 1000.0);
+    ui->doubleSpinBox_209->setValue(GetDBValue("COMP_AXIS1_ADJUST_KD4").lValue / 1000.0);
+    ui->doubleSpinBox_210->setValue(GetDBValue("COMP_AXIS1_ADJUST_VELPREFEEDFACTOR4").lValue / 1000.0);
+    ui->doubleSpinBox_211->setValue(GetDBValue("COMP_AXIS1_ADJUST_ACCPREFEEDFACTOR4").lValue / 1000.0);
+
+    // 速度5
+    ui->doubleSpinBox_184->setValue(GetDBValue("COMP_AXIS1_ADJUST_VEL5").lValue / 1000.0);
+    ui->label_278->setText(QString::number(GetDBValue("COMP_AXIS1_ADJUST_VEL5").lValue / 1000.0, 'f', 3));
+    ui->doubleSpinBox_218->setValue(GetDBValue("COMP_AXIS1_ADJUST_KP5").lValue / 1000.0);
+    ui->doubleSpinBox_223->setValue(GetDBValue("COMP_AXIS1_ADJUST_KI5").lValue / 1000.0);
+    ui->doubleSpinBox_231->setValue(GetDBValue("COMP_AXIS1_ADJUST_KD5").lValue / 1000.0);
+    ui->doubleSpinBox_234->setValue(GetDBValue("COMP_AXIS1_ADJUST_VELPREFEEDFACTOR5").lValue / 1000.0);
+    ui->doubleSpinBox_235->setValue(GetDBValue("COMP_AXIS1_ADJUST_ACCPREFEEDFACTOR5").lValue / 1000.0);
+
+    // 速度6
+    ui->doubleSpinBox_191->setValue(GetDBValue("COMP_AXIS1_ADJUST_VEL6").lValue / 1000.0);
+    ui->label_279->setText(QString::number(GetDBValue("COMP_AXIS1_ADJUST_VEL6").lValue / 1000.0, 'f', 3));
+    ui->doubleSpinBox_219->setValue(GetDBValue("COMP_AXIS1_ADJUST_KP6").lValue / 1000.0);
+    ui->doubleSpinBox_224->setValue(GetDBValue("COMP_AXIS1_ADJUST_KI6").lValue / 1000.0);
+    ui->doubleSpinBox_232->setValue(GetDBValue("COMP_AXIS1_ADJUST_KD6").lValue / 1000.0);
+    ui->doubleSpinBox_236->setValue(GetDBValue("COMP_AXIS1_ADJUST_VELPREFEEDFACTOR6").lValue / 1000.0);
+    ui->doubleSpinBox_237->setValue(GetDBValue("COMP_AXIS1_ADJUST_ACCPREFEEDFACTOR6").lValue / 1000.0);
+
+    // 速度7
+    ui->doubleSpinBox_198->setValue(GetDBValue("COMP_AXIS1_ADJUST_VEL7").lValue / 1000.0);
+    ui->label_280->setText(QString::number(GetDBValue("COMP_AXIS1_ADJUST_VEL7").lValue / 1000.0, 'f', 3));
+    ui->doubleSpinBox_220->setValue(GetDBValue("COMP_AXIS1_ADJUST_KP7").lValue / 1000.0);
+    ui->doubleSpinBox_225->setValue(GetDBValue("COMP_AXIS1_ADJUST_KI7").lValue / 1000.0);
+    ui->doubleSpinBox_233->setValue(GetDBValue("COMP_AXIS1_ADJUST_KD7").lValue / 1000.0);
+    ui->doubleSpinBox_238->setValue(GetDBValue("COMP_AXIS1_ADJUST_VELPREFEEDFACTOR7").lValue / 1000.0);
+    ui->doubleSpinBox_239->setValue(GetDBValue("COMP_AXIS1_ADJUST_ACCPREFEEDFACTOR7").lValue / 1000.0);
+
+    // 速度8
+    ui->doubleSpinBox_205->setValue(GetDBValue("COMP_AXIS1_ADJUST_VEL8").lValue / 1000.0);
+    ui->label_281->setText(QString::number(GetDBValue("COMP_AXIS1_ADJUST_VEL8").lValue / 1000.0, 'f', 3));
+    ui->doubleSpinBox_221->setValue(GetDBValue("COMP_AXIS1_ADJUST_KP8").lValue / 1000.0);
+    ui->doubleSpinBox_226->setValue(GetDBValue("COMP_AXIS1_ADJUST_KI8").lValue / 1000.0);
+    ui->doubleSpinBox_240->setValue(GetDBValue("COMP_AXIS1_ADJUST_KD8").lValue / 1000.0);
+    ui->doubleSpinBox_241->setValue(GetDBValue("COMP_AXIS1_ADJUST_VELPREFEEDFACTOR8").lValue / 1000.0);
+    ui->doubleSpinBox_242->setValue(GetDBValue("COMP_AXIS1_ADJUST_ACCPREFEEDFACTOR8").lValue / 1000.0);
+
+    // 速度9
+    ui->doubleSpinBox_212->setValue(GetDBValue("COMP_AXIS1_ADJUST_VEL9").lValue / 1000.0);
+    ui->label_282->setText(QString::number(GetDBValue("COMP_AXIS1_ADJUST_VEL9").lValue / 1000.0, 'f', 3));
+    ui->doubleSpinBox_222->setValue(GetDBValue("COMP_AXIS1_ADJUST_KP9").lValue / 1000.0);
+    ui->doubleSpinBox_227->setValue(GetDBValue("COMP_AXIS1_ADJUST_KI9").lValue / 1000.0);
+    ui->doubleSpinBox_243->setValue(GetDBValue("COMP_AXIS1_ADJUST_KD9").lValue / 1000.0);
+    ui->doubleSpinBox_244->setValue(GetDBValue("COMP_AXIS1_ADJUST_VELPREFEEDFACTOR9").lValue / 1000.0);
+    ui->doubleSpinBox_245->setValue(GetDBValue("COMP_AXIS1_ADJUST_ACCPREFEEDFACTOR9").lValue / 1000.0);
+
+    // 速度10
+    // ui->doubleSpinBox_213->setValue(GetDBValue("COMP_AXIS1_ADJUST_VEL10").lValue / 1000.0);
+    // ui->label_283->setText(QString::number(GetDBValue("COMP_AXIS1_ADJUST_VEL10").lValue / 1000.0, 'f', 3));
+    ui->doubleSpinBox_217->setValue(GetDBValue("COMP_AXIS1_ADJUST_KP10").lValue / 1000.0);
+    ui->doubleSpinBox_228->setValue(GetDBValue("COMP_AXIS1_ADJUST_KI10").lValue / 1000.0);
+    ui->doubleSpinBox_247->setValue(GetDBValue("COMP_AXIS1_ADJUST_KD10").lValue / 1000.0);
+    ui->doubleSpinBox_246->setValue(GetDBValue("COMP_AXIS1_ADJUST_VELPREFEEDFACTOR10").lValue / 1000.0);
+    ui->doubleSpinBox_252->setValue(GetDBValue("COMP_AXIS1_ADJUST_ACCPREFEEDFACTOR10").lValue / 1000.0);
+
+    // 速度11
+    // ui->doubleSpinBox_213->setValue(GetDBValue("COMP_AXIS1_ADJUST_VEL11").lValue / 1000.0);
+    // ui->label_283->setText(QString::number(GetDBValue("COMP_AXIS1_ADJUST_VEL10").lValue / 1000.0, 'f', 3));
+    ui->doubleSpinBox_217->setValue(GetDBValue("COMP_AXIS1_ADJUST_KP11").lValue / 1000.0);
+    ui->doubleSpinBox_228->setValue(GetDBValue("COMP_AXIS1_ADJUST_KI11").lValue / 1000.0);
+    ui->doubleSpinBox_247->setValue(GetDBValue("COMP_AXIS1_ADJUST_KD11").lValue / 1000.0);
+    ui->doubleSpinBox_246->setValue(GetDBValue("COMP_AXIS1_ADJUST_VELPREFEEDFACTOR11").lValue / 1000.0);
+    ui->doubleSpinBox_252->setValue(GetDBValue("COMP_AXIS1_ADJUST_ACCPREFEEDFACTOR11").lValue / 1000.0);
+
+    // 速度12
+    // ui->doubleSpinBox_214->setValue(GetDBValue("COMP_AXIS1_ADJUST_VEL11").lValue / 1000.0);
+    // ui->label_283->setText(QString::number(GetDBValue("COMP_AXIS1_ADJUST_VEL10").lValue / 1000.0, 'f', 3));
+    ui->doubleSpinBox_215->setValue(GetDBValue("COMP_AXIS1_ADJUST_KP12").lValue / 1000.0);
+    ui->doubleSpinBox_230->setValue(GetDBValue("COMP_AXIS1_ADJUST_KI12").lValue / 1000.0);
+    ui->doubleSpinBox_249->setValue(GetDBValue("COMP_AXIS1_ADJUST_KD12").lValue / 1000.0);
+    ui->doubleSpinBox_251->setValue(GetDBValue("COMP_AXIS1_ADJUST_VELPREFEEDFACTOR12").lValue / 1000.0);
+    ui->doubleSpinBox_254->setValue(GetDBValue("COMP_AXIS1_ADJUST_ACCPREFEEDFACTOR12").lValue / 1000.0);
 }
 
 void ControlParamentDialog::on_doubleSpinBox_185_valueChanged(double arg1)

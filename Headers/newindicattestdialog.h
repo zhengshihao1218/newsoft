@@ -26,6 +26,7 @@ private slots:
 private:
     Ui::NewIndicatTestDialog *ui;
     int current_speed_count;
+    QString incrementStringSuffix(const QString& input);
 };
 
 #endif // NEWINDICATTESTDIALOG_H
