@@ -41,5 +41,7 @@
         <file>images/re.png</file>
         <file>images/0.png</file>
         <file>images/reset.png</file>
+        <file>images/connect_green.png</file>
+        <file>images/connect_grey.png</file>
     </qresource>
 </RCC>

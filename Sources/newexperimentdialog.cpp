@@ -35,6 +35,7 @@ void NewExperimentDialog::on_newLuboTestButton_clicked()
 void NewExperimentDialog::on_newIndicatButton_clicked()
 {
     NewIndicatTestDialog *dialog = new NewIndicatTestDialog();
+    connect(dialog, &NewIndicatTestDialog::newTestComp, this, &NewExperimentDialog::newIndicatTest);
     dialog->setWindowFlag(Qt::WindowCloseButtonHint);
     this->hide();
     dialog->exec();

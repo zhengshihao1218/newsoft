@@ -34,6 +34,7 @@ private:
 
 signals:
     void newFatigueTest();
+    void newIndicatTest();
 };
 
 
