@@ -56,6 +56,14 @@ MainWindow::MainWindow(QWidget *parent)
     // ui->plotView->addGraph();
     ui->error_info->setStyleSheet("color: red;");
     ui->radioButton->setChecked(true);
+    ui->widget_fatigute->setVisible(false);
+    ui->widget_in->setVisible(false);
+
+    byte COMP_AXIS1_TEST_MOTIONTYPE = GetDBValue("COMP_AXIS1_TEST_MOTIONTYPE").lValue;
+    long long COMP_AXIS1_TEST_SUBMOTIONTYPE = GetDBValue("COMP_AXIS1_TEST_SUBMOTIONTYPE").lValue;
+    qDebug() << "COMP_AXIS1_TEST_MOTIONTYPE = " << COMP_AXIS1_TEST_MOTIONTYPE;
+    qDebug() << "COMP_AXIS1_TEST_SUBMOTIONTYPE = " << COMP_AXIS1_TEST_SUBMOTIONTYPE;
+    ui->widget_5->setVisible(false);
 }
 
 MainWindow::~MainWindow()
@@ -194,6 +202,7 @@ void MainWindow::on_new_experiment_action_triggered()
 {
     NewExperimentDialog *dialog = new NewExperimentDialog();
     connect(dialog, &NewExperimentDialog::newFatigueTest, this, &MainWindow::newFatigueTest);
+    connect(dialog, &NewExperimentDialog::newIndicatTest, this, &MainWindow::newIndicatTest);
     dialog->setWindowFlag(Qt::WindowCloseButtonHint);
     dialog->exec();
     delete dialog;
@@ -829,6 +838,14 @@ void MainWindow::initHMIKernel()
 
 void MainWindow::newFatigueTest()
 {
+    ui->widget_fatigute->setVisible(true);
+    ui->widget_in->setVisible(false);
+    ui->label_2->setVisible(true);
+    ui->lcdNumber_time->setVisible(true);
+    ui->lcdNumber_count->setVisible(true);
+    ui->label->setVisible(true);
+    ui->radioButton_2->setText("温度曲线");
+    ui->label_28->setText("疲劳试验");
     plotUpdate->start(100);
     ui->label_plan_count->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_PLANNUM").lValue));
     ui->label_pre_posi->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_PREPAREPOSI").lValue / 1000.0, 'f', 3));
@@ -856,6 +873,24 @@ void MainWindow::newFatigueTest()
     WORD res3 = GetDBString("HMI_DB_TEST_CREATEDATE1", result3, sizeof(result3) - 1);
     strResult3 = QString::fromUtf8(result3);
     ui->label_create_time->setText(strResult3);
+    ui->widget_5->setVisible(false);
+}
+
+void MainWindow::newIndicatTest()
+{
+    ui->widget_fatigute->setVisible(false);
+    ui->widget_in->setVisible(true);
+    ui->label_2->setVisible(false);
+    ui->lcdNumber_time->setVisible(false);
+    ui->lcdNumber_count->setVisible(false);
+    ui->label->setVisible(false);
+    ui->radioButton_2->setText("位置压力曲线");
+    ui->label_28->setText("示功试验");
+    ui->label_pre_pos_2->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_PREPAREPOSI").lValue / 1000.0 , 'f', '3'));
+    ui->label_start_pos_2->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_STARTPOSI").lValue / 1000.0 , 'f', '3'));
+    ui->label_stop_pos_2->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_STOPPOSI").lValue / 1000.0 , 'f', '3'));
+    plotUpdate->start(100);
+    ui->widget_5->setVisible(true);
 }
 
 void MainWindow::updatePlotValue()
@@ -995,14 +1030,16 @@ void MainWindow::updateDBValue()
     int nstatu = device->GetOnLineStatus();
     bool isOn = (nstatu== 0);
     if(!isOn){
-        ui->error_info_2->setStyleSheet("color: red; font-size:14px;");
-        ui->error_info_2->setText("未连接");
+        // ui->error_info_2->setStyleSheet("color: red; font-size:14px;");
+        // ui->error_info_2->setText("未连接");
         // qDebug() << "PLCwei is off line: statu=" << nstatu;
+        ui->connect_info->setPixmap(QPixmap(":/images/images/connect_grey.png"));
         return;
     }else{
-        ui->error_info_2->setStyleSheet("color: green; font-size:14px;");
-        ui->error_info_2->setText("连接成功");
+        // ui->error_info_2->setStyleSheet("color: green; font-size:14px;");
+        // ui->error_info_2->setText("连接成功");
         // qDebug() << "Get value fv =" << fv;
+        ui->connect_info->setPixmap(QPixmap(":/images/images/connect_green.png"));
     }
     // long long n1 = GetDBValue("CTRL_MOTORSTATE1").lValue;
     // qDebug() << "马达1状态 获取 n1 " <<  n1;
@@ -1214,6 +1251,8 @@ void MainWindow::on_start_experiment_action_triggered()
 {
     MainWindow::sendCmdToPlc(CMD_KEY_AXIS_START,false);
     MainWindow::sendCmdToPlc(0xffff,false);
+    CtmCurveControl::GetInstance()->ClearData(2);
+
 }
 
 

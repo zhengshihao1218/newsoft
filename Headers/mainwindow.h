@@ -170,6 +170,7 @@ private:
     void updatePlotValue();
     bool sendCmdToPlc(int nKey, bool isHelpAxis);
     void newFatigueTest();
+    void newIndicatTest();
     void onLegendClick(QCPLegend *legend,
                                    QCPAbstractLegendItem *item,
                                    QMouseEvent *event);

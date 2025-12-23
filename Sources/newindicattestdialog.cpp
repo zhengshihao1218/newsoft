@@ -34,9 +34,9 @@ NewIndicatTestDialog::NewIndicatTestDialog(QWidget *parent)
     }
     QString textNumber = NewIndicatTestDialog::incrementStringSuffix(strResult);
 
-    ui->lineEdit->setText(textNumber);
+    ui->HMI_DB_TEST_NUMBER1->setText(textNumber);
     QDateTime currentDateTime = QDateTime::currentDateTime();
-    ui->lineEdit_3->setText(currentDateTime.toString("yyyy-MM-dd HH:mm:ss"));
+    ui->HMI_DB_TEST_CREATEDATE1->setText(currentDateTime.toString("yyyy-MM-dd HH:mm:ss"));
 }
 
 NewIndicatTestDialog::~NewIndicatTestDialog()
@@ -46,7 +46,65 @@ NewIndicatTestDialog::~NewIndicatTestDialog()
 
 void NewIndicatTestDialog::on_buttonBox_accepted()
 {
-    SetDBValue("COMP_AXIS1_TEST_SUBMOTIONTYPE",2);
+    if(ui->COMP_AXIS1_TEST_PREPAREPOSI->value() == 0){
+        ui->error_info->setText("准备位置不能为0");
+        return;
+    }
+    if(ui->COMP_AXIS1_TEST_STARTPOSI->value() == 0) {
+        ui->error_info->setText("起始位置不能是0");
+        return;
+    }
+    if(ui->COMP_AXIS1_TEST_STOPPOSI->value() == 0) {
+        ui->error_info->setText("结束位置不能是0");
+        return;
+    }
+    if(ui->HMI_DB_TEST_PRODUCT_SN1->text() == "" || ui->HMI_DB_TEST_PRODUCT_SN1->text().isEmpty()){
+        ui->error_info->setText("试件编号不能为空");
+        return;
+    }
+    if(ui->HMI_DB_TEST_NUMBER1->text() == "" || ui->HMI_DB_TEST_NUMBER1->text().isEmpty()){
+        ui->error_info->setText("试验编号不能为空");
+        return;
+    }
+    // 先把每个速度的选择都设置关闭，以免之前开着的项目被保留下来
+    for (int i = 1; i <= 15; i++) {
+        char key[100];
+        snprintf(key, sizeof(key), "COMP_AXIS1_TEST_TABLE_WT%d_OPTION", i);
+        SetDBValue(key, 0);
+    }
+    // 再开始设置试验参数
+    SetDBValue("COMP_AXIS1_TEST_MOTIONTYPE",2); // 试验类型是示功试验
+    SetDBString("HMI_DB_TEST_NUMBER1",ui->HMI_DB_TEST_NUMBER1->text().toUtf8().data(),strlen(ui->HMI_DB_TEST_NUMBER1->text().toUtf8().data()));
+    SetDBString("HMI_DB_TEST_CREATEDATE1",ui->HMI_DB_TEST_CREATEDATE1->text().toUtf8().data(),strlen(ui->HMI_DB_TEST_CREATEDATE1->text().toUtf8().data()));
+    SetDBString("HMI_DB_TEST_PRODUCT_SN1",ui->HMI_DB_TEST_PRODUCT_SN1->text().toUtf8().data(),strlen(ui->HMI_DB_TEST_PRODUCT_SN1->text().toUtf8().data()));
+    SetDBValue("COMP_AXIS1_TEST_PREPAREPOSI", ui->COMP_AXIS1_TEST_PREPAREPOSI->value() * 1000);
+    int COMP_AXIS1_TEST_STARTPOSI = ui->COMP_AXIS1_TEST_STARTPOSI->value();
+    SetDBValue("COMP_AXIS1_TEST_STARTPOSI",  COMP_AXIS1_TEST_STARTPOSI * 1000);
+    SetDBValue("COMP_AXIS1_TEST_STOPPOSI", ui->COMP_AXIS1_TEST_STOPPOSI->value() * 1000);
+    if(ui->COMP_AXIS1_TEST_TABLE_WT1_OPTION->isChecked()){
+        SetDBValue("COMP_AXIS1_TEST_TABLE_WT1_OPTION",1);
+        SetDBValue("COMP_AXIS1_TEST_TABLE_WT1_VEL",ui->COMP_AXIS1_TEST_TABLE_WT1_VEL->value() * 1000);
+        SetDBValue("COMP_AXIS1_TEST_TABLE_WT1_TIMES",ui->COMP_AXIS1_TEST_TABLE_WT1_TIMES->value());
+        SetDBValue("COMP_AXIS1_TEST_TABLE_WT1_POS1", (COMP_AXIS1_TEST_STARTPOSI - ui->doubleSpinBox_34->value()) * 1000 );
+        SetDBValue("COMP_AXIS1_TEST_TABLE_WT1_POS2", (COMP_AXIS1_TEST_STARTPOSI + ui->doubleSpinBox_34->value()) * 1000 );
+    }
+
+    if(ui->COMP_AXIS1_TEST_TABLE_WT2_OPTION->isChecked()){
+        SetDBValue("COMP_AXIS1_TEST_TABLE_WT2_OPTION",1);
+        SetDBValue("COMP_AXIS1_TEST_TABLE_WT2_VEL",ui->COMP_AXIS1_TEST_TABLE_WT2_VEL->value() * 1000);
+        SetDBValue("COMP_AXIS1_TEST_TABLE_WT2_TIMES",ui->COMP_AXIS1_TEST_TABLE_WT2_TIMES->value());
+        SetDBValue("COMP_AXIS1_TEST_TABLE_WT2_POS1", (COMP_AXIS1_TEST_STARTPOSI - ui->doubleSpinBox_41->value()) * 1000 );
+        SetDBValue("COMP_AXIS1_TEST_TABLE_WT2_POS2", (COMP_AXIS1_TEST_STARTPOSI + ui->doubleSpinBox_41->value()) * 1000 );
+    }
+
+    if(ui->COMP_AXIS1_TEST_TABLE_WT3_OPTION->isChecked()){
+        SetDBValue("COMP_AXIS1_TEST_TABLE_WT3_OPTION",1);
+        SetDBValue("COMP_AXIS1_TEST_TABLE_WT3_VEL",ui->COMP_AXIS1_TEST_TABLE_WT3_VEL->value() * 1000);
+        SetDBValue("COMP_AXIS1_TEST_TABLE_WT3_TIMES",ui->COMP_AXIS1_TEST_TABLE_WT3_TIMES->value());
+        SetDBValue("COMP_AXIS1_TEST_TABLE_WT3_POS1", (COMP_AXIS1_TEST_STARTPOSI - ui->doubleSpinBox_48->value()) * 1000 );
+        SetDBValue("COMP_AXIS1_TEST_TABLE_WT3_POS2", (COMP_AXIS1_TEST_STARTPOSI + ui->doubleSpinBox_48->value()) * 1000 );
+    }
+    newTestComp();
     this->close();
 }
 
@@ -116,3 +174,67 @@ QString NewIndicatTestDialog::incrementStringSuffix(const QString& input)
     newNumberStr = newNumberStr.rightJustified(numberStr.length(), '0');
     return prefix + newNumberStr;
 }
+
+double NewIndicatTestDialog::calculate_frequency_from_velocity_amplitude(double velocity_mps, double amplitude_mm) {
+    // 将毫米转换为米
+    double amplitude_m = amplitude_mm / 1000.0;
+
+    // 计算频率: f = v / (2π * A)
+    double frequency = velocity_mps / (2 * M_PI * amplitude_m);
+
+    return frequency;
+}
+
+void NewIndicatTestDialog::on_COMP_AXIS1_TEST_TABLE_WT1_VEL_valueChanged(double arg1)
+{
+    if(arg1 != 0 && ui->doubleSpinBox_34->value() != 0){
+        double HZ = calculate_frequency_from_velocity_amplitude(arg1, ui->doubleSpinBox_34->value());
+        ui->label_1_HZ->setText(QString::number(HZ, 'f', 2));
+    }
+}
+
+
+void NewIndicatTestDialog::on_doubleSpinBox_34_valueChanged(double arg1)
+{
+    if(ui->COMP_AXIS1_TEST_TABLE_WT1_VEL->value() != 0 && arg1 != 0){
+        double HZ = calculate_frequency_from_velocity_amplitude(ui->COMP_AXIS1_TEST_TABLE_WT1_VEL->value(), arg1);
+        ui->label_1_HZ->setText(QString::number(HZ, 'f', 2));
+    }
+}
+
+
+void NewIndicatTestDialog::on_COMP_AXIS1_TEST_TABLE_WT2_VEL_valueChanged(double arg1)
+{
+    if(ui->doubleSpinBox_41->value() != 0 && arg1 != 0){
+        double HZ = calculate_frequency_from_velocity_amplitude(arg1,  ui->doubleSpinBox_41->value());
+        ui->label_2_HZ->setText(QString::number(HZ, 'f', 2));
+    }
+}
+
+
+void NewIndicatTestDialog::on_doubleSpinBox_41_valueChanged(double arg1)
+{
+    if(arg1 != 0 && ui->COMP_AXIS1_TEST_TABLE_WT2_VEL->value()!=0){
+        double HZ = calculate_frequency_from_velocity_amplitude(ui->COMP_AXIS1_TEST_TABLE_WT2_VEL->value(), arg1);
+        ui->label_2_HZ->setText(QString::number(HZ, 'f', 2));
+    }
+}
+
+
+void NewIndicatTestDialog::on_COMP_AXIS1_TEST_TABLE_WT3_VEL_valueChanged(double arg1)
+{
+    if(arg1 != 0 && ui->doubleSpinBox_48->value() != 0){
+        double HZ = calculate_frequency_from_velocity_amplitude(arg1, ui->doubleSpinBox_48->value());
+        ui->label_3_HZ->setText(QString::number(HZ, 'f', 2));
+    }
+}
+
+
+void NewIndicatTestDialog::on_doubleSpinBox_48_valueChanged(double arg1)
+{
+    if(arg1 != 0 && ui->COMP_AXIS1_TEST_TABLE_WT3_VEL->value() != 0){
+        double HZ = calculate_frequency_from_velocity_amplitude(ui->COMP_AXIS1_TEST_TABLE_WT3_VEL->value(), arg1);
+        ui->label_3_HZ->setText(QString::number(HZ, 'f', 2));
+    }
+}
+
