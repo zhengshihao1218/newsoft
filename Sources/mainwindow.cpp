@@ -56,14 +56,16 @@ MainWindow::MainWindow(QWidget *parent)
     // ui->plotView->addGraph();
     ui->error_info->setStyleSheet("color: red;");
     ui->radioButton->setChecked(true);
-    ui->widget_fatigute->setVisible(false);
-    ui->widget_in->setVisible(false);
+    // ui->widget_fatigute->setVisible(false);
+    // ui->widget_in->setVisible(false);
 
     byte COMP_AXIS1_TEST_MOTIONTYPE = GetDBValue("COMP_AXIS1_TEST_MOTIONTYPE").lValue;
     long long COMP_AXIS1_TEST_SUBMOTIONTYPE = GetDBValue("COMP_AXIS1_TEST_SUBMOTIONTYPE").lValue;
     qDebug() << "COMP_AXIS1_TEST_MOTIONTYPE = " << COMP_AXIS1_TEST_MOTIONTYPE;
     qDebug() << "COMP_AXIS1_TEST_SUBMOTIONTYPE = " << COMP_AXIS1_TEST_SUBMOTIONTYPE;
     ui->widget_5->setVisible(false);
+
+    switchRunInfoPage(0);
 }
 
 MainWindow::~MainWindow()
@@ -838,8 +840,11 @@ void MainWindow::initHMIKernel()
 
 void MainWindow::newFatigueTest()
 {
-    ui->widget_fatigute->setVisible(true);
-    ui->widget_in->setVisible(false);
+    // ui->widget_fatigute->setVisible(true);
+    // ui->widget_in->setVisible(false);
+    // ui->stackedWidget->setCurrentIndex(0);
+    m_CurveIndex = 2;
+    switchRunInfoPage(0);
     ui->label_2->setVisible(true);
     ui->lcdNumber_time->setVisible(true);
     ui->lcdNumber_count->setVisible(true);
@@ -847,7 +852,10 @@ void MainWindow::newFatigueTest()
     ui->radioButton_2->setText("温度曲线");
     ui->label_28->setText("疲劳试验");
     plotUpdate->start(100);
+
     ui->label_plan_count->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_PLANNUM").lValue));
+    // long long COMP_AXIS1_TEST_PREPAREPOSI = GetDBValue("COMP_AXIS1_TEST_PREPAREPOSI").lValue;
+
     ui->label_pre_posi->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_PREPAREPOSI").lValue / 1000.0, 'f', 3));
     ui->label_start_posi->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_STARTPOSI").lValue / 1000.0, 'f', 3));
     ui->label_39->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_SWITCHCOOLTEMPER").lValue / 1000.0, 'f', 3));
@@ -867,6 +875,7 @@ void MainWindow::newFatigueTest()
     WORD res2 = GetDBString("HMI_DB_TEST_PRODUCT_SN1", result2, sizeof(result2) - 1);
     strResult2 = QString::fromUtf8(result2);
     ui->label_pro_number->setText(strResult2);
+    CtmCurveControl::GetInstance()->SetCurveSavePath(2, strResult2);
 
     char result3[50];  // 假设最大长度为100
     QString strResult3 = "";
@@ -878,24 +887,46 @@ void MainWindow::newFatigueTest()
 
 void MainWindow::newIndicatTest()
 {
-    ui->widget_fatigute->setVisible(false);
-    ui->widget_in->setVisible(true);
+    // ui->widget_fatigute->setVisible(false);
+    // ui->widget_in->setVisible(true);
+    // ui->stackedWidget->setCurrentIndex(1);
+    m_CurveIndex = 3;
+    switchRunInfoPage(1);
     ui->label_2->setVisible(false);
     ui->lcdNumber_time->setVisible(false);
     ui->lcdNumber_count->setVisible(false);
     ui->label->setVisible(false);
     ui->radioButton_2->setText("位置压力曲线");
     ui->label_28->setText("示功试验");
-    ui->label_pre_pos_2->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_PREPAREPOSI").lValue / 1000.0 , 'f', '3'));
-    ui->label_start_pos_2->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_STARTPOSI").lValue / 1000.0 , 'f', '3'));
-    ui->label_stop_pos_2->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_STOPPOSI").lValue / 1000.0 , 'f', '3'));
+
+    long long COMP_AXIS1_TEST_PREPAREPOSI = GetDBValue("COMP_AXIS1_TEST_PREPAREPOSI").lValue;
+    qDebug()<< "MAIn COMP_AXIS1_TEST_PREPAREPOSI value = " << COMP_AXIS1_TEST_PREPAREPOSI;
+    ui->label_pre_pos_2->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_PREPAREPOSI").lValue / 1000.0 , 'f', 3));
+    qDebug() << "ui->label_pre_pos_2->text()" << ui->label_pre_pos_2->text();
+    ui->label_start_pos_2->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_STARTPOSI").lValue / 1000.0 , 'f', 3));
+    ui->label_stop_pos_2->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_STOPPOSI").lValue / 1000.0 , 'f', 3));
     plotUpdate->start(100);
     ui->widget_5->setVisible(true);
+    if(GetDBValue("COMP_AXIS1_TEST_TABLE_WT1_OPTION").lValue == 1) {
+        ui->label_10->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_TABLE_WT1_VEL").lValue / 1000.0 , 'f', 3));
+        ui->label_15->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_TABLE_WT1_TIMES").lValue / 1000.0 , 'f', 3));
+        // SetDBValue("COMP_AXIS1_TEST_TABLE_WT1_TIMES",ui->COMP_AXIS1_TEST_TABLE_WT1_TIMES->value());
+    }
+    if(GetDBValue("COMP_AXIS1_TEST_TABLE_WT2_OPTION").lValue == 1) {
+        ui->label_52->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_TABLE_WT2_VEL").lValue / 1000.0 , 'f', 3));
+        ui->label_16->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_TABLE_WT2_TIMES").lValue / 1000.0 , 'f', 3));
+        // SetDBValue("COMP_AXIS1_TEST_TABLE_WT1_TIMES",ui->COMP_AXIS1_TEST_TABLE_WT1_TIMES->value());
+    }
+    if(GetDBValue("COMP_AXIS1_TEST_TABLE_WT3_OPTION").lValue == 1) {
+        ui->label_53->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_TABLE_WT3_VEL").lValue / 1000.0 , 'f', 3));
+        ui->label_18->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_TABLE_WT3_TIMES").lValue / 1000.0 , 'f', 3));
+        // SetDBValue("COMP_AXIS1_TEST_TABLE_WT1_TIMES",ui->COMP_AXIS1_TEST_TABLE_WT1_TIMES->value());
+    }
 }
 
 void MainWindow::updatePlotValue()
 {
-    QList<tmCURVE_POINT> list = CtmCurveControl::GetInstance()->GetCurveData(2);
+    QList<tmCURVE_POINT> list = CtmCurveControl::GetInstance()->GetCurveData(m_CurveIndex);
     if(list.size() == 0) {
         return;
     }
@@ -918,14 +949,56 @@ void MainWindow::updatePlotValue()
 
             if (point.listY.size() > 0) {
                 // 实际位置
-                double yValue1 = static_cast<double>(point.listY.at(0));
-                xData.append(xValue);
-                yData1.append(yValue1);
+                double yValue1;
+                // switch (m_CurveIndex)
+                // {
+                // case 2:
+                //     /* code */
+                //     double yValue1 = static_cast<double>(point.listY.at(0));
+                //     xData.append(xValue);
+                //     yData1.append(yValue1);
 
-                // 设定位置
-                if (point.listY.size() > 1) {
-                    double yValue2 = static_cast<double>(point.listY.at(1));
-                    yData2.append(yValue2);
+                //     // 设定位置
+                //     if (point.listY.size() > 1) {
+                //         double yValue2 = static_cast<double>(point.listY.at(1));
+                //         yData2.append(yValue2);
+                //     }
+                //     break;
+                // case 3:
+                //     /* code */
+                //     yValue1 = static_cast<double>(point.listY.at(2));
+                //     xData.append(xValue);
+                //     yData1.append(yValue1);
+
+                //     // 设定位置
+                //     if (point.listY.size() > 1) {
+                //         double yValue2 = static_cast<double>(point.listY.at(4));
+                //         yData2.append(yValue2);
+                //     }
+                //     break;
+                // default:
+                //     break;
+                // }
+                if(m_CurveIndex == 2){
+                        double yValue1 = static_cast<double>(point.listY.at(0));
+                        xData.append(xValue);
+                        yData1.append(yValue1);
+
+                        // 设定位置
+                        if (point.listY.size() > 1) {
+                            double yValue2 = static_cast<double>(point.listY.at(1));
+                            yData2.append(yValue2);
+                        }
+                } else if(m_CurveIndex == 23){
+                        yValue1 = static_cast<double>(point.listY.at(2));
+                        xData.append(xValue);
+                        yData1.append(yValue1);
+
+                        // 设定位置
+                        if (point.listY.size() > 1) {
+                            double yValue2 = static_cast<double>(point.listY.at(4));
+                            yData2.append(yValue2);
+                        }
                 }
             }
         }
@@ -959,11 +1032,22 @@ void MainWindow::updatePlotValue()
 
             // X轴：转换为相对时间（秒为单位）
             double xValue = static_cast<double>(point.llDateTime - firstTime) / 1000.0;
-
+            double yValue;
             if (point.listY.size() > 2) {
-                double yValue = static_cast<double>(point.listY.at(2));
-                xData.append(xValue);
-                yData.append(yValue);
+                switch (m_CurveIndex) {
+                case 2:
+                    yValue = static_cast<double>(point.listY.at(2));
+                    xData.append(xValue);
+                    yData.append(yValue);
+                    break;
+                case 3:
+                    yValue = static_cast<double>(point.listY.at(3));
+                    xData.append(xValue);
+                     yData.append(yValue);
+                    break;
+                default:
+                    break;
+                }
             }
         }
 
@@ -979,31 +1063,25 @@ void MainWindow::updatePlotValue()
         ui->plotView->xAxis->setLabel("时间 (s)");
         ui->plotView->yAxis->setLabel("N");
 
-    } else if (m_isTemp_radio_check) {
+    } else if (m_isTemp_radio_check && m_CurveIndex == 2) {
         // 温度模式：显示一条曲线
         QVector<double> xData, yData;
-
         for (int i = 0; i < list.size(); ++i) {
             const tmCURVE_POINT& point = list.at(i);
-
             // X轴：转换为相对时间（秒为单位）
             double xValue = static_cast<double>(point.llDateTime - firstTime) / 1000.0;
-
             if (point.listY.size() > 3) {
                 double yValue = static_cast<double>(point.listY.at(3));
                 xData.append(xValue);
                 yData.append(yValue);
             }
         }
-
         // 创建一条曲线
         ui->plotView->addGraph();
-
         // 设置曲线
         ui->plotView->graph(0)->setPen(QPen(QColor(255, 165, 0), 2));  // 橙色
         ui->plotView->graph(0)->setData(xData, yData);
         ui->plotView->graph(0)->setName("温度");
-
         // 设置轴标签
         ui->plotView->xAxis->setLabel("时间 (s)");
         ui->plotView->yAxis->setLabel("温度");
@@ -1207,7 +1285,9 @@ void MainWindow::updateDBValue()
     }
 
     // int motion_status = GetDBValue("COMP_AXIS1_ACTUAL_MOTIONSTATUS").lValue;
-    int motion_status = GetDBValue("COMP_AXIS1_ACTUAL_MOTION").lValue;
+    // int motion_status = GetDBValue("COMP_AXIS1_ACTUAL_MOTION").lValue;
+
+    int motion_status = GetDBValue("CTRL_MOTION1_STATE").lValue;
     switch (motion_status) {
     case 1:
         ui->label_act_motion_status->setText("寸动前行");
@@ -1397,4 +1477,19 @@ void MainWindow::on_radioButton_2_toggled(bool checked)
         m_isForce_raido_check = false;
     }
     updatePlotValue();
+}
+
+// void MainWindow::on_stackedWidget_currentChanged(int arg1)
+// {
+//     ui->stackedWidget->adjustSize();
+// }
+
+void MainWindow::switchRunInfoPage(int index)
+{
+    ui->stackedWidget->setCurrentIndex(index);
+
+    QWidget *page = ui->stackedWidget->currentWidget();
+    page->adjustSize();
+
+    ui->stackedWidget->setFixedHeight(page->sizeHint().height());
 }
