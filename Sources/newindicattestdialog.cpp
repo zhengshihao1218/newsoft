@@ -77,7 +77,11 @@ void NewIndicatTestDialog::on_buttonBox_accepted()
     SetDBString("HMI_DB_TEST_NUMBER1",ui->HMI_DB_TEST_NUMBER1->text().toUtf8().data(),strlen(ui->HMI_DB_TEST_NUMBER1->text().toUtf8().data()));
     SetDBString("HMI_DB_TEST_CREATEDATE1",ui->HMI_DB_TEST_CREATEDATE1->text().toUtf8().data(),strlen(ui->HMI_DB_TEST_CREATEDATE1->text().toUtf8().data()));
     SetDBString("HMI_DB_TEST_PRODUCT_SN1",ui->HMI_DB_TEST_PRODUCT_SN1->text().toUtf8().data(),strlen(ui->HMI_DB_TEST_PRODUCT_SN1->text().toUtf8().data()));
-    SetDBValue("COMP_AXIS1_TEST_PREPAREPOSI", ui->COMP_AXIS1_TEST_PREPAREPOSI->value() * 1000);
+    long long  COMP_AXIS1_TEST_PREPAREPOSI = ui->COMP_AXIS1_TEST_PREPAREPOSI->value();
+    qDebug() << "UI COMP_AXIS1_TEST_PREPAREPOSI = " << COMP_AXIS1_TEST_PREPAREPOSI;
+    long long COMP_AXIS1_TEST_PREPAREPOSI_res = COMP_AXIS1_TEST_PREPAREPOSI * 1000;
+
+    SetDBValue("COMP_AXIS1_TEST_PREPAREPOSI", COMP_AXIS1_TEST_PREPAREPOSI_res);
     int COMP_AXIS1_TEST_STARTPOSI = ui->COMP_AXIS1_TEST_STARTPOSI->value();
     SetDBValue("COMP_AXIS1_TEST_STARTPOSI",  COMP_AXIS1_TEST_STARTPOSI * 1000);
     SetDBValue("COMP_AXIS1_TEST_STOPPOSI", ui->COMP_AXIS1_TEST_STOPPOSI->value() * 1000);
@@ -103,6 +107,9 @@ void NewIndicatTestDialog::on_buttonBox_accepted()
         SetDBValue("COMP_AXIS1_TEST_TABLE_WT3_TIMES",ui->COMP_AXIS1_TEST_TABLE_WT3_TIMES->value());
         SetDBValue("COMP_AXIS1_TEST_TABLE_WT3_POS1", (COMP_AXIS1_TEST_STARTPOSI - ui->doubleSpinBox_48->value()) * 1000 );
         SetDBValue("COMP_AXIS1_TEST_TABLE_WT3_POS2", (COMP_AXIS1_TEST_STARTPOSI + ui->doubleSpinBox_48->value()) * 1000 );
+    }
+    if(ui->comboBox->currentIndex() == 0){
+        SetDBValue("HMI_DB_TEST_AXIS1_FCABANDONOPTION",0);
     }
     newTestComp();
     this->close();

@@ -154,6 +154,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    int m_CurveIndex;
     QTimer *m_longPressTimer;
     QTimer* tmUpdate;
     QTimer* plotUpdate;
@@ -174,5 +175,6 @@ private:
     void onLegendClick(QCPLegend *legend,
                                    QCPAbstractLegendItem *item,
                                    QMouseEvent *event);
+    void switchRunInfoPage(int index);
 };
 #endif // MAINWINDOW_H

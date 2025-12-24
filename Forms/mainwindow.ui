@@ -6,14 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1432</width>
-    <height>1128</height>
+    <width>1437</width>
+    <height>948</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="maximumSize">
    <size>
     <width>16777215</width>
-    <height>1128</height>
+    <height>16777215</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -235,7 +241,7 @@
           <property name="maximumSize">
            <size>
             <width>16777215</width>
-            <height>25</height>
+            <height>26</height>
            </size>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_6">
@@ -362,7 +368,7 @@
                    <property name="maximumSize">
                     <size>
                      <width>100</width>
-                     <height>20</height>
+                     <height>40</height>
                     </size>
                    </property>
                    <property name="font">
@@ -424,6 +430,12 @@
          <layout class="QHBoxLayout" name="horizontalLayout_11">
           <item>
            <widget class="QCustomPlot" name="plotView" native="true">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -445,16 +457,35 @@
            </widget>
           </item>
           <item>
-           <widget class="QCustomPlot" name="plotView2" native="true"/>
+           <widget class="QCustomPlot" name="plotView2" native="true">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>400</height>
+             </size>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
         <item>
          <widget class="QWidget" name="widget_4" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="maximumSize">
            <size>
             <width>16777215</width>
-            <height>88</height>
+            <height>52</height>
            </size>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_9">
@@ -874,7 +905,7 @@ color: black; /* 可选，设置文字颜色 */</string>
           <property name="maximumSize">
            <size>
             <width>16777215</width>
-            <height>100</height>
+            <height>88</height>
            </size>
           </property>
           <layout class="QGridLayout" name="gridLayout">
@@ -897,7 +928,7 @@ color: black; /* 可选，设置文字颜色 */</string>
 color: black; /* 可选，设置文字颜色 */</string>
              </property>
              <property name="text">
-              <string>0</string>
+              <string/>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -911,7 +942,7 @@ color: black; /* 可选，设置文字颜色 */</string>
 color: black; /* 可选，设置文字颜色 */</string>
              </property>
              <property name="text">
-              <string>0</string>
+              <string/>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -925,7 +956,7 @@ color: black; /* 可选，设置文字颜色 */</string>
 color: black; /* 可选，设置文字颜色 */</string>
              </property>
              <property name="text">
-              <string>0</string>
+              <string/>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -953,7 +984,7 @@ color: black; /* 可选，设置文字颜色 */</string>
 color: black; /* 可选，设置文字颜色 */</string>
              </property>
              <property name="text">
-              <string>0</string>
+              <string/>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -967,7 +998,7 @@ color: black; /* 可选，设置文字颜色 */</string>
 color: black; /* 可选，设置文字颜色 */</string>
              </property>
              <property name="text">
-              <string>0</string>
+              <string/>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -1023,7 +1054,7 @@ color: black; /* 可选，设置文字颜色 */</string>
 color: black; /* 可选，设置文字颜色 */</string>
              </property>
              <property name="text">
-              <string>0</string>
+              <string/>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -1051,7 +1082,7 @@ color: black; /* 可选，设置文字颜色 */</string>
 color: black; /* 可选，设置文字颜色 */</string>
              </property>
              <property name="text">
-              <string>0</string>
+              <string/>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -1065,7 +1096,7 @@ color: black; /* 可选，设置文字颜色 */</string>
 color: black; /* 可选，设置文字颜色 */</string>
              </property>
              <property name="text">
-              <string>0</string>
+              <string/>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -1107,7 +1138,7 @@ color: black; /* 可选，设置文字颜色 */</string>
 color: black; /* 可选，设置文字颜色 */</string>
              </property>
              <property name="text">
-              <string>0</string>
+              <string/>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -1177,7 +1208,7 @@ color: black; /* 可选，设置文字颜色 */</string>
 color: black; /* 可选，设置文字颜色 */</string>
              </property>
              <property name="text">
-              <string>0</string>
+              <string/>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -1205,7 +1236,7 @@ color: black; /* 可选，设置文字颜色 */</string>
 color: black; /* 可选，设置文字颜色 */</string>
              </property>
              <property name="text">
-              <string>0</string>
+              <string/>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -1219,7 +1250,7 @@ color: black; /* 可选，设置文字颜色 */</string>
 color: black; /* 可选，设置文字颜色 */</string>
              </property>
              <property name="text">
-              <string>0</string>
+              <string/>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -1233,7 +1264,7 @@ color: black; /* 可选，设置文字颜色 */</string>
 color: black; /* 可选，设置文字颜色 */</string>
              </property>
              <property name="text">
-              <string>0</string>
+              <string/>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -1247,7 +1278,7 @@ color: black; /* 可选，设置文字颜色 */</string>
 color: black; /* 可选，设置文字颜色 */</string>
              </property>
              <property name="text">
-              <string>0</string>
+              <string/>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -1275,7 +1306,7 @@ color: black; /* 可选，设置文字颜色 */</string>
 color: black; /* 可选，设置文字颜色 */</string>
              </property>
              <property name="text">
-              <string>0</string>
+              <string/>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -1401,7 +1432,7 @@ color: black; /* 可选，设置文字颜色 */</string>
 color: black; /* 可选，设置文字颜色 */</string>
              </property>
              <property name="text">
-              <string>0</string>
+              <string/>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -1415,7 +1446,7 @@ color: black; /* 可选，设置文字颜色 */</string>
 color: black; /* 可选，设置文字颜色 */</string>
              </property>
              <property name="text">
-              <string>0</string>
+              <string/>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -1429,7 +1460,7 @@ color: black; /* 可选，设置文字颜色 */</string>
 color: black; /* 可选，设置文字颜色 */</string>
              </property>
              <property name="text">
-              <string>0</string>
+              <string/>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -1443,7 +1474,7 @@ color: black; /* 可选，设置文字颜色 */</string>
 color: black; /* 可选，设置文字颜色 */</string>
              </property>
              <property name="text">
-              <string>0</string>
+              <string/>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -1457,7 +1488,7 @@ color: black; /* 可选，设置文字颜色 */</string>
 color: black; /* 可选，设置文字颜色 */</string>
              </property>
              <property name="text">
-              <string>0</string>
+              <string/>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -1499,7 +1530,7 @@ color: black; /* 可选，设置文字颜色 */</string>
 color: black; /* 可选，设置文字颜色 */</string>
              </property>
              <property name="text">
-              <string>0</string>
+              <string/>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -1513,7 +1544,7 @@ color: black; /* 可选，设置文字颜色 */</string>
 color: black; /* 可选，设置文字颜色 */</string>
              </property>
              <property name="text">
-              <string>0</string>
+              <string/>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -1527,7 +1558,7 @@ color: black; /* 可选，设置文字颜色 */</string>
 color: black; /* 可选，设置文字颜色 */</string>
              </property>
              <property name="text">
-              <string>0</string>
+              <string/>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -1541,7 +1572,7 @@ color: black; /* 可选，设置文字颜色 */</string>
 color: black; /* 可选，设置文字颜色 */</string>
              </property>
              <property name="text">
-              <string>0</string>
+              <string/>
              </property>
              <property name="alignment">
               <set>Qt::AlignCenter</set>
@@ -1572,7 +1603,7 @@ color: black; /* 可选，设置文字颜色 */</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1432</width>
+     <width>1437</width>
      <height>21</height>
     </rect>
    </property>
@@ -1691,21 +1722,21 @@ color: black; /* 可选，设置文字颜色 */</string>
   </widget>
   <widget class="QDockWidget" name="dockWidget">
    <property name="sizePolicy">
-    <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
      <horstretch>0</horstretch>
      <verstretch>0</verstretch>
     </sizepolicy>
    </property>
    <property name="minimumSize">
     <size>
-     <width>328</width>
-     <height>1033</height>
+     <width>320</width>
+     <height>716</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
-     <width>400</width>
-     <height>524287</height>
+     <width>450</width>
+     <height>20000</height>
     </size>
    </property>
    <property name="features">
@@ -1719,71 +1750,41 @@ color: black; /* 可选，设置文字颜色 */</string>
    </attribute>
    <widget class="QWidget" name="dockWidgetContents">
     <property name="sizePolicy">
-     <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+     <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
       <horstretch>0</horstretch>
       <verstretch>0</verstretch>
      </sizepolicy>
     </property>
     <property name="maximumSize">
      <size>
-      <width>400</width>
+      <width>450</width>
       <height>16777215</height>
      </size>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_3">
-       <item>
-        <spacer name="horizontalSpacer_6">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_3">
-         <property name="font">
-          <font>
-           <pointsize>20</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="horizontalSpacer_7">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-      </layout>
-     </item>
+     <property name="leftMargin">
+      <number>1</number>
+     </property>
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <property name="rightMargin">
+      <number>1</number>
+     </property>
+     <property name="bottomMargin">
+      <number>9</number>
+     </property>
      <item>
       <widget class="QWidget" name="widget" native="true">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+        <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
        <property name="minimumSize">
         <size>
-         <width>310</width>
+         <width>300</width>
          <height>0</height>
         </size>
        </property>
@@ -1794,10 +1795,22 @@ color: black; /* 可选，设置文字颜色 */</string>
         </size>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_19">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_38">
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
           <item>
-           <spacer name="horizontalSpacer_4">
+           <spacer name="horizontalSpacer_3">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
@@ -1811,6 +1824,12 @@ color: black; /* 可选，设置文字颜色 */</string>
           </item>
           <item>
            <widget class="QLabel" name="label_act_motion_status">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="font">
              <font>
               <pointsize>20</pointsize>
@@ -1822,7 +1841,7 @@ color: black; /* 可选，设置文字颜色 */</string>
            </widget>
           </item>
           <item>
-           <spacer name="horizontalSpacer_5">
+           <spacer name="horizontalSpacer_4">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
@@ -1838,6 +1857,12 @@ color: black; /* 可选，设置文字颜色 */</string>
         </item>
         <item>
          <widget class="QLabel" name="label_17">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="minimumSize">
            <size>
             <width>76</width>
@@ -1856,11 +1881,75 @@ color: black; /* 可选，设置文字颜色 */</string>
          </widget>
         </item>
         <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_38">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_16">
+            <item>
+             <spacer name="horizontalSpacer_7">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_3">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>32</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>20</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;CC&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_6">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
          <layout class="QHBoxLayout" name="horizontalLayout_23">
+          <property name="leftMargin">
+           <number>3</number>
+          </property>
+          <property name="rightMargin">
+           <number>3</number>
+          </property>
           <item>
            <widget class="QLabel" name="label_13">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
@@ -1873,7 +1962,7 @@ color: black; /* 可选，设置文字颜色 */</string>
             </property>
             <property name="maximumSize">
              <size>
-              <width>129</width>
+              <width>66666</width>
               <height>23</height>
              </size>
             </property>
@@ -1891,6 +1980,12 @@ color: black; /* 可选，设置文字颜色 */</string>
           </item>
           <item>
            <widget class="QLabel" name="label_pro_number">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="minimumSize">
              <size>
               <width>129</width>
@@ -1899,7 +1994,7 @@ color: black; /* 可选，设置文字颜色 */</string>
             </property>
             <property name="maximumSize">
              <size>
-              <width>129</width>
+              <width>66666</width>
               <height>23</height>
              </size>
             </property>
@@ -1919,6 +2014,12 @@ color: black; /* 可选，设置文字颜色 */</string>
         </item>
         <item>
          <widget class="QLabel" name="label_29">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="minimumSize">
            <size>
             <width>76</width>
@@ -1938,8 +2039,20 @@ color: black; /* 可选，设置文字颜色 */</string>
         </item>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_26">
+          <property name="leftMargin">
+           <number>3</number>
+          </property>
+          <property name="rightMargin">
+           <number>3</number>
+          </property>
           <item>
            <widget class="QLabel" name="label_20">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="minimumSize">
              <size>
               <width>129</width>
@@ -1948,7 +2061,7 @@ color: black; /* 可选，设置文字颜色 */</string>
             </property>
             <property name="maximumSize">
              <size>
-              <width>129</width>
+              <width>66666</width>
               <height>23</height>
              </size>
             </property>
@@ -1966,6 +2079,12 @@ color: black; /* 可选，设置文字颜色 */</string>
           </item>
           <item>
            <widget class="QLabel" name="label_test_number">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="minimumSize">
              <size>
               <width>129</width>
@@ -1974,7 +2093,7 @@ color: black; /* 可选，设置文字颜色 */</string>
             </property>
             <property name="maximumSize">
              <size>
-              <width>129</width>
+              <width>66666</width>
               <height>23</height>
              </size>
             </property>
@@ -1994,8 +2113,20 @@ color: black; /* 可选，设置文字颜色 */</string>
         </item>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_27">
+          <property name="leftMargin">
+           <number>3</number>
+          </property>
+          <property name="rightMargin">
+           <number>3</number>
+          </property>
           <item>
            <widget class="QLabel" name="label_21">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="minimumSize">
              <size>
               <width>129</width>
@@ -2004,7 +2135,7 @@ color: black; /* 可选，设置文字颜色 */</string>
             </property>
             <property name="maximumSize">
              <size>
-              <width>129</width>
+              <width>66666</width>
               <height>23</height>
              </size>
             </property>
@@ -2022,6 +2153,12 @@ color: black; /* 可选，设置文字颜色 */</string>
           </item>
           <item>
            <widget class="QLabel" name="label_create_time">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="minimumSize">
              <size>
               <width>129</width>
@@ -2030,7 +2167,7 @@ color: black; /* 可选，设置文字颜色 */</string>
             </property>
             <property name="maximumSize">
              <size>
-              <width>129</width>
+              <width>66666</width>
               <height>23</height>
              </size>
             </property>
@@ -2050,8 +2187,20 @@ color: black; /* 可选，设置文字颜色 */</string>
         </item>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_28">
+          <property name="leftMargin">
+           <number>3</number>
+          </property>
+          <property name="rightMargin">
+           <number>3</number>
+          </property>
           <item>
            <widget class="QLabel" name="label_23">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="minimumSize">
              <size>
               <width>129</width>
@@ -2060,7 +2209,7 @@ color: black; /* 可选，设置文字颜色 */</string>
             </property>
             <property name="maximumSize">
              <size>
-              <width>129</width>
+              <width>66666</width>
               <height>23</height>
              </size>
             </property>
@@ -2078,6 +2227,12 @@ color: black; /* 可选，设置文字颜色 */</string>
           </item>
           <item>
            <widget class="QLabel" name="label_28">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="minimumSize">
              <size>
               <width>129</width>
@@ -2086,7 +2241,7 @@ color: black; /* 可选，设置文字颜色 */</string>
             </property>
             <property name="maximumSize">
              <size>
-              <width>129</width>
+              <width>66666</width>
               <height>23</height>
              </size>
             </property>
@@ -2106,6 +2261,12 @@ color: black; /* 可选，设置文字颜色 */</string>
         </item>
         <item>
          <widget class="QLabel" name="label_19">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="minimumSize">
            <size>
             <width>76</width>
@@ -2124,883 +2285,850 @@ color: black; /* 可选，设置文字颜色 */</string>
          </widget>
         </item>
         <item>
-         <widget class="QWidget" name="widget_fatigute" native="true">
-          <layout class="QVBoxLayout" name="verticalLayout_4">
-           <property name="leftMargin">
-            <number>0</number>
+         <widget class="QStackedWidget" name="stackedWidget">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
+          <widget class="QWidget" name="page">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
            </property>
-           <property name="topMargin">
-            <number>0</number>
+           <layout class="QGridLayout" name="gridLayout_2">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item row="2" column="1">
+             <widget class="QLabel" name="label_start_posi">
+              <property name="minimumSize">
+               <size>
+                <width>129</width>
+                <height>21</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>666</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+              </property>
+              <property name="text">
+               <string>0</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0">
+             <widget class="QLabel" name="label_25">
+              <property name="minimumSize">
+               <size>
+                <width>129</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>666</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+              </property>
+              <property name="text">
+               <string>温度下限</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="1">
+             <widget class="QLabel" name="label_A">
+              <property name="minimumSize">
+               <size>
+                <width>129</width>
+                <height>21</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>666</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+              </property>
+              <property name="text">
+               <string>0</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="1">
+             <widget class="QLabel" name="label_a">
+              <property name="minimumSize">
+               <size>
+                <width>129</width>
+                <height>21</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>666</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+              </property>
+              <property name="text">
+               <string>0</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLabel" name="label_pre_posi">
+              <property name="minimumSize">
+               <size>
+                <width>129</width>
+                <height>21</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>666</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+              </property>
+              <property name="text">
+               <string>0</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_30">
+              <property name="minimumSize">
+               <size>
+                <width>129</width>
+                <height>21</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>666</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+              </property>
+              <property name="text">
+               <string>目标试验次数</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="1">
+             <widget class="QLabel" name="label_B">
+              <property name="minimumSize">
+               <size>
+                <width>129</width>
+                <height>21</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>666</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+              </property>
+              <property name="text">
+               <string>0</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="0">
+             <widget class="QLabel" name="label_35">
+              <property name="minimumSize">
+               <size>
+                <width>129</width>
+                <height>21</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>666</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+              </property>
+              <property name="text">
+               <string>α</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="0">
+             <widget class="QLabel" name="label_34">
+              <property name="minimumSize">
+               <size>
+                <width>129</width>
+                <height>21</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>666</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+              </property>
+              <property name="text">
+               <string>B</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLabel" name="label_plan_count">
+              <property name="minimumSize">
+               <size>
+                <width>129</width>
+                <height>21</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>666</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+              </property>
+              <property name="text">
+               <string>0</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_32">
+              <property name="minimumSize">
+               <size>
+                <width>129</width>
+                <height>21</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>666</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+              </property>
+              <property name="text">
+               <string>起始位置</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QLabel" name="label_39">
+              <property name="minimumSize">
+               <size>
+                <width>129</width>
+                <height>21</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>666</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+              </property>
+              <property name="text">
+               <string>0</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="label_24">
+              <property name="minimumSize">
+               <size>
+                <width>129</width>
+                <height>21</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>666</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+              </property>
+              <property name="text">
+               <string>温度上限</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="1">
+             <widget class="QLabel" name="label_40">
+              <property name="minimumSize">
+               <size>
+                <width>129</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>666</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+              </property>
+              <property name="text">
+               <string>0</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_31">
+              <property name="minimumSize">
+               <size>
+                <width>129</width>
+                <height>21</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>666</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+              </property>
+              <property name="text">
+               <string>准备位置</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="0">
+             <widget class="QLabel" name="label_33">
+              <property name="minimumSize">
+               <size>
+                <width>129</width>
+                <height>21</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>666</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+              </property>
+              <property name="text">
+               <string>A</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="8" column="0">
+             <widget class="QLabel" name="label_38">
+              <property name="minimumSize">
+               <size>
+                <width>129</width>
+                <height>21</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>666</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+              </property>
+              <property name="text">
+               <string>β</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="8" column="1">
+             <widget class="QLabel" name="label_b">
+              <property name="minimumSize">
+               <size>
+                <width>129</width>
+                <height>21</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>666</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+              </property>
+              <property name="text">
+               <string>0</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="page_2">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
            </property>
-           <property name="rightMargin">
-            <number>0</number>
-           </property>
-           <property name="bottomMargin">
-            <number>0</number>
-           </property>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_30">
-             <item>
-              <widget class="QLabel" name="label_30">
-               <property name="minimumSize">
-                <size>
-                 <width>129</width>
-                 <height>21</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(207, 207, 207);
+           <layout class="QGridLayout" name="gridLayout_3">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item row="2" column="1">
+             <widget class="QLabel" name="label_start_pos_2">
+              <property name="minimumSize">
+               <size>
+                <width>129</width>
+                <height>21</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>66666</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(207, 207, 207);
 color: black; /* 可选，设置文字颜色 */</string>
-               </property>
-               <property name="text">
-                <string>目标试验次数</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="label_plan_count">
-               <property name="minimumSize">
-                <size>
-                 <width>129</width>
-                 <height>21</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(207, 207, 207);
+              </property>
+              <property name="text">
+               <string>0</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="1">
+             <widget class="QLabel" name="label_67">
+              <property name="minimumSize">
+               <size>
+                <width>129</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>66666</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(207, 207, 207);
 color: black; /* 可选，设置文字颜色 */</string>
-               </property>
-               <property name="text">
-                <string>0</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_31">
-             <item>
-              <widget class="QLabel" name="label_31">
-               <property name="minimumSize">
-                <size>
-                 <width>129</width>
-                 <height>21</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(207, 207, 207);
+              </property>
+              <property name="text">
+               <string>否</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLabel" name="label_pre_pos_2">
+              <property name="minimumSize">
+               <size>
+                <width>129</width>
+                <height>21</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>66666</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(207, 207, 207);
 color: black; /* 可选，设置文字颜色 */</string>
-               </property>
-               <property name="text">
-                <string>准备位置</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="label_pre_posi">
-               <property name="minimumSize">
-                <size>
-                 <width>129</width>
-                 <height>21</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(207, 207, 207);
+              </property>
+              <property name="text">
+               <string>0</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="1">
+             <widget class="QLabel" name="label_A_4">
+              <property name="minimumSize">
+               <size>
+                <width>129</width>
+                <height>21</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>66666</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(207, 207, 207);
 color: black; /* 可选，设置文字颜色 */</string>
-               </property>
-               <property name="text">
-                <string>0</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_32">
-             <item>
-              <widget class="QLabel" name="label_32">
-               <property name="minimumSize">
-                <size>
-                 <width>129</width>
-                 <height>21</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(207, 207, 207);
+              </property>
+              <property name="text">
+               <string>0</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="0">
+             <widget class="QLabel" name="label_66">
+              <property name="minimumSize">
+               <size>
+                <width>129</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>66666</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(207, 207, 207);
 color: black; /* 可选，设置文字颜色 */</string>
-               </property>
-               <property name="text">
-                <string>起始位置</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="label_start_posi">
-               <property name="minimumSize">
-                <size>
-                 <width>129</width>
-                 <height>21</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(207, 207, 207);
+              </property>
+              <property name="text">
+               <string>充气力去除</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QLabel" name="label_stop_pos_2">
+              <property name="minimumSize">
+               <size>
+                <width>129</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>66666</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(207, 207, 207);
 color: black; /* 可选，设置文字颜色 */</string>
-               </property>
-               <property name="text">
-                <string>0</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_29">
-             <item>
-              <widget class="QLabel" name="label_24">
-               <property name="minimumSize">
-                <size>
-                 <width>129</width>
-                 <height>21</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(207, 207, 207);
+              </property>
+              <property name="text">
+               <string>0</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="label_64">
+              <property name="minimumSize">
+               <size>
+                <width>129</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>66666</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(207, 207, 207);
 color: black; /* 可选，设置文字颜色 */</string>
-               </property>
-               <property name="text">
-                <string>温度上限</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="label_39">
-               <property name="minimumSize">
-                <size>
-                 <width>129</width>
-                 <height>21</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(207, 207, 207);
+              </property>
+              <property name="text">
+               <string>结束位置</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_62">
+              <property name="minimumSize">
+               <size>
+                <width>129</width>
+                <height>21</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>66666</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(207, 207, 207);
 color: black; /* 可选，设置文字颜色 */</string>
-               </property>
-               <property name="text">
-                <string>0</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_36">
-             <item>
-              <widget class="QLabel" name="label_25">
-               <property name="minimumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(207, 207, 207);
+              </property>
+              <property name="text">
+               <string>准备位置</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_63">
+              <property name="minimumSize">
+               <size>
+                <width>129</width>
+                <height>21</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>66666</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(207, 207, 207);
 color: black; /* 可选，设置文字颜色 */</string>
-               </property>
-               <property name="text">
-                <string>温度下限</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="label_40">
-               <property name="minimumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(207, 207, 207);
+              </property>
+              <property name="text">
+               <string>起始位置</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="0">
+             <widget class="QLabel" name="label_68">
+              <property name="minimumSize">
+               <size>
+                <width>129</width>
+                <height>21</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>66666</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(207, 207, 207);
 color: black; /* 可选，设置文字颜色 */</string>
-               </property>
-               <property name="text">
-                <string>0</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_33">
-             <item>
-              <widget class="QLabel" name="label_33">
-               <property name="minimumSize">
-                <size>
-                 <width>129</width>
-                 <height>21</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(207, 207, 207);
+              </property>
+              <property name="text">
+               <string>检测判断</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="0">
+             <widget class="QLabel" name="label_69">
+              <property name="minimumSize">
+               <size>
+                <width>129</width>
+                <height>21</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>66666</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(207, 207, 207);
 color: black; /* 可选，设置文字颜色 */</string>
-               </property>
-               <property name="text">
-                <string>A</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="label_A">
-               <property name="minimumSize">
-                <size>
-                 <width>129</width>
-                 <height>21</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(207, 207, 207);
+              </property>
+              <property name="text">
+               <string>充气力</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="1">
+             <widget class="QLabel" name="label_B_4">
+              <property name="minimumSize">
+               <size>
+                <width>129</width>
+                <height>21</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>66666</width>
+                <height>23</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(207, 207, 207);
 color: black; /* 可选，设置文字颜色 */</string>
-               </property>
-               <property name="text">
-                <string>0</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_34">
-             <item>
-              <widget class="QLabel" name="label_34">
-               <property name="minimumSize">
-                <size>
-                 <width>129</width>
-                 <height>21</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(207, 207, 207);
-color: black; /* 可选，设置文字颜色 */</string>
-               </property>
-               <property name="text">
-                <string>B</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="label_B">
-               <property name="minimumSize">
-                <size>
-                 <width>129</width>
-                 <height>21</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(207, 207, 207);
-color: black; /* 可选，设置文字颜色 */</string>
-               </property>
-               <property name="text">
-                <string>0</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_35">
-             <item>
-              <widget class="QLabel" name="label_35">
-               <property name="minimumSize">
-                <size>
-                 <width>129</width>
-                 <height>21</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(207, 207, 207);
-color: black; /* 可选，设置文字颜色 */</string>
-               </property>
-               <property name="text">
-                <string>α</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="label_a">
-               <property name="minimumSize">
-                <size>
-                 <width>129</width>
-                 <height>21</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(207, 207, 207);
-color: black; /* 可选，设置文字颜色 */</string>
-               </property>
-               <property name="text">
-                <string>0</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_39">
-             <item>
-              <widget class="QLabel" name="label_38">
-               <property name="minimumSize">
-                <size>
-                 <width>129</width>
-                 <height>21</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(207, 207, 207);
-color: black; /* 可选，设置文字颜色 */</string>
-               </property>
-               <property name="text">
-                <string>β</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="label_b">
-               <property name="minimumSize">
-                <size>
-                 <width>129</width>
-                 <height>21</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(207, 207, 207);
-color: black; /* 可选，设置文字颜色 */</string>
-               </property>
-               <property name="text">
-                <string>0</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item>
-         <widget class="QWidget" name="widget_in" native="true">
-          <layout class="QVBoxLayout" name="verticalLayout_5">
-           <property name="leftMargin">
-            <number>0</number>
-           </property>
-           <property name="topMargin">
-            <number>0</number>
-           </property>
-           <property name="rightMargin">
-            <number>0</number>
-           </property>
-           <property name="bottomMargin">
-            <number>0</number>
-           </property>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_60">
-             <item>
-              <widget class="QLabel" name="label_62">
-               <property name="minimumSize">
-                <size>
-                 <width>129</width>
-                 <height>21</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(207, 207, 207);
-color: black; /* 可选，设置文字颜色 */</string>
-               </property>
-               <property name="text">
-                <string>准备位置</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="label_pre_pos_2">
-               <property name="minimumSize">
-                <size>
-                 <width>129</width>
-                 <height>21</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(207, 207, 207);
-color: black; /* 可选，设置文字颜色 */</string>
-               </property>
-               <property name="text">
-                <string>0</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_61">
-             <item>
-              <widget class="QLabel" name="label_63">
-               <property name="minimumSize">
-                <size>
-                 <width>129</width>
-                 <height>21</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(207, 207, 207);
-color: black; /* 可选，设置文字颜色 */</string>
-               </property>
-               <property name="text">
-                <string>起始位置</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="label_start_pos_2">
-               <property name="minimumSize">
-                <size>
-                 <width>129</width>
-                 <height>21</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(207, 207, 207);
-color: black; /* 可选，设置文字颜色 */</string>
-               </property>
-               <property name="text">
-                <string>0</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_62">
-             <item>
-              <widget class="QLabel" name="label_64">
-               <property name="minimumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(207, 207, 207);
-color: black; /* 可选，设置文字颜色 */</string>
-               </property>
-               <property name="text">
-                <string>结束位置</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="label_stop_pos_2">
-               <property name="minimumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(207, 207, 207);
-color: black; /* 可选，设置文字颜色 */</string>
-               </property>
-               <property name="text">
-                <string>0</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_63">
-             <item>
-              <widget class="QLabel" name="label_66">
-               <property name="minimumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(207, 207, 207);
-color: black; /* 可选，设置文字颜色 */</string>
-               </property>
-               <property name="text">
-                <string>充气力去除</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="label_67">
-               <property name="minimumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(207, 207, 207);
-color: black; /* 可选，设置文字颜色 */</string>
-               </property>
-               <property name="text">
-                <string>否</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_64">
-             <item>
-              <widget class="QLabel" name="label_68">
-               <property name="minimumSize">
-                <size>
-                 <width>129</width>
-                 <height>21</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(207, 207, 207);
-color: black; /* 可选，设置文字颜色 */</string>
-               </property>
-               <property name="text">
-                <string>检测判断</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="label_A_4">
-               <property name="minimumSize">
-                <size>
-                 <width>129</width>
-                 <height>21</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(207, 207, 207);
-color: black; /* 可选，设置文字颜色 */</string>
-               </property>
-               <property name="text">
-                <string>0</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_65">
-             <item>
-              <widget class="QLabel" name="label_69">
-               <property name="minimumSize">
-                <size>
-                 <width>129</width>
-                 <height>21</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(207, 207, 207);
-color: black; /* 可选，设置文字颜色 */</string>
-               </property>
-               <property name="text">
-                <string>充气力</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="label_B_4">
-               <property name="minimumSize">
-                <size>
-                 <width>129</width>
-                 <height>21</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>129</width>
-                 <height>23</height>
-                </size>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(207, 207, 207);
-color: black; /* 可选，设置文字颜色 */</string>
-               </property>
-               <property name="text">
-                <string>0</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-          </layout>
+              </property>
+              <property name="text">
+               <string>0</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
          </widget>
         </item>
         <item>
          <widget class="QLabel" name="label_36">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="minimumSize">
            <size>
             <width>76</width>
@@ -3126,10 +3254,16 @@ color: black; /* 可选，设置文字颜色 */</string>
         <item>
          <widget class="QTableWidget" name="log_table">
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+           <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
           </property>
           <column>
            <property name="text">
