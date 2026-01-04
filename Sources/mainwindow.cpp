@@ -214,6 +214,7 @@ void MainWindow::on_new_experiment_action_triggered()
 
 void MainWindow::initPlotView()
 {
+    ui->plotView->clearPlottables();
     ui->plotView->clearGraphs();
     ui->plotView->setBackground(QPixmap(":/images/images/back.png"));
 
@@ -958,20 +959,26 @@ void MainWindow::newIndicatTest()
         ui->label_6->setStyleSheet("background-color: rgb(200, 0, 0);");  // 红色
 
         ui->label_10->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_TABLE_WT1_VEL").lValue / 1000.0 , 'f', 3));
-        ui->label_15->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_TABLE_WT1_TIMES").lValue / 1000.0 , 'f', 3));
+        ui->label_15->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_TABLE_WT1_TIMES").lValue));
         // SetDBValue("COMP_AXIS1_TEST_TABLE_WT1_TIMES",ui->COMP_AXIS1_TEST_TABLE_WT1_TIMES->value());
+        long long COMP_AXIS1_TEST_TABLE_WT1_POS =  (GetDBValue("COMP_AXIS1_TEST_TABLE_WT1_POS2").lValue) - (GetDBValue("COMP_AXIS1_TEST_TABLE_WT1_POS1").lValue);
+        ui->label_84->setText("±" + QString::number(COMP_AXIS1_TEST_TABLE_WT1_POS / 2000.0 , 'f', 3));
     }
     if(GetDBValue("COMP_AXIS1_TEST_TABLE_WT2_OPTION").lValue == 1) {
         ui->label_7->setStyleSheet("background-color: rgb(200, 0, 0);");  // 红色
         ui->label_52->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_TABLE_WT2_VEL").lValue / 1000.0 , 'f', 3));
-        ui->label_16->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_TABLE_WT2_TIMES").lValue / 1000.0 , 'f', 3));
+        ui->label_16->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_TABLE_WT2_TIMES").lValue));
         // SetDBValue("COMP_AXIS1_TEST_TABLE_WT1_TIMES",ui->COMP_AXIS1_TEST_TABLE_WT1_TIMES->value());
+        long long COMP_AXIS1_TEST_TABLE_WT2_POS =  (GetDBValue("COMP_AXIS1_TEST_TABLE_WT2_POS2").lValue) - (GetDBValue("COMP_AXIS1_TEST_TABLE_WT2_POS1").lValue);
+        ui->label_85->setText("±" + QString::number(COMP_AXIS1_TEST_TABLE_WT2_POS / 2000.0 , 'f', 3));
     }
     if(GetDBValue("COMP_AXIS1_TEST_TABLE_WT3_OPTION").lValue == 1) {
         ui->label_8->setStyleSheet("background-color: rgb(200, 0, 0);");  // 红色
         ui->label_53->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_TABLE_WT3_VEL").lValue / 1000.0 , 'f', 3));
-        ui->label_18->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_TABLE_WT3_TIMES").lValue / 1000.0 , 'f', 3));
+        ui->label_18->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_TABLE_WT3_TIMES").lValue));
         // SetDBValue("COMP_AXIS1_TEST_TABLE_WT1_TIMES",ui->COMP_AXIS1_TEST_TABLE_WT1_TIMES->value());
+        long long COMP_AXIS1_TEST_TABLE_WT3_POS =  (GetDBValue("COMP_AXIS1_TEST_TABLE_WT3_POS2").lValue) - (GetDBValue("COMP_AXIS1_TEST_TABLE_WT3_POS1").lValue);
+        ui->label_86->setText("±" + QString::number(COMP_AXIS1_TEST_TABLE_WT3_POS / 2000.0 , 'f', 3));
     }
     // 赋值页面UI 试件信息，试验编号，创建时间
     char result[50];  // 假设最大长度为100
@@ -1008,7 +1015,9 @@ void MainWindow::updatePlotValue()
     }
 
     // 清空所有现有曲线
+    ui->plotView->clearPlottables();
     ui->plotView->clearGraphs();
+    ui->plotView->clearItems();
 
     // 获取第一个时间点作为参考
     qint64 firstTime = list.at(0).llDateTime;
@@ -1463,7 +1472,7 @@ void MainWindow::on_radioButton_4_toggled(bool checked)
 {
     if (checked) {
         ui->radioButton_5->setChecked(false);
-        if(!plotUpdate->isActive()){
+        if(!plotUpdate->isActive() && CtmCurveControl::GetInstance()->GetCurveState(2) == CURVE_UPDATE){
             plotUpdate->start(100);
         }
     } else {
@@ -1492,11 +1501,10 @@ void MainWindow::on_radioButton_5_toggled(bool checked)
 void MainWindow::on_radioButton_toggled(bool checked)
 {
     // 位置
-    if (checked) {
-        m_isPos_raido_check = true;
-        m_isForce_raido_check = false;
-        m_isTemp_radio_check = false;
-    }
+    if (!checked) return;
+    m_isPos_raido_check = true;
+    m_isForce_raido_check = false;
+    m_isTemp_radio_check = false;
     ui->widget_6->setVisible(false);
     updatePlotValue();
 }
@@ -1505,11 +1513,10 @@ void MainWindow::on_radioButton_toggled(bool checked)
 void MainWindow::on_radioButton_3_toggled(bool checked)
 {
     // 压力
-    if (checked) {
-        m_isForce_raido_check = true;
-        m_isPos_raido_check = false;
-        m_isTemp_radio_check = false;
-    }
+    if (!checked) return;
+    m_isForce_raido_check = true;
+    m_isPos_raido_check = false;
+    m_isTemp_radio_check = false;
     ui->widget_6->setVisible(false);
     updatePlotValue();
 }
@@ -1517,10 +1524,31 @@ void MainWindow::on_radioButton_3_toggled(bool checked)
 void MainWindow::on_radioButton_2_toggled(bool checked)
 {
     if (!checked) return;
+    m_isPos_raido_check = false;
+    m_isForce_raido_check = false;
+    m_isTemp_radio_check = true;
+    if(CtmCurveControl::GetInstance()->GetCurveState(3) != CURVE_DONE) return;
+
+    // 把力补偿信息显示出来
+    ui->widget_6->setVisible(true);
+
+    if(plotUpdate->isActive()) {
+        plotUpdate->stop();
+    }
 
 
+    indicatorDiagram();
+}
+
+void MainWindow::indicatorDiagram()
+{
+    ui->plotView->clearPlottables();
     ui->plotView->clearGraphs();
     ui->plotView->clearItems();
+
+    // 同时清理plotView2
+    ui->plotView2->clearPlottables();
+    ui->plotView2->clearItems();
 
     // ================= 1. 获取数据 =================
     qint64 endTime = QDateTime::currentDateTime().toMSecsSinceEpoch();
@@ -1564,7 +1592,6 @@ void MainWindow::on_radioButton_2_toggled(bool checked)
 
     // ================= 3. 应用滞后补偿 =================
     // 获取滞后补偿参数
-    ui->spinBox->setValue(10);
     int forceDelayCompensation = ui->spinBox->value();  //这个是自己设置的, 代表要补偿的时间，默认10s
 
     if (forceDelayCompensation > 0) {
@@ -1595,6 +1622,30 @@ void MainWindow::on_radioButton_2_toggled(bool checked)
                 points[i].second = point;
             }
         }
+    }
+
+    // ================= 3.5  在第二图表上绘制散点图 =================
+    // 收集每个TestNumber的所有点
+    QMap<int, QVector<QPointF>> testAllPointsMap;
+    for (auto it = testCycleTimeDataMap.begin(); it != testCycleTimeDataMap.end(); ++it) {
+        int testNumber = it.key().first;
+        for (const auto& tp : it.value()) {
+            testAllPointsMap[testNumber].append(tp.second);
+        }
+    }
+    // 在plotView2上绘制散点图
+    QList<int> testNumbersScatter = testAllPointsMap.keys();
+    std::sort(testNumbersScatter.begin(), testNumbersScatter.end());
+    for (int testNumber : testNumbersScatter) {
+        const QVector<QPointF>& points = testAllPointsMap[testNumber];
+        QColor color = scatterColors[testNumber % scatterColors.size()];
+        QVector<double> xData, yData;
+        for (const QPointF& point : points) {
+            xData.append(point.x());
+            yData.append(point.y());
+        }
+        // 在plotView2上绘制散点图
+        drawScatterOnPlotView2(testNumber, xData, yData, color);
     }
 
     // ================= 4. 计算每个TestNumber的平均曲线 =================
@@ -1677,11 +1728,11 @@ void MainWindow::on_radioButton_2_toggled(bool checked)
     }
 
     // ================= 5. 准备颜色 =================
-    QVector<QColor> colors = {
-        Qt::red, Qt::green, Qt::blue,
-        Qt::magenta, Qt::cyan, Qt::darkYellow,
-        Qt::darkRed, Qt::darkGreen, Qt::darkBlue
-    };
+    // QVector<QColor> colors = {
+    //     Qt::red, Qt::green, Qt::blue,
+    //     Qt::magenta, Qt::cyan, Qt::darkYellow,
+    //     Qt::darkRed, Qt::darkGreen, Qt::darkBlue
+    // };
 
     // ================= 6. 绘制每个Test的平均曲线 =================
     for (int testNumber : testAverageCurves.keys()) {
@@ -1689,7 +1740,7 @@ void MainWindow::on_radioButton_2_toggled(bool checked)
 
         if (averageCurve.size() < 20) continue;
 
-        QColor baseColor = colors[testNumber % colors.size()];
+        QColor baseColor = scatterColors[testNumber % scatterColors.size()];
 
         // 转换为QVector用于绘图
         QVector<double> xData, yData;
@@ -1738,12 +1789,20 @@ void MainWindow::on_radioButton_2_toggled(bool checked)
     QCPItemText* startLabel = new QCPItemText(ui->plotView);
     startLabel->position->setParentAnchor(startLine->point1);
     startLabel->setPositionAlignment(Qt::AlignTop | Qt::AlignHCenter);
-    // startLabel->position->setCoords(0, 10);
-    // startLabel->setText(QString("起始位置\n%1").arg(startPos, 0, 'f', 3));
+    startLabel->position->setCoords(0, 10);
+    startLabel->setText(QString("起始位置\n%1").arg(startPos, 0, 'f', 3));
     startLabel->setFont(QFont("Arial", 9));
     startLabel->setColor(Qt::red);
 
     ui->plotView->replot();
+
+    // plotView2配置（原始数据散点图）
+    ui->plotView2->xAxis->setLabel("Position");
+    ui->plotView2->yAxis->setLabel("Force");
+    ui->plotView2->legend->setVisible(true);
+    ui->plotView2->legend->setFont(QFont("Helvetica", 8));
+    ui->plotView2->rescaleAxes();
+    ui->plotView2->replot();
 }
 
 // ================= 辅助函数：曲线重采样 =================
@@ -1793,6 +1852,25 @@ QVector<QPointF> MainWindow::resampleCurveUniform(const QVector<QPointF>& curve,
     return resampled;
 }
 
+// ================= 辅助函数：在plotView2上绘制散点图 =================
+void MainWindow::drawScatterOnPlotView2(int testNumber, const QVector<double>& xData,
+                                        const QVector<double>& yData, const QColor& color)
+{
+    if (xData.isEmpty() || yData.isEmpty()) return;
+    // 创建散点图
+    QCPGraph* scatter = ui->plotView2->addGraph();
+    scatter->setData(xData, yData);
+    scatter->setName(QString("Test %1 (原始%2点)").arg(testNumber).arg(xData.size()));
+    scatter->setLineStyle(QCPGraph::lsNone);
+    // 设置散点样式
+    QCPScatterStyle scatterStyle;
+    scatterStyle.setShape(QCPScatterStyle::ssCircle);
+    scatterStyle.setSize(3.0);
+    scatterStyle.setPen(QPen(color));
+    scatterStyle.setBrush(QBrush(color));
+    scatter->setScatterStyle(scatterStyle);
+}
+
 void MainWindow::switchRunInfoPage(int index)
 {
     ui->stackedWidget->setCurrentIndex(index);
@@ -1802,3 +1880,9 @@ void MainWindow::switchRunInfoPage(int index)
 
     ui->stackedWidget->setFixedHeight(page->sizeHint().height());
 }
+
+void MainWindow::on_spinBox_valueChanged(int arg1)
+{
+    indicatorDiagram();
+}
+
