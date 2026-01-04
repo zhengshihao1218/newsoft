@@ -21,6 +21,17 @@ void ControlParamentDialog::updateDBValue(){
     ui->label_act_posi->setText(QString::number(GetDBValue("COMP_AXIS1_ACTUAL_POSI").lValue / 1000.0, 'f', 3));
     ui->label_act_pear->setText(QString::number(GetDBValue("COMP_AXIS1_ACTUAL_PRES").lValue / 1000.0, 'f', 3));
     ui->label_act_velo->setText(QString::number(GetDBValue("COMP_AXIS1_ACTUAL_VELO").lValue / 1000.0, 'f', 3));
+
+    ui->label_act_torque->setText(QString::number(GetDBValue("COMP_AXIS1_ACTUAL_TORQUE").lValue / 1000.0, 'f', 3));
+    ui->label_act_force->setText(QString::number(GetDBValue("COMP_AXIS1_ACTUAL_FORCE").lValue / 1000.0, 'f', 3));
+    ui->label_act_RPM->setText(QString::number(GetDBValue("COMP_AXIS1_ACTUAL_RPM").lValue / 1000.0, 'f', 3));
+    ui->label_act_CMD->setText(QString::number(GetDBValue("COMP_AXIS1_ACTUAL_CMD").lValue));
+    ui->label_act_motion->setText(QString::number(GetDBValue("COMP_AXIS1_ACTUAL_MOTION").lValue));
+    ui->label_act_motionCMD->setText(QString::number(GetDBValue("COMP_AXIS1_ACTUAL_MOTIONCMD").lValue));
+    ui->label_act_motion_status->setText(QString::number(GetDBValue("COMP_AXIS1_ACTUAL_MOTIONSTATUS").lValue));
+    ui->label_act_motion_runtime->setText(QString::number(GetDBValue("COMP_AXIS1_ACTUAL_MOTIONRUNTIME").lValue));
+    ui->label_act_motion_acttime->setText(QString::number(GetDBValue("COMP_AXIS1_ACTUAL_MOTIONACTTIME").lValue));
+
 }
 
 void ControlParamentDialog::on_tabWidget_2_currentChanged(int index)

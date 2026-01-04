@@ -37,6 +37,7 @@ NewIndicatTestDialog::NewIndicatTestDialog(QWidget *parent)
     ui->HMI_DB_TEST_NUMBER1->setText(textNumber);
     QDateTime currentDateTime = QDateTime::currentDateTime();
     ui->HMI_DB_TEST_CREATEDATE1->setText(currentDateTime.toString("yyyy-MM-dd HH:mm:ss"));
+    ui->spinBox->setValue(10);
 }
 
 NewIndicatTestDialog::~NewIndicatTestDialog()

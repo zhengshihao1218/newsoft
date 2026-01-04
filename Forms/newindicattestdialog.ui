@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>986</width>
-    <height>781</height>
+    <width>1005</width>
+    <height>870</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,25 +20,8 @@
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="1" column="3">
-      <widget class="QLabel" name="label_sensor_12">
-       <property name="minimumSize">
-        <size>
-         <width>129</width>
-         <height>22</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(207, 207, 207);
-color: black; /* 可选，设置文字颜色 */</string>
-       </property>
-       <property name="text">
-        <string>试件编号</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
+     <item row="1" column="4">
+      <widget class="QLineEdit" name="HMI_DB_TEST_PRODUCT_SN1"/>
      </item>
      <item row="3" column="2">
       <widget class="QLineEdit" name="HMI_DB_TEST_CREATEDATE1">
@@ -46,78 +29,6 @@ color: black; /* 可选，设置文字颜色 */</string>
         <bool>false</bool>
        </property>
       </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="label_sensor_13">
-       <property name="minimumSize">
-        <size>
-         <width>129</width>
-         <height>22</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(207, 207, 207);
-color: black; /* 可选，设置文字颜色 */</string>
-       </property>
-       <property name="text">
-        <string>试验创建时间</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="4">
-      <widget class="QLineEdit" name="HMI_DB_TEST_PRODUCT_SN1"/>
-     </item>
-     <item row="6" column="0">
-      <widget class="QLabel" name="label_15">
-       <property name="minimumSize">
-        <size>
-         <width>129</width>
-         <height>22</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(207, 207, 207);
-color: black; /* 可选，设置文字颜色 */</string>
-       </property>
-       <property name="text">
-        <string>试验结束位置(mm)</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="4">
-      <widget class="QDoubleSpinBox" name="COMP_AXIS1_TEST_STARTPOSI"/>
-     </item>
-     <item row="5" column="0">
-      <widget class="QLabel" name="label_11">
-       <property name="minimumSize">
-        <size>
-         <width>129</width>
-         <height>22</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(207, 207, 207);
-color: black; /* 可选，设置文字颜色 */</string>
-       </property>
-       <property name="text">
-        <string>准备位置(mm)</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="2">
-      <widget class="QDoubleSpinBox" name="COMP_AXIS1_TEST_PREPAREPOSI"/>
-     </item>
-     <item row="6" column="2">
-      <widget class="QDoubleSpinBox" name="COMP_AXIS1_TEST_STOPPOSI"/>
      </item>
      <item row="1" column="2">
       <widget class="QLineEdit" name="HMI_DB_TEST_NUMBER1"/>
@@ -138,9 +49,52 @@ color: black; /* 可选，设置文字颜色 */</string>
         <string>试验编号</string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignCenter</set>
+        <set>Qt::AlignmentFlag::AlignCenter</set>
        </property>
       </widget>
+     </item>
+     <item row="6" column="3">
+      <widget class="QLabel" name="label_21">
+       <property name="minimumSize">
+        <size>
+         <width>129</width>
+         <height>22</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+       </property>
+       <property name="text">
+        <string>力值偏移(ms)</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_sensor_13">
+       <property name="minimumSize">
+        <size>
+         <width>129</width>
+         <height>22</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+       </property>
+       <property name="text">
+        <string>试验创建时间</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="4">
+      <widget class="QDoubleSpinBox" name="COMP_AXIS1_TEST_STARTPOSI"/>
      </item>
      <item row="5" column="3">
       <widget class="QLabel" name="label_12">
@@ -158,11 +112,83 @@ color: black; /* 可选，设置文字颜色 */</string>
         <string>起始位置(mm)</string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignCenter</set>
+        <set>Qt::AlignmentFlag::AlignCenter</set>
        </property>
       </widget>
      </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="label_11">
+       <property name="minimumSize">
+        <size>
+         <width>129</width>
+         <height>22</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+       </property>
+       <property name="text">
+        <string>准备位置(mm)</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="label_15">
+       <property name="minimumSize">
+        <size>
+         <width>129</width>
+         <height>22</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+       </property>
+       <property name="text">
+        <string>试验结束位置(mm)</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="2">
+      <widget class="QDoubleSpinBox" name="COMP_AXIS1_TEST_PREPAREPOSI"/>
+     </item>
+     <item row="6" column="2">
+      <widget class="QDoubleSpinBox" name="COMP_AXIS1_TEST_STOPPOSI"/>
+     </item>
+     <item row="1" column="3">
+      <widget class="QLabel" name="label_sensor_12">
+       <property name="minimumSize">
+        <size>
+         <width>129</width>
+         <height>22</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(207, 207, 207);
+color: black; /* 可选，设置文字颜色 */</string>
+       </property>
+       <property name="text">
+        <string>试件编号</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="4">
+      <widget class="QSpinBox" name="spinBox"/>
+     </item>
     </layout>
+   </item>
+   <item>
+    <widget class="QWidget" name="widget_17" native="true"/>
    </item>
    <item>
     <widget class="QWidget" name="widget_16" native="true">
@@ -194,7 +220,7 @@ color: black; /* 可选，设置文字颜色 */</string>
            <string>压缩力上限</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -220,7 +246,7 @@ color: black; /* 可选，设置文字颜色 */</string>
            <string>振幅(Hz)</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -246,7 +272,7 @@ color: black; /* 可选，设置文字颜色 */</string>
            <string>复原力上限</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -272,7 +298,7 @@ color: black; /* 可选，设置文字颜色 */</string>
            <string>压缩力下限</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -298,7 +324,7 @@ color: black; /* 可选，设置文字颜色 */</string>
            <string>次数</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -324,7 +350,7 @@ color: black; /* 可选，设置文字颜色 */</string>
            <string>振幅(mm)</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -350,7 +376,7 @@ color: black; /* 可选，设置文字颜色 */</string>
            <string>复原力下限</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -376,7 +402,7 @@ color: black; /* 可选，设置文字颜色 */</string>
            <string>速度(m/s)</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -435,7 +461,11 @@ color: black; /* 可选，设置文字颜色 */</string>
          <widget class="QDoubleSpinBox" name="doubleSpinBox_35"/>
         </item>
         <item row="0" column="3">
-         <widget class="QSpinBox" name="COMP_AXIS1_TEST_TABLE_WT1_TIMES"/>
+         <widget class="QSpinBox" name="COMP_AXIS1_TEST_TABLE_WT1_TIMES">
+          <property name="maximum">
+           <number>20</number>
+          </property>
+         </widget>
         </item>
         <item row="0" column="0">
          <widget class="QCheckBox" name="COMP_AXIS1_TEST_TABLE_WT1_OPTION">
@@ -489,7 +519,7 @@ color: black; /* 可选，设置文字颜色 */</string>
            <string>0</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -552,7 +582,11 @@ color: black; /* 可选，设置文字颜色 */</string>
          </widget>
         </item>
         <item row="0" column="2">
-         <widget class="QSpinBox" name="COMP_AXIS1_TEST_TABLE_WT2_TIMES"/>
+         <widget class="QSpinBox" name="COMP_AXIS1_TEST_TABLE_WT2_TIMES">
+          <property name="maximum">
+           <number>20</number>
+          </property>
+         </widget>
         </item>
         <item row="0" column="6">
          <widget class="QDoubleSpinBox" name="doubleSpinBox_43"/>
@@ -570,7 +604,7 @@ color: black; /* 可选，设置文字颜色 */</string>
            <string>0</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -604,7 +638,11 @@ color: black; /* 可选，设置文字颜色 */</string>
          </widget>
         </item>
         <item row="0" column="2">
-         <widget class="QSpinBox" name="COMP_AXIS1_TEST_TABLE_WT3_TIMES"/>
+         <widget class="QSpinBox" name="COMP_AXIS1_TEST_TABLE_WT3_TIMES">
+          <property name="maximum">
+           <number>20</number>
+          </property>
+         </widget>
         </item>
         <item row="0" column="0">
          <widget class="QCheckBox" name="COMP_AXIS1_TEST_TABLE_WT3_OPTION">
@@ -639,7 +677,7 @@ color: black; /* 可选，设置文字颜色 */</string>
            <string>0</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -678,7 +716,11 @@ color: black; /* 可选，设置文字颜色 */</string>
          <widget class="QDoubleSpinBox" name="doubleSpinBox_57"/>
         </item>
         <item row="0" column="2">
-         <widget class="QSpinBox" name="spinBox_8"/>
+         <widget class="QSpinBox" name="spinBox_8">
+          <property name="maximum">
+           <number>20</number>
+          </property>
+         </widget>
         </item>
         <item row="0" column="0">
          <widget class="QCheckBox" name="checkBox_4">
@@ -732,7 +774,7 @@ color: black; /* 可选，设置文字颜色 */</string>
            <string>0</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -801,7 +843,11 @@ color: black; /* 可选，设置文字颜色 */</string>
          </widget>
         </item>
         <item row="0" column="2">
-         <widget class="QSpinBox" name="spinBox_9"/>
+         <widget class="QSpinBox" name="spinBox_9">
+          <property name="maximum">
+           <number>20</number>
+          </property>
+         </widget>
         </item>
         <item row="0" column="9">
          <widget class="QLabel" name="label_5_HZ">
@@ -813,7 +859,7 @@ color: black; /* 可选，设置文字颜色 */</string>
            <string>0</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -837,7 +883,11 @@ color: black; /* 可选，设置文字颜色 */</string>
       <item>
        <layout class="QGridLayout" name="gridLayout_12">
         <item row="0" column="2">
-         <widget class="QSpinBox" name="spinBox_10"/>
+         <widget class="QSpinBox" name="spinBox_10">
+          <property name="maximum">
+           <number>20</number>
+          </property>
+         </widget>
         </item>
         <item row="0" column="4">
          <widget class="QDoubleSpinBox" name="doubleSpinBox_72"/>
@@ -897,7 +947,7 @@ color: black; /* 可选，设置文字颜色 */</string>
            <string>0</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -921,7 +971,11 @@ color: black; /* 可选，设置文字颜色 */</string>
       <item>
        <layout class="QGridLayout" name="gridLayout_13">
         <item row="0" column="2">
-         <widget class="QSpinBox" name="spinBox_11"/>
+         <widget class="QSpinBox" name="spinBox_11">
+          <property name="maximum">
+           <number>20</number>
+          </property>
+         </widget>
         </item>
         <item row="0" column="7">
          <widget class="QLabel" name="label_9">
@@ -981,7 +1035,7 @@ color: black; /* 可选，设置文字颜色 */</string>
            <string>0</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -1030,7 +1084,11 @@ color: black; /* 可选，设置文字颜色 */</string>
          <widget class="QDoubleSpinBox" name="doubleSpinBox_86"/>
         </item>
         <item row="0" column="2">
-         <widget class="QSpinBox" name="spinBox_12"/>
+         <widget class="QSpinBox" name="spinBox_12">
+          <property name="maximum">
+           <number>20</number>
+          </property>
+         </widget>
         </item>
         <item row="0" column="3">
          <widget class="QDoubleSpinBox" name="doubleSpinBox_84"/>
@@ -1065,7 +1123,7 @@ color: black; /* 可选，设置文字颜色 */</string>
            <string>0</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -1115,7 +1173,11 @@ color: black; /* 可选，设置文字颜色 */</string>
          <widget class="QDoubleSpinBox" name="doubleSpinBox_106"/>
         </item>
         <item row="0" column="2">
-         <widget class="QSpinBox" name="spinBox_15"/>
+         <widget class="QSpinBox" name="spinBox_15">
+          <property name="maximum">
+           <number>20</number>
+          </property>
+         </widget>
         </item>
         <item row="0" column="5">
          <widget class="QDoubleSpinBox" name="doubleSpinBox_104"/>
@@ -1149,7 +1211,7 @@ color: black; /* 可选，设置文字颜色 */</string>
            <string>0</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -1173,7 +1235,11 @@ color: black; /* 可选，设置文字颜色 */</string>
       <item>
        <layout class="QGridLayout" name="gridLayout_18">
         <item row="0" column="2">
-         <widget class="QSpinBox" name="spinBox_16"/>
+         <widget class="QSpinBox" name="spinBox_16">
+          <property name="maximum">
+           <number>20</number>
+          </property>
+         </widget>
         </item>
         <item row="0" column="1">
          <widget class="QDoubleSpinBox" name="doubleSpinBox_117"/>
@@ -1233,7 +1299,7 @@ color: black; /* 可选，设置文字颜色 */</string>
            <string>0</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -1260,7 +1326,11 @@ color: black; /* 可选，设置文字颜色 */</string>
          <widget class="QDoubleSpinBox" name="doubleSpinBox_131"/>
         </item>
         <item row="0" column="2">
-         <widget class="QSpinBox" name="spinBox_18"/>
+         <widget class="QSpinBox" name="spinBox_18">
+          <property name="maximum">
+           <number>20</number>
+          </property>
+         </widget>
         </item>
         <item row="0" column="4">
          <widget class="QDoubleSpinBox" name="doubleSpinBox_130"/>
@@ -1317,7 +1387,7 @@ color: black; /* 可选，设置文字颜色 */</string>
            <string>0</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -1380,7 +1450,11 @@ color: black; /* 可选，设置文字颜色 */</string>
          </widget>
         </item>
         <item row="0" column="2">
-         <widget class="QSpinBox" name="spinBox_19"/>
+         <widget class="QSpinBox" name="spinBox_19">
+          <property name="maximum">
+           <number>20</number>
+          </property>
+         </widget>
         </item>
         <item row="0" column="6">
          <widget class="QDoubleSpinBox" name="doubleSpinBox_138"/>
@@ -1401,7 +1475,7 @@ color: black; /* 可选，设置文字颜色 */</string>
            <string>0</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -1467,7 +1541,11 @@ color: black; /* 可选，设置文字颜色 */</string>
          <widget class="QDoubleSpinBox" name="doubleSpinBox_140"/>
         </item>
         <item row="0" column="2">
-         <widget class="QSpinBox" name="spinBox_20"/>
+         <widget class="QSpinBox" name="spinBox_20">
+          <property name="maximum">
+           <number>20</number>
+          </property>
+         </widget>
         </item>
         <item row="0" column="8">
          <widget class="QDoubleSpinBox" name="doubleSpinBox_143"/>
@@ -1485,7 +1563,7 @@ color: black; /* 可选，设置文字颜色 */</string>
            <string>0</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -1518,7 +1596,11 @@ color: black; /* 可选，设置文字颜色 */</string>
          <widget class="QDoubleSpinBox" name="doubleSpinBox_150"/>
         </item>
         <item row="0" column="2">
-         <widget class="QSpinBox" name="spinBox_21"/>
+         <widget class="QSpinBox" name="spinBox_21">
+          <property name="maximum">
+           <number>20</number>
+          </property>
+         </widget>
         </item>
         <item row="0" column="0">
          <widget class="QCheckBox" name="checkBox_14">
@@ -1569,7 +1651,7 @@ color: black; /* 可选，设置文字颜色 */</string>
            <string>0</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -1635,7 +1717,11 @@ color: black; /* 可选，设置文字颜色 */</string>
          <widget class="QDoubleSpinBox" name="doubleSpinBox_159"/>
         </item>
         <item row="0" column="2">
-         <widget class="QSpinBox" name="spinBox_22"/>
+         <widget class="QSpinBox" name="spinBox_22">
+          <property name="maximum">
+           <number>20</number>
+          </property>
+         </widget>
         </item>
         <item row="0" column="1">
          <widget class="QDoubleSpinBox" name="doubleSpinBox_154"/>
@@ -1653,7 +1739,7 @@ color: black; /* 可选，设置文字颜色 */</string>
            <string>0</string>
           </property>
           <property name="alignment">
-           <set>Qt::AlignCenter</set>
+           <set>Qt::AlignmentFlag::AlignCenter</set>
           </property>
          </widget>
         </item>
@@ -1665,7 +1751,7 @@ color: black; /* 可选，设置文字颜色 */</string>
    <item>
     <spacer name="verticalSpacer">
      <property name="orientation">
-      <enum>Qt::Vertical</enum>
+      <enum>Qt::Orientation::Vertical</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>
@@ -1680,7 +1766,7 @@ color: black; /* 可选，设置文字颜色 */</string>
      <item>
       <spacer name="horizontalSpacer_2">
        <property name="orientation">
-        <enum>Qt::Horizontal</enum>
+        <enum>Qt::Orientation::Horizontal</enum>
        </property>
        <property name="sizeHint" stdset="0">
         <size>
@@ -1712,7 +1798,7 @@ color: black; /* 可选，设置文字颜色 */</string>
      <item>
       <spacer name="horizontalSpacer">
        <property name="orientation">
-        <enum>Qt::Horizontal</enum>
+        <enum>Qt::Orientation::Horizontal</enum>
        </property>
        <property name="sizeHint" stdset="0">
         <size>
@@ -1744,7 +1830,7 @@ color: black; /* 可选，设置文字颜色 */</string>
         <string>充气力去除</string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignCenter</set>
+        <set>Qt::AlignmentFlag::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -1777,7 +1863,7 @@ color: black; /* 可选，设置文字颜色 */</string>
      <item>
       <spacer name="horizontalSpacer_3">
        <property name="orientation">
-        <enum>Qt::Horizontal</enum>
+        <enum>Qt::Orientation::Horizontal</enum>
        </property>
        <property name="sizeHint" stdset="0">
         <size>
@@ -1809,7 +1895,7 @@ color: black; /* 可选，设置文字颜色 */</string>
         <string>检测判断</string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignCenter</set>
+        <set>Qt::AlignmentFlag::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -1856,10 +1942,10 @@ color: black; /* 可选，设置文字颜色 */</string>
      <item>
       <widget class="QDialogButtonBox" name="buttonBox">
        <property name="orientation">
-        <enum>Qt::Horizontal</enum>
+        <enum>Qt::Orientation::Horizontal</enum>
        </property>
        <property name="standardButtons">
-        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+        <set>QDialogButtonBox::StandardButton::Cancel|QDialogButtonBox::StandardButton::Ok</set>
        </property>
       </widget>
      </item>

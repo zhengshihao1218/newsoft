@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "HMIKernel/include/global.h"
+#include "Headers/mainwindow.h"
 
 namespace Ui {
 class NewIndicatTestDialog;
