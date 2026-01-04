@@ -152,6 +152,8 @@ private slots:
 
     void on_radioButton_2_toggled(bool checked);
 
+    void on_spinBox_valueChanged(int arg1);
+
 private:
     Ui::MainWindow *ui;
     int m_CurveIndex;
@@ -178,5 +180,13 @@ private:
     qint64 m_startTime; //13位时间
     QVector<QPointF> resampleCurveUniform(const QVector<QPointF>& curve, int targetPoints);
     void switchRunInfoPage(int index);
+    void indicatorDiagram();
+    QVector<QColor> scatterColors = {
+        Qt::blue, Qt::red, Qt::green, Qt::magenta, Qt::cyan,
+        Qt::yellow, Qt::darkBlue, Qt::darkRed, Qt::darkGreen,
+        QColor(255, 165, 0), QColor(128, 0, 128)
+    };
+    void drawScatterOnPlotView2(int testNumber, const QVector<double>& xData,
+                                const QVector<double>& yData, const QColor& color);
 };
 #endif // MAINWINDOW_H
