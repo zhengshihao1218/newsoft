@@ -175,6 +175,8 @@ private:
     void onLegendClick(QCPLegend *legend,
                                    QCPAbstractLegendItem *item,
                                    QMouseEvent *event);
+    qint64 m_startTime; //13位时间
+    QVector<QPointF> resampleCurveUniform(const QVector<QPointF>& curve, int targetPoints);
     void switchRunInfoPage(int index);
 };
 #endif // MAINWINDOW_H

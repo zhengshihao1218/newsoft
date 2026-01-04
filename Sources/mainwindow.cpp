@@ -1,6 +1,7 @@
 #include "Headers/mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QTime>
+#include <algorithm>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -798,43 +799,83 @@ void MainWindow::initHMIKernel()
     LOG_DEBUG("Init over: g_pDatabase =" + n2);
     // qDebug() << "Init over: g_pDatabase =" << g_pDatabase << ", n2=" << n2;
 
-    // 轴组配置 专门是适配动力单元的！！！！
-    BYTE nType = 0;//设备类型
-    // 0//无
-    //     1//IO卡          此设备为1
-    //     2//驱动器          此设备为3个
-    //     3//压力传感器
-    //     4//驱动器菲仕
+    // // 轴组配置 专门是单工位的！！！！
+    // BYTE nType = 0;//设备类型
+    // // 0//无
+    // //     1//IO卡          此设备为1
+    // //     2//驱动器          此设备为3个
+    // //     3//压力传感器
+    // //     4//驱动器菲仕
 
-    nType = 1;
-    BYTE nCount = 1;//设备个数
-    BYTE nConf = ((1<<4)+1);//IO卡          此设备为1
-    WORD LLLL = -1;
-    LLLL = SetDBValue("MCHN_CONFIG_DEVICE1", nConf);//设备类型序号（ECAT设备）
-    qDebug() << "initHMI SetDBValue === " << LLLL;
-    long long QQQQ = -1;
-    QQQQ = GetDBValue("MCHN_CONFIG_DEVICE1").lValue;
-    WORD ZZZ = GetDBValue("MCHN_CONFIG_DEVICE1").wPrecision;
-    qDebug() << "QQQQ = " <<QQQQ << "ZZZ = " << ZZZ;
-    nType = 2;
-    nCount = 3;//设备个数
-    nConf = ((nType<<4)+nCount);//驱动器          此设备为3个
-    // QString config_1 = QString("MCHN_CONFIG_DEVICE%1").arg(2), nConf;
-    SetDBValue("MCHN_CONFIG_DEVICE2", nConf);//设备类型序号（ECAT设备）
+    // nType = 1;
+    // BYTE nCount = 1;//设备个数
+    // BYTE nConf = ((1<<4)+1);//IO卡          此设备为1
+    // WORD LLLL = -1;
+    // SetDBValue("MCHN_CONFIG_DEVICE1", nConf);//设备类型序号（ECAT设备）
+    // qDebug() << "initHMI SetDBValue === " << LLLL;
+    // long long QQQQ = -1;
+    // QQQQ = GetDBValue("MCHN_CONFIG_DEVICE1").lValue;
+    // WORD ZZZ = GetDBValue("MCHN_CONFIG_DEVICE1").wPrecision;
+    // qDebug() << "QQQQ = " <<QQQQ << "ZZZ = " << ZZZ;
+    // nType = 2;
+    // nCount = 3;//设备个数
+    // nConf = ((nType<<4)+nCount);//驱动器          此设备为3个
+    // // QString config_1 = QString("MCHN_CONFIG_DEVICE%1").arg(2), nConf;
+    // SetDBValue("MCHN_CONFIG_DEVICE2", nConf);//设备类型序号（ECAT设备）
 
-    nType = 2;
-    nCount = 3;//设备个数
-    nConf = ((nType<<4)+nCount);//驱动器          此设备为3个
-    SetDBValue("MCHN_CONFIG_DEVICE3", nConf);//设备类型序号（ECAT设备）
+    // nType = 2;
+    // nCount = 3;//设备个数
+    // nConf = ((nType<<4)+nCount);//驱动器          此设备为3个
+    // SetDBValue("MCHN_CONFIG_DEVICE3", nConf);//设备类型序号（ECAT设备）
 
-    BYTE nConf2 = 5;//轴组组合（轴bit组合成轴组）0X5
-    SetDBValue("MCHN_CONFIG_AXIS_GROUP1", nConf2);
+    // BYTE nConf2 = 5;//轴组组合（轴bit组合成轴组）0X5
+    // SetDBValue("MCHN_CONFIG_AXIS_GROUP1", nConf2);
 
-    BYTE nConf3 = 6  ;//轴1 所连驱动器----> 0x6
-    SetDBValue("MCHN_CONFIG_AXIS_DRIVER1", nConf3);
+    // BYTE nConf3 = 6  ;//轴1 所连驱动器----> 0x6
+    // SetDBValue("MCHN_CONFIG_AXIS_DRIVER1", nConf3);
 
-    BYTE nConf4 = 48 ;  //轴3  所连驱动器---> 0x30
-    SetDBValue("MCHN_CONFIG_AXIS_DRIVER3", nConf4);
+    // BYTE nConf4 = 48 ;  //轴3  所连驱动器---> 0x30
+    // SetDBValue("MCHN_CONFIG_AXIS_DRIVER3", nConf4);
+
+
+
+    // // 轴组配置 专门是适配动力单元的！！！！
+    // BYTE nType = 0;//设备类型
+    // // 0//无
+    // //     1//IO卡          此设备为1
+    // //     2//驱动器          此设备为3个
+    // //     3//压力传感器
+    // //     4//驱动器菲仕
+
+    // nType = 1;
+    // BYTE nCount = 1;//设备个数
+    // BYTE nConf = ((1<<4)+1);//IO卡          此设备为1
+    // WORD LLLL = -1;
+    // LLLL = SetDBValue("MCHN_CONFIG_DEVICE1", nConf);//设备类型序号（ECAT设备）
+    // qDebug() << "initHMI SetDBValue === " << LLLL;
+    // long long QQQQ = -1;
+    // QQQQ = GetDBValue("MCHN_CONFIG_DEVICE1").lValue;
+    // WORD ZZZ = GetDBValue("MCHN_CONFIG_DEVICE1").wPrecision;
+    // qDebug() << "QQQQ = " <<QQQQ << "ZZZ = " << ZZZ;
+    // nType = 2;
+    // nCount = 3;//设备个数
+    // nConf = ((nType<<4)+nCount);//驱动器          此设备为3个
+    // // QString config_1 = QString("MCHN_CONFIG_DEVICE%1").arg(2), nConf;
+    // SetDBValue("MCHN_CONFIG_DEVICE2", nConf);//设备类型序号（ECAT设备）
+
+    // nType = 2;
+    // nCount = 3;//设备个数
+    // nConf = ((nType<<4)+nCount);//驱动器          此设备为3个
+    // SetDBValue("MCHN_CONFIG_DEVICE3", nConf);//设备类型序号（ECAT设备）
+
+    // BYTE nConf2 = 5;//轴组组合（轴bit组合成轴组）0X5
+    // SetDBValue("MCHN_CONFIG_AXIS_GROUP1", nConf2);
+
+    // BYTE nConf3 = 6  ;//轴1 所连驱动器----> 0x6
+    // SetDBValue("MCHN_CONFIG_AXIS_DRIVER1", nConf3);
+
+    // BYTE nConf4 = 48 ;  //轴3  所连驱动器---> 0x30
+    // SetDBValue("MCHN_CONFIG_AXIS_DRIVER3", nConf4);
 
 }
 
@@ -851,7 +892,7 @@ void MainWindow::newFatigueTest()
     ui->label->setVisible(true);
     ui->radioButton_2->setText("温度曲线");
     ui->label_28->setText("疲劳试验");
-    plotUpdate->start(100);
+
 
     ui->label_plan_count->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_PLANNUM").lValue));
     // long long COMP_AXIS1_TEST_PREPAREPOSI = GetDBValue("COMP_AXIS1_TEST_PREPAREPOSI").lValue;
@@ -875,7 +916,10 @@ void MainWindow::newFatigueTest()
     WORD res2 = GetDBString("HMI_DB_TEST_PRODUCT_SN1", result2, sizeof(result2) - 1);
     strResult2 = QString::fromUtf8(result2);
     ui->label_pro_number->setText(strResult2);
+    // 保存测试数据到当前试件名称对应的目录下
     CtmCurveControl::GetInstance()->SetCurveSavePath(2, strResult2);
+    // 启动实时数据的获取
+    plotUpdate->start(100);
 
     char result3[50];  // 假设最大长度为100
     QString strResult3 = "";
@@ -890,6 +934,9 @@ void MainWindow::newIndicatTest()
     // ui->widget_fatigute->setVisible(false);
     // ui->widget_in->setVisible(true);
     // ui->stackedWidget->setCurrentIndex(1);
+    ui->label_6->setStyleSheet("background-color: rgb(200, 0, 0);");
+    ui->label_7->setStyleSheet("background-color: rgb(200, 0, 0);");
+    ui->label_8->setStyleSheet("background-color: rgb(200, 0, 0);");
     m_CurveIndex = 3;
     switchRunInfoPage(1);
     ui->label_2->setVisible(false);
@@ -905,28 +952,57 @@ void MainWindow::newIndicatTest()
     qDebug() << "ui->label_pre_pos_2->text()" << ui->label_pre_pos_2->text();
     ui->label_start_pos_2->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_STARTPOSI").lValue / 1000.0 , 'f', 3));
     ui->label_stop_pos_2->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_STOPPOSI").lValue / 1000.0 , 'f', 3));
-    plotUpdate->start(100);
+
     ui->widget_5->setVisible(true);
     if(GetDBValue("COMP_AXIS1_TEST_TABLE_WT1_OPTION").lValue == 1) {
+        ui->label_6->setStyleSheet("background-color: rgb(200, 0, 0);");  // 红色
+
         ui->label_10->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_TABLE_WT1_VEL").lValue / 1000.0 , 'f', 3));
         ui->label_15->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_TABLE_WT1_TIMES").lValue / 1000.0 , 'f', 3));
         // SetDBValue("COMP_AXIS1_TEST_TABLE_WT1_TIMES",ui->COMP_AXIS1_TEST_TABLE_WT1_TIMES->value());
     }
     if(GetDBValue("COMP_AXIS1_TEST_TABLE_WT2_OPTION").lValue == 1) {
+        ui->label_7->setStyleSheet("background-color: rgb(200, 0, 0);");  // 红色
         ui->label_52->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_TABLE_WT2_VEL").lValue / 1000.0 , 'f', 3));
         ui->label_16->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_TABLE_WT2_TIMES").lValue / 1000.0 , 'f', 3));
         // SetDBValue("COMP_AXIS1_TEST_TABLE_WT1_TIMES",ui->COMP_AXIS1_TEST_TABLE_WT1_TIMES->value());
     }
     if(GetDBValue("COMP_AXIS1_TEST_TABLE_WT3_OPTION").lValue == 1) {
+        ui->label_8->setStyleSheet("background-color: rgb(200, 0, 0);");  // 红色
         ui->label_53->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_TABLE_WT3_VEL").lValue / 1000.0 , 'f', 3));
         ui->label_18->setText(QString::number(GetDBValue("COMP_AXIS1_TEST_TABLE_WT3_TIMES").lValue / 1000.0 , 'f', 3));
         // SetDBValue("COMP_AXIS1_TEST_TABLE_WT1_TIMES",ui->COMP_AXIS1_TEST_TABLE_WT1_TIMES->value());
     }
+    // 赋值页面UI 试件信息，试验编号，创建时间
+    char result[50];  // 假设最大长度为100
+    QString strResult = "";
+    WORD res = GetDBString("HMI_DB_TEST_NUMBER1", result, sizeof(result) - 1);
+    strResult = QString::fromUtf8(result);
+    ui->label_test_number->setText(strResult);
+
+    char result2[50];  // 假设最大长度为100
+    QString strResult2 = "";
+    WORD res2 = GetDBString("HMI_DB_TEST_PRODUCT_SN1", result2, sizeof(result2) - 1);
+    strResult2 = QString::fromUtf8(result2);
+    ui->label_pro_number->setText(strResult2);
+    // 保存测试数据到当前试件名称对应的目录下
+    CtmCurveControl::GetInstance()->SetCurveSavePath(2, strResult2);
+    CtmCurveControl::GetInstance()->SetCurveSavePath(3, strResult2);
+    // 启动实时数据的获取
+    plotUpdate->start(100);
+
+    char result3[50];  // 假设最大长度为100
+    QString strResult3 = "";
+    WORD res3 = GetDBString("HMI_DB_TEST_CREATEDATE1", result3, sizeof(result3) - 1);
+    strResult3 = QString::fromUtf8(result3);
+    ui->label_create_time->setText(strResult3);
+    // 试验实时数据获取开始
+    plotUpdate->start(100);
 }
 
 void MainWindow::updatePlotValue()
 {
-    QList<tmCURVE_POINT> list = CtmCurveControl::GetInstance()->GetCurveData(m_CurveIndex);
+    QList<tmCURVE_POINT> list = CtmCurveControl::GetInstance()->GetCurveData(2);
     if(list.size() == 0) {
         return;
     }
@@ -949,37 +1025,8 @@ void MainWindow::updatePlotValue()
 
             if (point.listY.size() > 0) {
                 // 实际位置
-                double yValue1;
-                // switch (m_CurveIndex)
-                // {
-                // case 2:
-                //     /* code */
-                //     double yValue1 = static_cast<double>(point.listY.at(0));
-                //     xData.append(xValue);
-                //     yData1.append(yValue1);
 
-                //     // 设定位置
-                //     if (point.listY.size() > 1) {
-                //         double yValue2 = static_cast<double>(point.listY.at(1));
-                //         yData2.append(yValue2);
-                //     }
-                //     break;
-                // case 3:
-                //     /* code */
-                //     yValue1 = static_cast<double>(point.listY.at(2));
-                //     xData.append(xValue);
-                //     yData1.append(yValue1);
-
-                //     // 设定位置
-                //     if (point.listY.size() > 1) {
-                //         double yValue2 = static_cast<double>(point.listY.at(4));
-                //         yData2.append(yValue2);
-                //     }
-                //     break;
-                // default:
-                //     break;
-                // }
-                if(m_CurveIndex == 2){
+                // if(m_CurveIndex == 2){
                         double yValue1 = static_cast<double>(point.listY.at(0));
                         xData.append(xValue);
                         yData1.append(yValue1);
@@ -989,17 +1036,17 @@ void MainWindow::updatePlotValue()
                             double yValue2 = static_cast<double>(point.listY.at(1));
                             yData2.append(yValue2);
                         }
-                } else if(m_CurveIndex == 23){
-                        yValue1 = static_cast<double>(point.listY.at(2));
-                        xData.append(xValue);
-                        yData1.append(yValue1);
+                // } else if(m_CurveIndex == 3){
+                //         double yValue1 = static_cast<double>(point.listY.at(2));
+                //         xData.append(xValue);
+                //         yData1.append(yValue1);
 
-                        // 设定位置
-                        if (point.listY.size() > 1) {
-                            double yValue2 = static_cast<double>(point.listY.at(4));
-                            yData2.append(yValue2);
-                        }
-                }
+                //         // 设定位置
+                //         if (point.listY.size() > 1) {
+                //             double yValue2 = static_cast<double>(point.listY.at(4));
+                //             yData2.append(yValue2);
+                //         }
+                // }
             }
         }
 
@@ -1034,20 +1081,20 @@ void MainWindow::updatePlotValue()
             double xValue = static_cast<double>(point.llDateTime - firstTime) / 1000.0;
             double yValue;
             if (point.listY.size() > 2) {
-                switch (m_CurveIndex) {
-                case 2:
+                // switch (m_CurveIndex) {
+                // case 2:
                     yValue = static_cast<double>(point.listY.at(2));
                     xData.append(xValue);
                     yData.append(yValue);
-                    break;
-                case 3:
-                    yValue = static_cast<double>(point.listY.at(3));
-                    xData.append(xValue);
-                     yData.append(yValue);
-                    break;
-                default:
-                    break;
-                }
+                    // break;
+                // case 3:
+                //     yValue = static_cast<double>(point.listY.at(3));
+                //     xData.append(xValue);
+                //     yData.append(yValue);
+                //     break;
+                // default:
+                //     break;
+                // }
             }
         }
 
@@ -1086,14 +1133,12 @@ void MainWindow::updatePlotValue()
         ui->plotView->xAxis->setLabel("时间 (s)");
         ui->plotView->yAxis->setLabel("温度");
     }
-
     // 自适应范围
     ui->plotView->rescaleAxes();
     ui->plotView->yAxis->scaleRange(1.1, ui->plotView->yAxis->range().center());
 
     // 添加图例
     ui->plotView->legend->setVisible(true);
-
     // 重新绘制
     ui->plotView->replot();
 }
@@ -1224,45 +1269,44 @@ void MainWindow::updateDBValue()
     default:
         break;
     }
-
-    int COMP_AXIS1_TEST_SUBMOTIONTYPE = GetDBValue("COMP_AXIS1_TEST_SUBMOTIONTYPE").lValue;
-    switch (COMP_AXIS1_TEST_SUBMOTIONTYPE) {
-    case 0:
-        ui->label_3->setText("疲劳测试");
-        break;
-    case 1:
-        ui->label_3->setText("路波测试");
-        break;
-    case 2:
-        ui->label_3->setText("示功试验");
-        break;
-    case 3:
-        ui->label_3->setText("慢速静摩擦");
-        break;
-    case 4:
-        ui->label_3->setText("压力疲劳测试");
-        break;
-    case 5:
-        ui->label_3->setText("压力路波测试");
-        break;
-    case 6:
-        ui->label_3->setText("压力示功试验");
-        break;
-    case 7:
-        ui->label_3->setText("压力慢速静摩擦");
-        break;
-    case 8:
-        ui->label_3->setText("扭矩疲劳测试");
-        break;
-    case 9:
-        ui->label_3->setText("扭矩路波测试");
-        break;
-    case 12:
-        ui->label_3->setText("路波测试");
-        break;
-    default:
-        break;
-    }
+    // int COMP_AXIS1_TEST_SUBMOTIONTYPE = GetDBValue("COMP_AXIS1_TEST_SUBMOTIONTYPE").lValue;
+    // switch (COMP_AXIS1_TEST_SUBMOTIONTYPE) {
+    // case 0:
+    //     ui->label_3->setText("疲劳测试");
+    //     break;
+    // case 1:
+    //     ui->label_3->setText("路波测试");
+    //     break;
+    // case 2:
+    //     ui->label_3->setText("示功试验");
+    //     break;
+    // case 3:
+    //     ui->label_3->setText("慢速静摩擦");
+    //     break;
+    // case 4:
+    //     ui->label_3->setText("压力疲劳测试");
+    //     break;
+    // case 5:
+    //     ui->label_3->setText("压力路波测试");
+    //     break;
+    // case 6:
+    //     ui->label_3->setText("压力示功试验");
+    //     break;
+    // case 7:
+    //     ui->label_3->setText("压力慢速静摩擦");
+    //     break;
+    // case 8:
+    //     ui->label_3->setText("扭矩疲劳测试");
+    //     break;
+    // case 9:
+    //     ui->label_3->setText("扭矩路波测试");
+    //     break;
+    // case 12:
+    //     ui->label_3->setText("路波测试");
+    //     break;
+    // default:
+    //     break;
+    // }
     long COMP_AXIS1_TEST_REMAINTIME = GetDBValue("COMP_AXIS1_TEST_REMAINTIME").lValue;
 
     int h2 = COMP_AXIS1_TEST_REMAINTIME / 3600;
@@ -1287,7 +1331,7 @@ void MainWindow::updateDBValue()
     // int motion_status = GetDBValue("COMP_AXIS1_ACTUAL_MOTIONSTATUS").lValue;
     // int motion_status = GetDBValue("COMP_AXIS1_ACTUAL_MOTION").lValue;
 
-    int motion_status = GetDBValue("CTRL_MOTION1_STATE").lValue;
+    int motion_status = GetDBValue("COMP_AXIS1_ACTUAL_MOTION").lValue;
     switch (motion_status) {
     case 1:
         ui->label_act_motion_status->setText("寸动前行");
@@ -1296,7 +1340,8 @@ void MainWindow::updateDBValue()
         ui->label_act_motion_status->setText("寸动后退");
         break;
     case 3:
-        ui->label_act_motion_status->setText("归零运行");
+        // ui->label_act_motion_status->setText("归零运行");
+        ui->label_act_motion_status->setText("试验运行");
         break;
     case 4:
         ui->label_act_motion_status->setText("准备运行");
@@ -1332,7 +1377,7 @@ void MainWindow::on_start_experiment_action_triggered()
     MainWindow::sendCmdToPlc(CMD_KEY_AXIS_START,false);
     MainWindow::sendCmdToPlc(0xffff,false);
     CtmCurveControl::GetInstance()->ClearData(2);
-
+    m_startTime = QDateTime::currentDateTime().toMSecsSinceEpoch();
 }
 
 
@@ -1452,6 +1497,7 @@ void MainWindow::on_radioButton_toggled(bool checked)
         m_isForce_raido_check = false;
         m_isTemp_radio_check = false;
     }
+    ui->widget_6->setVisible(false);
     updatePlotValue();
 }
 
@@ -1464,25 +1510,288 @@ void MainWindow::on_radioButton_3_toggled(bool checked)
         m_isPos_raido_check = false;
         m_isTemp_radio_check = false;
     }
+    ui->widget_6->setVisible(false);
     updatePlotValue();
 }
-
 
 void MainWindow::on_radioButton_2_toggled(bool checked)
 {
-    // 温度
-    if (checked) {
-        m_isTemp_radio_check = true;
-        m_isPos_raido_check = false;
-        m_isForce_raido_check = false;
+    if (!checked) return;
+
+
+    ui->plotView->clearGraphs();
+    ui->plotView->clearItems();
+
+    // ================= 1. 获取数据 =================
+    qint64 endTime = QDateTime::currentDateTime().toMSecsSinceEpoch();
+    // GetHistoryCurve 获取弘讯测试数据
+    QList<tmCURVE_POINT> allData =
+        CtmCurveControl::GetInstance()->GetHistoryCurve(3, ui->label_pro_number->text(), m_startTime, endTime);
+
+    if (allData.isEmpty())
+    {
+        QMessageBox::warning(this, "警告", "没有获取到数据！");
+        return;
     }
-    updatePlotValue();
+
+    // ================= 2. 按 Test / Cycle 分组（带时间戳） =================
+    QMap<QPair<int, int>, QList<QPair<qint64, QPointF>>> testCycleTimeDataMap; // 结构是 {【总循环(速度)，循环】，【时间，[位置，力]】}
+
+    for (const auto& point : allData)
+    {
+        int testNumber = static_cast<int>(point.listY.at(0));
+        int cycle = static_cast<int>(point.listY.at(1));
+
+        // 过滤条件
+        if (testNumber == 0) continue; // 试验没开始
+        if (testNumber == 1 && cycle == 1) continue; // 第一次试验，脏数据太多，而且只有一半，直接扔了
+
+        double pos = point.listY.at(2); //位置
+        double force = point.listY.at(3); // 力
+        qint64 timestamp = point.llDateTime; // 时间
+
+        testCycleTimeDataMap[qMakePair(testNumber, cycle)]
+            .append(qMakePair(timestamp, QPointF(pos, force)));
+    }
+
+    // 按时间排序 ，可有可无，本身就是时间循环排序，防止数据乱了
+    for (auto& points : testCycleTimeDataMap) {
+        std::sort(points.begin(), points.end(),
+                  [](const QPair<qint64, QPointF>& a, const QPair<qint64, QPointF>& b) {
+                      return a.first < b.first;
+                  });
+    }
+
+    // ================= 3. 应用滞后补偿 =================
+    // 获取滞后补偿参数
+    ui->spinBox->setValue(10);
+    int forceDelayCompensation = ui->spinBox->value();  //这个是自己设置的, 代表要补偿的时间，默认10s
+
+    if (forceDelayCompensation > 0) {
+        for (auto& points : testCycleTimeDataMap) {
+            if (points.size() < 2) continue;
+
+            QVector<double> compensatedForces(points.size());
+
+            for (int i = 0; i < points.size(); i++) {
+                qint64 targetTime = points[i].first + forceDelayCompensation;
+                int bestIdx = i;
+                qint64 minDiff = qAbs(points[i].first - targetTime);
+
+                for (int j = i + 1; j < qMin(i + 20, points.size()); j++) {
+                    qint64 diff = qAbs(points[j].first - targetTime);
+                    if (diff < minDiff) {
+                        minDiff = diff;
+                        bestIdx = j;
+                    }
+                }
+
+                compensatedForces[i] = points[bestIdx].second.y();
+            }
+
+            for (int i = 0; i < points.size(); i++) {
+                QPointF point = points[i].second;
+                point.setY(compensatedForces[i]);
+                points[i].second = point;
+            }
+        }
+    }
+
+    // ================= 4. 计算每个TestNumber的平均曲线 =================
+    QMap<int, QVector<QPointF>> testAverageCurves;
+
+    // 首先按TestNumber收集所有循环
+    QMap<int, QList<QList<QPointF>>> testAllCyclesMap;
+
+    for (auto it = testCycleTimeDataMap.begin(); it != testCycleTimeDataMap.end(); ++it) {
+        int testNumber = it.key().first;
+
+        // 提取这个循环的点（去掉时间戳）
+        QList<QPointF> cyclePoints;
+        for (const auto& tp : it.value()) {
+            cyclePoints.append(tp.second);
+        }
+
+        if (cyclePoints.size() > 20) {
+            testAllCyclesMap[testNumber].append(cyclePoints);
+        }
+    }
+
+    // 对每个TestNumber计算平均曲线
+    QList<int> testNumbers = testAllCyclesMap.keys();
+    std::sort(testNumbers.begin(), testNumbers.end());
+
+    qDebug() << "=== 开始计算平均曲线 ===";
+    qDebug() << "总测试数:" << testNumbers.size();
+
+    for (int testNumber : testNumbers) {
+        const auto& cycles = testAllCyclesMap[testNumber];
+
+        qDebug() << "Test" << testNumber << "有" << cycles.size() << "个循环";
+
+        if (cycles.isEmpty()) continue;
+
+        // 方法：对多个循环进行时间对齐，然后取平均
+
+        // 先获取一个参考循环（第一个循环）
+        const QList<QPointF>& referenceCycle = cycles.first();
+
+        // 如果只有一个循环，直接使用
+        if (cycles.size() == 1) {
+            testAverageCurves[testNumber] = referenceCycle.toVector();
+            continue;
+        }
+
+        // 如果有多个循环，计算平均
+        // 策略：将每个循环重采样到相同点数，然后逐点平均
+
+        const int TARGET_POINTS = 100;  // 目标点数
+
+        // 对每个循环进行重采样
+        QVector<QVector<QPointF>> resampledCycles;
+        for (const QList<QPointF>& cycle : cycles) {
+            QVector<QPointF> resampled = resampleCurveUniform(cycle.toVector(), TARGET_POINTS);
+            resampledCycles.append(resampled);
+        }
+
+        // 逐点计算平均值
+        QVector<QPointF> averageCurve(TARGET_POINTS);
+        for (int i = 0; i < TARGET_POINTS; i++) {
+            double sumX = 0, sumY = 0;
+            int validCount = 0;
+
+            for (const QVector<QPointF>& cycle : resampledCycles) {
+                if (i < cycle.size()) {
+                    sumX += cycle[i].x();
+                    sumY += cycle[i].y();
+                    validCount++;
+                }
+            }
+
+            if (validCount > 0) {
+                averageCurve[i] = QPointF(sumX / validCount, sumY / validCount);
+            }
+        }
+
+        testAverageCurves[testNumber] = averageCurve;
+    }
+
+    // ================= 5. 准备颜色 =================
+    QVector<QColor> colors = {
+        Qt::red, Qt::green, Qt::blue,
+        Qt::magenta, Qt::cyan, Qt::darkYellow,
+        Qt::darkRed, Qt::darkGreen, Qt::darkBlue
+    };
+
+    // ================= 6. 绘制每个Test的平均曲线 =================
+    for (int testNumber : testAverageCurves.keys()) {
+        const QVector<QPointF>& averageCurve = testAverageCurves[testNumber];
+
+        if (averageCurve.size() < 20) continue;
+
+        QColor baseColor = colors[testNumber % colors.size()];
+
+        // 转换为QVector用于绘图
+        QVector<double> xData, yData;
+        for (const QPointF& point : averageCurve) {
+            xData.append(point.x());
+            yData.append(point.y());
+        }
+
+        // 确保曲线闭合
+        if (!xData.isEmpty()) {
+            xData.append(xData.first());
+            yData.append(yData.first());
+        }
+
+        // 创建闭合曲线
+        QCPCurve* curve = new QCPCurve(ui->plotView->xAxis, ui->plotView->yAxis);
+        curve->setData(xData, yData);
+        curve->setPen(QPen(baseColor, 2.0, Qt::SolidLine));
+        curve->setName(QString("Test %1 (平均%2次)")
+                           .arg(testNumber)
+                           .arg(testAllCyclesMap[testNumber].size()));
+
+        // 可选：添加半透明填充
+        QColor fillColor = baseColor;
+        fillColor.setAlpha(30);
+        curve->setBrush(QBrush(fillColor));
+    }
+
+    // ================= 7. 配置图表 =================
+    ui->plotView->xAxis->setLabel("Position");
+    ui->plotView->yAxis->setLabel("Force");
+    ui->plotView->legend->setVisible(true);
+    ui->plotView->legend->setFont(QFont("Helvetica", 8));
+    ui->plotView->rescaleAxes();
+    // ================= 8. 绘制起始位置参考线 =================
+    double yMin = ui->plotView->yAxis->range().lower;
+    double yMax = ui->plotView->yAxis->range().upper;
+
+    // 创建起始位置垂直线
+    QCPItemStraightLine* startLine = new QCPItemStraightLine(ui->plotView);
+    double startPos = GetDBValue("COMP_AXIS1_TEST_STARTPOSI").lValue / 1000.0;
+    startLine->point1->setCoords(startPos, yMin);
+    startLine->point2->setCoords(startPos, yMax);
+    startLine->setPen(QPen(Qt::red, 1.5, Qt::DashLine));
+    // 添加标签
+    QCPItemText* startLabel = new QCPItemText(ui->plotView);
+    startLabel->position->setParentAnchor(startLine->point1);
+    startLabel->setPositionAlignment(Qt::AlignTop | Qt::AlignHCenter);
+    // startLabel->position->setCoords(0, 10);
+    // startLabel->setText(QString("起始位置\n%1").arg(startPos, 0, 'f', 3));
+    startLabel->setFont(QFont("Arial", 9));
+    startLabel->setColor(Qt::red);
+
+    ui->plotView->replot();
 }
 
-// void MainWindow::on_stackedWidget_currentChanged(int arg1)
-// {
-//     ui->stackedWidget->adjustSize();
-// }
+// ================= 辅助函数：曲线重采样 =================
+QVector<QPointF> MainWindow::resampleCurveUniform(const QVector<QPointF>& curve, int targetPoints)
+{
+    if (curve.size() <= 1 || targetPoints <= 1) return curve;
+
+    // 计算曲线累积长度
+    QVector<double> cumulativeLength(curve.size());
+    cumulativeLength[0] = 0;
+
+    for (int i = 1; i < curve.size(); i++) {
+        double dx = curve[i].x() - curve[i-1].x();
+        double dy = curve[i].y() - curve[i-1].y();
+        cumulativeLength[i] = cumulativeLength[i-1] + sqrt(dx*dx + dy*dy);
+    }
+
+    double totalLength = cumulativeLength.last();
+    double step = totalLength / (targetPoints - 1);
+
+    QVector<QPointF> resampled(targetPoints);
+
+    for (int i = 0; i < targetPoints; i++) {
+        double targetLength = i * step;
+
+        // 找到目标长度所在的段
+        int segment = 0;
+        while (segment < curve.size() - 1 && cumulativeLength[segment+1] < targetLength) {
+            segment++;
+        }
+
+        if (segment >= curve.size() - 1) {
+            // 超出范围，取最后一个点
+            resampled[i] = curve.last();
+        } else {
+            // 线性插值
+            double t = (targetLength - cumulativeLength[segment]) /
+                       (cumulativeLength[segment+1] - cumulativeLength[segment]);
+
+            double x = curve[segment].x() + t * (curve[segment+1].x() - curve[segment].x());
+            double y = curve[segment].y() + t * (curve[segment+1].y() - curve[segment].y());
+
+            resampled[i] = QPointF(x, y);
+        }
+    }
+
+    return resampled;
+}
 
 void MainWindow::switchRunInfoPage(int index)
 {
